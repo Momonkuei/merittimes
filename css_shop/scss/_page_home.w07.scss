@@ -1,0 +1,39 @@
+@charset "utf-8";
+
+
+// =====================================================================================
+// index - w07 原味鱻
+// =====================================================================================
+
+.indexContent_07 {
+	.marquee {
+		padding-left:$space_smaller;
+		padding-right:$space_smaller;
+		text-align: center;
+		@media (max-width: $hamburgerPoint){
+			text-align: left;
+		}
+	}
+
+	.proList.shop {
+		.itemList > div {
+			margin-left:0;
+			margin-right:0; 
+		}
+		.slidBlock{
+			.item{
+				padding-left:$space_smaller;
+				padding-right:$space_smaller;
+			}
+
+		}
+		
+	}
+
+	.adBlock {
+		.itemImg{
+			padding-bottom:62.5%;
+		}
+	}
+
+}

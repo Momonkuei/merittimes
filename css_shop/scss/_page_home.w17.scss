@@ -1,0 +1,27 @@
+@charset "utf-8";
+
+
+.index footer{
+	margin-top: 0;
+}
+.indexContent_17{
+	.indexBlock_1{
+		margin-top: $space_biger*1.5;
+		margin-bottom: $space;
+	}
+	.indexBlock_2{
+		margin-top: $space_biger*1.5;
+		.itemList{
+			background-color: #333333;
+		}
+	}
+
+	.articleBlockStyle04{
+		margin-top: 0;
+	}
+	.indexBlock_3{
+		.articleBlockStyle04{
+			margin-bottom: 0;
+		}
+	}
+}

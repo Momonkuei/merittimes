@@ -1,0 +1,100 @@
+@charset "utf-8";
+
+
+// downloadList ------
+	.downloadList {
+
+		.itemList{
+			.item{
+				padding-top:$space;
+				padding-bottom:$space;
+			}
+		}
+
+		//type1 = 文字列表						
+		.itemList.downloadListType1 {
+			.item{
+				@extend .Bbox_flexBetween;
+				flex-wrap:nowrap;
+				-webkit-flex-wrap:nowrap;
+				align-items:flex-start;
+				-webkit-align-items:flex-start;
+				border-top:1px solid rgba($cis-color-3,.5);	
+				>div:first-child{
+					display: flex;
+					display: -webkit-flex;
+				}
+				.itemIcon{
+					@extend .itemTitle;
+					display: inline-block;
+					vertical-align: top;
+					padding-right:$space;
+					color:$cis-color-1;
+
+				}
+				.itemLink{
+					text-align: right;
+					font-size:$font-size-h6;		
+					white-space: nowrap;			
+					i{color:$cis-color-1;padding-right:.5em;}
+					color:lighten($text-color,30%);
+					padding-left:$space;
+
+				}
+				a:hover{
+					&,i{
+						color:$cis-color-1;
+					}
+				}
+				@media (max-width: $screenViewS) {
+							justify-content:flex-start;
+					-webkit-justify-content:flex-start;
+					.itemLink {text-align: left;padding-left:0}
+					.itemIcon {display: none;}
+				}
+
+			}
+		}
+	
+
+		//type2 = 圖文列表
+		.itemList.downloadListType2 {
+			.item{
+				//box		
+				>:nth-child(1){width: 100%;}		
+				>:nth-child(2){width: 100%;}	
+				.itemImg{
+						padding-bottom:141.42857%;//A4比例			
+						img{
+							max-width:none;
+							max-height:none;
+							min-width:0;
+							min-height:0;
+							width:auto;
+							height:auto;
+						}		
+				} 
+				.itemTitle{
+					font-size:$font-size-h5;
+					&:hover{
+						color:$cis-color-1;
+					}
+				}
+				.dateStyle{
+					font-size:$font-size-h6;
+					line-height:$font-size-h6;
+					color:lighten($text-color,35%);
+				}
+				.itemLink{
+					font-size:$font-size-h6;					
+					i{color:$cis-color-1;padding-right:.5em;}
+					color:lighten($text-color,30%);
+				}
+				@media (max-width:$screenViewL){width:33.333%}
+				@media (max-width:$screenViewM){width:50%}
+				@media (max-width:$screenViewS){width:100%}
+			}
+		}
+		
+	}
+

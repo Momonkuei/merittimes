@@ -1,0 +1,28 @@
+.sideAD {
+	$sizeW:90px;
+	$sizeH:270px;
+
+	width:$sizeW;
+	height:$sizeH;
+
+	position: fixed;	
+	top:50%;
+			transform:translateY(-50%);
+	-webkit-transform:translateY(-50%);
+		
+	@extend %transition;
+	opacity: 0;
+	left:$sizeW*-1;
+	&.active{
+		opacity: 1;
+		left:0;
+	}
+
+	@media (max-width: 1400px){
+		display: none;
+	}
+
+}
+
+
+.index .sideAD{display: none;}

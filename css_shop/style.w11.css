@@ -1,0 +1,14 @@
+body {background-image: url(../images/w11/brickwall.png);background-attachment:fixed;}
+
+.indexContent_11 .itemImg {background:none}
+
+.indexContent_11 .articleBlockStyle03 {background: url(../images/w11/index-w11-bg.jpg)no-repeat center center/cover;background-attachment:fixed; color: #fff;}
+
+.indexContent_11 .blockTitle {color: #fff;}
+
+.indexContent_11 .articleBlockStyle03 .itemImg:before,
+.indexContent_11 .articleBlockStyle03 .itemImg:after {display: none;}
+
+body:not(.index) .articleBlockStyle02:after {
+    background: rgba(0, 45, 20, 0.9);
+}

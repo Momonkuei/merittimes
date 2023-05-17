@@ -1,0 +1,237 @@
+@charset "utf-8";
+
+.responsive_tbl{
+  min-height: .01%;
+	overflow-x: auto;
+	white-space: nowrap;
+  margin-bottom: 30px;
+  .dataTables_wrapper {
+    .dataTables_length{
+      float: right;
+      margin-bottom: 20px;
+    }
+  	.dataTables_paginate {
+      margin-top: 20px;
+      float: none;
+      text-align: center;
+  		.paginate_button.current {
+  			background: #ffffff;
+  		}
+  	}
+    &.no-footer {
+    	.dataTables_scrollBody {
+    		border-bottom: 0;
+    	}
+    }
+  }
+  table{
+    width: 100% !important;
+    border-collapse: collapse;
+    &.dataTable{
+      tr{
+        th{
+          color: #5c5e5d;
+          background-color: #f6f6f6;
+          border-bottom-color: #e5e5e5;
+          &:first-child{
+            text-align: left;
+            width: 50%;
+          }
+        }
+        td{
+          border-bottom: 1px solid #e5e5e5;
+          text-align: center;
+          &:first-child{
+            text-align: left;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+// 0、預設
+$tableListStyle:0 !default;
+@mixin tableListSet($tableListStyle){
+  width: 100%;
+  tr{
+    th,
+    td{
+      padding: $table-space;
+    }
+    th{
+      color: $text-color4;
+      text-align: left;
+      font-weight: bold;
+      background-color: $table-th-bg;
+      border-bottom: 2px solid $table-border-color;
+      vertical-align: middle;
+      white-space: nowrap;
+    }
+    td{
+      width: auto;
+      white-space: nowrap;
+      vertical-align: top;
+      border-bottom: 1px solid $table-border-color2;
+      a{
+        &:hover{
+          color: $cis1;
+          text-decoration: underline;
+        }
+      }
+      .tips_cancel{
+        color: $text-color6;
+      }
+      .tips_noticPay{
+        color: $common-color-red;
+        &:hover{
+          color: $common-color-red;
+          border-color: $common-color-red;
+        }
+      }
+      .tips_shipping{
+        color: $cis1;
+      }
+      .tips_details{
+        color: $text-color4;
+        i{
+          color: $cis1;
+          margin-right: 5px;
+        }
+      }
+      .tips_active{
+        color: $text-color4;
+        font-size: $font-size-mb;
+      }
+      .copyCoupon{
+        margin-left: 5px;
+      }
+      .order_proImg{
+        margin-bottom: 0;
+      }
+    }
+    &:nth-child(odd){
+      td{
+        background-color: $table-td-bg;
+      }
+    }
+  }
+	@if $tableListStyle==1{
+	}
+}
+.tableList{@include tableListSet($tableListStyle);}
+.tableListType1 {@include tableListSet(1);}
+
+
+@media (max-width: $viewS) { //768px
+  .rwdTable{
+    table{
+      thead{
+        display: none;
+      }
+      tr{
+        width: 100%;
+        display: block;
+        margin-bottom: 32px;
+        td{
+          display: block;
+          padding: calc(#{$table-space} / 2);
+        }
+      }
+    }
+
+  }
+}
+
+
+.orderTotal {
+	display: table;
+	width: 100%;
+	margin: 16px 0;
+  tr{
+    td{
+      color: $text-color4;
+      &:first-child{
+        font-weight: bold;
+    		padding-right: 1.5em;
+      }
+      span{
+        color: $common-color-gray_light;
+      }
+    }
+    &:nth-last-child(2){
+      td{
+        padding-bottom: 10px;
+      }
+    }
+  }
+	.total {
+		font-size: 20px;
+		>td {
+      padding-top: 10px;
+      font-weight: bold;
+			border-top: 1px solid #ccc;
+		}
+	}
+	.tips {
+		color: #d13428;
+		font-size: 19px;
+		margin: 16px 0;
+		display: inline-block;
+		text-decoration: underline;
+	}
+}
+
+//表格篩選(投資人專區)
+.filterTable{
+ .selectBlock{
+  width: 100%;
+  max-width: 508px;
+  margin-bottom: 52px;
+ }
+ .selectTitle{margin-bottom: 12px;}
+ .selectBox{
+  width: 100%;
+  position: relative;
+  &::after{
+   content: '\f078';
+   display: block;
+   font-family: 'FontAwesome';
+   position: absolute;
+   top:50%;
+   right: 15px;
+   transform: translateY(-50%);
+   pointer-events: none;
+  }
+ }
+ select{
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  padding: 10px 15px;
+  border: 1px #ccc solid;
+ }
+ .tableTitle{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 8px;
+ }
+ table{
+  width: 100%;
+  text-align: center;
+  tr{
+    border-bottom: 1px #ccc solid;
+    &:nth-child(even){background-color: #D6D6D6;}
+    &:first-child{border-top: 1px #ccc solid;}
+    &:not(:first-child):hover{
+      background-color: $cis1;
+      color: #fff;
+    }
+  }
+  th{padding: 7px 15px;}
+  td{padding: 16px 15px 8px 15px;}   
+ }    
+}

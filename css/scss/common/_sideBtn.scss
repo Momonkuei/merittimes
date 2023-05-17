@@ -1,0 +1,44 @@
+@charset "utf-8";
+
+
+// =====================================================================================
+// sideBtn 
+// =====================================================================================
+	
+
+//圖片sideBtn (將字元隱藏)
+		%sideBtnType1{
+			position: fixed;
+			display: inline-block;    
+			cursor: pointer;
+			img{
+				display: inline-block;
+				vertical-align: middle;
+			}
+			&:hover{
+				opacity: .9;
+			}
+
+			i{
+				display: none;
+			}
+		}
+	
+//字元sideBtn (將圖片隱藏)
+		%sideBtnType2{
+			position: fixed;
+			display: inline-block;    
+			padding:.8em;
+		    line-height: 0;
+			color:#fff;
+		    background:$cis-color-1;
+		    border-radius: $radius-base;
+		    cursor: pointer;
+		    border:1px solid #fff;
+		    &:hover,
+		    &:focus {
+		    	background: $cis-color-1-light;
+		    	color:#fff;
+		    }
+		    img{display: none;}
+		}

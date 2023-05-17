@@ -1,0 +1,12 @@
+.box {
+  font-family: monospace;
+}
+
+.green, .box {
+  background-color: lime;
+}
+
+.box {
+  border-radius: 10px;
+  border: 20px solid lime;
+}/*# sourceMappingURL=example.css.map */

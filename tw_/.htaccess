@@ -1,0 +1,17 @@
+RewriteEngine on
+
+#如果需要打開，要把網址做替換
+#ErrorDocument 404 %{SERVER_NAME}
+#ErrorDocument 403 %{SERVER_NAME}
+
+# SSL 轉跳 有加SSL的話記得打開
+#RewriteCond %{HTTPS} off
+#RewriteRule (.*) https://%{SERVER_NAME}/tw/$1 [R,L]
+
+# 2019-11-25 通用靜態頁處理程式
+# RewriteRule ^(.*)\.html$ ../parent_core.php [L,QSA]
+
+# 2018-03-26
+# 程式不存在的情況
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*)$ ../parent_core.php [L,QSA]

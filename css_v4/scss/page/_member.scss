@@ -1,0 +1,82 @@
+@charset "utf-8";
+
+.memberContent{
+	.blockTitle{
+		span{
+			font-weight: bold;
+		}
+	}
+}
+.fast_loginBtn{
+	a{
+		margin-top: 0;
+		margin-right: 15px;
+		&:last-child{
+			margin-right: 0;
+		}
+	}
+}
+.SignUp_now{
+	button{
+		margin-top: 0;
+	}
+}
+.checkout_now{
+	button{
+		margin-top: 0;
+		margin-right: 15px;
+	}
+}
+.noticepay_list{
+	padding: 10px 15px;
+	margin-bottom: 50px;
+	background-color: #FFFFCC;
+	ul{
+		li{
+			color: $text-color4;
+			margin-bottom: 5px;
+			&:last-child{
+				margin-bottom: 0;
+			}
+			span{
+				color: $common-color-black;
+				font-weight: bold;
+			}
+		}
+	}
+}
+
+.mbm_payInfo{
+	border: 1px solid $common-color-black;
+	padding: 25px;
+	.mbmPayInfo_title{
+		color: $text-color4;
+		span{
+			color: $common-color-black;
+			font-weight: bold;
+		}
+	}
+	img{
+		margin-bottom: $space_smaller;
+		&:last-child{
+			margin-bottom: 0;
+		}
+	}
+}
+
+.mbm_orderProItem{
+	display: flex;
+	display: -webkit-flex;
+	>div{
+		&:nth-child(1){
+			margin-right: 10px;
+			flex: 0 0 70px;
+			-webkit-flex: 0 0 70px;
+		}
+		&:nth-child(2){
+			flex: 1 1 auto;
+			-webkit-flex: 1 1 auto;
+			white-space: normal;
+		}
+	}
+}

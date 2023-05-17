@@ -1,0 +1,185 @@
+@charset "utf-8";
+
+// 0、預設 1、線條箭頭 2、底色加減
+$faqItemStyle:0 !default;
+@mixin faqItemSet($faqItemStyle){
+  .faqItem{
+    .faqItem_head,
+    .faqItem_body{
+      background-color: $faqItem_bg-1;
+      border-bottom: 1px solid $faqItem_border-3;
+    }
+    .faqItem_head{
+      color: $faqItem_head-txt;
+      font-size: 20px;
+    	@extend %hoverEffect;
+      cursor: pointer;
+      i{
+        @extend %hoverEffect;
+      }
+    }
+    .faqItem_body{
+      color: $faqItem_body-txt;
+      display: none;
+    }
+    &.faqItem_current{
+      .faqItem_body{
+        /*display: block;*/
+      }
+    }
+  }
+
+	@if $faqItemStyle==1{
+    .faqItem{
+      .faqItem_head,
+      .faqItem_body{
+        padding: 15px 20px 30px 20px;
+      }
+      .faqItem_head{
+        padding-left: 32px;
+        border-left: 6px solid $faqItem_border-1;
+        i{
+          margin-left: -25px;
+          width: 25px;
+          text-align: center;
+        }
+        &:hover{
+          border-left-color: $faqItem_border-2;
+          background-color: $faqItem_bg-2;
+        }
+      }
+      &.faqItem_current{
+        .faqItem_head,
+        .faqItem_body{
+          background-color: $faqItem_bg-2;
+        }
+        .faqItem_head{
+          border-left-color: $faqItem_border-2;
+          i{
+            color: $cis1;
+            transform: rotate(90deg);
+          }
+        }
+      }
+    }
+	}
+	@if $faqItemStyle==2{
+    counter-reset: num;
+    .faqItem{
+      .faqItem_head,
+      .faqItem_body{
+        padding: 12.5px 60px 12.5px 70px;
+      }
+      .faqItem_head{
+        position: relative;
+        &:before{
+          counter-increment:num;
+          content:counter(num);
+          width: 35px;
+          margin-left: -35px;
+          display: inline-block;
+        }
+        &:after{
+          position: absolute;
+          top: 50%;
+          -webkit-transform: translate(0, -50%);
+          -ms-transform: translate(0, -50%);
+          transform: translate(0, -50%);
+          right: 20px;
+          margin: auto;
+          content: "\f067";
+          color: $faqItem_bg-3;
+          font-family: FontAwesome;
+        }
+        &:hover{
+          color: $faqItem_head-txt2;
+          background-color: $faqItem_bg-3;
+          &:after{
+            color: $faqItem_bg-2;
+          }
+        }
+      }
+      &.faqItem_current{
+        .faqItem_head{
+          color: $faqItem_head-txt2;
+          background-color: $faqItem_bg-3;
+          &:after{
+            content: "\f068";
+            color: $faqItem_bg-2;
+          }
+        }
+        .faqItem_body{
+          padding-left: 50px;
+          padding-right: 50px;
+        }
+      }
+    }
+	}
+}
+.faqItem_main{@include faqItemSet($faqItemStyle);}
+.faqItemStyle-1 {@include faqItemSet(1);}
+.faqItemStyle-2 {@include faqItemSet(2);}
+
+
+.faq_searchForm{
+  .cont_form{
+    margin-bottom: 50px;
+    p{
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+    button{
+      margin: 0;
+      width: 100%;
+    }
+  }
+}
+
+@media (max-width: $viewM) { //992px
+  .faqItem_main {
+  	.faqItem {
+  		.faqItem_head {
+  			font-size: $font-size-h4; //18
+  		}
+  	}
+  }
+  .faq_searchForm{
+    .cont_form{
+      margin-bottom: 20px;
+      >div{
+        margin-bottom: 20px;
+      }
+    }
+  }
+}
+
+@media (max-width: $viewS) { //768px
+  .faqItem_main {
+  	.faqItem {
+  		.faqItem_head {
+  			font-size: $font-size-h5; //18
+        &:before{
+          width: 30px;
+          margin-left: -30px;
+        }
+        &:after{
+          right: 10px;
+        }
+  		}
+      .faqItem_head,
+      .faqItem_body{
+        padding-left: 40px;
+        padding-right: 34px;
+      }
+  	}
+    &.faqItemStyle-2 {
+    	.faqItem.faqItem_current {
+    		.faqItem_body {
+    			padding-left: 40px;
+    			padding-right: 40px;
+    		}
+    	}
+    }
+
+  }
+}

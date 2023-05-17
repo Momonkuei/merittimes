@@ -1,0 +1,114 @@
+@charset "utf-8";
+
+/*自訂樣式===============================================*/
+.noscroll {
+	overflow-y: hidden;
+}
+
+/* 20220810 Q&A間距拿掉 */
+/* .faqItem {
+	margin-bottom: 80px;
+} */
+
+.shopdetail .prod_price .del {
+	text-decoration: line-through;
+}
+
+.relatedPro {
+	margin: 50px 0;
+}
+
+.relatedPro .hrTitle {
+	position: relative;
+	text-align: center;
+}
+
+.relatedPro .hrTitle::after {
+	content: '';
+	display: block;
+	position: absolute;
+	top: 50%;
+	left: 0;
+	width: 100%;
+	height: 1px;
+	background: gray;
+	z-index: -1;
+}
+
+.relatedPro .hrTitle span {
+	padding: 0 15px;
+	color: gray;
+	background: #fff;
+}
+
+.relatedPro .proList.shop {
+	margin-top: 50px;
+}
+
+.relatedPro .relate_pro_slid {
+    padding-left: 57.6px;
+    padding-right: 57.6px;
+    overflow: visible;
+}
+
+.relatedPro .relate_pro_slid .item .itemImg {
+    padding-bottom: 100%;
+}
+
+.relatedPro .relate_pro_slid .item .itemTitle {
+	height: 73px;
+	font-size: 16px;
+	line-height: 1.5;
+	overflow: hidden;
+}
+
+.relatedPro .relate_pro_slid .item .itemPrice {
+	color: #ff5353;
+}
+
+.relatedPro .relate_pro_slid .item .itemPrice.del {
+	color: gray;
+	text-decoration: line-through;
+	padding-right: .5em;
+}
+
+.shop_add .item {
+	margin: 0 15px;
+}
+
+@media (min-width: 992px) {
+	.proList .hamburger_hide {
+		display: block !important;
+	}
+}
+
+.proList .subBlockTitle,
+.proList .shopCart,
+.proList .shopCart_btn {
+	text-align: center;
+} 
+
+.product .proList .subBlockTitle{text-align: left;}
+
+.proList .shopCart_btn .itemAddCart {
+    width: auto;
+    height: auto;
+    font-size: 16px;
+    padding: 5px 25px;
+    border-radius: 0;
+}
+
+.proList .shopCart_btn .itemAddFavor {
+	position: absolute;
+	top: -10px;
+	right: 5px;
+	z-index: 3;
+}
+
+.indexList2{
+	padding: 15px;
+	background-color: #0050A3;
+}
+
+
+/* 0919 test */

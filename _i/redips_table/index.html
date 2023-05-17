@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="author" content="Darko Bunic"/>
+		<meta name="description" content="Merge and split table cells with JavaScript"/>
+		<meta name="viewport" content="width=device-width, user-scalable=no"/><!-- "position: fixed" fix for Android 2.2+ -->
+		<link rel="stylesheet" href="style.css" type="text/css" media="screen" />
+		<script type="text/javascript" src="redips-table.js"></script>
+		<script type="text/javascript" src="script.js"></script>
+		<title>自製結構</title>
+	</head>
+	<body>
+		<!-- container -->
+		<div id="myContainer">
+			<!-- toolbox -->
+			<table id="toolbox">
+				<tbody>
+					<tr>
+						<td>
+							<input type="button" value="Merge" class="button" onclick="redips.merge()" title="Merge marked table cells horizontally and verically"/>
+						</td>
+						<td>
+							<input type="button" value="Split H" class="button" onclick="redips.split('h')" title="Split marked table cell horizontally"/>
+							<input type="button" value="Split V" class="button" onclick="redips.split('v')" title="Split marked table cell vertically"/>
+						</td>
+						<td>
+							<input type="button" value="Row +" class="button" onclick="redips.row('insert')" title="Add table row"/>
+							<input type="button" value="Row -" class="button" onclick="redips.row('delete')" title="Delete table row"/>
+						</td>
+						<td>
+							<input type="button" value="Col +" class="button" onclick="redips.column('insert')" title="Add table column"/>
+							<input type="button" value="Col -" class="button" onclick="redips.column('delete')" title="Delete table column"/>
+						</td>
+						<td>
+							<input type="button" value="Save" class="buttong" title=""/><span style="color:red">*存檔後，請到後台按吸收後送出</span>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<!-- main table -->
+			<table id="mainTable">
+				<tbody>
+					<tr>
+						<td align="center"></td>
+						<td align="center"></td>
+					</tr>
+					<tr>
+						<td align="center"></td>
+						<td align="center"></td>
+					</tr>
+					<tr>
+						<td align="center"></td>
+						<td align="center"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				$('.buttong').click(function(){
+					// alert($('#mainTable').html());
+					var content = $('#mainTable').html();
+					content = content.replace(/style=""/g, "");
+					content = content.replace(/'/g, 'gggggggggggg');
+					content = content.replace(/"/g, 'aaaaaaaaaaaa');
+					$.ajax({
+						type: "POST",
+						data: {
+							'id': 'redips_table',
+							//'primary_key': ids[1],
+							'ggg': content
+						},
+						url: '../../save.php',
+						success: function(response){
+							//alert(response);
+							eval(response);
+						}
+					}); // ajax
+					return false;
+				});
+			});
+		</script>	
+	</body>
+</html>

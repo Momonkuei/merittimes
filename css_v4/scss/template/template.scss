@@ -1,0 +1,90 @@
+/*各樣板樣式======================================*/
+
+/*w6====================================*/
+.v4_k06{
+ $cis1:#3d261e;
+ $cis2:#db6636;
+ .circleDeco{
+  &:before{border-color:$cis1;}
+  &:after{border-color: rgba(61,38,30,0.5);}
+ }
+ .subBlockTitle{
+  font-weight: 300;
+  font-size: 24px;
+  color: #333;
+ }
+ .underLine{
+  background: $cis1;
+ }
+ .slick-slider .slick-arrow{background-color: $cis1;}
+ .itemImgHover:before{background-color:rgba(61,38,30,0.5);}
+ .itemImgHover:after{background-color: $cis1;}
+ .footerStyle10{
+  background-color: $cis1;
+  > div:last-child{background-color: $cis2;}
+ }
+ section:last-child{
+  margin-bottom: 3px;
+  .underLine{
+   margin-top: 20px;
+   margin-bottom: 20px;
+  }
+ }
+}
+
+/*w12======================================*/
+.v4_k12{
+ $w12Color:#3e7775;
+ font-family: "Cormorant","sans-serif","MingLiU","PMingLiU","細明體","新細明體";
+ $cis1:#3e7775;
+ $cis2:#000;
+ $cis3:#333;
+ .headerStyle01{
+  .topLink{background-color: $cis1;}
+  .navBar{
+   background-color: $cis2;
+   .navMenu > li >a{color: #fff;}
+   .navMenu.hoverEffect_01 > li > a > span:after{display: none;}
+  }
+ }
+ header .navBar .navMenu.navMenuStyle_line > li:first-child > a:before,header .navBar .navMenu.navMenuStyle_line > li > a:after{display: none;}
+ .slick-slider .slick-arrow{background-color: $cis1;}
+ .titleDot span{background: $w12Color;}
+ .circleBlock2{
+  .imgBorderLine::before{border-color: $w12Color;}
+  .subBlockTitle{
+   font-size: 32px;
+   color: gray;
+  }
+  p{
+   font-size: 15px;
+   color: #666;
+  }
+ }
+ .btn-cis1{
+  background:$w12Color;
+  border-color: $w12Color;
+ }
+ .footerStyle10{
+  background-color: $w12Color;
+  > div:last-child{background-color: $cis3;}
+ }
+ footer a:hover{color: #999;}
+}
+
+/*w14==================================*/
+.v4_k14{
+ $cis1:#ff5b51;
+ $cis2:#000;
+ .headerStyle01{
+  .topLink{background-color: $cis1;}
+  .navBar{
+   background-color: $cis2;
+   .navMenu > li >a{color: #fff;}
+   .navMenu.hoverEffect_01 > li > a > span:after{background-color: $cis1;}
+  }
+ } 
+ header .navBar .navMenu.navMenuStyle_line > li:first-child > a:before,header .navBar .navMenu.navMenuStyle_line > li > a:after{display: none;}
+ .slick-slider .slick-arrow{background-color: $cis1;}
+ .footerStyle11{background: $cis1;}
+}

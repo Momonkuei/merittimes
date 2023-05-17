@@ -1,0 +1,327 @@
+@charset "utf-8";
+
+/*****************************/
+/* download / list-4.php */
+/*****************************/
+
+.download_list4 .pageTitleStyle-2 h2 {
+	color: $text-color;
+	font-size: $font-size-h2;
+}
+
+.download_list4_documentList {
+	display: flex;
+}
+
+.download_list4_documentList .download_list4_documentList_listContent {
+	display: flex;
+	flex-direction: column;
+}
+
+.download_list4_documentList_listContent .imgBox {
+	/* height: 270px; */
+	display: flex;
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+	-webkit-transition: 0.6s;
+	transition: 0.6s;
+}
+
+.download_list4_documentList_listContent .item {
+	/* 去除align-item:center 特性 */
+	align-items: flex-start;
+}
+
+/* hover 效果 */
+.download_list4_documentList_listContent:hover .imgBox {
+	-webkit-box-shadow: 4px 3px 10px rgb(0 0 0 / 20%);
+	box-shadow: 4px 3px 10px rgb(0 0 0 / 20%);
+	-webkit-transform: translate(0, -10px);
+	transform: translate(0, -10px);
+}
+
+.download_list4_documentList_listContent .content .title {
+	padding-top: 16px;
+	font-size: $font-size-h3;
+	line-height: 32px;
+	color: #000;
+	font-weight: 600;
+	cursor: pointer;
+}
+
+/* 下載連結 */
+
+.download_list4_documentList_listContent .content .downlandLink {
+	margin-top: 32px;
+	display: inline-block;
+	font-size: $body-font-size;
+	font-weight: 600;
+	border-left: 1px solid #c3c3c3;
+	border-right: 1px solid #c3c3c3;
+	padding: 0 8px;
+}
+
+@media (max-width: 576px) {
+	.download_list4_documentList_listContent .imgBox img {
+		width: 100%;
+	}
+
+	.download_list4_documentList_listContent .content {
+		text-align: center;
+	}
+}
+
+//list-4 結束
+
+/*****************************/
+/* download / list-5.php */
+/*****************************/
+
+.download_list5 {
+	padding: 64px 0;
+
+	.pageTitleStyle-2 {
+		h2 {
+			color: #000;
+			font-size: 2rem;
+		}
+	}
+
+	.documentList {
+		display: flex;
+
+		.listContent {
+			display: flex;
+			flex-direction: column;
+
+			.imgLink {
+				margin-bottom: 0;
+			}
+
+			.imgBox {
+				display: flex;
+				backface-visibility: hidden;
+				transition: 0.6s;
+				position: relative;
+			}
+
+			.item {
+				/* 去除align-item:center 特性 */
+				align-items: flex-start;
+			}
+
+			.content {
+				height: 100%;
+				display: flex;
+				flex-direction: column;
+
+				.date {
+					font-family: AmsiPro-Bold;
+					font-size: 14px;
+					color: #65819d;
+					text-transform: uppercase;
+					margin-bottom: 5px;
+
+					.date-line {
+						color: #71faed;
+						font-size: 12px;
+						transform: translateY(-1px);
+						display: inline-block;
+					}
+				}
+
+				.title {
+					font-size: 18px;
+					font-family: AmsiProNarw-Ultra;
+					line-height: 1.21;
+					text-transform: uppercase;
+					transition: color 0.5s;
+					font-weight: 700;
+					@include hideLongTexts(3);
+				}
+			}
+
+			.imgBox_card-hover {
+				background-color: #71faed;
+				transition: transform 0.5s;
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				top: 0;
+				left: 0;
+				bottom: 0;
+				right: 0;
+				z-index: -1;
+			}
+
+			.downlandContent {
+				margin-top: 15px;
+				display: flex;
+				flex-direction: column;
+				justify-content: space-between;
+				flex-grow: 1;
+
+				.downlandLink_btn {
+					text-align: center;
+					line-height: 20px;
+					display: inline-block;
+					position: relative;
+					color: $text-color;
+					text-transform: uppercase;
+					font-size: 12px;
+					font-family: AmsiPro-Ultra;
+					letter-spacing: 0.05em;
+					padding: 0 16px;
+					z-index: 1;
+
+					.btn_underline {
+						z-index: -1;
+						position: absolute;
+						bottom: 0;
+						left: 50%;
+						width: 100%;
+						height: 12px;
+						transform: translateX(-50%);
+						bottom: -4px;
+
+						&-hover {
+							transform: translateX(-50%) scaleX(0);
+							transform-origin: 50% 50%;
+							transition: transform 0.5s;
+						}
+
+						&.color-1 {
+							background-color: #65819d;
+						}
+
+						&.color-2 {
+							background-color: #71faed;
+						}
+					}
+
+					&:hover {
+						.btn_underline-hover {
+							transform: translateX(-50%) scaleX(1);
+						}
+					}
+				}
+
+				.mediaCard_share {
+					width: 58%;
+					padding-top: 10px;
+					display: flex;
+					flex-wrap: wrap;
+					align-items: center;
+					justify-content: space-between;
+
+					// 點擊後效果
+					&.openSocial {
+						.cardShare_links {
+							opacity: 1;
+						}
+
+						.share_btn {
+							color: #71faed;
+						}
+					}
+
+					.cardShare_links {
+						width: calc(100% - 40px);
+						display: flex;
+						flex-wrap: wrap;
+						flex-direction: column;
+						align-items: center;
+						justify-content: center;
+						text-align: center;
+						background-color: #777;
+						color: $common-color-white;
+						border-radius: 12px;
+						padding: 4px 19px;
+						opacity: 0;
+						transition: opacity 0.5s;
+
+						li {
+							margin: 6px;
+
+							a {
+								display: block;
+								position: relative;
+								width: 15px;
+								height: 11px;
+								color: inherit;
+								display: flex;
+								align-items: center;
+								justify-content: center;
+							}
+							&:hover {
+								color: #71faed;
+							}
+						}
+					}
+				}
+
+				.share_btn {
+					background-color: transparent;
+					&:hover {
+						color: #71faed;
+					}
+				}
+			}
+
+			/* hover 效果 */
+			&:hover {
+				// .imgBox {
+				//     box-shadow: 4px 3px 10px rgb(0 0 0 / 20%);
+				//     transform: translate(0, -10px);
+				// }
+
+				.imgBox_card-hover {
+					transform: translate(10px, -10px);
+				}
+			}
+		}
+	}
+
+	@media (max-width: 576px) {
+		.documentList {
+			.listContent {
+				.imgBox {
+					img {
+						width: 100%;
+					}
+				}
+				.content {
+					text-align: center;
+				}
+
+				.downlandContent {
+					flex-grow: 0;
+
+					.downlandLink_btn {
+						font-size: inherit;
+					}
+
+					.mediaCard_share {
+						margin-top: 20px;
+						width: 100%;
+
+						.cardShare_links {
+							flex-direction: row;
+							gap: 10px;
+
+							li {
+								a {
+									width: auto;
+									height: auto;
+									padding: 10px;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+//list-5 結束

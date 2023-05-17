@@ -1,0 +1,20 @@
+<section class="sectionBlock" id="userblock_<?php echo $_params_['id']?>">
+  <div class="container">
+
+    <div class="innerBlock">
+      <div class="row graphicExchange">
+        <div class="col-lg-3 text-center">
+		  <img src="_i/assets/upload/<?php echo $data[$ID]['type']?>/<?php echo $data[$ID]['pic1']//900x680?>" alt="">
+        </div>
+        <div class="col-lg-9">
+          <div class="blockTitle">
+			<span><?php echo $data[$ID]['other1']?></span>
+			<small><?php echo $data[$ID]['other2']?></small>
+          </div>
+		  <p><?php echo $data[$ID]['detail']?></p>
+        </div>
+      </div>
+    </div><!-- .innerBlock -->
+
+  </div><!-- .container -->
+</section><!-- .sectionBlock -->

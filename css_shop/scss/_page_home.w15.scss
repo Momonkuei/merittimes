@@ -1,0 +1,95 @@
+@charset "utf-8";
+
+
+// =====================================================================================
+// index - w15 草原 banner上有news
+// =====================================================================================
+
+	.index .banner {
+				box-shadow: 0 0 30px rgba(0,0,0,1);
+		-webkit-box-shadow: 0 0 30px rgba(0,0,0,1);
+	}
+
+
+	.indexContent_15{
+		
+		.newsBlock {
+			margin-top:-90px;
+				
+			.flex2cL2{
+				background: $body-bg;
+			}
+
+
+			@media (max-width: 1200px){
+				margin-top:$space;
+			}
+			@media (max-width: $hamburgerPoint){
+				.flex2cL2 {
+					flex-direction:column;
+					-webkit-flex-direction:column;
+					> *:nth-child(1),
+					> *:nth-child(2) {width: 100%}
+				}
+			}
+			.newsBlockTitle {
+				background: $cis-color-1;
+				padding: $space_smaller;
+				padding-top:0;
+				display: table; 
+				width:100%;
+				.boxTitle{
+					margin-bottom: 0;
+					color:#fff;
+					&:after{background: #fff}
+				}
+			}
+
+			.newsList{
+				@extend .listStyle_border;
+				// background: #fff;
+				li{
+					overflow: hidden;
+				    text-overflow: ellipsis;
+				    white-space: nowrap;
+				}
+				a{
+					padding-left:$space_smaller;
+					padding-right:$space_smaller;
+				}
+			}
+
+			.itemImg{
+				display: inline-block;
+				padding-bottom: 45%;
+				img{
+					// 裁切
+					max-width:200%;
+					max-height:200%;
+					min-width:100%;
+					min-height: 100%;
+				}
+			}
+		}
+	}
+
+// 移至syle.w15.css
+
+	footer{
+		position: relative;
+		&:after{
+			content:'';
+			position: absolute;
+			top:-100px;
+			left:0;
+			width:100%;
+			height:110px;
+			background: url(../../images/w15/footer-deco.svg)no-repeat center bottom;
+		}
+
+	}
+
+
+
+
+

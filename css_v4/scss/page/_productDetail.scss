@@ -1,0 +1,279 @@
+
+/*****************************/
+/* product / detail7.php */
+/*****************************/
+.prd-detail-detail7 {
+    position: relative;
+    &::before {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 400px;
+        background: url("../images_v4/product/detail7/bg-line.svg") repeat-y;
+        background-size: 100% auto;
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: -1;
+    }
+
+    .detail7_container {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        padding: 5vw 4vw;
+        align-items: flex-start;
+    }
+
+    // 標題
+    .text {
+        width: 25%;
+
+        .product_title {
+            font-size: $font-size-h2;
+            font-weight: bold;
+            margin-bottom: 40px;
+            color: $text-color;
+            line-height: 55px;
+        }
+
+        // 按鈕
+        .product_btn {
+            line-height: 90px;
+            display: inline-block;
+            background-color: #f9be00;
+            font-size: $font-size-h3;
+            font-weight: bold;
+            border: none;
+            outline: none;
+            box-shadow: none;
+            width: 100%;
+            text-align: center;
+            cursor: pointer;
+            overflow: hidden;
+            font-family: "Montserrat", Helvetica, Arial, "Noto Sans TW", "PingFang", "PingFangTC", "Microsoft JhengHei",
+                sans-serif;
+            margin-top: 25px;
+            border-radius: 5px;
+
+            &:hover {
+                border: 2px solid #f9be00;
+                color: $text-color;
+                background-color: #fff;
+            }
+        }
+    }
+
+    .controller {
+        position: absolute;
+        right: 0;
+        top: 0;
+        z-index: 6;
+
+        .swiper-count {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            margin: 0;
+            width: 100%;
+            color: #fff;
+        }
+
+        span {
+            font-size: $body-font-size;
+            color: $common-color-gray_dark;
+            font-weight: bold;
+
+            &.line {
+                border: none;
+                border-bottom: 1px solid #2c2c2c;
+                height: 2px;
+                // width: 3em;
+                // margin: 0 10px;
+                width: 75px;
+                margin: 0 20px;
+            }
+            &.swiper-sum-prd {
+                opacity: 0.5;
+            }
+        }
+    }
+
+    // 圖片展示
+    .gallery {
+        width: 75%;
+    }
+
+    .swiper_container {
+        margin-left: auto;
+        margin-right: auto;
+        position: relative;
+        overflow: hidden;
+        list-style: none;
+        padding: 0;
+        z-index: 1;
+        width: 100%;
+
+        .swiper-slide-prev {
+            opacity: 0;
+        }
+
+        & > .swiper-pagination-bullets {
+            bottom: 10px;
+            left: 0;
+            width: 100%;
+            margin: 0 4px;
+            text-align: center;
+
+            span {
+                border: none;
+                outline: none;
+                width: 40px;
+                height: 40px;
+                background-color: transparent;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                transition: all 0.35s ease;
+                border-radius: 100%;
+                opacity: 1;
+            }
+        }
+
+        .swiper-pagination {
+            span {
+                &::before {
+                    content: "";
+                    display: block;
+                    width: 10px;
+                    height: 10px;
+                    border-radius: 50%;
+                    transition: all 0.3s ease;
+                    border: 2px solid #d4d4d4;
+                    background-color: rgba(0, 0, 0, 0.1);
+                    background-color: transparent;
+                    transition: all 0.35s ease;
+                }
+
+                &.swiper-pagination-bullet-active {
+                    &::before {
+                        background-color: $cis1;
+                        border-color: $cis1;
+                    }
+                }
+            }
+        }
+    }
+
+    .container:nth-child(even) {
+        .innerBlock_detail7 {
+            .row {
+                flex-direction: row-reverse;
+            }
+        }
+
+        .lines {
+            width: 100%;
+            height: 1px;
+            background-color: #d6d6d6;
+            margin-bottom: 60px;
+        }
+    }
+    @media (max-width: 1200px) {
+        .text {
+            .product_title {
+                font-size: $font-size-h3;
+                margin-bottom: 20px;
+                line-height: 36px;
+            }
+
+            .product_btn {
+                line-height: 80px;
+            }
+        }
+    }
+
+    @media (max-width: 992px) {
+        .detail7_container {
+            flex-direction: column-reverse;
+
+            &::before {
+                content: "";
+                display: block;
+                width: calc(100% - 70px);
+                margin: 0 auto 40px;
+                height: 40px;
+                border-bottom: 2px solid #2c2c2c;
+                position: relative;
+                z-index: 3;
+            }
+        }
+        .container {
+            flex-direction: column-reverse;
+            padding: 0 50px;
+
+            .innerBlock_detail7 {
+                .row {
+                    flex-direction: column;
+                }
+            }
+        }
+        .gallery {
+            padding-top: 40px;
+            width: 100%;
+        }
+
+        .text {
+            text-align: center;
+            width: 100%;
+
+            .product_btn {
+                width: 60%;
+                margin: 30px 0;
+            }
+        }
+
+        .controller {
+            display: none;
+        }
+    }
+
+    @media (max-width: 576px) {
+        .container {
+            flex-direction: column-reverse;
+            padding: 0 15px;
+        }
+
+        .text {
+            text-align: center;
+            width: 100%;
+            .product_title {
+                font-size: $font-size-h3;
+                line-height: 60px;
+                margin-bottom: 0;
+            }
+            .product_btn {
+                width: 100%;
+                margin: 15px 0;
+                line-height: 60px;
+            }
+        }
+    }
+}
+
+.innerBlock_detail7 {
+    .innerBlock_detail7_txt {
+        font-size: $font-size-h3;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        p {
+            font-size: inherit;
+        }
+    }
+}
+
+
+//detail7.php 結束

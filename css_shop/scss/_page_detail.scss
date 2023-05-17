@@ -1,0 +1,39 @@
+@charset "utf-8";
+
+	// pageDetail -------
+		.pageDetail{
+
+			
+			.dateStyle {@extend .dateStyle_#{$newsDateStyle};}
+				
+			.item>* {width:100%;}
+				
+			.itemImg{
+				width: auto;
+			 	height: auto;
+			 	padding-bottom: 0;
+			 	margin: $space auto;
+			 	background: none;
+			 	img{
+			 		position: static;
+				 	transform:none;
+				 	-webkit-transform:none;
+			 	}
+			 	&:hover{
+			 		&:before,
+			 		&:after {
+			 			display: none;
+			 		}
+			 	}
+			}
+
+			.itemTitle{
+				// @extend .boxTitle;
+			}
+
+			.itemContent{
+				color:$text-color;
+				margin-bottom: $space_big;
+			}
+		}
+

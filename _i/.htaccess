@@ -1,0 +1,6 @@
+php_value post_max_size "100M"
+php_value upload_max_filesize "100M"
+
+RewriteEngine off
+# http://stackoverflow.com/questions/4329105/mod-rewrite-specific-urls-only
+RewriteRule ^assets\/(category-images|i|page-image|page-image2|pdf|product-images|series-images|thumbXX|video|web-images)\/ index.php/$1 [L]

@@ -1,0 +1,56 @@
+@charset "utf-8";
+
+// basic
+@import "basic/varsetting"; // 設定變數
+@import "basic/normal";     // 基本 class
+@import "basic/Bbox";       // Bbox：Bbox_1c、Bbox_in_2c ...
+@import "basic/flexbox";    // flexbox：flex2c、flex3c...
+@import "basic/gridBox";    // gridBox
+
+// common 
+@import "common/effect";     // css效果 transition 
+@import "common/form";       // 表單樣式
+@import "common/titleStyle"; // 標題樣式
+@import "common/listStyle";  // 列表樣式 list style、menulist、tablist
+@import "common/dateStyle";  // 日期樃式 date style
+@import "common/table";      // 表格樣式
+@import "common/block";      // 區塊樣式 article block 、 slid block、blockinfo、marqueeBlock、timeLine
+@import "common/listItem";   // 項目樣式 在列表中的item
+@import "common/popbox";     // 彈出來的盒子，例如login、側邊購物車、搜尋 都是
+@import "common/sideBtn";    // 黏在側邊的按鈕
+
+// element block
+@import "elements/breadcrumb";  // 麵包屑
+@import "elements/pagenav";     // 分頁 page index 、 page next、 page prev
+@import "elements/gotop";       // gotop
+@import "elements/header";      // 頁首
+@import "elements/banner";      // baner
+@import "elements/footer";      // 頁尾
+@import "elements/googlemap";   // google map
+@import "elements/searchform";  // 搜尋的form(popbox)
+@import "elements/sideAD";      // 側邊廣告
+@import "elements/showCart";    // 打開購物車
+@import "elements/sideCart";    // 側邊購物車 (popbox)
+@import "elements/addCartPanel";// 加入商品(popbox)
+@import "elements/loginPanel";  // 登入(popbox)
+@import "elements/eDM";         // edm
+@import "elements/mbPanel";     // 手機選單
+@import "elements/pageLoading"; // 頁面loading
+@import "elements/marquee";     // 跑馬燈
+@import "elements/playFrame";   // frame animate (by step )
+@import "elements/gdpr";   // frame animate (by step )
+
+//  for plug ， 針對外掛插件調整的css
+@import "plug/slick"; 
+@import "plug/googleTranslate"; 
+
+// pages
+@import "page_album"; 
+@import "page_video"; 
+@import "page_news"; 
+@import "page_faq"; 
+@import "page_products"; 
+@import "page_download"; 
+@import "page_detail"; 
+@import "page_member"; 
+@import "page_checkout"; 

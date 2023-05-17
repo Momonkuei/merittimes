@@ -1,0 +1,1594 @@
+@charset "utf-8";
+
+
+// =====================================================================================
+// headerType style
+// =====================================================================================
+
+
+
+
+	@mixin headerTypeStyle($headerTypeStyle){
+
+		//headerStyle 1-預設(白) 2-黑色 3-CIS1色 5-headerCI、navmenu白
+
+		//headerType(預設)
+
+
+
+			//PC版 config
+
+				$headerBgColor                      : #ffffff;                            // header 背景色
+				$hamburgerLineColor                 : $text-color;                        // 漢堡線條 顏色
+				$topLinkBarBgColor               : rgba($cis-color-1,0) !default;      // topLink 背景色
+				$topLinkMenuDecoColor               : rgba($text-color,.5);               // topLink 選單 分隔線顏色
+				$topLinkMenuLinkColor               : rgba($text-color,.6);               // topLink 選單 超連結 文字顏色
+				$topLinkMenuLinkHoverColor          : rgba($text-color,.4);               // topLink 選單 超連結 文字顏色(滑過)
+				$navMenuBgColor                     : rgba(#ffffff,0);                    // 主選單 背景色
+				$navMenuBorderColor                 : rgba(#ffffff,0);                    // 主選單 邊框色
+				$navMenuBorderWidth                 : 0;                                  // 主選單 邊框寬
+				$navMenuLinkColor                   : $text-color;                        // 主選單 超連結 文字顏色
+				$navMenuLinkHoverColor              : $cis-color-1;                       // 主選單 超連結 文字顏色(滑過)
+				$navMenuLinkActiveColor             : $cis-color-1;                       // 主選單 亮燈 文字色
+				$navMenuLinkArrowColor              : $cis-color-2-light;                 // 主選單 箭頭 顏色
+				$navMenuLinkHoverDecoBg             : $cis-color-1-dark;                  // 主選單 滑過 背景色
+				$navMenuLinkHoverDecoBgOpacity      : 1;                                  // 主選單 滑過 背景透明度
+				$navMenuLinkHoverDecoBgTxtColor     : #ffffff;                            // 主選單 滑過 背景為實色(=1) 文字顏色
+				$navMenuLinkHoverDecoColor          : $cis-color-1-lighter;               // 主選單 滑過 DECO 線條色
+				$navMenuLinkHoverDecoBorderT        : $headerHoverBorderTop;              // 主選單 滑過 DECO 線條寬(上)
+				$navMenuLinkHoverDecoBorderR        : $headerHoverBorderRight;            // 主選單 滑過 DECO 線條寬(右)
+				$navMenuLinkHoverDecoBorderB        : $headerHoverBorderBottom;           // 主選單 滑過 DECO 線條寬(下)
+				$navMenuLinkHoverDecoBorderL        : $headerHoverBorderLeft;             // 主選單 滑過 DECO 線條寬(左)
+				$headerScrollBgColor                : rgba(#ffffff,.9);                   // header 捲動後 背景色
+				$headerScrollnavMenuLinkStyle       : 0;                                  // header 捲動後 主選單 配色 (0：與捲動前相同 1：自訂，以下參數才有效)
+				$headerScrollnavMenuLinkColor       : $text-color;				          // header 捲動後 主選單 超連結文字顏色
+				$headerScrollnavMenuLinkHoverColor  : $cis-color-1;                       // header 捲動後 主選單 超連結 文字顏色(滑過)
+				$headerScrollnavMenuLinkActiveColor : $cis-color-1;                       // header 捲動後 主選單 亮燈 文字色
+				$headerScrollnavMenuLinkArrowColor  : $cis-color-2-light;                 // header 捲動後 主選單 箭頭 顏色
+				$navMenuBlockBgColor                : $navMenuBgColor;                    // 獨立主選單 背景色
+				$navMenuBlockBoxShadow              : 0 0 8px rgba(0,0,0,.5);             // 獨立主選單 陰影
+
+
+
+
+
+			//手機版 config
+
+				$mobile_topLinkBgColor                    : rgba($cis-color-1,1);         // topLink 背景色
+				$mobile_topLinkMenuLinkColor              : rgba(#ffffff,.6);             // topLink 選單 超連結 文字顏色
+				$mobile_topLinkMenuLinkHoverColor         : rgba(#ffffff,.4);             // topLink 選單 超連結 文字顏色(滑過)
+				$mobile_topLinkMenuDecoColor              : rgba($text-color,.5);         // topLink 選單 分隔線顏色
+				$mobile_topLinkMenuDecoBorderColor        : $cis-color-1;                 // toplink 子選單 deco border color
+				$mobile_topLinkMenuDecoBorderWidth        : 5px;                          // toplink 子選單 deco border width
+				$mobile_navMenuBgColor                    : #ffffff;                      // 主選單 背景色
+				$mobile_navMenuBorderWidth                : 1px;                          // 主選單 線寬
+				$mobile_navMenuBorderColor                : $cis-color-1;                 // 主選單 線色
+				$mobile_navMenuLinkColor                  : $text-color;                  // 主選單 超連結 文字顏色
+				$mobile_navMenuLinkHoverColor             : $cis-color-1;                 // 主選單 超連結 文字顏色(滑過)
+				$mobile_navMenuLinkActiveColor            : $cis-color-1;                 // 主選單 超連結 文字顏色(亮燈)
+				$mobile_navMenuLinkArrowColor             : $cis-color-2-light;           // 主選單 箭頭 顏色
+				$mobile_navMenuLinkBorderColor            : #eeeeee;                      // 主選單 超連結 線顏色
+				$mobile_navMenuLinkBorderWidth            : 0 0 1px 0;                    // 主選單 超連結 線寬
+				$mobile_navMenuLinkHoverDecoBorderT       : 0;                            // 主選單 滑過 DECO 線條寬(上)
+				$mobile_navMenuLinkHoverDecoBorderR       : 0;                            // 主選單 滑過 DECO 線條寬(右)
+				$mobile_navMenuLinkHoverDecoBorderB       : 0;                            // 主選單 滑過 DECO 線條寬(下)
+				$mobile_navMenuLinkHoverDecoBorderL       : 0;                            // 主選單 滑過 DECO 線條寬(左)
+				$mobile_navMenuLinkHoverDecoBg            : $cis-color-1-dark;            // 主選單 滑過 背景色
+				$mobile_navMenuLinkHoverDecoBgOpacity     : 0;                            // 主選單 滑過 背景透明度
+				$mobile_navMenuSubMenuLinkColor           : lighten($text-color,30%);     // 次選單 超連結 文字顏色
+				$mobile_navMenuSubMenuLinkHoverColor      : $text-color;                  // 次選單 超連結 文字顏色(滑過)
+				$mobile_navMenuSubMenuArrowContent        : "\f107";                      // 次選單 字元圖案 (向下箭頭)
+				$mobile_navMenuSubMenuArrowContentSize    : 1em;                          // 次選單 字元圖案 尺寸
+				$mobile_navMenuSubMenuArrowContentColor   : rgba($text-color,.5);         // 次選單 字元圖案 顏色
+				$mobile_headerScrollBgColor               : rgba(#ffffff, 1);             // header 捲動後 背景色
+				$mobile_headerScrollnavMenuBgColor        : rgba(#ffffff, 1);   		  // header 捲動後 主選單 背景色
+				$mobile_headerScrollnavMenuLinkColor      : $text-color;				  // header 捲動後 主選單 超連結文字顏色
+				$mobile_headerScrollnavMenuLinkHoverColor : $cis-color-1;                 // header 捲動後 主選單 超連結 文字顏色(滑過)
+				$mobile_headerScrollnavMenuLinkActiveColor: $cis-color-1;                 // header 捲動後 主選單 亮燈 文字色
+				$mobile_headerScrollnavMenuLinkArrowColor : $cis-color-2-light;           // header 捲動後 主選單 箭頭 顏色
+				$mobile_headerScrollBoxShadow             : 0 0 10px rgba(0,0,0,.2);      // header 捲動後 上下選單 陰影
+
+
+
+			// 白
+			@if $headerStyle==1{
+				//PC版 config
+				$navMenuLinkColor               : #333;                    // 主選單 超連結 文字顏色
+
+			}
+			// 黑
+			@if $headerStyle==2{
+				//PC版 config
+				$hamburgerLineColor             : rgba(#ffffff,.6);           // 漢堡線條 顏色
+				$headerBgColor                  : #000000;                    // header 背景色
+				$navMenuLinkColor               : #ffffff;                    // 主選單 超連結 文字顏色
+				$navMenuLinkActiveColor         : $cis-color-1-lighter;       // 主選單 亮燈 文字色
+				$navMenuLinkArrowColor          : $cis-color-2-light;         // 主選單 箭頭 顏色
+				$headerScrollBgColor            : $headerBgColor;             // header 捲動後 背景色
+				//手機版 config
+				$mobile_headerScrollBgColor     : $headerBgColor;             // header 捲動後 背景色
+			}
+			// cis1
+			@if $headerStyle==3{
+				//PC版 config
+				$hamburgerLineColor             : rgba(#ffffff,.6);           // 漢堡線條 顏色
+				$headerBgColor                  : $cis-color-1;               // header 背景色
+				$navMenuLinkColor               : #ffffff;                    // 主選單 超連結 文字顏色
+				$navMenuLinkActiveColor         : rgba(#ffffff,.6);           // 主選單 亮燈 文字色
+				$navMenuLinkArrowColor          : $cis-color-2-light;         // 主選單 箭頭 顏色
+				$headerScrollBgColor            : $headerBgColor;             // header 捲動後 背景色
+				@if $headerHoverBg==0{
+					$navMenuLinkHoverColor:$navMenuLinkActiveColor;
+				}
+				//手機版 config
+				$mobile_headerScrollBgColor     : $headerBgColor;             // header 捲動後 背景色
+			}
+
+
+		//headerType1 config
+			@if $headerTypeStyle==1{
+				//預設
+				$topLinkBarBgColor                  : rgba($cis-color-1,1);           // topLink 背景色
+				$topLinkMenuLinkColor               : rgba(#ffffff, 1);               // topLink 選單 超連結 文字顏色
+				$topLinkMenuLinkHoverColor          : rgba(#ffffff,.4);               // topLink 選單 超連結 文字顏色(滑過)
+
+				//cis1
+				@if $headerStyle==3{
+					$topLinkBarBgColor              : $cis-color-1-dark;    // topLink 背景色
+				}
+
+			}
+		//headerType2 config (clone headerType1)
+
+
+		//headerType3 config
+			@if $headerTypeStyle==3{
+				//預設
+				$navMenuBgColor                     : rgba(#ffffff,1);                // 主選單 背景色
+				$navMenuBorderColor                 : rgba($cis-color-1,1);           // 主選單 邊框色
+				$navMenuBorderWidth                 : 1px 0 0 0;                      // 主選單 邊框寬
+				$topLinkMenuLinkHoverColor          : rgba($cis-color-1,1);           // topLink 選單 超連結 文字顏色(滑過)
+
+				//黑色
+				@if $headerStyle==2{
+					$navMenuBgColor                 : rgba(#000000,1);                // 主選單 背景色
+					$topLinkMenuLinkColor           : rgba(#ffffff,.4);               // topLink 選單 超連結 文字顏色
+					$topLinkMenuLinkHoverColor      : rgba(#ffffff,.6);               // topLink 選單 超連結 文字顏色(滑過)
+					$navMenuBorderColor             : rgba($cis-color-1-lighter,1);     // 主選單 邊框色
+				}
+				//cis1
+				@if $headerStyle==3{
+
+					$topLinkBarBgColor              : none;                           // topLink 背景色
+					$navMenuBgColor                 : rgba($cis-color-1,1);           // 主選單 背景色
+					$navMenuBorderColor             : rgba(#ffffff,.6);               // 主選單 邊框色
+					$topLinkMenuLinkColor           : rgba(#ffffff,.6);               // topLink 選單 超連結 文字顏色
+					$topLinkMenuLinkHoverColor      : rgba(#ffffff, 1);               // topLink 選單 超連結 文字顏色(滑過)
+				}
+			}
+
+		//headerType4 config
+			@if $headerTypeStyle==4{
+				//預設
+				$navMenuBorderColor                 : rgba($cis-color-1,0);           // 主選單 邊框色
+				$navMenuBorderWidth                 : 0;                              // 主選單 邊框寬
+				$navMenuLinkColor                   : #ffffff;                        // 主選單 超連結 文字顏色
+				$navMenuBlockBgColor                : rgba($cis-color-1,1);           // 獨立主選單 背景色
+				$navMenuLinkActiveColor             : rgba(#ffffff,.5);               // 主選單 亮燈 文字色
+
+				$headerScrollnavMenuLinkStyle       : 1;                              // header 捲動後 主選單 配色 (0：與捲動前相同 1：自訂，以下參數才有效)
+				$headerScrollnavMenuLinkColor       : $text-color;				      // header 捲動後 主選單 超連結文字顏色
+				$headerScrollnavMenuLinkHoverColor  : #ffffff;                        // header 捲動後 主選單 超連結 文字顏色(滑過)
+
+				//黑色
+				@if $headerStyle==2{
+					$headerBgColor                  : rgba(#000000,1);                // header 背景色
+					$navMenuBlockBgColor            : rgba($cis-color-1,1);           // 獨立主選單 背景色
+
+					$navMenuLinkActiveColor         : rgba(#ffffff,.6);               // 主選單 亮燈 文字色
+					$headerScrollnavMenuLinkStyle   : 1;                              // header 捲動後 主選單 配色 (0：與捲動前相同 1：自訂，以下參數才有效)
+					$headerScrollnavMenuLinkColor   : #ffffff;	     			      // header 捲動後 主選單 超連結文字顏色
+					$headerScrollnavMenuLinkActiveColor : $cis-color-1-lighter;       // header 捲動後 主選單 亮燈 文字色
+					$topLinkMenuLinkColor           : rgba(#ffffff,.6);               // topLink 選單 超連結 文字顏色
+					$topLinkMenuLinkHoverColor      : rgba(#ffffff,.4);               // topLink 選單 超連結 文字顏色(滑過)
+				}
+				//cis1
+				@if $headerStyle==3{
+					$headerBgColor                  : rgba($cis-color-1,1);         // header 背景色
+					$navMenuBlockBgColor            : rgba($cis-color-1-dark,1);    // 獨立主選單 背景色
+					$navMenuLinkHoverDecoBg         : #ffffff;                      // 主選單 滑過 背景色
+					$navMenuLinkHoverDecoBgOpacity  : .3;                           // 主選單 滑過 背景透明度
+					$headerScrollnavMenuLinkStyle   : 0;                            // header 捲動後 主選單 配色 (0：與捲動前相同 1：自訂，以下參數才有效)
+					$topLinkMenuLinkColor           : rgba(#ffffff,.6);             // topLink 選單 超連結 文字顏色
+					$topLinkMenuLinkHoverColor      : rgba(#ffffff,.4);             // topLink 選單 超連結 文字顏色(滑過)
+
+				}
+			}
+
+		//headerType5 config
+			@if $headerTypeStyle==5{
+				//預設
+				$navMenuBgColor                     : rgba($cis-color-1,1);           // 主選單 背景色
+				$navMenuBorderColor                 : rgba($cis-color-1,0);           // 主選單 邊框色
+				$navMenuBorderWidth                 : 0;                              // 主選單 邊框寬
+				$navMenuLinkColor                   : #ffffff;                        // 主選單 超連結 文字顏色
+				$navMenuLinkHoverColor              : rgba(#ffffff,.8);               // 主選單 超連結 文字顏色(滑過)
+				$navMenuLinkActiveColor             : rgba(#ffffff,.5);               // 主選單 亮燈 文字色
+
+				//白色
+				@if $headerStyle==1{
+					$headerScrollnavMenuLinkStyle       : 1;                          // header 捲動後 主選單 配色 (0：與捲動前相同 1：自訂，以下參數才有效)
+					$headerScrollnavMenuLinkColor       : $text-color;				  // header 捲動後 主選單 超連結文字顏色
+					$headerScrollnavMenuLinkHoverColor  : #ffffff;                    // header 捲動後 主選單 超連結 文字顏色(滑過)
+				}
+
+				//黑色
+				@if $headerStyle==2{
+					$navMenuLinkActiveColor         : rgba(#ffffff,.6);               // 主選單 亮燈 文字色
+					$headerBgColor                  : rgba(#000000,1);                // header 背景色
+					$navMenuBlockBgColor            : rgba(#000000,1);                // 獨立主選單 背景色
+					$topLinkMenuLinkColor           : rgba(#ffffff,.6);               // topLink 選單 超連結 文字顏色
+					$topLinkMenuLinkHoverColor      : rgba(#ffffff,.4);               // topLink 選單 超連結 文字顏色(滑過)
+					$headerScrollnavMenuLinkStyle   : 1;                              // header 捲動後 主選單 配色 (0：與捲動前相同 1：自訂，以下參數才有效)
+					$headerScrollnavMenuLinkColor   : #ffffff;	     			      // header 捲動後 主選單 超連結文字顏色
+					$headerScrollnavMenuLinkActiveColor : $cis-color-1-lighter;       // header 捲動後 主選單 亮燈 文字色
+				}
+				//cis1
+				@if $headerStyle==3{
+					$headerBgColor                  : rgba($cis-color-1,1);           // header 背景色
+					$topLinkMenuLinkColor           : rgba(#ffffff,.6);               // topLink 選單 超連結 文字顏色
+					$topLinkMenuLinkHoverColor      : rgba(#ffffff,.4);               // topLink 選單 超連結 文字顏色(滑過)
+					$navMenuBorderColor             : rgba(#ffffff,0);                // 主選單 邊框色
+					$navMenuBorderWidth             : 0;                              // 主選單 邊框寬
+					$navMenuBgColor                 : rgba($cis-color-1-dark,1);      // 主選單 背景色
+					$navMenuLinkHoverDecoBg         : #ffffff;                        // 主選單 滑過 背景色
+					$navMenuLinkHoverDecoBgOpacity  : .3;                             // 主選單 滑過 背景透明度
+				}
+
+
+			}
+
+
+		//headerType6 config
+			@if $headerTypeStyle==6{
+				//預設
+				$headerBgColor                      : rgba(#ffffff,0);                // header 背景色
+				$navMenuBorderWidth                 : 0;                              // 主選單 邊框寬顏色
+				$topLinkMenuLinkColor               : rgba(#ffffff,1);                // topLink 選單 超連結 文字顏色
+				$topLinkMenuLinkHoverColor          : $cis-color-1;                   // topLink 選單 超連結 文字顏色(滑過)
+
+
+				//黑色
+				@if $headerStyle==2{
+					$navMenuBlockBgColor            : #000000             ;           // 獨立主選單 背景色
+					$headerScrollBgColor            : $navMenuBlockBgColor;           // header 捲動後 背景色
+				}
+				//cis1
+				@if $headerStyle==3{
+					$navMenuBlockBgColor            : $cis-color-1        ;           // 獨立主選單 背景色
+					$headerScrollBgColor            : $navMenuBlockBgColor;           // header 捲動後 背景色
+				}
+
+			}
+
+
+
+
+
+
+		//setting style ------------------------------------------------------------------------------------------------
+
+			@if $headerHoverBg==0 {$navMenuLinkHoverDecoBgOpacity:0;}
+			@if $headerHoverBg==1 {$navMenuLinkHoverColor:$navMenuLinkHoverDecoBgTxtColor;}
+
+			background: $headerBgColor;
+
+			&.scroll{
+				background: $headerScrollBgColor;
+				box-shadow: 0 0 5px rgba(0,0,0,.1);
+				-webkit-box-shadow: 0 0 5px rgba(0,0,0,.1);
+				.navMenu{
+					background: none;
+					border:0;
+					>li{
+						&:hover{
+							>a{
+								transition:none;
+							}
+						}
+					}
+					// 捲動後 主選單 超連結 配色 (預設與捲動前相同，headerScrollnavMenuLinkStyle=1，才會依設定變更)
+					@if $headerScrollnavMenuLinkStyle==1 {
+						>li{
+							//main item link
+							>a{color:$headerScrollnavMenuLinkColor;
+								&:after{
+									color:$headerScrollnavMenuLinkArrowColor;
+								}
+							}
+
+							//main item hover
+							&:hover{
+								>a{
+									color:$headerScrollnavMenuLinkHoverColor;
+									transition:none;
+									&:before{
+
+									}
+								}
+							}
+
+							//main item active
+							&.active>a{
+								color:$headerScrollnavMenuLinkActiveColor;
+							}
+						}
+					}
+				}
+			}//end .header.scroll
+
+			.hamburger{
+				span{
+					&:before,
+					&:after,
+					&{background: $hamburgerLineColor;}
+				}
+			}//end hamburger
+
+
+			.navMenu{
+
+				background  : $navMenuBgColor;
+				border-color: $navMenuBorderColor;
+				border-width: $navMenuBorderWidth;
+				border-style: solid;
+
+				>li{
+					//main item link
+					>a{color:$navMenuLinkColor;
+						&:after{
+							color:$navMenuLinkArrowColor;
+							display: none;
+						}
+					}
+					//main item active
+					&.active>a{
+						font-weight: bold;
+						color:$navMenuLinkActiveColor;
+					}
+
+					//main item hover
+					&:hover{
+						>a{
+							color:$navMenuLinkHoverColor;
+							transition:none;
+							&:before{
+								background:rgba($navMenuLinkHoverDecoBg,$navMenuLinkHoverDecoBgOpacity);
+								border-color:$navMenuLinkHoverDecoColor;
+								border-width:$navMenuLinkHoverDecoBorderT $navMenuLinkHoverDecoBorderR $navMenuLinkHoverDecoBorderB $navMenuLinkHoverDecoBorderL;
+							}
+						}
+					}
+
+				}
+			}//end navmenu
+
+			&.navMenuBlock{
+				background        : $navMenuBlockBgColor;
+				box-shadow        : $navMenuBlockBoxShadow;
+				-webkit-box-shadow: $navMenuBlockBoxShadow;
+			}
+
+
+			.topLink{
+				$topLinkBgColor:false !default;
+				@if $topLinkBgColor != false {$topLinkBarBgColor : $topLinkBgColor; }
+				background: $topLinkBarBgColor;
+				.topLinkMenu{
+					>li{
+						+li:before{color:$topLinkMenuDecoColor;}
+						>a{color:$topLinkMenuLinkColor;}
+						>a:hover{color:$topLinkMenuLinkHoverColor;}
+
+					}
+				}
+				>li:not(.language_google){
+				  position: relative;
+				  z-index: 1;
+				}
+			}//end topLink
+
+
+			@media (max-width: $hamburgerPoint){
+
+				&.scroll{
+					background: $mobile_headerScrollBgColor;
+					box-shadow: $mobile_headerScrollBoxShadow;
+					-webkit-box-shadow: $mobile_headerScrollBoxShadow;
+					.navMenu{
+						background: $mobile_headerScrollnavMenuBgColor;
+						>li{
+							//main item link
+							>a{color:$mobile_headerScrollnavMenuLinkColor;
+								&:after{
+									color:$mobile_headerScrollnavMenuLinkArrowColor;
+								}
+							}
+
+							//main item hover
+							&:hover{
+								>a{
+									color:$mobile_headerScrollnavMenuLinkHoverColor;
+								}
+							}
+
+							//main item active
+							&.active>a{
+								color:$mobile_headerScrollnavMenuLinkActiveColor;
+							}
+						}
+					}
+				}//end .header.scroll
+
+				.topLink{
+					background: $mobile_topLinkBgColor;
+					box-shadow: $mobile_headerScrollBoxShadow;
+					-webkit-box-shadow: $mobile_headerScrollBoxShadow;
+					.topLinkMenu{
+						ul{border-top:$mobile_topLinkMenuDecoBorderWidth solid $mobile_topLinkMenuDecoBorderColor;border-bottom:0;}
+						>li{
+							+li:before{color:$mobile_topLinkMenuDecoColor;}
+							>a{color:$mobile_topLinkMenuLinkColor;}
+							>a:hover{color:$mobile_topLinkMenuLinkHoverColor;}
+
+						}
+					}
+				}
+
+				.navMenu{
+					border-top: $mobile_navMenuBorderWidth solid $mobile_navMenuBorderColor;
+					background: $mobile_navMenuBgColor ;
+					>li{
+
+						>a{
+							color:$mobile_navMenuLinkColor;
+							&:after{
+								color:$mobile_navMenuLinkArrowColor;
+							}
+
+						}
+
+						a{
+							border-color:$mobile_navMenuLinkBorderColor;
+							border-style:solid;
+							border-width:$mobile_navMenuLinkBorderWidth;
+						}
+
+						&:hover{
+							>a{
+								color:$mobile_navMenuLinkHoverColor;
+								&:before{
+									background:rgba($mobile_navMenuLinkHoverDecoBg,$mobile_navMenuLinkHoverDecoBgOpacity);
+									border-width:$mobile_navMenuLinkHoverDecoBorderT $mobile_navMenuLinkHoverDecoBorderR $mobile_navMenuLinkHoverDecoBorderB $mobile_navMenuLinkHoverDecoBorderL;
+								}
+							}
+						}
+
+						&.active{
+							>a{
+								color:$mobile_navMenuLinkActiveColor;
+							}
+						}
+
+						// only layer 1 submenu
+						>ul{
+							box-shadow:none;
+							-webkit-box-shadow:none;
+						}
+
+						// all submenu style
+						ul{
+
+							border-bottom:0;
+						    box-shadow:none;
+							li{
+								border:0;
+								padding-right:0;
+							    a{
+							    	color:$mobile_navMenuSubMenuLinkColor;
+							    }
+							    &:hover{
+							    	padding-left:1em;
+							    	background:none;
+							    	a{
+							    		color:$mobile_navMenuSubMenuLinkHoverColor;
+							    	}
+							    }
+							}
+						}
+
+						//normal submenu items
+						&.moreMenu .moreMenu {
+								>a:after{
+									color    :$mobile_navMenuSubMenuArrowContentColor;
+									content  :$mobile_navMenuSubMenuArrowContent;
+									font-size:$mobile_navMenuSubMenuArrowContentSize;
+								}
+							}
+
+						//multi submenu
+						&.multiMenu>ul{
+
+							//group item no border
+							ul{}
+
+							//item no border
+							li{}
+
+
+							>li>a{
+								font-weight: normal;
+								border-color:$mobile_navMenuLinkBorderColor;
+								&:after{
+									color    :$mobile_navMenuSubMenuArrowContentColor;
+									content  :$mobile_navMenuSubMenuArrowContent;
+									font-size:$mobile_navMenuSubMenuArrowContentSize;
+								}
+							}
+						}
+					}
+
+				}
+
+	 		}// end rwd
+
+
+	}
+
+	%headerType1Style{ @include headerTypeStyle(1); }
+	%headerType2Style{ @include headerTypeStyle(1); } // clone headerType1
+	%headerType3Style{ @include headerTypeStyle(3); }
+	%headerType4Style{ @include headerTypeStyle(4); }
+	%headerType5Style{ @include headerTypeStyle(5); }
+	%headerType6Style{ @include headerTypeStyle(6); }
+
+
+// =====================================================================================
+// header elements：hamburger、navMenu、topLink
+// =====================================================================================
+
+
+	.hamburger {
+		display: none;
+		// style
+		cursor:pointer;
+		line-height: 0;
+		span{
+			position: relative;
+			&:before,
+			&:after {content:''; position: absolute;left:0;}
+			&:before {top:-5px}
+			&:after  {top:5px}
+			&:before,
+			&:after,
+			&{
+				display: inline-block;
+				width: 1em;
+				height: 2px;
+				line-height: 0;
+				//background: $text-color;
+				@extend %transition;
+			}
+		}
+
+
+		&.open{
+			span{background: transparent;position: relative;}
+			span:before{transform:rotate3d(0,0,1,45deg);top:0}
+			span:after {transform:rotate3d(0,0,1,-45deg);top:0}
+		}
+		@media (max-width: $hamburgerPoint){
+		    //顯示漢堡
+		    display:inline-block;
+		}
+	}
+
+
+	//下拉選單
+	%subMenu{
+
+		// config-style
+		$subMenuBorderColor       :$cis-color-1;            //子選單-邊框顏色
+		$subMenuBorderWidth       :3px;                     //子選單-邊框寬
+		$subMenuBgColor           :#fff;                    //子選單-背景色
+		$subMenuItemBgColor       :#fff;                    //子選單-項目背景色
+		$subMenuItemBgColorHover  :rgba(#aaaaaa,.2);        //子選單-項目背景色(滑過)
+		$subMenuItemBorderColor   :#eeeeee;                 //子選單-項目邊框顏色
+		$subMenuLinkColor         :$text-color;             //子選單-項目連結顏色
+
+		$moreMenuIconColor        :rgba($text-color,.5);    //一般下拉選單箭頭色
+
+		$multiMenuHoverBg         :none;                    //多選單背景色
+
+
+
+		//for sub menu box-------
+		.moreMenu {
+			>a{
+				display: inline-flex;
+				display:-webkit-inline-flex;
+			    justify-content:space-between;
+			    -webkit-justify-content:space-between;
+			}
+		    >a:after{
+			    font-family:FontAwesome;
+			    text-rendering: auto;
+			    -webkit-font-smoothing: antialiased;
+			    -moz-osx-font-smoothing: grayscale;
+		    	content: "\f107";
+		    	padding-left:0.5em;
+		    }
+		    li {
+		    	padding-top:0.5em;
+		    	padding-bottom:0.5em;
+		    }
+			.moreMenu{
+				>a:after {
+					content:"\f105";
+				}
+			}
+		}
+
+		//for sub menu pos ----------
+		.moreMenu{
+			position: relative;
+			overflow: hidden;
+
+			>ul{
+				position: absolute;
+				left:0;
+				top:100%;
+				opacity: 0;
+				z-index: 100;
+				min-width: 230px;
+				a{
+					width:100%;
+				}
+			}
+
+			&:hover{
+				overflow:visible;
+				>ul{
+					opacity: 1;
+					ul{
+						left:100%;
+						top:0;
+					}
+				}
+			}
+		}
+
+		.multiMenu{
+
+			$multiMenuItemWidth:12em;
+			$multiMenuRowItems:5;
+			$multiMenuPadding:1em;
+
+			position: relative;
+			overflow: hidden;
+
+			>ul{
+				opacity: 0;
+				top:auto;
+				left:50%;
+				transform:translateX(-50%);
+				-webkit-transform:translateX(-50%);
+				width:($multiMenuItemWidth*$multiMenuRowItems)+$multiMenuPadding*2;
+				max-width:100%;
+				max-height: 80vh;
+				overflow: hidden;
+				overflow-y:auto;
+
+				display: flex;
+				align-items: flex-start;
+				justify-content:flex-start;
+				flex-wrap:wrap;
+				display: -webkit-flex;
+				-webkit-align-items: flex-start;
+				-webkit-justify-content:flex-start;
+				-webkit-flex-wrap:wrap;
+
+				padding:$multiMenuPadding;
+
+				>li{
+					width:$multiMenuItemWidth;
+					min-width:$multiMenuItemWidth;
+					padding:$multiMenuPadding;
+					max-width: 100%/$multiMenuRowItems;
+					&:hover{}
+					>a{
+					 padding:0 $multiMenuPadding;
+					}
+				}
+			}
+
+
+
+			&:hover{
+				position: static;
+				overflow: hidden;
+				>ul{
+					opacity: 1;
+				}
+			}
+		}
+
+
+		//style-----------------------
+
+
+			// only layer 1 submenu
+			>ul{
+				box-shadow: 0 0 20px rgba(0,0,0,.1);
+			}
+
+			// all submenu style
+			ul{
+				border-bottom:$subMenuBorderWidth solid $subMenuBorderColor;
+				background:$subMenuBgColor;
+			    box-shadow: 0 13px 42px 11px rgba(0,0,0,0.05);
+			    a>span{display:inline-block; line-height: $lineheight_small;}
+				li{
+					background: $subMenuItemBgColor;
+				    border-bottom: 1px solid $subMenuItemBorderColor;
+				    &:hover{
+				    	padding-left:1.5em;
+				    	padding-right:1.5em;
+				    	background:$subMenuItemBgColorHover;
+				    	a{
+				    		color:$subMenuLinkColor;
+				    	}
+				    }
+				}
+			}
+
+
+			//normal submenu items arrow
+			.moreMenu {
+				.moreMenu a:after{
+					color:$moreMenuIconColor;
+					font-size:$font-size-small;
+					line-height: $fontSizeBase*2;
+				}
+			}
+
+			//multi submenu
+			.multiMenu>ul{
+				>li{border:0;}
+				>li:hover{background: $multiMenuHoverBg;padding-left:1em;padding-right:1em;}
+				//group item no border
+				ul{border:0; box-shadow: none;}
+
+				//item no border
+				li a{line-height: $lineheight_small;}
+
+				//title font bold
+				>li>a{
+					font-weight: bold;
+					border-bottom:1px solid #333333;
+					color:$cis-color-1;
+					span {
+						line-height: $lineheight;
+					}
+				}
+			}
+
+
+	}
+
+
+	//main menu
+	.navMenu{
+
+		// type --------------------------------
+			@extend %listStyleInline;
+			li  {
+				padding:0 $fontSizeBase;
+				a{display: block;}
+			}
+			>li{
+				padding-left:0;
+				padding-right:0;
+				vertical-align: top;
+				>a{
+					display:inline-flex;
+				    flex-direction:row;
+				    justify-content:center;
+				    align-items:center;
+					display:-webkit-inline-flex;
+				     -webkit-flex-direction:row;
+				    -webkit-justify-content:center;
+				    -webkit-align-items:center;
+				    text-align:center;
+				    padding-left:1em;
+					padding-right:1em;
+					height: $headerHeight;
+				}
+			}
+			@extend %subMenu;
+
+
+			>li{
+
+
+				//main item hover
+				&:hover{
+					position: relative;
+					>a{position: relative;
+						>*,
+						&:after{
+							position: relative;
+							z-index: 100;
+						}
+						&:before{
+							content:'';
+							position: absolute;
+							z-index: 0;
+							top:0;
+							bottom:0;
+							left:0;
+							right:0;
+							border-style:solid;
+						}
+
+					}
+
+				}
+
+				//main item active
+				&.active>a{
+
+				}
+
+
+			}
+
+			//選單高度超過螢幕
+			.overEdge {
+				overflow-y: auto;
+				max-height: 80vh;
+
+				&,*{
+							transition:none;
+					-webkit-transition:none;
+				}
+			}
+
+
+		//RWD
+		@media (max-width: $hamburgerPoint){
+			display: none;
+			max-height:80vh;
+			width:100%;
+			overflow-y: auto;
+
+
+			&.open{display: block;}
+
+	    	padding-left:$space;
+	    	padding-right:$space;
+			li{
+				width:100%;
+				padding-top:0;
+				padding-bottom:0;
+				a{
+					display: inline-block;
+					padding-top:1em;
+					padding-bottom:1em;
+					width:100%;
+					text-align: left;
+					&:after{
+						position: absolute;
+					    right: 0.5em;
+					}
+				}
+			}
+
+		    >li{
+		    	>a{
+			    	height: auto;
+			    	padding-left:0;
+		    	}
+		    }
+
+			.moreMenu{
+
+				li{
+					padding-top:0;
+					padding-bottom:0;
+				}
+
+				>ul         {display: none;opacity: 1; position: static;}
+				&:hover>ul  {display: none;}
+
+				.open,
+				&:hover .open {display: block;}
+
+				a:after{position:absolute;}
+
+			   .moreMenu {
+					>a:after{
+						content:"\f107";
+						font-size:1em;
+					}
+				}
+			}
+
+
+			.multiMenu{
+				ul{display: none;}
+				>ul{
+					padding:0;
+					width:100%;
+					max-height: none;
+					transform:none;
+					-webkit-transform:none;
+					>li{
+						width:auto;
+						max-width:100%;
+						padding:0;
+						padding-left:1em;
+						>a{
+							position: relative;
+							padding:1em;
+
+							&:after{
+							    font-family:FontAwesome;
+							    text-rendering: auto;
+							    -webkit-font-smoothing: antialiased;
+							    -moz-osx-font-smoothing: grayscale;
+						    	content: "\f107";
+						    }
+						}
+					}
+
+				}
+				li{
+					padding-left:1em;
+					padding-right:0;
+					a{
+						padding:1em;
+					}
+				}
+
+			}
+		}
+
+	}
+
+
+	//top Link
+	.topLink{
+		line-height : $lineheight_small;
+		height      : $lineheight_small+em;
+		position    : relative;
+		opacity     : 1;
+
+		.topLinkContent {
+			//@extend %Bbox_view;
+		}
+
+		.topLinkMenu{
+
+			float:right;
+			display: inline-flex; align-items:center; justify-content:flex-end;
+			display:-webkit-inline-flex; -webkit-align-items:center; -webkit-justify-content:flex-end;
+
+
+
+				* {
+					line-height: $lineheight_small;
+					font-size:$font-size-h6;
+				@extend %transition;
+				}
+
+			&,ul{
+				margin:0;
+				padding:0;
+				list-style:none;
+			}
+
+			&{
+				padding:0 1em;
+			}
+			ul{
+				li{padding:0.5em 1em;}
+				a{display: block}
+			}
+
+				>li{
+					+li:before{content:'|';padding:0 1em;}
+					>a{
+						i{padding-right:.5em;}
+					}
+				}
+
+			@extend %subMenu;
+
+
+
+		}
+
+		@media (max-width: $hamburgerPoint){
+			position: fixed;
+			top:auto;
+			right:0;
+			left:0;
+			bottom:0;
+			opacity: 1;
+
+			.topLinkContent {
+				padding:0;
+			}
+
+			.topLinkMenu{
+				float:none;
+				display: flex;
+				align-items:center;
+				justify-content:space-around;
+				display:-webkit-flex;
+				-webkit-align-items:center;
+				-webkit-justify-content:space-around;
+				height:$headerScrollHeight;
+
+
+				.moreMenu{
+
+					>ul{position: fixed;z-index:0;top:auto;bottom:$headerScrollHeight;left:0!important;right:0 !important; display: none;opacity: 1; }
+					&:hover {ul {display: none;}}
+
+					.open,
+					&:hover .open{display: block;}
+
+					>a{
+						flex-wrap:wrap;
+						justify-content:center;
+						-webkit-flex-wrap:wrap;
+						-webkit-justify-content:center;
+						>span{width: auto;}
+					}
+
+				}
+				>li{
+					padding:0;
+					>a{
+						*{
+							display: inline-block;
+							width:100%;
+							text-align: center;
+							margin:0;
+						}
+						i{
+
+							padding-left:0;
+							padding-right:0;
+						}
+					}
+				}
+				>li+li:before{content:'';display:none;}
+
+			}
+		}
+	}
+
+
+
+
+
+
+
+
+// =====================================================================================
+// header effect
+// =====================================================================================
+
+	// effect
+	.header,
+	.topLink,
+	.navBar .brandLogo img,
+	.navMenu li:hover ul {@extend %transition;}
+	.navBar .navMenu>li>a {transition-duration: .1s;-webkit-transition-duration: .1s; }
+
+
+
+	//scrollEffect-滾動後從上往下滑出 (only pc)
+	%scrollEffect{
+		@media (min-width:$hamburgerPoint+1){
+		    animation:scroll_animation .3s ; // infinite=無限遁環
+		    animation-timing-function: linear;
+		    animation-fill-mode: both;
+		    -webkit-animation:scroll_animation .3s ;
+		    -webkit-animation-timing-function: linear;
+		    -webkit-animation-fill-mode: both;
+			opacity: 0;
+			top:$headerScrollHeight*-1;
+			@keyframes scroll_animation {
+				from { opacity: 0;top:$headerScrollHeight*-1}
+				to   { opacity: 1;top:0;}
+			}
+			@-webkit-keyframes scroll_animation {
+				from { opacity: 0;top:$headerScrollHeight*-1}
+				to   { opacity: 1;top:0;}
+			}
+		}
+	}
+
+	@media (max-width:$hamburgerPoint){
+		.header{
+					transition:none;
+			-webkit-transition:none;
+		}
+		.header.scroll[data-scroll='up']{top:0;}
+		.header.scroll[data-scroll='down']{top:-100%;}
+	}
+
+
+
+// =====================================================================================
+// header type (需配合HTML)
+// =====================================================================================
+
+
+
+	// 0-default
+	%headerType{
+
+		//pos
+			position: fixed;
+			top:0;
+			left:0;
+			right:0;
+			z-index: 1000;
+
+		//scroll
+			&.scroll{
+				//捲動後Logo大小
+				.brandLogo img{height:$headerScrollHeight; }
+
+				//捲動後選單高度
+				.navMenu>li>a{height: $headerScrollHeight; }
+
+				//捲動後隱藏，手機版不隱藏
+				.topLink {height: 0;opacity:0;overflow: hidden;}
+				@media (max-width: $hamburgerPoint){.topLink {height:auto; opacity:1; overflow:visible;}}
+			}
+
+		//brand
+			.brandLogo {
+				img {
+					height:$headerHeight;
+					@media (max-width: $hamburgerPoint){max-width:90%;height: auto}
+				}
+			}
+
+		//navbar
+			.navBar{
+				position: relative;
+
+				@media (max-width: $hamburgerPoint){
+					padding-right:0;
+					padding-left:0;
+					position: relative;
+					z-index: 1000;
+					.navBarContent {
+					    flex-direction: column;
+					    -webkit-flex-direction: column;
+					    >*{width:100%;}
+					    >*:first-child{
+					    	display: flex;
+					    	align-items:center;
+					    	justify-content:space-between;
+					    	display: -webkit-flex;
+					    	-webkit-align-items:center;
+					    	-webkit-justify-content:space-between;
+							padding-left:$space_smaller;
+					    	padding-right:$space_smaller;
+					    	flex-wrap:nowrap;
+					    	-webkit-flex-wrap:nowrap;
+					    }
+					}
+				}
+			}
+	}
+
+
+
+	//1-靠左(boxView)
+	.headerType1 {
+
+		@extend %headerType1Style;
+		@extend %headerType;
+
+		//navBar
+		.navBar{
+			@extend %Bbox_view;
+			.navBarContent{
+				@extend %Bbox_flexBetween;
+			}
+
+
+		}
+
+		.topLinkContent {
+			@extend %Bbox_view;
+
+		}
+
+	}//end headerType1
+
+
+
+
+
+	//2-兩側(fullView) (clone headerType1)
+	.headerType2 {
+
+		@extend .headerType1;
+		@extend %headerType2Style;
+		.navBar{
+			@extend %Bbox_view_full;
+		}
+
+		.topLinkContent {
+			@extend %Bbox_view_full;
+		}
+
+	}//end headerType2
+
+
+
+
+
+	//3-雙排，選單置中 (boxView)
+	.headerType3 {
+
+		@extend %headerType3Style;
+		@extend %headerType;
+
+		&.scroll{
+			//捲動後logo與選單一排
+			.navBar{
+				.navBarContent{
+					@extend %Bbox_flexBetween;
+					padding:0 $space_smaller;
+					@media (max-width:$hamburgerPoint){padding:0;}
+				}
+			}
+			//pc捲動時topLink隱藏
+			.topLink{
+				@media (min-width:$hamburgerPoint+1){display: none;}
+			}
+			@extend %scrollEffect;
+		}
+
+		//navBar
+		.navBar{
+			@extend %Bbox_view;
+			.navBarContent{
+				>*:nth-child(1){
+					@extend %Bbox_flexBetween;
+					position: relative;
+					z-index: 100;
+				}
+				>*:nth-child(2){
+					text-align: center;
+				}
+			}
+		}
+
+		//navMenu文字置左
+		.navMenu{
+			>li{>a {height:$headerScrollHeight;}}
+			*{
+				text-align: left;
+			}
+		}
+
+		//logo右邊的toplink
+		.topLink {
+			.topLinkMenu{
+				>.moreMenu{
+					>ul{
+						left:auto !important;
+						right:0 !important;
+						@media (max-width:$hamburgerPoint){left:0 !important;}
+					}
+				}
+			}
+		}
+
+
+
+	}//end headerType3
+
+
+
+
+
+	//4-置中，無選單 (fullView) topLink：pc版、mb版
+	.headerType4 {
+
+		@extend %headerType4Style;
+		@extend %headerType;
+
+		//選單高度
+		.navMenu{
+			>li>a{height: $headerScrollHeight;}
+		}
+
+
+		&.scroll{
+
+			//捲動後logo與選單一排
+			.navBar{
+				.navBarContent{
+					@extend %Bbox_flexBetween;
+					padding:0 $space_smaller;
+					@media (max-width:$hamburgerPoint){padding:0;}
+				}
+			}
+			//捲動後顯示選單
+			.navMenu{
+				@media (min-width: $hamburgerPoint+1){display: block;}
+			}
+
+			//effect-滾動後從上往下滑
+			@extend %scrollEffect;
+
+		}
+
+		//手機版再顯示選單
+		.navMenu{
+			@media (min-width: $hamburgerPoint+1){display: none;}
+		}
+
+		//logo置中
+		.brandLogo {
+			text-align: center;
+		}
+
+		//topLink(full)手機版才顯示
+		>.topLink{
+			display: none;
+			 @media (max-width:$hamburgerPoint){display:block;}
+		}
+
+		//logo左右邊的toplink
+		.topLinkLeft,
+		.topLinkRight {
+			@extend .topLink;
+			@media (max-width:$hamburgerPoint){display: none}
+			position:absolute;
+			top:50%;
+			transform:translateY(-50%);
+			-webkit-transform:translateY(-50%);
+		}
+
+		.topLinkLeft {
+			left:0;
+		}
+
+		.topLinkRight {
+			right:0;
+			.topLinkMenu{
+				>.moreMenu{
+					>ul{
+						left:auto !important;
+						right:0 !important;
+					}
+				}
+			}
+		}
+
+
+
+	}//end headerType4
+
+
+
+
+
+
+	//5-置中，有選單 (fullView) topLink：pc版、mb版
+	.headerType5 {
+
+		@extend %headerType5Style;
+		@extend %headerType;
+
+
+		&.scroll{
+
+			//捲動後logo與選單一排
+			.navBar{
+				.navBarContent{
+					@extend %Bbox_flexBetween;
+					padding:0 $space_smaller;
+					@media (max-width:$hamburgerPoint){padding:0;}
+				}
+			}
+
+			//effect-滾動後從上往下滑出
+		    @extend %scrollEffect;
+
+
+		}
+
+		//navBar
+		.navBar{
+			.navBarContent{
+				>*:nth-child(1){
+					position: relative;
+					z-index: 100;
+				}
+				>*:nth-child(2){
+					text-align: center;
+				}
+
+			}
+		}
+		.navMenu{
+			//選單高度
+			>li>a{height: $headerScrollHeight;}
+			*{
+				text-align: left;
+			}
+		}
+
+		.brandLogo {
+			text-align: center;
+		}
+
+
+		//topLink(full)手機版才顯示
+		>.topLink{
+			display: none;
+			 @media (max-width:$hamburgerPoint){display:block;}
+		}
+
+
+
+		//logo左右邊的toplink
+		.topLinkLeft,
+		.topLinkRight {
+			@extend .topLink;
+			@media (max-width:$hamburgerPoint){display: none}
+			position:absolute;
+			top:50%;
+			transform:translateY(-50%);
+			-webkit-transform:translateY(-50%);
+		}
+
+		.topLinkLeft {
+			left:0;
+		}
+
+		.topLinkRight {
+			right:0;
+			.topLinkMenu{
+				>.moreMenu{
+					>ul{
+						left:auto !important;
+						right:0 !important;
+					}
+				}
+			}
+		}
+
+
+	}//end headerType5
+
+
+
+
+
+	//6-兩側，無選單，壓banner (fullView 青木版)
+	.headerType6 {
+
+		@extend %headerType6Style;
+		@extend %headerType;
+
+		z-index: 100;
+		&.navMenuBlock{position: relative;z-index: 99;}
+		&.scroll{
+			z-index: 10000;
+			//捲動後logo與選單一排
+			.navBar{
+				padding:0;
+				.navBarContent{
+					@extend %Bbox_flexBetween;
+					padding:0 $space_smaller;
+					@media (max-width:$hamburgerPoint){padding:0;}
+				}
+			}
+
+			//pc捲動時topLink隱藏
+			.topLink{
+				@media (min-width:$hamburgerPoint+1){display: none;}
+			}
+
+			//捲動後顯示選單
+			.navMenu{
+				@media (min-width: $hamburgerPoint+1){display: block;}
+			}
+
+			//effect-滾動後從上往下滑出
+		    @extend %scrollEffect;
+
+
+		}
+
+		//navBar
+		.navBar{
+			@extend %Bbox_view_full;
+			position: relative;
+			.navBarContent{
+				>*:nth-child(1){
+					@extend %Bbox_flexBetween;
+					position: relative;
+					z-index: 100;
+				}
+
+			}
+
+		}
+
+		.navMenu{
+			>li{>a {height:$headerScrollHeight;}}
+			@media (min-width: $hamburgerPoint+1){display: none;}
+		}
+
+		.topLink{
+			.topLinkMenu>li>a{
+				text-shadow: 0 0 5px rgba(0,0,0,.7);
+				-webkit-text-shadow: 0 0 5px rgba(0,0,0,.7);
+				&:hover{
+					text-shadow: 0 0 5px rgba(255,255,255,.7);
+					-webkit-text-shadow: 0 0 5px rgba(255,255,255,.7);
+				}
+				@media (max-width:$hamburgerPoint){
+					&,&:hover{
+						text-shadow:none;
+						-webkit-text-shadow:none;
+					}
+				}
+			}
+		}
+
+
+	}//end headerType6
+
+
+
+
+
+
+
+	.header {
+		// &.Type#{$headerType}{
+		// 	@extend .headerType#{$headerType};
+		// }
+	}
+
+
+
+
+
+	//單獨選單(不包在header裡面)
+	.navMenuBlock{
+		position: static;
+		.navMenu{
+			display: table;
+			margin:auto;
+		}
+		@media (max-width: $hamburgerPoint){display: none}
+	}

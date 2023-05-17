@@ -1,0 +1,637 @@
+@charset "utf-8";
+
+// =====================================================================================
+// form elements
+// =====================================================================================
+
+	$formElementsBorderColor  :#ebebeb;        // 表單元素邊框色
+	$formElementsBorderWidth  :$border-base;   // 表單元素邊框寬
+	$formElementsHeight       :45px;           // 表單元素高度
+	$formMustColor            :$cis-color-1;   // 必填欄位 顏色
+
+
+	//表單table
+	.formTable{
+		display: table;
+		width:100%;
+		.formItem{
+			display: table-row;
+			>*{
+				display:table-cell;
+				padding:$space_smaller;
+				input {width:100%;}
+			}
+		}
+
+		@media (max-width: $screenViewSS){
+			.formItem{
+				display: block;
+				>*{
+					display: block;
+					padding:0;
+				}
+				&+* {margin-top:$space_small;}
+			}
+		}
+	}
+
+	
+	.sideForm {
+		max-height: 200px;
+		overflow-x: hidden;
+		overflow-y: scroll;
+		-webkit-overflow-scrolling: touch;
+	}
+
+
+
+
+
+	// =button
+		$btnFontColor:#fff;
+		$btnFontColorHover:#fff;
+		@mixin btn-style-1 ($color) {
+			border-radius  : $radius-base;
+			background     : $color;
+			border-width   : $border-base;
+			border-style   : solid;
+			border-color   : $color;
+			letter-spacing : 1px;
+			color          : $btnFontColor;
+			padding        : 0.65em 1.5em;
+			line-height    : 1em;
+			font-size      : $fontSizeBase;
+			cursor         : pointer;
+			margin         : $space_smaller 0;
+			display        : inline-block;
+		    &.error,
+		    &:active,
+		    &:focus,
+		    &:hover{
+		    	background : lighten($color,5%);    	
+		    	background : lighten($color,5%);    	
+		    	color      : $btnFontColorHover;
+		    }
+		}
+	    
+	    //set a.btn- color
+	    [class^=btn-] {
+	    	color:$btnFontColor;
+	    	&.error,
+	    	&:active,
+	    	&:focus,
+	    	&:hover{
+	    		color:$btnFontColorHover;
+	    	}
+	    }
+
+		@for $cisnum from 1 through 3 {        
+		    .btn-cis#{$cisnum} {  
+		    	@include btn-style-1(nth($cis,$cisnum));
+		    }
+		}
+		@for $cisnum from 1 through 3 {        
+		    .btn-cis#{$cisnum}-dark {  
+		    	@include btn-style-1(nth($cis-dark,$cisnum));
+		    }
+		}
+		@for $cisnum from 1 through 3 {        
+		    .btn-cis#{$cisnum}-darker {  
+		    	@include btn-style-1(nth($cis-darker,$cisnum));
+		    }
+		}
+		@for $cisnum from 1 through 3 {        
+		    .btn-cis#{$cisnum}-light {  
+		    	@include btn-style-1(nth($cis-light,$cisnum));
+		    }
+		}
+		@for $cisnum from 1 through 3 {        
+		    .btn-cis#{$cisnum}-lighter {  
+		    	@include btn-style-1(nth($cis-lighter,$cisnum));
+		    }
+		}
+		
+
+		button {
+			@include btn-style-1($cis-color-1);
+			// i{padding:0 .5em;}
+		}
+		
+		button,
+		[class^='btn-']{
+			i{padding-right:.5em;}
+		}
+
+
+
+		.btn-prev,
+		.btn-next {
+			@extend button; 
+			background: none;
+			color:$cis-color-1;
+		}
+		.btn-prev {i{padding-left:0}}
+		.btn-next {i{padding-right:0;padding-left:.5em;}}
+
+		
+
+		.btn-fb {
+			@include btn-style-1(#2d609b);	
+			color:#fff;	
+			&:before{
+				content:'\f09a';
+				font-family: fontawesome;
+				padding-right: .5em;
+				
+			}
+		}
+
+		
+		.btn-google {
+			@include btn-style-1(#dc4e40);		
+			color:#fff;
+			&:before{
+				content:'\f0d5';
+				font-family: fontawesome;
+				padding-right: .5em;
+			}
+		}
+
+		
+		.btn-twitter {
+			@include btn-style-1(#00c3f3);		
+			color:#fff;
+			&:before{
+				content:'\f099';
+				font-family: fontawesome;
+				padding-right: .5em;
+			}
+		}
+
+		.btn-big {font-size:$font-size-h3;}
+
+		
+		.btn-link {
+			background: none;
+			padding:0;
+			color:$text-color;
+			text-decoration: underline;
+			border:0;
+			&:hover,
+			&.error,
+			&:focus,
+			&.action{color:$cis-color-1;}
+		}
+
+
+
+
+		
+
+
+
+	// =input
+		input::-webkit-input-placeholder       {color:lighten($text-color,60%);font-weight: 300;}
+		input:-moz-placeholder                 {color:lighten($text-color,60%);font-weight: 300;}
+		input::-moz-placeholder                {color:lighten($text-color,60%);font-weight: 300;}
+		input:-ms-input-placeholder            {color:lighten($text-color,60%);font-weight: 300;} 
+		input:focus::-webkit-input-placeholder {color:transparent;}
+		input:focus:-moz-placeholder           {color:transparent;}
+		input:focus::-moz-placeholder          {color:transparent;}
+		input:focus:-ms-input-placeholder      {color:transparent;} 
+
+		textarea::-webkit-input-placeholder       {color:lighten($text-color,60%);font-weight: 300;}
+		textarea:-moz-placeholder                 {color:lighten($text-color,60%);font-weight: 300;}
+		textarea::-moz-placeholder                {color:lighten($text-color,60%);font-weight: 300;}
+		textarea:-ms-input-placeholder            {color:lighten($text-color,60%);font-weight: 300;} 
+		textarea:focus::-webkit-input-placeholder {color:transparent;}
+		textarea:focus:-moz-placeholder           {color:transparent;}
+		textarea:focus::-moz-placeholder          {color:transparent;}
+		textarea:focus:-ms-input-placeholder      {color:transparent;} 
+
+		
+		
+		select,
+		textarea,
+		input  {
+				border        : $formElementsBorderWidth solid $formElementsBorderColor;
+				border-radius : $radius-base;
+			    box-shadow    : none;    
+			    line-height   : $formElementsHeight;
+			    height        : $formElementsHeight;
+			    padding       : 0 1em;
+			    color         : lighten($text-color,10%);
+			    font-size     : $fontSizeBase;
+			    letter-spacing: 1px;
+
+
+			    &.error,
+			    &:focus,
+			    &:active {border-color:$cis-color-1;outline:0;}
+		}
+
+		$disabledColor:#ddd;
+		select:disabled,
+		option:disabled,
+		textarea:disabled,
+		input:disabled{
+			background:none;
+			border-color:transparent;
+			padding-left: 0;
+			color:$disabledColor;
+			&:focus,
+			&:active {
+				border-color:transparent;
+				outline:0;
+			}
+		}
+
+
+
+
+
+
+
+		form,.form {
+
+			.formItem {			
+				
+				select,
+				textarea,
+				input{width:100%;}			
+				input[type='checkbox'],
+				input[type='radio'] {width: auto;}
+				textarea {min-height: 10em}
+				margin-bottom: $space_smaller;
+				
+				//一行多個元素時
+				&.oneLine {
+					select,
+					textarea,
+					input              {width:auto;vertical-align: middle;max-width: 100%;}	
+					
+					
+
+					*:not(label):not(i){
+						margin:0;
+						margin-right: 1em;
+						margin-bottom:.5em;
+						max-width: 100%;
+					}
+
+
+					display: flex;	
+					display: -webkit-flex;	
+							flex-wrap:wrap;
+					-webkit-flex-wrap:wrap;
+					label{width: 100%;}
+					.autoFull {
+								flex:1 1 auto;
+						-webkit-flex:1 1 auto;
+					}
+					>div,
+					>*:last-child{
+						margin-right:0;
+					}
+
+					.cube{
+						label{width: auto}
+					}
+				}
+			}
+
+
+			label {
+				display: block;		
+				font-weight:700;
+
+				&.must{
+					&:before{
+						content:'*';
+						padding-right: .5em;
+						font-size:$fontSizeBase;
+						color:$formMustColor;
+					}
+				}
+			}
+
+
+			.checkbox,
+			.radio {
+				$basicSize              :20px;
+				$basicColor             :$text-color;
+				$basicCheckedColor      :$cis-color-1;
+				$basicBorderWidth       :$formElementsBorderWidth;
+				$basicBorderColor       :rgba($text-color,.5);
+				$disabledColor          :#ccc;
+
+				%basicType{
+					display           : inline-block;
+					position          : absolute;
+					left              : 0;
+					top               : 50%;
+					transform         : translateY(-50%);
+					-webkit-transform : translateY(-50%);
+					width             : $basicSize;
+					height            : $basicSize;					
+					border-style      : solid;
+					border-width      : $basicBorderWidth;
+					border-color      : $basicBorderColor;
+				}
+
+				label{
+					display       : inline-block;
+					position      : relative;
+					padding-left  : $basicSize*1.5;
+					padding-right : 1.5em;
+					vertical-align: middle;
+				}
+
+				input[type="checkbox"],
+				input[type="radio"] {
+					width: auto;
+					opacity: 0;
+					position: absolute;
+
+					&+span:before{
+						content:'';
+						z-index: 1;
+						@extend %basicType;		
+					}
+					&:checked+span:before{
+						border-color:$basicCheckedColor;
+					}
+					&:checked+span:after{
+						content:'';
+						z-index: 0;
+						@extend %basicType;		
+						border    :$basicBorderWidth*2 solid  #ffffff;
+						background:$basicCheckedColor;
+					}
+
+
+					&+span{
+						img{
+							padding-right: .5em;
+							max-height: 1em;
+							vertical-align: text-bottom;
+						}
+					}
+				}
+
+
+				//radio style
+				input[type="radio"] {
+					&+span:after,
+					&+span:before{border-radius: 100%;}
+				}
+				// checkbox style
+				input[type="checkbox"] {
+					$checkboxRadius:$radius-base !default;
+					@if $radius-base>0 {$checkboxRadius:3px;}					
+					&+span:after,
+					&+span:before{border-radius: $checkboxRadius;}
+				}
+
+				//disabled style				
+				input[type="radio"]:disabled,
+				input[type="checkbox"]:disabled{
+					&+span{
+						color:$disabledColor;
+						&:before{border-color:$disabledColor;}
+						&:after{background:$disabledColor;}
+					}
+					&:checked+span{
+						&:before{border-color:$disabledColor;}
+						&:after{background:$disabledColor;}	
+					}
+				}
+
+
+
+				&.error{
+					border:$basicBorderWidth solid $cis-color-1;
+					outline:0;
+				}
+				
+
+			}
+			
+
+
+			@mixin makeCube($size) {
+				$cubeW:$size;
+				$cubeH:$size;
+				$cubeRadius:$radius-base;
+				$cubeBorderWidth:$formElementsBorderWidth;
+				$cubeBorderColor:$formElementsBorderColor;
+				$cubeCheckColor:$cis-color-1;
+				$cubeDisabledColor:#ccc;
+
+
+				label{
+					position:relative;
+					overflow: hidden;
+					display: inline-flex;
+					display: -webkit-inline-flex;
+							align-items:center;
+					-webkit-align-items:center;				
+							justify-content:center;
+					-webkit-justify-content:center;
+					vertical-align: middle;
+					
+
+					input[type='checkbox'],
+					input[type='radio'] {
+						position : absolute;
+						left     : -100%;
+						top      : -100%
+					}
+
+					input{
+
+						&+span{
+							border        : $cubeBorderWidth solid $cubeBorderColor;
+							border-radius : $cubeRadius;
+							text-align    : center;
+							min-width     : $cubeW;
+							height        : $cubeH;
+							line-height   : ($cubeH - $cubeBorderWidth*2);
+							padding       : 0 .5em;
+									transition:all .3s ease;
+							-webkit-transition:all .3s ease;
+
+							position: relative;
+							overflow: hidden;
+							display: inline-flex;
+							display: -webkit-inline-flex;
+									align-items:center;
+							-webkit-align-items:center;
+									justify-content:center;
+							-webkit-justify-content:center;
+							img{
+								max-height: 1em;
+								vertical-align: middle;
+								padding-right: .5em;
+							}
+						}
+					   // &:hover+span {
+						  //  	border-color: lighten($cubeCheckColor,20%);
+					   // }
+					   &:checked+span{
+						   	border-color : $cubeCheckColor;
+						   	background   : $cubeCheckColor;
+						   	color        : #ffffff;
+					   }
+					   &:disabled+span{						   	
+						   	background   : none;
+						   	color        : $cubeDisabledColor;
+						   	position: relative;
+						   	&:after{
+						   		content:'';
+						   		position: absolute;
+						   		width: 100%;
+						   		height: 100%;
+						   		top:0;
+						   		left:0;
+						   		background: rgba(#fff,.3);
+						   		z-index: 10;
+						   	}
+						   	img{
+						   		opacity: .5;
+						   	}
+					   }
+					}
+					
+				}
+
+				&.img{					
+					img{
+						position: absolute;
+						padding:0;
+						top:50%;
+						left:50%;
+								transform:translate(-50%,-50%);
+						-webkit-transform:translate(-50%,-50%);
+						max-height: none;
+					}
+				}
+			}
+			.cube      {@include makeCube($formElementsHeight);}
+			.cube.small{@include makeCube($formElementsHeight*.75);}
+
+
+			.numSet {
+				$numSetW:$formElementsHeight;
+				$numSetH:$formElementsHeight;
+				// $numSetRadius:$radius-base;
+				$numSetRadius: ($radius-base*7.5);
+				$numSetBorderWidth:$formElementsBorderWidth;
+				$numSetBorderColor:$formElementsBorderColor;
+				$numSetCheckColor:$cis-color-1;
+
+				button {
+					padding:0 5px;
+					height:$numSetH;
+					min-width: $numSetW;
+					line-height:($numSetH - $numSetBorderWidth*2);
+					text-align: center;
+					border-color:$numSetBorderColor;
+					background: $numSetBorderColor;
+					color:$text-color;
+					margin:0;
+
+				}
+				.minus{border-radius:$numSetRadius 0 0 $numSetRadius;}
+				.add  {border-radius:0 $numSetRadius $numSetRadius 0;}
+
+				input{
+					width:$numSetW;
+					border-radius: 0;
+					padding:0;
+					text-align: center;
+				}
+			}
+
+
+			.tips {
+				&,*{color:$lightColor}
+			}
+
+		}
+
+
+		//同意協議或願意收到訊息
+		.agreementBlock{
+			&,*{color:$cis-color-1;}
+		}
+
+
+
+		// price Filter (with js)
+			
+			.priceFilter{
+
+				//球 尺寸
+				$handleSize      :15px;
+				//球 顏色
+				$handleColor     :rgba($cis-color-1,1);
+				//連結線 高度
+				$connectLineH    :2px;
+				//連結色 顏色
+				$connectLineColor:rgba($cis-color-1,1);
+
+				//軌道 顏色
+				$trackColor      :rgba($cis-color-1-lighter,.5);
+				
+				
+				margin-top:$space;
+				margin-bottom:$space-smaller;
+
+				border:0;
+				border-radius:0;
+				cursor:pointer;
+				      box-shadow: none;
+				-webkit-box-shadow: none;
+
+				//球
+				.noUi-handle{
+					width:$handleSize;
+					height:$handleSize;
+					cursor:pointer;
+					border:0;
+					background:$handleColor;
+					border-radius: 100%;
+					 	box-shadow: none;
+					-webkit-box-shadow: none;
+					&:before  {display: none}
+					&:after   {display: none}
+				}
+
+				//軌道
+				height:$connectLineH;
+				background:$trackColor;
+				.noUi-background     {
+					background:$trackColor;
+					border-radius:0;
+						 	box-shadow: none;
+					-webkit-box-shadow: none;
+				}
+
+				//連結線
+				.noUi-connect        {
+					background:$connectLineColor ;
+					border-radius: 0;
+						 	box-shadow: none;
+					-webkit-box-shadow: none;
+				}
+			}
+
+			.showPrice {
+				display: flex;
+				display: -webkit-flex;
+						justify-content:space-between;
+				-webkit-justify-content:space-between;
+			}
+		
+

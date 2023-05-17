@@ -1,0 +1,173 @@
+@charset "utf-8";
+
+ 
+
+// =====================================================================================
+// 購物車 (popBox)
+// =====================================================================================
+	
+.sideCart{
+
+	.boxContent{		
+		top:0;
+		bottom:0;
+		left:auto;		
+		right:-100%;
+		height:100%;
+		max-width:500px;	
+	}
+
+	&.open{
+		
+		.boxContent{			
+			left:auto;
+			top:0;
+			right:0;
+			z-index: 100;
+					transform:none;
+			-webkit-transform:none;
+		}
+		
+	}
+
+	.boxContent{
+				transition:right .5s ease-out;
+		-webkit-transition:right .5s ease-out;
+	}
+
+	// rwd
+	@media (max-width: $screenViewM){
+		.proTableList .tableItem  {
+			width:100%;
+
+			.itemTitle ,
+			.itemSP,
+			.itemPrice,
+			.itemQty {padding-right: 0;}
+		}
+
+		
+		.boxContent{
+			overflow-y:auto !important;
+		}
+		.proTableList {
+			height: auto !important;
+			overflow: visible !important;
+		}
+	}
+
+
+
+
+
+
+
+	// style
+
+
+		
+		.boxContent{
+			padding: $space_big $space_smaller;			
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			display: -webkit-flex;
+			-webkit-flex-direction: column;
+			-webkit-justify-content: space-between;
+
+			.closeBtn {
+					position:absolute;
+					top:$space_smaller;
+					right:$space_smaller;
+					line-height: 1;
+				}
+		}
+
+
+		.proTableList{		
+			display: block;		
+			height:100%;
+			overflow-y:scroll;
+			overflow-x:hidden; 
+			  -webkit-overflow-scrolling: touch;
+			  &::-webkit-scrollbar {width: 5px; }
+			  &::-webkit-scrollbar-track {-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);}
+			  &::-webkit-scrollbar-thumb {background: $cis-color-1; }
+
+			.tableItem {
+				border-bottom:1px solid lighten($text-color,50%);
+				margin-bottom: $space_smaller;				
+				padding-bottom: $space_smaller;				
+				.gridBox{
+					>*:nth-child(2){
+						padding-left:1em;
+						padding-right:1em;
+					}
+				}
+			}
+		}
+		
+		.cartInfo {
+			font-weight: bold;
+			display: table;
+			width: 100%;
+			.cartTitle {
+				background: $cis-color-1-darker;
+				color:#fff;
+
+				padding:$space_smaller;
+				>*{
+					margin:0;
+					line-height: $lineheight;
+				}
+			}
+			[class^='btn']{
+				width:100%;
+				text-align: center;
+			}
+		}
+
+		.itemPrice {
+			color:$text-color;
+			font-weight:bold;
+			padding-right: 1em;
+		}
+
+		.itemSP {			
+			color:$lightColor;
+		}
+
+		.itemTitle{
+			font-size: $font-size-h4;
+		}
+
+		.itemQty{
+			label {
+				font-size: $font-size-h6;
+				padding-right: .5em;
+			}
+		}
+
+		.itemImg{
+			padding-bottom: $proImgSize;
+			img{
+				max-width: none;
+				max-height: none;
+				min-width: 0;
+				min-height: 0;
+				width:auto;
+				height:auto;
+			}
+		}
+
+
+
+		&.open{
+			.boxContent{
+				
+			}
+		}
+
+
+
+}

@@ -1,0 +1,822 @@
+@charset "utf-8";
+
+section.block {
+	margin-bottom:$space*2;
+	@media (max-width: 1600px){margin-bottom: $space*2; }
+	@media (max-width: 1440px){margin-bottom: $space*2; }
+	@media (max-width: $screenViewL){margin-bottom: $space*1.5; }
+	@media (max-width: $screenViewM){margin-bottom: $space; }
+}
+
+.editorBlock {
+	img {max-width: 100%;height: auto;}
+}
+
+
+
+// =====================================================================================
+// blockInfo 
+// =====================================================================================
+
+	.blockInfoTxt {
+		color:lighten($text-color,10%);
+		margin-bottom: $space;
+	}
+
+
+
+
+
+
+// =====================================================================================
+// slidBlock (輪播區塊)
+// =====================================================================================
+	.slidBlock{
+		overflow: hidden;
+		.itemImg {
+			display: inline-block;
+			vertical-align: middle;
+		}
+	}
+
+
+
+
+
+// =====================================================================================
+// articleBlock
+// =====================================================================================
+
+
+
+	%articleBlock {
+		display: inline-block;
+		vertical-align: middle;
+		width:100%;
+		margin:$space_smaller 0;
+		overflow: hidden;
+		img {
+			max-width: 100%;
+			border-radius: $radius-base;
+		}
+
+		.slidBlock{
+			.slidItem{padding:$space_smaller;}
+		}
+		
+	}
+
+	.articleBlock {
+		@extend %articleBlock;
+	}
+
+
+
+	//column inside
+	.articleBlockStyle01 {
+		@extend %articleBlock;
+		img{width:100%;}
+		//@extend .flex2cL1; 
+	}
+
+	
+
+
+
+
+	//img background
+	.articleBlockStyle02 {
+		@extend %articleBlock;
+		min-height:300px;
+		padding:$space_biger;
+		position: relative;
+		>*{
+			position: relative;
+			z-index: 1;
+		}
+		&:after{
+			content:'';
+			position: absolute;
+			top:0;
+			left:0;
+			bottom:0;
+			right:0;			
+			z-index: 0;
+		}
+
+		//font
+		// text-align:center;
+		
+		// style
+		&,*{
+			color:#ffffff !important;
+		}
+		&:after{background: rgba(0,0,0,.8); }
+
+	}
+
+
+
+
+
+
+	//color block
+	.articleBlockStyle03 {
+		@extend %articleBlock;
+		
+		padding:$space_biger 0;
+		position: relative;
+		
+		// style
+		background: rgba($text-color,.1);
+
+	}
+
+
+
+
+
+	.articleBlockStyle04{
+		@extend %articleBlock;
+		padding:0;
+		[class*="flex"]{			
+					align-items:stretch;
+			-webkit-align-items:stretch;
+					flex-wrap:nowrap;
+			-webkit-flex-wrap:nowrap;
+
+			>*{
+				padding:$space_biger;
+			}	
+			&.colRight {
+						justify-content:flex-end;
+				-webkit-justify-content:flex-end;
+			}		
+		}
+
+		background: rgba($text-color,.1);
+
+		.blockDecoBg {
+					flex:0 1 50%;
+			-webkit-flex:0 1 50%;
+			background-size:50%;
+			
+		}
+		.blockContent {
+					flex:0 1 600px;
+			-webkit-flex:0 1 600px;
+		}
+		
+		@media (max-width: $hamburgerPoint){
+			[class*="flex"]{
+						flex-wrap:wrap;
+				-webkit-flex-wrap:wrap;
+				>*{
+					padding:$space_smaller;
+				}
+			}
+			.blockDecoBg,
+			.blockContent {width:100%;flex:auto;-webkit-flex:auto;}
+			.blockDecoBg  {			
+				padding:0;
+				height: 300px;
+				background-size:100% auto !important;
+				background-attachment: inherit !important;
+				background-position:center center !important;
+				
+			}
+		}
+
+	}
+
+
+
+
+
+
+
+
+
+
+
+// =====================================================================================
+// timeLine (history / step ...etc )-----------
+// =====================================================================================
+		
+
+		$timeLineSlid_NavWidth   : 120px;
+		$timeLineSlid_NavDecoSize   : 12px;
+		$timeLineSlid_NavDecoBgColor: $cis-color-3;
+		$timeLineSlid_NavDecoBorderColor: $cis-color-3;
+		$timeLineSlid_ActiveColor: $cis-color-1;
+
+		//normal
+		.timeLine{
+
+			$itemStepFontCount: 3;             // 步驟或日期可放幾個字
+			$itemStepFontSize : $font-size-h1; // 影響圈大小
+			$lineBorderColor  : $cis-color-3;
+			$lineBorderStyle  : dashed;
+			$lineBorderWidth  : 1px;
+
+			padding:$space_smaller 0;
+
+			.item{
+
+				flex-direction:row;
+				align-items:stretch;
+				-webkit-flex-direction:row;
+				-webkit-align-items:stretch;
+
+				padding-bottom: 0;
+
+				>.itemLine{flex:1;-webkit-flex:1;}
+				>.itemContent{flex:3;-webkit-flex:3;padding-bottom:$space*2;}
+				
+				.itemContent{
+					display: flex;
+					display: -webkit-flex;
+					>.itemPic{width:33%;}
+					>.itemTxt{width:100%;padding-left:$space*2;}
+					>.itemPic+.Txt{width:67%;}
+					
+				}
+
+				@media (max-width: $hamburgerPoint){
+					.itemContent{
+						flex-wrap:wrap;
+						-webkit-flex-wrap:wrap;
+						>.itemPic{width:50%;}
+						>.itemTxt{width:100%;padding-left: 0;}
+					}
+				}
+
+				@media (max-width:$screenViewS){
+					flex-direction:column;
+					-webkit-flex-direction:column;
+					.itemLine{
+						padding-bottom:$space;
+						&:before{display: none;}
+					}
+					.itemContent{
+						>.itemPic{width:100%;}
+					}
+				}
+
+
+
+
+
+
+
+				.itemTitle{
+					color:$cis-color-2;
+				}	
+
+
+				.itemImg{
+					img{
+						max-width:150%;
+						max-height:150%;
+						min-width:100%;
+						min-height: 100%;
+					}
+					&:hover{
+						&:before,
+						&:after{display: none}
+					}
+					
+				}
+
+
+
+				.itemLine{
+
+					position: relative;
+					overflow: hidden;
+					font-size:$itemStepFontSize;
+
+					
+					&:before{//橫線
+						content:'';
+						position: absolute;
+						width:110%;						
+						top:($itemStepFontCount+1em)/2;
+						left:$itemStepFontCount+1em;
+						z-index: 0;
+						border-bottom:$lineBorderWidth $lineBorderStyle $lineBorderColor;
+						
+					}
+					&:after{//直線
+						content:'';
+						position: absolute;
+						height:110%;						
+						top:$itemStepFontCount+1em;
+						left:($itemStepFontCount+1em)/2;
+						z-index: 0;
+						border-left:$lineBorderWidth $lineBorderStyle $lineBorderColor;
+						
+					}	
+				}
+				&:last-child{
+					.itemLine:after{display: none}
+					@media (max-width:$screenViewS){
+						.itemLine:after{display: block}
+					}
+				}
+
+
+
+
+
+
+				.itemStep{					
+					//box
+					display:flex; flex-direction:column; align-items:center; justify-content:center;
+					display:-webkit-flex; -webkit-flex-direction:column; -webkit-align-items:center; -webkit-justify-content:center;
+					position: relative;
+					z-index: 1;
+					//size
+					width:$itemStepFontCount+1em;
+					height:$itemStepFontCount+1em;
+					
+					//font
+					font-size:$itemStepFontSize;
+					>*:nth-child(2){font-size:$font-size-h5;}
+					font-weight: 300;
+					>*{line-height: 1em;}
+
+					// style
+					border:1px solid $cis-color-1;
+					border-radius:100%;
+
+					
+				
+				}
+
+
+
+
+				
+				
+
+
+
+
+
+
+			}
+		}
+
+
+
+		//slid (use slick js)
+
+		%normaltimeLineSlidStyle{
+			padding-bottom: 0;
+			//size
+			.itemStep{
+				
+				>*{
+					display: table;
+					text-align: center;
+					width: 100%;
+				}						
+				min-width: $timeLineSlid_NavWidth;
+				max-width: 100%;						
+			}
+				
+			//font
+			.itemStep{
+				//font
+				>*{
+					line-height:$lineheight_small;
+					&:first-child{font-size:$font-size-h4;}
+				}
+			}
+
+
+			//點
+			.itemStep{
+				// nav deco
+				position: relative;
+				z-index: 1;
+				padding-bottom: $timeLineSlid_NavDecoSize*2;
+				&:after{
+					content:'';
+					position: absolute;
+					z-index: 1;
+					bottom: 0;
+					left:50%;
+							transform:translateX(-50%);
+					-webkit-transform:translateX(-50%);
+					width:$timeLineSlid_NavDecoSize;
+					height:$timeLineSlid_NavDecoSize;
+					line-height: $timeLineSlid_NavDecoSize;
+					overflow: hidden;
+					border-radius: 100%;
+					background:$timeLineSlid_NavDecoBgColor;
+
+				}
+
+
+			}
+
+
+			//線
+			.slick-slide {padding:0;}
+			position: relative;
+			&:after{
+				content:'';
+				position: absolute;
+				z-index: -1;						
+				left:$space_biger;
+				right:$space_biger;
+				bottom:$timeLineSlid_NavDecoSize*.5;
+				height: 1px;
+				background: $timeLineSlid_NavDecoBorderColor;
+			}
+
+			//亮燈
+			.slick-slide{
+						transform: scale(1);
+				-webkit-transform: scale(1);
+						transition: all .3s ease-in-out;
+				-webkit-transition: all .3s ease-in-out;
+			}
+			.slick-current {
+						transform: scale(1.05);
+				-webkit-transform: scale(1.05);
+					    transform-origin: bottom;
+			    -webkit-transform-origin: bottom;
+				.itemStep{
+					color:$timeLineSlid_ActiveColor;
+					&:after{background:$timeLineSlid_ActiveColor; }
+					
+				}
+			}
+		}
+
+
+		.timeLineSlid {
+			
+			@media (min-width: $screenViewS+1){
+				.timeLineItem {				
+					display: flex;
+					display: -webkit-flex;
+					>*{
+								flex:1;
+						-webkit-flex:1;
+						padding:$space_smaller;
+					}
+					>*:nth-child(2){max-width: 33%;}
+					
+				}
+			}
+
+
+ 			// 橫式
+			
+				&.slidNav,
+				&.slidContent{
+					//slid arrow
+					padding-left: $space_biger;
+					padding-right: $space_biger;
+					.slick-arrow{
+						opacity: 1;
+						&.slick-disabled{opacity: .1;}				
+
+					}
+					&,
+					&:hover{
+						.slick-arrow{
+							&.slick-next{right:0;}
+							&.slick-prev{left:0;}
+						}
+					}
+				}
+
+				&.slidNav{
+					padding-left: $space_biger;
+					padding-right: $space_biger;	
+					margin-bottom:$space;				
+					@extend %normaltimeLineSlidStyle;
+				}
+		
+				@media (max-width: $screenViewS){
+					&.slidContent {
+						padding-left: $space_smaller;
+						padding-right: $space_smaller;
+					}
+					&.slidNav{
+						// padding-left: $space_smaller;
+						// padding-right: $space_smaller;
+						
+						.itemStep{
+							min-width:0;
+							padding-left:1em;
+							padding-right:1em;
+						}				
+						&:after{						
+							left:$space_smaller;
+							right:$space_smaller;
+						}
+					}
+				}
+			
+
+			//直式 (依據橫式)
+				@media (min-width: $screenViewM){					
+								
+					&.slidNav.vType{
+						margin-top: $space_biger;
+						margin-bottom: $space_biger;
+						
+						.slick-list{
+							padding-top:0 !important;
+							padding-bottom:0 !important;
+						}
+						.slick-arrow{
+							opacity: 1;
+							&.slick-disabled{opacity: 0.1;}				
+
+						}
+						&,
+						&:hover{					
+							.slick-arrow{
+								left:50%;
+								right:auto;
+											transform:translateX(-50%) rotate(90deg);
+									-webkit-transform:translateX(-50%) rotate(90deg);
+								&.slick-prev{
+									top:-$space_biger;
+									bottom:auto;
+								}
+								&.slick-next{
+									bottom:-$space_biger;
+									top:auto;
+								}
+							}
+						}
+					}
+						
+					//item step
+					&.slidNav.vType{
+						&:after{display: none;}
+						.itemStep{
+							padding-bottom: 0;
+							display: flex;
+							display: -webkit-flex;
+									justify-content:center;
+							-webkit-justify-content:center;
+									align-items:center;
+							-webkit-align-items:center;
+							height: 3em;
+							>*{width: auto;}
+							&:after{
+								width: 100%;
+								height: 1px;
+							}
+						}
+					}
+				}
+
+
+
+			//simple
+				&.simple{
+					$timeLineSimpleDotsSize:15px;  //點點大小 (奇數斜線才會置中)
+					$timeLineSimpleDotsBorder:2px; //點點線寬
+					$timeLineSimpleLineHeight:2em; //斜線長
+					
+
+					
+					
+
+					// item pos
+						.slick-slide{
+								
+								&:nth-child(even){
+									.timeLineItem>div{margin-top:$timeLineSimpleLineHeight*6;}
+								}
+								&:nth-child(odd){
+									.timeLineItem>div{margin-bottom:$timeLineSimpleLineHeight*6;}
+									
+								}
+						}
+						.slick-list {
+							overflow-y:visible; 
+							z-index: 1;
+						}
+
+					// slick dots
+						.slick-dots{
+
+						}
+
+
+
+					//content space
+						.timeLineItem{
+
+							p{
+								margin-top:0;
+								margin-bottom:0;
+								line-height: $lineheight;
+								height: $lineheight*2em;
+								overflow: hidden;
+							}
+							.articleTitle{
+								margin-top:0;
+								margin-bottom:0;
+								line-height: $lineheight;
+								height: $lineheight*1em;
+								overflow: hidden;
+							}
+						}
+
+					//content font
+						.timeLineItem{
+							p{}
+							.articleTitle{
+								font-weight: normal;
+							}
+						}
+
+
+					//line 線
+						.slick-list{
+							position: relative;
+							z-index: 0;
+							&:after{
+								content:'';
+								position: absolute;
+								z-index: -1;
+								width: 100%;
+								height: 1px;
+								top:50%;
+								left:0;
+										transform:translateY(-50%);
+								-webkit-transform:translateY(-50%);
+								background: $timeLineSlid_NavDecoBorderColor;
+							}
+						}
+
+					//item dot 點&斜線
+						
+						.slick-slide{
+							position: relative;
+							z-index: 10;
+							//點
+							&:after{
+								content: '';
+								display: inline-block;
+								position: absolute;
+								z-index: 10;
+								top:50%;
+								left:50%;
+										transform:translate(-50%,-50%);
+								-webkit-transform:translate(-50%,-50%);
+								width:$timeLineSimpleDotsSize;
+								height: $timeLineSimpleDotsSize;
+								border-radius: 100%;
+								border-width: $timeLineSimpleDotsBorder;
+								border-style: solid;
+								border-color: $timeLineSlid_ActiveColor;
+								background: $body-bg;
+							}	
+							//斜線
+							&:before{
+								content: '';
+								display: inline-block;
+								position: absolute;
+								z-index: 1;
+								top:50%;
+								left:50%;
+								height: $timeLineSimpleLineHeight;
+								width: 1px;
+								background: $timeLineSlid_NavDecoBorderColor;
+										transform:translate(-50%,-50%) rotate(30deg);
+								-webkit-transform:translate(-50%,-50%) rotate(30deg);
+							}	
+							&:nth-child(even):before{
+								//線在下方
+								margin-top:$timeLineSimpleDotsSize;								
+									    transform-origin: top center;
+								-webkit-transform-origin: top center;
+							}
+							&:nth-child(odd):before{
+								//線在上方
+								margin-top:-$timeLineSimpleDotsSize;								
+									    transform-origin: bottom center;
+								-webkit-transform-origin: bottom center;
+							}						
+							
+						}
+
+					
+
+					@media (min-width: $screenViewS+1){
+						padding-left: $space_biger;
+						padding-right: $space_biger;
+					}
+
+					@media (max-width: $screenViewS){
+						
+						padding-left: $space_smaller;
+						padding-right: $space_smaller;
+
+						.timeLineItem{
+							p,.articleTitle{height: auto;}
+						}
+
+						//取消原本點、線
+						.slick-slide{
+							&:nth-child(even){.timeLineItem>div{margin-top:0;} }
+							&:nth-child(odd){.timeLineItem>div{margin-bottom:0;}}
+						}
+						.slick-list:after{display: none}
+						.slick-slide:after{display: none}
+						.slick-slide:before{display: none}
+
+						//樣式改在dots (點、橫線、斜線)
+						.slick-dots{
+
+							position: relative;							
+							margin-top:$timeLineSimpleLineHeight;
+								    justify-content: flex-start;
+						    -webkit-justify-content: flex-start;
+
+							//橫線
+							&:after{
+								content:'';
+								position: absolute;
+								z-index: 0;
+								width: 100%;
+								top:50%;
+								left:0;
+										transform:translateY(-50%);
+								-webkit-transform:translateY(-50%);
+								height: 1px;
+								background: $timeLineSlid_NavDecoBorderColor;
+
+							}
+							li {
+								z-index: 1;
+								//點
+								button{
+									width: $timeLineSimpleDotsSize;
+									height: $timeLineSimpleDotsSize;
+									border-width: $timeLineSimpleDotsBorder;
+									border-color: $timeLineSlid_NavDecoBorderColor;
+									overflow: visible;
+									&:after{background: $body-bg;}									
+											transition:all .3s ease-in-out;
+									-webkit-transition:all .3s ease-in-out;
+								}
+								//斜線
+								button{
+									&:before{
+										content: '';
+										display: inline-block;
+										position: absolute;
+										z-index: 0;
+										top:auto;
+										bottom:$timeLineSimpleDotsSize*.5;
+										left:50%;
+										height:0;
+										width: 1px;
+										background: $timeLineSlid_NavDecoBorderColor;
+												transform:translate(-50%,0) rotate(30deg);
+										-webkit-transform:translate(-50%,0) rotate(30deg);													
+											    transform-origin: bottom center;
+										-webkit-transform-origin: bottom center;
+												transition:all .3s ease-in-out;
+										-webkit-transition:all .3s ease-in-out;
+									}
+								}
+								//亮燈
+								&.slick-active{
+									button:before{
+										background: $timeLineSlid_ActiveColor;
+										height: $timeLineSimpleLineHeight;
+									}
+
+									button{
+										border-color: $timeLineSlid_ActiveColor;
+									}
+
+								}
+							}
+						}
+
+
+
+
+					}
+
+				}
+
+
+		}
+

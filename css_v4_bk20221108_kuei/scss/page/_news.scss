@@ -1,0 +1,2154 @@
+@charset "utf-8";
+
+// 0、預設 1、文字列表 2、圖文列表 3、名片式 4、日期在圖上 5、圖片線框 6、多標題內容
+$newsListStyle: 0 !default;
+@mixin newsListSet($newsListStyle) {
+	margin-top: $newsItem-space;
+	margin-bottom: $newsItem-space;
+	.item {
+		display: flex;
+		align-items: center;
+		padding-top: $newsItem-space;
+		padding-bottom: $newsItem-space;
+		a {
+			display: block;
+			.itemTitle {
+				color: $newsItemTitle-color;
+				font-size: $newsItemTitle-size;
+				font-weight: bold;
+				display: -webkit-box;
+				-webkit-line-clamp: 1;
+				-webkit-box-orient: vertical;
+				overflow: hidden;
+				text-overflow: ellipsis;
+			}
+			.itemContent {
+				color: $newsItemTxt-color;
+				display: -webkit-box;
+				-webkit-line-clamp: 2;
+				-webkit-box-orient: vertical;
+				overflow: hidden;
+				text-overflow: ellipsis;
+			}
+		}
+	}
+
+	@if $newsListStyle==1 {
+		.item {
+			border-top: 1px solid $newsItemLine-color;
+			a {
+				&:nth-child(1) {
+					flex: 0 0 auto;
+					margin-right: 32px;
+				}
+				&:nth-child(2) {
+					flex: 1 1 auto;
+				}
+			}
+		}
+		@media (max-width: $viewS) {
+			//768px
+			.item {
+				display: block;
+				a {
+					&:nth-child(1),
+					&:nth-child(2) {
+						flex: 0 0 100%;
+					}
+				}
+			}
+		}
+	}
+
+	@if $newsListStyle==2 {
+		.item {
+			border-top: 1px solid $newsItemLine-color;
+			a {
+				&:nth-child(1) {
+					flex: 0 0 auto;
+					width: 25%;
+				}
+				&:nth-child(2) {
+					flex: 1 1 auto;
+					width: 75%;
+					padding-left: $newsItem-space * 2;
+				}
+			}
+		}
+		@media (max-width: $viewM) {
+			//992px
+			.item {
+				a {
+					&:nth-child(2) {
+						padding-left: $newsItem-space;
+					}
+				}
+			}
+		}
+		@media (max-width: $viewS) {
+			//768px
+			.item {
+				display: block;
+				a {
+					&:nth-child(1),
+					&:nth-child(2) {
+						width: 100%;
+						padding-left: 0;
+					}
+				}
+			}
+		}
+	}
+
+	@if $newsListStyle==3 {
+		.item {
+			a {
+				width: 100%;
+				padding: 20px 20px 30px;
+				background-color: #fff;
+				border: 1px solid $newsItemLine-color;
+				transition: all 0.5s;
+				.itemTitle {
+					height: 86px;
+					-webkit-line-clamp: 2;
+				}
+				.itemContent {
+					height: 56px;
+				}
+				.dateStyle {
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					.dateLM {
+						color: #e5e5e5;
+						font-size: 65px;
+						margin-right: 12px;
+						font-weight: 400;
+					}
+					span {
+						line-height: 1.5;
+						display: block;
+					}
+					.dateM {
+						color: #a2546e;
+						font-size: 17px;
+						letter-spacing: 0.15em;
+						font-weight: 800;
+					}
+					.dateYD {
+						color: #626262;
+						font-size: 15px;
+						letter-spacing: 0.15em;
+					}
+				}
+				.itemImg {
+					&:before {
+						display: none;
+					}
+					&:after {
+						display: none;
+					}
+				}
+				.newsItem_block {
+					text-align: center;
+					margin-top: $newsItem-space/2;
+					.news_tag {
+						color: #fff;
+						font-size: 13px;
+						padding: 2px 8px;
+						letter-spacing: 0.15em;
+						display: inline-block;
+						margin-top: $newsItem-space/2;
+						margin-bottom: $newsItem-space/2;
+						background-color: $cis1;
+					}
+					.news_readMore {
+						text-align: center;
+						margin-top: $newsItem-space/2;
+						.newsReadMore_txt {
+							color: #a4a4a4;
+							letter-spacing: 0.35em;
+						}
+						.addIcon {
+							position: relative;
+							display: inline-block;
+							color: #ffffff;
+							width: 24px;
+							height: 24px;
+							line-height: 22px;
+							border-radius: 24px;
+							background-color: #a4a4a4;
+							&:before,
+							&:after {
+								content: "";
+								position: absolute;
+								top: 12px;
+								width: 65px;
+								height: 1px;
+								background-color: #a4a4a4;
+								-webkit-transition: all 0.5s;
+								-o-transition: all 0.5s;
+								transition: all 0.5s;
+							}
+							&:before {
+								left: 40px;
+							}
+							&:after {
+								right: 40px;
+							}
+						}
+					}
+				}
+				&:hover {
+					box-shadow: 0px 20px 40px 1.4px rgba(149, 149, 149, 0.35);
+					.news_readMore {
+						.newsReadMore_txt {
+							color: $cis1;
+						}
+						.addIcon {
+							background-color: $cis1;
+							&:before {
+								background-color: $cis1;
+							}
+							&:after {
+								background-color: $cis1;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	@if $newsListStyle==4 {
+		.item {
+			a {
+				width: 100%;
+				.time_date {
+					position: relative;
+					.dateStyle {
+						width: 80px;
+						height: 80px;
+						position: absolute;
+						left: 10px;
+						top: 10px;
+						z-index: 5;
+						color: #ffffff;
+						padding: 10px;
+						text-align: center;
+						background-color: rgba(0, 0, 0, 0.7);
+						&:before {
+							content: "";
+							position: absolute;
+							left: 5px;
+							right: 5px;
+							top: 5px;
+							bottom: 5px;
+							border: 1px solid #ffffff;
+						}
+						span {
+							display: block;
+							line-height: 1;
+						}
+						.dateD {
+							font-size: 30px;
+							padding-top: 5px;
+						}
+						.dateM {
+							font-size: 16px;
+							padding-top: 3px;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	@if $newsListStyle==5 {
+		.item {
+			align-items: stretch;
+			a {
+				&:nth-child(1) {
+					width: 25%;
+				}
+				&:nth-child(2) {
+					width: 75%;
+					padding-left: 30px;
+					position: relative;
+				}
+				.itemImg2 {
+					width: 100%;
+					height: 0;
+					position: relative;
+					overflow: hidden;
+					z-index: 1;
+					background: #f3f3f3;
+					padding: 5px 5px 94.8% 5px;
+					border: 1px solid #cccccc;
+					position: relative;
+					border-radius: 0;
+					img {
+						position: absolute;
+						top: 50%;
+						left: 50%;
+						z-index: 0;
+						transform: translate(-50%, -50%);
+						-webkit-transform: translate(-50%, -50%);
+						display: block;
+						width: 100%;
+						height: 100%;
+						max-width: calc(100% - 10px);
+						max-height: calc(100% - 10px);
+					}
+					.itemImg_line {
+						img {
+							max-width: calc(100% - 10px);
+							max-height: calc(100% - 10px);
+							object-fit: cover;
+						}
+						&::before {
+							content: "";
+							position: absolute;
+							transition: all 0.2s linear;
+							background: #0050a3;
+							width: 1px;
+							height: 15px;
+							left: 0;
+							top: 0;
+							transition-duration: 0.4s;
+						}
+						&::after {
+							content: "";
+							position: absolute;
+							transition: all 0.2s linear;
+							background: #0050a3;
+							width: 1px;
+							height: 15px;
+							right: 0;
+							bottom: 0;
+							transition-duration: 0.4s;
+						}
+					}
+					&::before {
+						content: "";
+						position: absolute;
+						transition: all 0.2s linear;
+						background: #0050a3;
+						width: 15px;
+						height: 1px;
+						left: 0;
+						top: 0;
+						transition-duration: 0.4s;
+					}
+					&::after {
+						content: "";
+						position: absolute;
+						transition: all 0.2s linear;
+						background: #0050a3;
+						width: 15px;
+						height: 1px;
+						right: 0;
+						bottom: 0;
+						transition-duration: 0.4s;
+					}
+				}
+				&:hover {
+					.itemImg2 {
+						&::before {
+							width: 100%;
+						}
+						&::after {
+							width: 100%;
+						}
+						.itemImg_line {
+							&::before {
+								height: 100%;
+							}
+							&::after {
+								height: 100%;
+							}
+						}
+					}
+				}
+				.dateStyle {
+					position: relative;
+					&:after {
+						position: absolute;
+						right: 0;
+						top: 50%;
+						left: 100px;
+						height: 1px;
+						background: #cccccc;
+						content: "";
+						display: inline-block;
+						width: auto;
+					}
+					.date {
+						color: $cis1;
+					}
+				}
+				.moreStyleBlock {
+					width: calc(100% - 30px);
+					display: flex;
+					justify-content: space-between;
+					align-items: center;
+					position: absolute;
+					right: 0;
+					bottom: 0;
+					span {
+						display: inline-block;
+					}
+					.borderLine {
+						width: calc(100% - 104px);
+						height: 1px;
+						border-bottom: 1px #ccc solid;
+					}
+				}
+			}
+		}
+	}
+
+	@if $newsListStyle==6 {
+		.item {
+			text-align: center;
+			a {
+				width: 100%;
+				display: block;
+				.dateStyle {
+					font-size: 14px;
+				}
+			}
+			.itemImg {
+				margin: 15px 0;
+				img {
+					transition: all 0.3s linear;
+					-webkit-backface-visibility: hidden;
+				}
+				&:hover {
+					img {
+						transform: scale(1.1) translate(-50%, -50%);
+					}
+				}
+			}
+			.itemNumber {
+				span {
+					color: #a2a2a2;
+					font-size: 40px;
+					position: relative;
+					padding: 0 70px;
+					&:before {
+						content: "";
+						position: absolute;
+						top: 50%;
+						margin-top: 5px;
+						width: 53px;
+						height: 1px;
+						background: #cccccc;
+						left: 0;
+					}
+					&:after {
+						content: "";
+						position: absolute;
+						top: 50%;
+						margin-top: 5px;
+						width: 53px;
+						height: 1px;
+						background: #cccccc;
+						right: 0;
+					}
+				}
+			}
+		}
+	}
+}
+
+.newsList {
+	@include newsListSet($newsListStyle);
+}
+.newsListType1 {
+	@include newsListSet(1);
+}
+.newsListType2 {
+	@include newsListSet(2);
+}
+.newsListType3 {
+	@include newsListSet(3);
+}
+.newsListType4 {
+	@include newsListSet(4);
+}
+.newsListType5 {
+	@include newsListSet(5);
+}
+.newsListType6 {
+	@include newsListSet(6);
+}
+
+// dateStyle_1、直式
+// dateStyle_2、橫式
+// dateStyle_3、直式有框
+// dateStyle_1 ~ dateStyle_3 基本只給news01.php、news02.php使用，其餘須使用需先改html碼
+.dateStyle_1 {
+	display: inline-block;
+	.dateD {
+		font-size: $font-size-h1;
+		font-weight: 400;
+		vertical-align: middle;
+		line-height: $lineheight_smaller;
+		display: inline-block;
+		&:after {
+			content: "";
+			border: $dateStyle1DecoBorder solid $dateStyleDecoColor;
+			vertical-align: middle;
+			display: block;
+			width: 100%;
+			line-height: $lineheight_big;
+			margin: $font-size 0;
+		}
+	}
+	.dateM {
+		font-weight: 300;
+		vertical-align: middle;
+		line-height: $lineheight_smaller;
+		display: block;
+	}
+	.dateY {
+		vertical-align: middle;
+		line-height: $lineheight_smaller;
+		display: block;
+	}
+}
+
+.dateStyle_2 {
+	display: inline-block;
+	.dateD {
+		font-size: $font-size-h1;
+		font-weight: 300;
+		line-height: 1em;
+	}
+	.dateM {
+		font-weight: 300;
+		display: inline-block;
+		line-height: 1em;
+	}
+	.dateY {
+		display: inline-block;
+		line-height: 1em;
+		&:after {
+			content: "";
+			border: $dateStyle2DecoBorder solid $dateStyleDecoColor;
+			background-color: $dateStyleDecoColor;
+			width: 100%;
+			line-height: $lineheight_big;
+			margin: 0 $font-size-mb;
+		}
+	}
+}
+
+.dateStyle_3 {
+	display: inline-block;
+	text-align: center;
+	border: $dateStyle3DecoBorder solid $cis1;
+	padding: $space_smaller;
+	border-radius: $border-radius;
+	min-width: 120px;
+	.dateD {
+		font-size: $font-size * 3;
+		font-weight: normal;
+		vertical-align: middle;
+		line-height: $lineheight_smaller;
+		display: block;
+		// &:after{
+		// 	content        : '';
+		// 	border         : $dateStyle1DecoBorder solid $dateStyleDecoColor;
+		// 	vertical-align : middle;
+		// 	display        : block;
+		// 	width          : 100%;
+		// 	line-height    : $lineheight_big;
+		// 	margin         : $font-size 0;
+		// }
+	}
+	.dateM {
+		font-weight: 300;
+		vertical-align: middle;
+		line-height: $lineheight_smaller;
+		display: inline-block;
+	}
+	.dateY {
+		vertical-align: middle;
+		line-height: $lineheight_smaller;
+		display: inline-block;
+	}
+}
+
+.iconTxt {
+	font-size: 14px;
+	color: gray;
+}
+
+.newsD_main {
+	margin-bottom: 50px;
+	.editor {
+		margin: 30px 0;
+	}
+}
+.newD_img {
+	line-height: 0;
+}
+
+//newsListType7為newsListType2變形
+.newsListType7 {
+	.item {
+		a {
+			.itemContent {
+				-webkit-line-clamp: 3;
+			}
+		}
+		.moreStyleBlock {
+			width: 100%;
+			text-align: right;
+		}
+	}
+}
+//newsListType8為newsListType2變形
+.newsListType8 {
+	.item {
+		a {
+			.itemContent {
+				-webkit-line-clamp: 3;
+			}
+		}
+		.dateStyle4 {
+			text-align: right;
+		}
+	}
+}
+//newsListType9為newsListType2變形
+.newsListType9 {
+	.item {
+		padding-left: 15px;
+		padding-right: 15px;
+		a {
+			.itemContent {
+				-webkit-line-clamp: 3;
+			}
+		}
+		a:nth-child(2) {
+			width: calc(75% - 160px);
+			padding-right: 30px;
+		}
+		.dateStyle_3 {
+			border: 2px #000 solid;
+			border-radius: 0;
+			width: 160px;
+			background-color: #fff;
+		}
+	}
+	> div > div.item:nth-child(odd) {
+		background-color: #f2f2f2;
+	}
+}
+
+//首頁news樣式(通常用在首頁)
+.indexnewsList {
+	width: 100%;
+	li {
+		width: 100%;
+		border-bottom: 1px solid #b3b3b3;
+		line-height: 2;
+		padding-top: 0.5em;
+		padding-bottom: 0.5em;
+		a {
+			width: 100%;
+			display: flex;
+			justify-content: space-between;
+			span {
+				display: inline-block;
+			}
+		}
+		.newsTime {
+			width: 74px;
+			height: 32px;
+			background: $cis1;
+			border-radius: 15px;
+			font-size: 12px;
+			padding: 3px 0.5em;
+			margin-right: 0.5em;
+			color: #fff;
+		}
+		.indexNewsListText {
+			display: -webkit-box;
+			-webkit-line-clamp: 1;
+			-webkit-box-orient: vertical;
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
+	}
+}
+.more-text {
+	display: inline-block;
+	margin-top: 16px;
+	margin-bottom: 16px;
+	text-decoration: underline;
+}
+@media (max-width: 768px) {
+	.newsListType9 {
+		.item {
+			a {
+				margin-bottom: 15px;
+			}
+			a:nth-child(2) {
+				width: 100%;
+				padding-right: 0;
+			}
+		}
+	}
+}
+@media (max-width: 576px) {
+	.newsListType5 {
+		.item {
+			flex-wrap: wrap;
+			a {
+				.moreStyleBlock {
+					position: static;
+					width: 100%;
+				}
+			}
+			a:nth-child(1) {
+				width: 100%;
+				margin: 0 auto 15px auto;
+			}
+			a:nth-child(2) {
+				width: 100%;
+				padding-left: 0;
+			}
+		}
+	}
+}
+
+//newsListType10
+.newsListType10 {
+	.newsNumber {
+		display: block;
+		width: 60px;
+		text-align: center;
+	}
+	p {
+		width: calc(100% - 120px);
+		margin-bottom: 0;
+	}
+	i {
+		width: 60px;
+		text-align: center;
+		color: $cis1;
+	}
+	span,
+	p {
+		color: #5c5e5d;
+	}
+	.item {
+		border-bottom: 1px solid #e5e5e5;
+		padding: 0;
+		a {
+			width: 100%;
+			padding: 12.5px 0;
+			.itemTitle {
+				width: 100%;
+				display: flex;
+				align-items: center;
+				font-size: 20px;
+				font-weight: normal;
+			}
+			&:hover {
+				background-color: $cis1;
+				p,
+				span,
+				i {
+					color: #fff;
+				}
+			}
+		}
+	}
+}
+
+//newsListType13
+.newsListType13,
+.newsListType14,
+.newsListType15,
+.newsListType16 {
+	.item {
+		padding-top: 0;
+		padding-bottom: 0;
+		margin-bottom: 50px;
+	}
+}
+//newsListType16
+.newsListType16 {
+	.overlap3 {
+		padding-left: 3%;
+		padding-right: 3%;
+	}
+}
+//newsListType17
+.newsListType17 {
+	.item {
+		padding-top: 0;
+		padding-bottom: 0;
+	}
+	.overlap4 {
+		padding-top: 0;
+		padding-bottom: 0;
+		margin-top: 0;
+	}
+}
+
+//newsListType13
+.newsListType13 {
+	.blockTitle {
+		span {
+			display: -webkit-box;
+			-webkit-line-clamp: 2;
+			-webkit-box-orient: vertical;
+			overflow: hidden;
+			-o-text-overflow: ellipsis;
+			text-overflow: ellipsis;
+			line-height: 1.5;
+		}
+	}
+	p {
+		color: #8c8c8c;
+	}
+}
+
+//newsListType18
+.newsListType18 {
+	.item {
+		display: block;
+		width: 100%;
+		padding: 20px 20px 30px;
+		background-color: #fff;
+		border: 1px solid #d6d6d6;
+		margin-bottom: 32px;
+		transition: all 0.5s;
+		&:hover {
+			box-shadow: 0px 20px 40px 1.4px rgb(149 149 149 / 35%);
+		}
+	}
+	.imgBox {
+		width: 100%;
+		position: relative;
+	}
+	.classified {
+		width: 150px;
+		height: 32px;
+		position: absolute;
+		left: 0;
+		bottom: -16px;
+		z-index: 3;
+		background-color: $cis1;
+		color: #fff;
+		padding: 2px 10px;
+		font-size: 16px;
+	}
+	.textBox {
+		padding-top: 36px;
+	}
+	.itemContent {
+		height: 64px;
+		@media (max-width: 768px) {
+			height: 50px;
+		}
+	}
+	.linkBox {
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+		margin-top: 28px;
+	}
+	.more {
+		text-decoration: underline;
+	}
+}
+
+/*News Detail Aside*/
+.newsAside {
+	> div {
+		margin-bottom: 20px;
+	}
+}
+.asideNewsTitle {
+	width: 100%;
+	background: $cis2; /* Old browsers */
+	background: -moz-linear-gradient(left, $cis2 0%, $cis1 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(left, $cis2 0%, $cis1 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to right, $cis2 0%, $cis1 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$cis2', endColorstr='$cis1',GradientType=1 ); /* IE6-9 */
+	color: #fff;
+	text-align: center;
+	padding: 10px 35px;
+}
+.asideNewsList {
+	width: 100%;
+	background-color: #f1f1f1;
+	border-left: 5px #ddd solid;
+	ul,
+	li,
+	a {
+		width: 100%;
+	}
+	li {
+		border-bottom: 1px #ddd solid;
+	}
+	a {
+		display: block;
+		padding: 10px 35px;
+		&:hover {
+			cursor: pointer;
+			color: $cis1;
+		}
+	}
+}
+.asideNewsList2 {
+	margin: 50px 0;
+	li {
+		padding-bottom: 5px;
+		border-bottom: 1px #ddd solid;
+	}
+	a {
+		display: block;
+		width: 100%;
+		margin: 10px 0 15px 0;
+		font-weight: bold;
+		display: -webkit-box;
+		-webkit-line-clamp: 2;
+		-webkit-box-orient: vertical;
+		overflow: hidden;
+		-o-text-overflow: ellipsis;
+		text-overflow: ellipsis;
+	}
+	.date {
+		font-size: 14px;
+	}
+}
+.asideImg {
+	img {
+		display: block;
+		width: 100%;
+		height: auto;
+		transition: all 0.3s ease-in-out;
+	}
+	a {
+		display: block;
+		overflow: hidden;
+		&:hover {
+			img {
+				transform: scale(1.2);
+			}
+		}
+	}
+}
+@media (max-width: 991px) {
+	.newsAside {
+		display: none;
+	}
+}
+
+@media (max-width: 420px) {
+	.newsdetail {
+		.pageControl {
+			flex-direction: column;
+		}
+	}
+}
+
+//2022-10-14新增newsListType19
+.newsListType19 {
+	.row {
+		margin: 0 -2px;
+		@media screen and (max-width: 768px) {
+			// margin-right: -15px;
+			// margin-left: -15px;
+		}
+	}
+
+	.newsContent {
+		padding: 0;
+		border-top: 1px solid #d6d6d6;
+		border-right: 1px solid #d6d6d6;
+		margin-bottom: 60px;
+
+		@media screen and (max-width: 991px) {
+			border-left: 1px solid #d6d6d6;
+			margin-bottom: 50px;
+			border-right: none;
+
+			&:nth-child(even) {
+				border-right: 1px solid #d6d6d6;
+			}
+		}
+
+		@media screen and (max-width: 768px) {
+			// margin: 0 15px;
+
+			&:nth-child(odd) {
+				border-right: 1px solid #d6d6d6;
+			}
+		}
+
+		&:nth-child(3n + 1) {
+			border-left: 1px solid #d6d6d6;
+		}
+	}
+
+	.item {
+		padding: 40px 40px 80px;
+		flex-wrap: wrap;
+		position: relative;
+		.date {
+			width: 100%;
+			max-width: 50%;
+			padding: 5px 0px;
+			background: #eee;
+			margin: 0 auto;
+			text-align: center;
+		}
+		.classified {
+			display: block;
+			width: 100%;
+		}
+		.textBox {
+			.itemTitle {
+				color: #333333;
+				font-size: 24px;
+				font-weight: bold;
+				display: -webkit-box;
+				-webkit-line-clamp: 1;
+				-webkit-box-orient: vertical;
+				overflow: hidden;
+				-o-text-overflow: ellipsis;
+				text-overflow: ellipsis;
+			}
+
+			.itemContent {
+				display: -webkit-box;
+				-webkit-line-clamp: 2;
+				-webkit-box-orient: vertical;
+				overflow: hidden;
+				-o-text-overflow: ellipsis;
+				text-overflow: ellipsis;
+			}
+		}
+
+		.linkBox {
+			text-align: center;
+			margin: 0 auto;
+			width: 100%;
+			display: block;
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			&.btnLink {
+				a {
+					background: transparent;
+					position: relative;
+					top: 13px;
+				}
+				&:before,
+				&:after {
+					content: "";
+					display: block;
+					width: 35%;
+					height: 1px;
+					background: #d6d6d6;
+					position: absolute;
+					bottom: 0;
+				}
+				&:after {
+					right: 0;
+					left: auto;
+				}
+			}
+		}
+	}
+}
+
+//2022-10-14新增newsListType20
+.sectionBlock {
+	.newsListType20 {
+		.row > div {
+			margin-bottom: 80px;
+		}
+	}
+}
+
+.newsListType20 {
+	.row {
+		margin: 0 -2px;
+	}
+	.newsContent {
+		padding: 0;
+		border-right: 1px solid #d6d6d6;
+		position: relative;
+
+		&:nth-child(3n + 1) {
+			border-left: 1px solid #d6d6d6;
+		}
+
+		@media screen and (max-width: 991px) {
+			border-left: 1px solid #d6d6d6;
+			margin-bottom: 50px;
+			border-right: none;
+
+			&:nth-child(even) {
+				border-right: 1px solid #d6d6d6;
+			}
+		}
+
+		@media screen and (max-width: 768px) {
+			// margin: 0 15px;
+
+			&:nth-child(odd) {
+				border-right: 1px solid #d6d6d6;
+			}
+		}
+
+		&:first-child {
+			border-left: 1px solid #d6d6d6;
+		}
+	}
+
+	.item {
+		padding: 0px 35px 40px;
+		flex-wrap: wrap;
+		position: relative;
+		justify-content: center;
+
+		&:before,
+		&:after {
+			content: "";
+			display: block;
+			background: #d6d6d6;
+			width: 35%;
+			height: 1px;
+			position: absolute;
+			top: 0;
+			right: 0;
+		}
+		&:after {
+			left: 0;
+			right: auto;
+		}
+		a {
+			width: 100%;
+		}
+		.date {
+			width: 100%;
+			text-align: center;
+			position: absolute;
+			margin: 0 auto;
+			top: -15px;
+			left: 0;
+		}
+		.imgBox {
+			position: relative;
+			top: 35px;
+			.itemImg.traight {
+				padding-bottom: 14%;
+				height: auto;
+				&:hover {
+					img {
+						transform: scale(1.1);
+					}
+				}
+				img {
+					position: relative;
+					transform: translate(0%, 0%);
+					top: auto;
+					left: auto;
+					transition: all 0.8s;
+				}
+			}
+		}
+		.textBox {
+			position: absolute;
+			bottom: 0px;
+			left: 0;
+			width: 100%;
+			&:before,
+			&:after {
+				content: "";
+				display: block;
+				background: #d6d6d6;
+				width: 14%;
+				height: 1px;
+				right: 0;
+				left: 0;
+				bottom: 0;
+				position: absolute;
+			}
+			&:after {
+				right: 0;
+				left: auto;
+			}
+			.itemTitle {
+				color: #333333;
+				font-size: 20px;
+				font-weight: bold;
+				display: -webkit-box;
+				-webkit-line-clamp: 2;
+				-webkit-box-orient: vertical;
+				overflow: hidden;
+				-o-text-overflow: ellipsis;
+				text-overflow: ellipsis;
+				padding: 0 80px;
+				text-align: left;
+				position: relative;
+				top: 35px;
+				line-height: 27px;
+				@media screen and (max-width: 768px) {
+					text-align: center;
+					top: 20px;
+				}
+			}
+		}
+	}
+}
+
+//2022-11-04新增newsListType21
+
+.newsListType21_lists {
+	width: 60vw;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: flex-start;
+	margin: 0 auto;
+	padding-bottom: 15vw;
+	transition: 0.5s;
+	transition-delay: 0.5s;
+
+	li {
+		width: 25vw;
+		transition: 0.5s;
+		transition-delay: 0.5s;
+
+		&:nth-child(2n) {
+			transform: translateY(15vw);
+		}
+
+		.imgHoverBox {
+			height: auto;
+		}
+
+		.itemTitle {
+			margin: 18px 0 0;
+		}
+
+		// hover效果
+		&:hover .itemTitle {
+			color: $a-color-hover;
+		}
+	}
+
+	/* hover避免圖片溢出 */
+	.newsListType21_list_imgBox {
+		overflow: hidden;
+
+		/* 去除 imgHoverBox img 無法完整呈現圖面的設定 */
+		img {
+			max-width: 100%;
+		}
+	}
+}
+
+// RWD
+
+@media (max-width: 1200px) {
+	.newsListType21_lists {
+		width: 70vw;
+
+		li {
+			width: 30vw;
+		}
+	}
+}
+
+@media (max-width: 992px) {
+	.newsListType21_lists {
+		width: 80vw;
+
+		li {
+			width: 35vw;
+		}
+	}
+}
+
+@media (max-width: 768px) {
+	.newsListType21_lists {
+		width: 85vw;
+
+		li {
+			width: 40vw;
+
+			&:nth-child(2n) {
+				transform: translateY(8vw);
+			}
+		}
+	}
+}
+
+@media (max-width: 576px) {
+	.newsListType21_lists {
+		width: 100%;
+		justify-content: center;
+
+		li {
+			width: 90vw;
+			margin-bottom: 20px;
+			padding-left: 0;
+			padding-right: 0;
+
+			& > div {
+				padding-left: 0;
+				padding-right: 0;
+			}
+			&:nth-child(2n) {
+				transform: translateY(0vw);
+			}
+		}
+	}
+}
+
+//2022-11-04新增newsListType22
+
+.newsListType22 .item.item_list22 {
+	padding-top: 0;
+	padding-bottom: 0;
+	margin-bottom: 32px;
+	border: 1px #e4e4e4 solid;
+}
+
+/* 文字說明 */
+
+.item_list22 {
+	display: flex;
+	justify-content: space-between;
+}
+
+/* 圖片處理 */
+.item_list22 .img-w100 {
+	display: flex;
+}
+
+/* 去除圖片左邊空白 */
+.item.item_list22 .item_list22_imgLink {
+	padding-left: 0;
+	padding-right: 0;
+}
+
+/* 控制內文寬度 */
+.item_list22 .list-info {
+	margin-top: 4%;
+	margin-left: auto;
+	margin-right: auto;
+	width: 85%;
+	justify-content: space-between;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+/* 連結處理 從 25%改至 100% */
+.newsListType22 .item.item_list22 .list-info a:first-child {
+	width: 100%;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+}
+
+/* .item_list22_content 內容至於上方 */
+.item_list22 .item_list22_content {
+	align-self: flex-start;
+
+	a:hover .itemTitle {
+		color: inherit;
+	}
+
+	.list-info .itemContent {
+		-webkit-line-clamp: 3;
+		-webkit-box-orient: vertical;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		display: -webkit-box;
+		color: #8c8c8c;
+		font-size: $body-font-size;
+	}
+
+	/* 取消 .pageTitleStyle-1  margin-bottom: 15px 的設定*/
+	.itemTitle {
+		margin-bottom: 0;
+		/* 把標題顏色作為 hover換色 */
+		span {
+			color: inherit;
+		}
+	}
+
+	.list_info_divider_block {
+		margin: 24px 0;
+		border-top: 1.5px solid #eee;
+		position: relative;
+
+		&::before {
+			content: "";
+			display: inline-block;
+			width: 32px;
+			height: 32px;
+			background-color: #0050a3;
+			position: absolute;
+			transform: translate(0%, -50%);
+		}
+	}
+}
+
+/* 時間 */
+
+.item_list22_dateStyle {
+	display: flex;
+	flex-direction: column;
+
+	.main-date-title {
+		display: flex;
+		justify-content: space-around;
+
+		.date-mark {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+
+			/* padding: 9px; */
+			width: 72px;
+			height: 88px;
+			background: #0050a3;
+			font-family: "Montaga", serif;
+			line-height: 32px;
+			color: #fff;
+			text-align: center;
+			/* transform: translateX(30%); */
+
+			.dateD {
+				font-size: $font-size-h3;
+			}
+		}
+	}
+
+	.second-title-part {
+		margin-left: 7%;
+		width: 88px;
+		font-weight: 700;
+		font-size: $body-font-size;
+		display: flex;
+		flex-direction: column;
+
+		.second-title-mark {
+			border-top: 6px solid $cis1;
+		}
+	}
+}
+
+/* .item_list22_dateStyle 至於底部 */
+.item_list22 .item_list22_dateStyle {
+	align-self: flex-end;
+	margin-bottom: 112px;
+
+	/* 連結 */
+	.second-title .third-link {
+		display: flex;
+		color: $cis1;
+		margin-right: 7%;
+		align-items: center;
+		justify-content: end;
+
+		a {
+			&:first-child.third-link-a_link {
+				width: auto;
+			}
+
+			color: inherit;
+			cursor: pointer;
+			text-align: end;
+			position: relative;
+
+			/* hover 提示 */
+			&:hover:after {
+				content: "";
+				bottom: 0;
+				width: 100%;
+				transform: translateX(-100%);
+				border-bottom: 2px solid $cis1;
+				position: absolute;
+			}
+		}
+	}
+}
+
+@media (max-width: 1200px) {
+	/* .item_list22_dateStyle .item_list22_content 恢復設定  */
+	.item_list22 .item_list22_content,
+	.item_list22 .item_list22_dateStyle {
+		align-self: inherit;
+	}
+
+	.item_list22 .item_list22_dateStyle {
+		margin-bottom: 0;
+	}
+	.newsListType22 .item.item_list22 {
+		align-items: center;
+		padding-top: 0;
+		padding-bottom: 0;
+	}
+
+	.newsListType22 .item.item_list22 .col-xl-3.col-md-3 {
+		padding-left: 0;
+	}
+
+	/* 標題中間線條 */
+	.list_info_divider_block {
+		display: none;
+	}
+	/* 減少 more 與上方空間｛ */
+	.second-title .third-link {
+		margin-top: 10%;
+	}
+}
+
+@media (max-width: 992px) {
+	.item .item_list22 .itemImg .traight {
+		display: none;
+	}
+
+	.item_list22 .list-info {
+		width: 95%;
+	}
+
+	.item_list22_dateStyle {
+		justify-content: end;
+	}
+
+	.item_list22_dateStyle .second-title-part .second-title-mark {
+		margin-top: 20%;
+	}
+
+	/* 時間 */
+
+	.item_list22_dateStyle {
+		justify-content: space-around;
+	}
+
+	.item_list22_dateStyle .main-date-title {
+		justify-content: flex-start;
+	}
+
+	/* 連結 */
+
+	.second-title .third-link {
+		margin-top: -10%;
+		font-size: $body-font-size;
+	}
+
+	.second-title .third-link a {
+		/* 文字對齊置中 */
+		text-align: center;
+	}
+
+	/* 時間底部線條 */
+	.item_list22_dateStyle .second-title-part .second-title-mark {
+		display: none;
+	}
+}
+
+@media (max-width: 768px) {
+	.newsListType22 .item.item_list22 {
+		display: flex;
+	}
+
+	.newsListType22 .item.item_list22 > a:first-child {
+		width: 25%;
+		-webkit-box-sizing: content-box;
+		-moz-box-sizing: content-box;
+		box-sizing: content-box;
+	}
+
+	.newsListType22 .item.item_list22 .list-info a:first-child {
+		width: auto;
+	}
+
+	.newsListType22 .item.item_list22 .col-xl-3.col-md-3 {
+		/* 取消原設定 padding-right 15px */
+		padding-right: 0;
+	}
+
+	/* 連結 */
+
+	/* 在768px 之下 調整 more 位置 */
+	.second-title .third-link {
+		margin-top: 15%;
+		justify-content: flex-start;
+	}
+
+	.second-title .third-link a {
+		/* c恢復原本寬度 被設定成25%  */
+		width: 100%;
+	}
+
+	/* 在768px 之下 取消 col-xl-2 col-md-2 width:100% 設定 */
+	.item.item_list22 .item_list22_dateStyle {
+		width: auto;
+	}
+}
+
+@media (max-width: 576px) {
+	/* 文字連結 */
+
+	.newsListType22 .item.item_list22 {
+		/* 圖文垂直 */
+		flex-direction: column;
+		margin-bottom: 15px;
+	}
+
+	/* 取消 .item_list22_content padding-left& right 15px 設定 */
+	/* 取消 item_list22_dateStyle padding-left& right 15px 設定 */
+
+	.item.item_list22 .item_list22_content,
+	.item.item_list22 .item_list22_dateStyle {
+		padding-left: 0;
+		padding-right: 0;
+	}
+
+	.newsListType22 .item.item_list22 a:first-child {
+		width: 100%;
+	}
+
+	.newsListType22 .item.item_list22 a:first-child .img-w100 {
+		/* 圖片置中 */
+		justify-content: center;
+	}
+
+	/* 在 576px 之下 文字居中 */
+	.item_list22_dateStyle .second-title-part {
+		margin-top: auto;
+		text-align: center;
+	}
+
+	/* 點選提示 */
+
+	.second-title .third-link {
+		font-size: $font-size-mb;
+	}
+	.second-title .third-link a::after {
+		width: 0%;
+	}
+
+	/* 把 992px  justify-content:start 改成 space-between; */
+	.item_list22_dateStyle .main-date-title {
+		justify-content: space-between;
+	}
+	/* 在 576px 下 內文拉開與標題的距離*/
+	.list-info .itemContent {
+		margin-top: 0px;
+	}
+
+	/* 在576px 之下 恢復 col-xl-2 col-md-2 width:100% 設定 */
+
+	/* 與上方內文的距離 */
+	.item.item_list22 .item_list22_dateStyle {
+		width: 100%;
+		margin-top: 14px;
+		justify-content: space-between;
+
+		/* 拉近 日期/分類 與 more的距離 */
+		.second-title .third-link {
+			margin-top: 5%;
+
+			a {
+				/* 修改文字對齊 */
+				text-align: start;
+			}
+		}
+	}
+}
+
+//2022-11-04新增newsListType23
+// ps: newsListType23 & newsListType24 CSS共用
+
+.newsListType23 .item .dateStyle_3.newsListType23_dateStyle {
+	position: relative;
+	top: 0;
+	margin-right: 32px;
+	padding: 16px 0;
+	min-width: 85px;
+	color: #000;
+	background: rgba(204, 204, 204, 0.15);
+	-webkit-box-shadow: 0 0 0px 0 rgb(0 0 0 / 15%);
+	box-shadow: 0 0 0px 0 rgb(0 0 0 / 15%);
+	-webkit-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
+	text-align: center;
+	border: none;
+}
+
+/* 日期樣式:hover狀態 */
+
+/* 上升 */
+.newsListType23 {
+	.item {
+		&:hover {
+			.dateStyle_3.newsListType23_dateStyle {
+				top: -20px;
+				color: #fff;
+				background: $cis1;
+				-webkit-box-shadow: 0 0 1.5rem 0 rgb(0 0 0 / 15%);
+				box-shadow: 0 0 1.5rem 0 rgb(0 0 0 / 15%);
+			}
+
+			/* item 父層變色 */
+			color: $cis1;
+
+			.item-content-subtitle-dateStyle {
+				color: inherit;
+				font-weight: 500;
+			}
+
+			/* 連結標題變色 */
+			.item-content {
+				.item-content-main {
+					a {
+						transition: inherit;
+						color: $cis1;
+					}
+				}
+			}
+		}
+	}
+}
+
+/* 日期文字 */
+
+.newsListType23 {
+	.dateStyle_3.newsListType23_dateStyle {
+		span {
+			display: block;
+			font-size: $font-size-h2;
+			line-height: 1;
+			color: inherit;
+		}
+		small {
+			font-size: $body-font-size;
+			color: inherit;
+		}
+	}
+}
+
+/* 設定內容寬度 */
+.newsList.newsListType23 .item .item-content {
+	width: calc(90% - 100px);
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+/* 內容標題 */
+.newsList.newsListType23 .item a .itemTitle {
+	color: inherit;
+}
+
+/* 內容底線 */
+
+.newsListType23 .item-content .item-content-border {
+	width: 100%;
+	padding-top: 10px;
+	border-bottom: 1px solid #ececec;
+}
+
+/* 文字省略 */
+.newsList.newsListType23 .item {
+	.itemTitle span {
+		color: inherit;
+		font-size: $font-size-h3;
+		font-weight: 600;
+		@include hideLongTexts(1);
+	}
+
+	.item-content-subtitle {
+		font-size: $body-font-size;
+		display: flex;
+		gap: 24px;
+
+		/* 次標題內容變色 */
+		.newsListType23_dateStyle_sort {
+			display: flex;
+			align-items: center;
+			gap: 5px;
+			color: $cis1;
+			font-weight: 500;
+			font-size: $body-font-size;
+
+			/* 次標題分類符號 */
+			i {
+				font-size: $body-font-size;
+				font-weight: 600;
+				transform: rotateY(180deg);
+			}
+		}
+	}
+}
+
+/* 次標題日期 */
+
+.item-content-subtitle .item-content-subtitle-dateStyle {
+	font-weight: 300;
+	color: #777;
+	display: flex;
+	gap: 10px;
+	align-items: center;
+
+	&:hover {
+		color: inherit;
+	}
+
+	/* 次標題時間符號 */
+	i {
+		font-size: $font-size-h3;
+		font-weight: 600;
+	}
+}
+
+@media (max-width: 992px) {
+	.newsListType23 .item .dateStyle_3.newsListType23_dateStyle {
+		margin-right: 10px;
+		min-width: 80px;
+	}
+
+	/* 更改內容寬度 */
+	.newsList.newsListType23 .item .item-content {
+		width: calc(100%);
+	}
+}
+
+@media (max-width: 576px) {
+	/* 在 576px 更改手機大小 */
+
+	.newsList.newsListType23 .item .itemTitle span {
+		font-size: $font-size-h3;
+		line-height: 32px;
+		/* 調整成2行文字省略 */
+		-webkit-line-clamp: 2;
+	}
+	.newsList.newsListType23 .item .item-content-subtitle {
+		font-size: $font-size-mb;
+	}
+}
+
+//2022-11-04新增newsListType25
+.newsListType25_box{
+	height: 100%;
+}
+
+// 圖
+.newsListType25_box .imgHoverBox {
+	height: 450px;
+	object-fit: cover;
+	img {
+		max-width: 100%;
+	}
+}
+
+/* 內容 */
+
+.newsListType25_box_body {
+	padding: 30px;
+	position: relative;
+
+	box-shadow: 0 0 40px 5px rgb(0 0 0 / 3%);
+	background-color: #fff;
+	margin-bottom: 30px;
+}
+
+.newsListType25_box_body-classMark {
+	margin-top: 0;
+	padding-bottom: 15px;
+	border-bottom: 1px solid #e1e1e1;
+
+	/* 日期 */
+	.second-date {
+		position: absolute;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 10px;
+		right: 20px;
+		top: -36px;
+		padding: 12px 15px;
+		font-weight: 400;
+		background-color: $cis1;
+		color: #fff;
+		line-height: 1;
+		font-size: $body-font-size;
+		transition: 0.3s;
+	}
+}
+
+.newsListType25_box_body-classMark .second-date {
+	position: absolute;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 10px;
+	right: 20px;
+	top: -36px;
+	padding: 12px 15px;
+	font-weight: 400;
+	background-color: $cis1;
+	color: #fff;
+	line-height: 1;
+	font-size: $body-font-size;
+	transition: 0.3s;
+}
+
+/* 分類連結 */
+.newsListType25_box_body-classMark .second-title {
+	font-size: $font-size-h3;
+	color: $text-color2;
+	font-weight: 900;
+}
+
+.newsListType25_box_body-content {
+	padding-top: 15px;
+
+	/* 標題連結 */
+	.heading {
+		height: 90px;
+		a {
+			color: $a-color;
+			font-size: $font-size-h3;
+			font-weight: 700;
+			@include hideLongTexts(2);
+		}
+	}
+	.text{
+		height: 170px;
+		@include hideLongTexts(5);
+	}
+}
+
+
+/* hover變化 */
+.newsListType25_box_body-classMark .second-title:hover,
+.newsListType25_box_body-content .heading a:hover {
+	color: $a-color-hover;
+}
+
+.newsListType25_box_body-classMark .second-date:hover {
+	background-color: $a-color-hover;
+}
+
+/* 結尾連結 */
+
+.newsListType25_box_body-link {
+	color: $text-color;
+	font-weight: 400;
+	font-size: $body-font-size;
+	transition: 0.3s;
+	display: inline-flex;
+	text-decoration: none;
+	align-items: center;
+	line-height: 1;
+}
+
+.newsListType25_box_body-link i {
+	margin-left: 10px;
+	color: $cis1;
+	transition: 0.3s;
+}
+
+/* hover效果 */
+.newsListType25_box_body-link:hover {
+	color: $a-color-hover;
+}
+
+.newsListType25_box_body-link:hover i {
+	margin-left: 16px;
+}
+
+@media (max-width: 576px) {
+	.newsListType25_box_body-classMark,
+	.newsListType25_box_body-content {
+		padding-bottom: 5px;
+	}
+}
+
+//2022-11-04新增newsListType26
+
+.newsListType26 ul li {
+	padding: 15px;
+}
+
+.newsListType26_box {
+	position: relative;
+	transition: 0.9s;
+	border: 1px solid rgb(50 50 50 / 10%);
+	padding-left: 0;
+	padding-right: 0;
+
+	&:not(:last-child) {
+		margin-right: 32px;
+	}
+
+	.item {
+		padding: 40px;
+		flex-direction: column;
+		align-items: flex-start;
+	}
+}
+
+/* 日期樣式修改 */
+
+.newsListType26 .newsListType26_box .newsListType26_box_dateStyle {
+	position: relative;
+	top: 0;
+	margin-right: 32px;
+	padding: 16px 0;
+	min-width: 85px;
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	color: #132e4b;
+	font-family: arial;
+	-webkit-box-shadow: 0 0 0px 0 rgb(0 0 0 / 15%);
+	box-shadow: 0 0 0px 0 rgb(0 0 0 / 15%);
+	-webkit-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
+	text-align: center;
+	border: none;
+}
+
+/* 日期文字 */
+
+.newsListType26_box_dateStyle-main span {
+	color: inherit;
+	line-height: 40px;
+	font-weight: 500;
+}
+
+.dateStyle_3 .newsListType26_box_dateStyle-second span {
+	display: block;
+	color: inherit;
+	font-size: $font-size-h3;
+	line-height: 1;
+}
+
+.newsListType26_box_dateStyle-second small {
+	color: inherit;
+	font-size: $body-font-size;
+}
+
+/* 日期樣式:hover狀態 */
+
+/* 上升 */
+.newsListType26_box:hover .newsListType26_box_dateStyle {
+	color: $cis3;
+}
+
+.newsListType26 .item:hover .item-content-subtitle-dateStyle {
+	color: inherit;
+	font-weight: 500;
+}
+
+/* 設定內容寬度 */
+.newsList.newsListType26 .item .item-content {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+/* 內容標題 */
+
+.newsList.newsListType26 .item .itemTitle h3 {
+	color: inherit;
+	font-size: $font-size-h3;
+	font-weight: 600;
+}
+
+.newsList.newsListType26 .item .itemTitle {
+	margin-bottom: 20px;
+}
+
+/* 文字省略 */
+.newsList.newsListType26 .item .itemTitle h3,
+.newsListType26_box .item-content-main-contect {
+	@include hideLongTexts(2);
+}
+
+/* 按鈕 */
+
+.item-content-main-btn {
+	margin-top: 56px;
+	padding: 12px 24px;
+	font-weight: 500;
+	font-size: $body-font-size;
+	position: relative;
+	display: inline-block;
+	border: 1px solid rgb(110 110 110 / 26%);
+	color: rgb(50 50 50);
+}
+
+.item-content-main-btn span {
+	color: inherit;
+}
+
+.item-content-main-btn::before {
+	width: 0px;
+	height: 100%;
+	content: "";
+	display: block;
+	position: absolute;
+	z-index: -1;
+	background: rgb(19 46 75);
+	transition: 0.6s;
+	top: 0;
+	left: 0;
+}
+
+.item-content-main-btn::after {
+	content: "";
+	display: inline-block;
+	opacity: 0;
+	position: relative;
+	transform: translateX(20px);
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 4px 0 4px 8px;
+	border-color: transparent transparent transparent $common-color-white;
+	transition: 0.6s;
+}
+
+/* hover 狀態調整 */
+.newsListType26_box:hover .item-content-main-btn span {
+	color: $common-color-white;
+}
+
+.newsListType26_box:hover .item-content-main-btn::before {
+	width: 100%;
+}
+
+.newsListType26_box:hover .item-content-main-btn::after {
+	opacity: 1;
+	transform: translateX(10px);
+}
+

@@ -1,0 +1,469 @@
+@charset "utf-8";
+
+/*捐款表單(複製宏恩樣式)*/
+ /*線上捐款 步驟 */
+.stepProcess {
+	margin-bottom: 30px;
+}
+
+.stepProcessArea {
+	position: relative;
+	max-width: 715px;
+	margin: 0 auto;
+	padding-right: 60px;
+}
+
+.stepProcessArea::after {
+	content: '';
+	width: 100%;
+	display: table;
+	clear: both;
+}
+
+.stepProcessArea > section,
+.stepProcessArea > article,
+.stepProcessArea > div,
+.stepProcessArea > li,
+.stepProcessArea > span,
+.stepProcessArea > a {
+	float: left;
+}
+
+@media screen and (min-width: 768px) {
+	.stepProcessArea {
+		padding-right: 88px;
+	}
+}
+
+.stepProcess__Item {
+	position: relative;
+	width: 33.33%;
+	padding-left: 60px;
+}
+
+.stepProcess__Item::before {
+	z-index: 1;
+	content: '';
+	height: 5px;
+	background-color: #E6E6E6;
+	display: block;
+	width: 100%;
+	position: absolute;
+	top: 28px;
+	left: 0;
+}
+
+.stepProcess__Item:last-child {
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 60px;
+}
+
+.stepProcess__Item.active::before {
+	background-color: #cfa1b0;
+}
+
+.stepProcess__Item.active .stepProcess__Circle {
+	border-color: #cfa1b0;
+}
+
+@media screen and (min-width: 768px) {
+	.stepProcess__Item {
+		padding-left: 88px;
+	}
+	.stepProcess__Item::before {
+		top: 41px;
+	}
+	.stepProcess__Item:last-child {
+		width: 88px;
+	}
+}
+
+.stepProcess__ItemArea {
+	display: block;
+	position: relative;
+	width: 60px;
+	margin-left: -60px;
+}
+
+@media screen and (min-width: 768px) {
+	.stepProcess__ItemArea {
+		width: 88px;
+		margin-left: -88px;
+	}
+}
+
+.stepProcess__Circle {
+	position: relative;
+	z-index: 2;
+	width: 60px;
+	height: 60px;
+	border-radius: 50%;
+	border-style: solid;
+	border-color: #E6E6E6;
+	border-width: 4px;
+	background-color: #FFFFFF;
+	position: relative;
+}
+
+@media screen and (min-width: 768px) {
+	.stepProcess__Circle {
+		border-width: 8px;
+		width: 88px;
+		height: 88px;
+	}
+}
+
+.stepProcess__stepText {
+	display: inline-block;
+	width: 100%;
+	text-align: center;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	-webkit-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	font-size: 14px;
+}
+
+@media screen and (min-width: 768px) {
+	.stepProcess__stepText {
+		font-size: 16px;
+	}
+}
+
+.stepProcess__Title {
+	text-align: center;
+}
+
+@media (max-width: 767px) {
+	.stepProcess__Title {
+		font-size: 15px;
+	}
+}
+
+/*線上捐款 表單 */
+.donationForm {
+	margin: 0 0 80px;
+}
+
+.donationForm .must {
+	color: #ED1C24;
+    font-weight: bold;
+}
+
+.donationForm .remark {
+    color: #aa8358;
+    font-size: 18px;
+}
+
+.donationForm .remark.IRS {
+    margin-left: 209px;
+}
+
+@media (max-width: 991px) {
+	.donationForm .remark.IRS {
+	    margin-left: 0;
+	}
+}
+
+.donationForm .formTitle h2 {
+    font-weight: bold;
+}
+
+@media (max-width: 768px) {
+	.donationForm .formTitle h2 {
+		font-size: 26px;
+	}
+}
+
+.donationForm .formItem {
+	margin: 0;
+}
+
+.donationForm .formItem label {
+	display: inline-block;
+	margin: 30px 0 0;
+	font-size: 18px;
+	font-weight: 300;
+}
+
+.donationForm .formItem label.checkbox {
+	font-size: 18px;
+	cursor: pointer;
+}
+
+.donationForm .formItem span:not(.must) {
+	color: #aa8358;
+}
+
+.donationForm .formItem input[type="text"],
+.donationForm .formItem input[type="password"],
+.donationForm .formItem select {
+	display: inline-block;
+    width: fit-content;
+    color: #4d4d4d;
+    height: 34px;
+    font-size: 18px;
+    line-height: 45px;
+    padding: 0 1em;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+}
+
+.donationForm .formItem input[type="radio"] {
+	height: unset;
+	line-height: unset;
+	margin: 0 6px;
+}
+
+.donationForm .formItem input[type="checkbox"] {
+	margin: 0 6px 0 0;
+}
+
+@media (max-width: 768px) {
+	.donationForm .formItem label {
+		display: block;
+		font-size: 18px;
+	}
+	.donationForm .formItem:not(.money) input[type="text"] {
+		width: 100%;
+	}
+}
+
+.donationForm .formItem.password > div {
+	margin-left: 136px;
+}
+
+.donationForm .formItem.money > div {
+	margin-left: 120px;
+ line-height: 2;
+}
+
+@media (max-width: 768px) {
+	.donationForm .formItem.password > div,
+	.donationForm .formItem.money > div {
+	    margin-left: 0;
+	}
+}
+
+.donationForm .b2e {
+	background: #b3b3b3;
+	border-color: #b3b3b3;
+}
+
+.donationForm .b2e:hover {
+	background: #cccccc;
+	border-color: #cccccc;
+}
+
+.donationForm button {
+	color: #fff;
+	padding: 5px 20px;
+	background: #cfa1b0;
+	cursor: pointer;
+}
+
+
+
+.joinus {
+	margin-bottom: 70px;
+}
+
+.joinus .joinus_form {
+	margin: 40px 0;
+}
+
+.joinus .joinus_form .form_group .birth {
+	display: flex;
+	align-items: center;
+}
+
+.joinus .joinus_form .form_group .birth > p {
+	min-width: fit-content;
+	margin: 0 10px 0 0;
+}
+
+.joinus .joinus_form .form_group .birth > input {
+	width: 60px;
+	margin-right: 10px;
+}
+
+.joinus .joinus_form .form_group .birth > select {
+	width: 60px;
+	margin-right: 10px;
+}
+
+.joinus .joinus_form .form_group .radio_list {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+}
+
+.joinus .joinus_form .form_group .radio_list > label {
+	display: inline-flex;
+	align-items: center;
+	margin: 0;
+	cursor: pointer;
+}
+
+.joinus .joinus_form .form_group .radio_list > label > input[type="text"] {
+	width: 120px;
+	margin: 0 15px 0 -10px;
+}
+
+.joinus .joinus_form .form_group .radio_list > label > input[type="radio"],
+.joinus .joinus_form .form_group .radio_list > label > input[type="checkbox"] {
+	width: 15px;
+	min-width: 15px;
+	height: 15px;
+}
+
+.joinus .joinus_form .form_group .radio_list > label > p {
+	min-width: fit-content;
+	margin: 0 15px 0 5px;
+}
+
+.joinus .joinus_form .form_group input[type="number"]::-webkit-outer-spin-button,
+.joinus .joinus_form .form_group input[type="number"]::-webkit-inner-spin-button {
+	appearance: none;
+}
+
+.joinus .joinus_form .form_group input[type="number"] {
+	-moz-appearance: textfield;
+}
+
+.about2_2 .sectionBlock .row > div, .innerBlock .row > div {
+	margin-bottom: 0;
+}
+
+.about2_2 .sectionBlock .btn-cis1 {
+	width: 100%;
+	min-width: unset;
+}
+
+@media (max-width: 767px) {
+	.about2_2 #section1 .row,
+	.about2_2 #section3 .row,
+	.about2_2 #section5 .row {
+		flex-direction: column-reverse;
+	}
+}
+
+/*上方連結按鈕*/
+.topLinkBlock{
+	width: 100%;
+	display: flex;
+ flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+ margin-top: 50px;
+ margin-bottom: 50px;
+}
+.topLinkBlock a{
+	display: block;
+	width: 178px;
+	text-align: center;
+ padding: 5px 15px;
+	margin: 0 17px 20px 17px;
+ border: 1px #333 solid;
+ border-radius: 10px;
+}
+.topLinkBlock a.active,.topLinkBlock a:hover{
+ border: 1px solid #cfa1b0;
+	background-color: #cfa1b0;
+	color: #fff;
+}
+.supportCheckbox{
+ width: 100%;
+ display: flex;
+ flex-wrap: wrap;
+ align-items: center;
+}
+.supportCheckbox .item{
+ display: inline-flex;
+ align-items: center;
+ margin-right: 2em;
+}
+.supportCheckbox .item span{margin-left: 5px;}
+.donationForm .supportCheckbox .item span{color: #333;}
+.noteList{
+ padding-left: 20px;
+}
+.noteList li{
+ list-style-type: decimal;
+}
+.noteList2{
+ padding-left: 20px;
+}
+.noteList2 li{list-style-type:square;}
+.noteList2 li >span{display: inline-block;}
+.noteList2 .red{color: red;}
+.transferBox{
+ width: 100%;
+ display: flex;
+ justify-content: center;
+}
+.transferInfo{
+ display: inline-block;
+ width: auto;
+ max-width: 100%;
+ margin: 50px auto;
+}
+.transferInfo span{display: inline-block;}
+.transferInfo span:first-child{width: 100px;}
+.templeInfo .title{
+ font-size: 24px;
+ font-weight: bold;
+}
+.templeInfo span{display: inline-block;}
+.templeInfo span:first-child{width: 118px;}
+.transferInfo .item,.templeInfo .item{
+ display: flex;
+}
+.donationForm .formTitle h2{font-size: 24px;}
+.donationForm .memo{
+ width: 100%;
+ border: 1px solid #ccc;
+ border-radius: 2px;
+}
+@media screen and (max-width:768px){
+ .transferInfo span:first-child{width: 80px;}
+ .templeInfo span:first-child{width: 94px;}
+ .templeInfo span:nth-child(2){width: calc(100% - 94px);}
+}
+
+
+// 20221107 修改
+.donationForm {
+	.formItem {
+		.donation_radio_area {
+			.radioBox_group {
+				label {
+					margin: 0;
+					font-weight: 400;
+					color: #333;
+				}
+			}
+		}
+	}
+}
+
+.donation_radio_area {
+	.radioBox_group {
+		.signIcon::before {
+			border: 1px solid #333;
+		}
+	}
+}
+
+.radio_inb {
+	display: inline-block;
+
+	.radioBox_group {
+		display: inline-block;
+		margin-left: 6px;
+	}
+}

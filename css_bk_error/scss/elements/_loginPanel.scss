@@ -1,0 +1,46 @@
+@charset "utf-8";
+
+ 
+
+// =====================================================================================
+// shop 登入panel (popBox)
+// =====================================================================================
+	.loginPanel {
+		.boxContent {max-width: 1200px;}
+		.hrTitle {margin:0;}
+		@media (max-width: $screenViewM){
+			.userLogin {order:2;-webkit-order:2;}
+			.firstShop {order:1;-webkit-order:1;}
+
+			[class^='btn-'],
+			button {
+				width: 100%;
+				text-align: center;
+			}
+			
+		}
+	} 
+
+// =====================================================================================
+// 一般登入panel (popBox)
+// =====================================================================================
+	.loginPanel_normal {
+		.boxContent {max-width:300px;}
+		.hrTitle {margin:0;}
+		@media (max-width: $screenViewSS){
+			.boxContent{height: auto;max-height: 100%;}
+			
+		}
+	}
+
+// =====================================================================================
+// 密碼 panel (popBox)
+// =====================================================================================
+	.loginPanel_pwd {
+		.boxContent {max-width:300px;}
+		.hrTitle {margin:0;}
+		@media (max-width: $screenViewSS){
+			.boxContent{height: auto;max-height: 100%;}
+			
+		}
+	}

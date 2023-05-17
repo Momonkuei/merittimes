@@ -1,0 +1,115 @@
+@charset "utf-8";
+
+ 
+
+// =====================================================================================
+// 彈跳盒 popBox (偽light box)
+// =====================================================================================
+	
+.popBox{
+	
+	// pos
+	position: fixed;
+	opacity: 0;
+	z-index: 0;
+	height:0;
+	width:0;
+	top:-100%;
+	left:-100%;
+
+	.closeSpace{
+		position: absolute;
+		top:0;
+		left:0;
+		width:100%;
+		height:100%;
+		opacity: 0;
+		z-index: -1;
+		@media (max-width: $screenViewSS){display: none; }
+	}
+
+	.boxContent{
+		position: absolute;
+		top:55%;
+		left:-100%;
+		width:90%;
+		max-width:900px;				
+		overflow: hidden;
+		opacity: 0;		
+		z-index: 100;
+		@media (max-width: $screenViewSS){
+			width:100%;
+			height:100%;
+		}
+	}
+
+	.mainContent{
+		max-height:90vh;
+		overflow: hidden;
+		overflow-y: auto;
+		position: relative;
+		z-index: 100;
+	}
+
+	&.open{
+		opacity: 1;
+		top:0;
+		right:0;
+		left:0;
+		bottom:0;
+		width:100%;
+		height: 100%;
+		overflow: hidden;
+		z-index: 1000;
+
+		.boxContent{
+			left:50%;
+			top:50%;
+					transform:translate(-50%,-50%);
+			-webkit-transform:translate(-50%,-50%);
+			opacity: 1;
+		}
+		
+	}
+
+
+
+
+
+	//effect
+			transition:background .3s ease-out;
+	-webkit-transition:background .3s ease-out;
+
+	.boxContent{
+				transition:top .5s ease-out;
+		-webkit-transition:top .5s ease-out;
+	}
+
+
+
+
+	// style
+	background: rgba(#fff,0);
+	.boxContent{
+
+		background: rgba(#fff,1);		
+		padding-top:2.5em;
+		padding-bottom:1em;
+		padding-left:$space_smaller;
+		padding-right:$space_smaller;
+
+				box-shadow: 0 0 30px rgba(0,0,0,.2);
+		-webkit-box-shadow: 0 0 30px rgba(0,0,0,.2);
+		
+
+		.closeBtn {position:absolute;top:5px;right:15px; }
+	}
+
+	&.open{
+		background: rgba(#fff,.9);
+		.boxContent{}
+	}
+
+
+
+}

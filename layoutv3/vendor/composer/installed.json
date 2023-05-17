@@ -1,0 +1,55 @@
+[
+    {
+        "name": "nguyenanhung/codeigniter-database-standalone",
+        "version": "v1.0.0",
+        "version_normalized": "1.0.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/nguyenanhung/codeigniter-database-standalone.git",
+            "reference": "4e9d48d1720b4bad73aef8e0ff5443f4b255ab85"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/nguyenanhung/codeigniter-database-standalone/zipball/4e9d48d1720b4bad73aef8e0ff5443f4b255ab85",
+            "reference": "4e9d48d1720b4bad73aef8e0ff5443f4b255ab85",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.0"
+        },
+        "time": "2018-12-03T06:26:12+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "nguyenanhung\\CodeIgniterDB\\": "src/"
+            },
+            "files": [
+                "src/DB.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "GPL-3.0"
+        ],
+        "authors": [
+            {
+                "name": "Nguyen An Hung",
+                "email": "dev@nguyenanhung.com",
+                "homepage": "https://nguyenanhung.com",
+                "role": "Developer"
+            }
+        ],
+        "description": "A wrapper database from CodeIgniter",
+        "homepage": "https://github.com/nguyenanhung/codeigniter-database-standalone",
+        "keywords": [
+            "ci",
+            "codeigniter",
+            "database",
+            "mysql",
+            "mysqli",
+            "pdo",
+            "sql"
+        ]
+    }
+]

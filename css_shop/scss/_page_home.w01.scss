@@ -1,0 +1,33 @@
+@charset "utf-8";
+
+// =====================================================================================
+// index - w1 JC版
+// =====================================================================================
+
+	.indexContent_1{
+
+
+		.slideBanner{
+			&+*{margin-top:0;}		
+		}
+
+
+		.articleBlockStyle03 {
+			margin:0 auto;
+			background: rgba($cis-color-3,.3);
+			.itemImg{
+				padding-bottom: 75%;
+				img{	
+					width:auto;
+					height:auto;
+					max-width:150%;
+					max-height:150%;
+					min-width:100%;
+					min-height: 100%;
+				}
+			}
+		}
+
+		&+footer {margin-top: 0}
+	}
+

@@ -1,0 +1,48 @@
+@charset "utf-8";
+
+// =====================================================================================
+// index - w5
+// =====================================================================================
+
+
+	
+	.indexContent_5{
+		.indexBlock_1{
+			.itemImg{
+				display: block;
+			}
+		}
+		.indexBlock_2{
+			.slidItem{
+				cursor: pointer;
+				.slidItemTitle,.slidItemDesc{
+					text-align: center;
+				}
+			}
+		}
+		.newsList{
+			@extend .listStyle_border;
+			
+			li{
+				overflow: hidden;
+			    text-overflow: ellipsis;
+			    white-space: nowrap;
+			}
+			a{
+				padding-left:0;
+				padding-right:0;
+			}
+
+			.newsDate{
+				background: $cis-color-1;
+				border-radius: $radius-base;
+				font-size:$font-size-small;
+				padding:3px .5em;
+				margin-right: .5em;
+				color:#fff;
+
+			}
+		}
+
+
+	}

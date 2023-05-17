@@ -1,0 +1,499 @@
+@charset "utf-8";
+
+.headerStyle03 .subNavMenu>li>ul {
+    display: none;
+}
+
+.headerStyle03 .subNavMenu>li:hover>ul {
+    display: block;
+}
+
+/*自訂樣式===============================================*/
+.noscroll {
+    overflow-y: hidden;
+}
+
+/* 20220810 Q&A間距拿掉 */
+/* .faqItem {
+	margin-bottom: 80px;
+} */
+
+.shopdetail .prod_price .del {
+    text-decoration: line-through;
+}
+
+.relatedPro {
+    margin: 50px 0;
+}
+
+.relatedPro .hrTitle {
+    position: relative;
+    text-align: center;
+}
+
+.relatedPro .hrTitle::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: gray;
+    z-index: -1;
+}
+
+.relatedPro .hrTitle span {
+    padding: 0 15px;
+    color: gray;
+    background: #fff;
+}
+
+.relatedPro .proList.shop {
+    margin-top: 50px;
+}
+
+.relatedPro .relate_pro_slid {
+    padding-left: 57.6px;
+    padding-right: 57.6px;
+    overflow: visible;
+}
+
+.relatedPro .relate_pro_slid .item .itemImg {
+    padding-bottom: 100%;
+}
+
+.relatedPro .relate_pro_slid .item .itemTitle {
+    height: 73px;
+    font-size: 16px;
+    line-height: 1.5;
+    overflow: hidden;
+}
+
+.relatedPro .relate_pro_slid .item .itemPrice {
+    color: #ff5353;
+}
+
+.relatedPro .relate_pro_slid .item .itemPrice.del {
+    color: gray;
+    text-decoration: line-through;
+    padding-right: .5em;
+}
+
+.shop_add .item {
+    margin: 0 15px;
+}
+
+@media (min-width: 992px) {
+    .proList .hamburger_hide {
+        display: block !important;
+    }
+}
+
+.proList .subBlockTitle,
+.proList .shopCart,
+.proList .shopCart_btn {
+    text-align: center;
+}
+
+.product .proList .subBlockTitle {
+    text-align: left;
+}
+
+.proList .shopCart_btn .itemAddCart {
+    width: auto;
+    height: auto;
+    font-size: 16px;
+    padding: 5px 25px;
+    border-radius: 0;
+}
+
+.proList .shopCart_btn .itemAddFavor {
+    position: absolute;
+    top: -10px;
+    right: 5px;
+    z-index: 3;
+}
+
+.indexList2 {
+    padding: 15px;
+    background-color: #0050A3;
+}
+
+
+/* 0919 test */
+
+/* product 食譜右側清單 共用 */
+
+.itemList.newsListType2.Bbox_in_1c.newsListType7 .itemImg {
+    /* cursor: pointer; */
+    cursor: default;
+}
+
+/* productdetail 食譜內頁詳細 共用 */
+
+.productdetail section.sectionBlock input.tagbtn {
+    cursor: pointer;
+}
+
+.productdetail section.sectionBlock ul.listTag {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-around;
+    margin-bottom: 30px;
+}
+
+.productdetail section.sectionBlock ul.listTag li {
+    margin: 0 6px;
+}
+
+.tabLink_area {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 15px;
+    margin-bottom: 0 !important;
+}
+
+.container a.tabLink {
+    border: 1px solid #7995cc;
+    padding: 10px 25px;
+    margin: 10px;
+    border-radius: 50px;
+    background: #f2f6ff;
+    color: #2d4d8d;
+}
+
+.abouttabLink_area {
+    margin-right: 0;
+    margin-left: 0;
+    justify-content: center;
+}
+
+.abouttabLink {
+    border: 1px solid #7995cc;
+    padding: 10px 30px;
+    margin: 10px;
+    border-radius: 50px;
+    background: #f2f6ff;
+    color: #2d4d8d;
+}
+
+.productdetail .itemImg.square {
+    padding-bottom: 75%;
+}
+
+.productdetail .prod_slider img:hover {
+    cursor: default;
+}
+
+.prod_slider_title {
+    color: #7995CC;
+    font-size: 40px;
+    font-weight: bold;
+    /* display: -webkit-box;
+	-webkit-line-clamp: 1;
+	-webkit-box-orient: vertical;
+	text-overflow: ellipsis;
+	overflow: hidden; */
+}
+
+.productdetail .title_style {
+    margin-top: 0;
+}
+
+.tagbox .subBlockTitle {
+    font-size: 18px;
+    color: #313131;
+    font-weight: bold;
+    height: 100%;
+}
+
+.tagbox a.tabLink.light {
+    background: #3c5d9f;
+    color: #fff;
+}
+
+.aboutlight {
+    background: #3c5d9f;
+    color: #fff;
+}
+
+/* productdetail 食譜內頁右側表格步驟詳細 共用 */
+.outboxtopic {
+    background-color: #7995cc;
+    padding: 10px 15px;
+    color: #fff;
+}
+
+.mgb5.outbox {
+    border: 1px solid #7995cc;
+    margin-bottom: 30px;
+    background: #fff;
+}
+
+.mgb5.outbox .col-6 {
+    padding: 5px 10px;
+}
+
+.widgetSocial {
+    top: 40%;
+    right: 1.5%;
+}
+
+.slick-slider .slick-arrow:hover {
+    background-color: #3c5d9f;
+}
+
+.newsListType2 .item.process a:hover .itemTitle {
+    color: #2d4d8d;
+    cursor: default;
+}
+
+.newsListType2 .item.process a .itemImg,
+.newsListType2 .item a {
+    cursor: default;
+}
+
+
+.indexBox03 .proItemBorder:hover .itemImg img,
+.newsListType2 .item a:hover .itemImg img {
+    transition: all 1s;
+    width: 130%;
+    height: 130%;
+}
+
+.itemImg img {
+    transition: all 1s;
+
+}
+
+.tagbtn {
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+body {
+    font-family: "Noto Sans TC", "Lato", arial, "文泉驛正黑", "WenQuanYi Zen Hei", "Heiti TC", "微軟正黑體", "Microsoft JhengHei";
+}
+
+/* 申請頁面在 css_v4/scss/page/apply.scss */
+
+/* 頁面在 css_v4/scss/page/index-modify.scss */
+
+/* header */
+
+.headerStyle01 .topLink {
+    background-color: #47a39c;
+}
+
+/* footer */
+
+.footerStyle13 {
+    background-color: #f1f6f6
+}
+
+/* footer連結 */
+.footerStyle13 .ftMenu_list_area .ftMenu_list li a {
+    color: #333;
+}
+
+.footerStyle13 .ftMenu_list_area .ftMenu_list li a:hover {
+    color: #47a39c;
+}
+
+/* footer分隔線 */
+.footerStyle13 .ftMenu_list_area {
+    border-bottom: 1px solid #47a39c;
+}
+
+/* footer info  */
+.footerStyle13 .ft_info div i {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    background-color: #47a39c;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footerStyle13 .ft_info div a {
+    color: #333;
+}
+
+.footerStyle13 .ft_info div a:hover {
+    color: #47a39c;
+}
+
+.footerStyle13 .ft_info div+div::before {
+    border-right: 2px dotted #47a39c;
+    background: transparent;
+}
+
+.footerStyle13 .ft_social ul li a {
+    color: #47a39c;
+}
+
+.footerStyle13 .ft_social ul li+li::before {
+    border-right: 2px dotted #47a39c;
+    background: transparent;
+}
+
+.footerStyle13 .ft_copyright span {
+    color: #333;
+}
+
+
+/* 相關CSS 請到 caa_v4/scss/style.scss */
+
+/* ---直接覆蓋scss--- */
+body {
+	color: #5a5a5a;
+	font-size: 17px;
+}
+
+.XXXContent {
+    background: #f1f6f6;
+}
+
+.pageTitleStyle-2 span, .pageTitleStyle-2 h2 {
+    font-size: 44px;
+}
+
+.sectionBlock,
+.newsListType1 {
+    margin-bottom: 0;
+}
+
+.blockTitle {
+	font-weight: 500;
+
+}
+
+
+/* ---header區塊樣式--- */
+
+header .navBar .navBarContent .logo img {
+    width: 240px;
+    height: auto;
+    margin: 34px 0;
+}
+
+header .navBar .navMenu li a {
+    color: #ffffff;
+    font-size: 17px;
+}
+
+header .navBar .navMenu>li.moreMenu>ul {
+    border-radius: 8px;
+    border: 1px solid #3eb9b0;
+    min-width: 195px;
+    overflow: hidden;
+}
+
+header .navBar .navMenu>li.moreMenu>ul li {
+    background: #f4f8f8;
+    border-bottom: 1px dashed #3eb9b0;
+}
+
+header .navBar .navMenu>li.moreMenu>ul li:hover>a {
+    background-color: rgb(223 247 247);
+    padding-left: 10px;
+}
+
+header .navBar .navMenu>li.moreMenu>ul li a {
+    color: #333;
+
+}
+
+header .navBar .navMenu>li.moreMenu>ul li:last-child {
+    border-bottom: none;
+}
+
+
+/* ---創辦人簡介--- */
+
+.col-lg-6.text-center.aboutLeft {
+    position: relative;
+}
+
+span.animation {
+    position: absolute;
+    display: block;
+    bottom: 0;
+    left: 7%;
+}
+
+.paragraphAbout {
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+.paragraphAbout .blockTitle span {
+	color: #fff;
+}
+
+
+
+.counterBlock {
+	position: relative;
+	color: #fff;
+	padding: 50px 0;
+}
+
+.counterBlock .container {
+	position: relative;
+	z-index: 1;
+}
+
+.counterBlock::after {
+    content: "";
+    display: block;
+    position: absolute;
+    background: rgb(32 110 105 / 70%);
+    top: 0;
+    left: 0;
+	bottom: 0;
+	right: 0;
+	z-index: 0;
+}
+
+.counterList .countup {
+    color: #f4ac00;
+}
+
+.overlap1.sectionBlock_67 .overlapBox .textBox {
+    width: 48%;
+}
+
+.overlap1.sectionBlock_67 .overlapBox .imgBox {
+    width: 52%;
+    border-radius: 0px;
+}
+
+.overlap1.sectionBlock_67 .overlapBox:not(:last-child) {
+    margin-bottom: 100px;
+}
+
+.overlap1.sectionBlock_67 .overlapBox .textBox {
+    padding: 2%;
+}
+
+.overlap1.sectionBlock_67 .overlapBox article p {
+    line-height: 2.5;
+    line-height: 1.8;
+    color: #5a5a5a;
+    display: block;
+    text-align: left;
+    font-size: 17px;
+}
+
+
+.overlapBox .blockTitle span {
+    text-align: left;
+}
+
+.sectionBlock_67-hr {
+    border: 1px dashed #b2cfcd;
+}

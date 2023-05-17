@@ -1,0 +1,64 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Sammy.js Example</title>
+    <style>
+	#content{
+		width:500px;
+	}
+	</style>
+</head>
+<body>
+
+    <div id="nav">
+        <ul>
+            <li><a href="#/stone">神魔之塔-快速刷靈魂石技巧</a></li>
+            <li><a href="#/slimu">6小時史萊姆地獄滿技心得</a></li>
+            <li><a href="#/gemini/小時雙子滿技心得">6小時雙子滿技心得</a></li>
+        </ul>
+    </div>
+
+    <div id="content"></div>
+
+<!--    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+-->	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script type="text/javascript" src="sammy-0.5.4.min.js"></script>
+    <script type="text/javascript">
+
+        var ratPack = $.sammy(function() {
+
+          this.element_selector = '#content';
+		  
+          this.get('#/stone', function(context) {
+              context.app.swap('');
+              context.$element().append('<img src="img/head01.jpg">對於很多比較沒時間玩遊戲，或是愛打靈魂石快速練卡片等級的玩家，刷靈魂石就成了一個很棒的練卡方式，但礙於一天只有兩次的靈魂石時段，熾天使現在就要教大家如何有效且快速的刷靈魂石關卡。 由於神魔之塔某版本之後出了千年獸系列(隊長及隊友為千年獸卡，可將尾關的靈魂石變成大顆的)的卡片，因此為了達到最高的效益，請於隊長放置千年獸的卡，隊員則是放無視防禦全體攻擊的卡片，例如：木妹、暗妹、火遊...相信看到這邊大家都知道為何要如此組隊了吧!! 隊員特別推薦木妹、暗妹，因為其技能相當好練，可以打西瓜及小丑就可以快速練好技能，練好技能後，只要進入靈魂石關卡第一層將技能洗出來，之後就直接放技能就可以快速秒掉靈魂石通關囉!! PS：這樣平均一場靈魂石大概2分鐘內可以搞定'); 
+          });
+          
+          this.get('#/gemini/:name', function(context) {
+              context.app.swap('');
+              context.$element().append('<h1>' + this.params['name'] + '</h1><img src="img/head03.jpg"><BR>大家都知道，抽到雙子的時候不知道是該喜還是該悲，喜的是這張實在是很好的卡，悲的是要面對高達600萬經驗的卡片要練，而且還要陷入史萊姆地獄了... 因此熾天使在這邊整理了一個最單純、快速的練技大法，相信跟著我們做，6小時內可以將雙子練滿技。'); 
+          });
+          
+          this.get('#/slimu', function(context) {
+              context.app.swap('');
+              context.$element().append('<img src="img/head02.jpg">'); 
+          });
+          
+          this.post('#/slimu', function(context) {
+              context.app.swap('');
+              var to = this.params['to'];
+              context.$element().append('<h1>hi ' + to + '</h1>');
+          });
+
+        });
+
+        $(function() {
+          ratPack.run('#/stone');
+        });
+    
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,73 @@
+@charset "utf-8";
+
+.cowboyPageBanner01 {
+	position: relative;
+	background: #ccc;
+
+	.banner_content {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		width: 30%;
+		min-width: 305px;
+		text-align: center;
+		transform: translate(-50%,-50%);
+
+		.banner_txt_one {
+			color: #fff;
+			font-size: 18px;
+			font-weight: 700;
+			font-family: Arial, Helvetica, sans-serif;
+			line-height: 1;
+			padding: 0;
+			margin: 0;
+
+			@media (max-width: 480px) {font-size: 16px;}
+		}
+
+		.banner_txt_two {
+			color: #fff;
+			font-size: 48px;
+			font-weight: 700;
+			font-family: Arial, Helvetica, sans-serif;
+			line-height: 1.3;
+			padding: 0;
+			margin: 0;
+
+			@media (max-width: 991px) {font-size: 36px;}
+			@media (max-width: 480px) {
+				font-size: 32px;
+				line-height: 1;
+			}
+		}
+
+		.banner_txt_three {
+			color: #fff;
+			font-size: 13px;
+			letter-spacing: 3px;
+			font-family: Arial, Helvetica, sans-serif;
+			line-height: 1.3;
+			padding: 0;
+			margin: 15px 0 0;
+
+			@media (max-width: 480px) {
+				font-size: 12px;
+				margin: 5px 0 0;
+			}
+		}
+
+		.banner_line {
+			display: inline-block;
+			width: 33%;
+			height: 20px;
+			background: url('https://www.jaj.com.tw/images/banner-bg-line.jpg') right 0 top 10px repeat-x;
+
+			@media (max-width: 1024px) {width: 38%;}
+			@media (max-width: 640px) {width: 32%;}
+		}
+
+		.banner_line_logo {
+			display: inline-block;
+		}
+	}
+}

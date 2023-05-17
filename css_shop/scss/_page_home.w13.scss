@@ -1,0 +1,150 @@
+@charset "utf-8";
+
+
+/*---------------------------------------------------------------------------------------------------------------------------*/
+/*for w13 index*/
+/*---------------------------------------------------------------------------------------------------------------------------*/
+
+.indexContent_w13{
+
+	&+footer{margin-top: $space;}
+	
+	padding:$space $space_smaller;
+
+	/*首頁about*/
+		.indexAbout  {
+			
+					align-items:stretch;
+			-webkit-align-items:stretch;
+
+			border-radius: $radius-base;			
+			overflow: hidden;
+
+
+
+			.itemImg{
+				padding-bottom: 0;
+				height: 100%;
+				img{
+					height: 100%;
+					max-width: none;
+				}
+				&,&:before{border-radius: 0;}				
+				&:after{display: none;}
+				&:before{
+					opacity: 1;
+					width:100%;
+					right:auto;
+					top:0;
+					left:90%;
+					background: $cis-color-1;
+							transform:skew(10deg);
+					-webkit-transform:skew(10deg);
+					z-index: 10;
+				}
+
+				@media (max-width: $screenViewL){
+					height: auto;
+					padding-bottom:62.5%;
+					&:before{						
+						width:100%;
+						height: 100%;
+						right:0;
+						top:90%;
+						left:0;						
+								transform:skewY(5deg);
+						-webkit-transform:skewY(5deg);
+						
+					}
+
+				}
+			}
+			
+
+			.itemContent {padding:$space; }
+
+			// style
+			.blockTitle {
+				span,small {color:$text-color;}
+			}
+			
+			.itemContent                   {
+				background:$cis-color-1; 
+				p                 {color:rgba(255,255,255,.8) }
+				.blockTitle       {color:#fff }
+				.blockTitle:after {background: #fff}	
+			}
+		}
+		
+
+
+
+
+	/*首頁news*/
+		
+		.indexNews {
+			padding-top:0;
+			padding-bottom: 0;
+			padding-left:$space;
+			padding-right:$space;
+
+
+			.itemDate{
+				padding-right: 1em;
+				display: inline-block;
+
+			}
+
+			ul a{
+				display: inline-flex;
+				display: -webkit-inline-flex;
+				width: 100%;
+
+				* {    word-break: break-word; }
+				.itemDate{
+							flex:0 0 100px;
+					-webkit-flex:0 0 100px;
+					white-space: nowrap;
+				}
+			}
+		}
+
+		.indexAD {
+				
+			background: #aaa;
+
+			.itemImg{						
+				&,&:before {border-radius: 0}				
+	
+			}
+
+			>*{padding:1px !important; }
+		}
+
+		@media (max-width:$screenViewL){
+
+				.indexAD   {order:2;-webkit-order:2}
+				.indexNews {order:1;-webkit-order:1}
+				.indexNews {
+					padding-left: 0;
+					padding-right: 0;
+				}
+			
+		}
+		@media (max-width:$screenViewSS){
+				.indexNews {
+					.itemDate {width: 100%;}
+				}
+
+		}
+	
+		
+		
+}
+
+		
+			
+		
+		
+		
+			

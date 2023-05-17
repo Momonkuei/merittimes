@@ -1,0 +1,705 @@
+@charset "utf-8";
+
+body{
+	padding:0;
+	margin:0;
+	*{box-sizing:border-box;}
+}
+
+
+//產生 panel 
+
+	@mixin makePanel($panel){
+		position : fixed;
+		z-index  : map-get($panel,panelZ);
+		width    : map-get($panel,panelW);
+		height   : map-get($panel,panelH);
+		max-width: 100%;
+		max-height: 100%;
+		overflow : hidden;
+		overflow-y:auto;
+		// top:0;
+		// left:0;
+		// right:0;
+		// bottom:0;
+		// @if map-get($panel,panelP)!=0 {
+		// 	#{map-get($panel,panelP)}: auto;
+		// }
+		@if map-get($panel,panelP)==top {
+			top: 0;
+			left:0;
+		}
+		@if map-get($panel,panelP)==left {
+			top: 0;
+			left:0;
+		}
+		@if map-get($panel,panelP)==bottom {
+			bottom: 0;
+			left:0;
+		}
+		@if map-get($panel,panelP)==right {
+			top: 0;
+			right:0;
+		}
+		
+
+
+	}
+
+	// panel config
+	$mbPanelName:"#mbPanel,.mbPanel";
+	$panelSideWidth:260px;
+	$panelSideHeight:90%;
+	$panelFunNavHieght:$headerScrollHeight;
+
+	//side panel
+	$panelTop    :(panelW:100%, panelH:$panelSideHeight, panelZ:100, panelP:top );
+	$panelBottom :(panelW:100%, panelH:$panelSideHeight, panelZ:100, panelP:bottom );
+	$panelLeft   :(panelW:$panelSideWidth, panelH:100%, panelZ:100, panelP:left );
+	$panelRight  :(panelW:$panelSideWidth, panelH:100%, panelZ:100, panelP:right );
+
+	//sub panel
+	$panelSubPanel:(panelW:100%, panelH:100%, panelZ:100, panelP:top );
+
+	//page panel (main content area)
+	$panelPage   :(panelW:100%, panelH:auto, panelZ:10, panelP:0);
+	
+	//nav panel 
+	$panelNavTop    :(panelW:100%, panelH:$panelFunNavHieght, panelZ:100, panelP:top );
+	$panelNavBottom :(panelW:100%, panelH:$panelFunNavHieght, panelZ:100, panelP:bottom );
+
+
+
+
+	#{$mbPanelName}{
+		max-width: 100vw;
+		overflow: hidden;
+		
+
+	  //make panel
+
+		//side panel 
+		.mbPanel_side  {&.open{z-index: 100;}}
+		.mbPanel_left  {@include makePanel($panelLeft);}
+		.mbPanel_right {@include makePanel($panelRight);}
+		.mbPanel_top   {@include makePanel($panelTop);}
+		.mbPanel_bottom{@include makePanel($panelBottom);}
+		
+		
+		//page content panel
+		.mbPanel_page  {
+			.mbPanel_content{
+				padding-top:$panelFunNavHieght;
+				padding-bottom:$panelFunNavHieght;
+				
+
+			}
+		}
+
+		//funNav panel
+		.mbPanel_funNav {
+		    &.navTop    {@include makePanel($panelNavTop);}
+		    &.navBottom {@include makePanel($panelNavBottom);}
+			.mbPanel_content{
+				display: flex;
+				align-items:center;
+				justify-content:space-between;
+				
+				display: -webkit-flex;
+				 -webkit-align-items:center;
+				 -webkit-justify-content:space-between;
+
+				 overflow: hidden;
+
+				 >*{
+						 	flex:1 1 auto;
+				 	-webkit-flex:1 1 auto;
+				 	white-space: nowrap;
+				 	text-align: center;
+				 	display: inline-flex;
+				 	display: -webkit-inline-flex;
+						 	align-items:center;
+				 	-webkit-align-items:center;
+						 	justify-content:center;
+				 	-webkit-justify-content:center;
+				 	text-align: center;
+				 	height: 100%;
+				 	min-width: 40px;
+				 	img{
+				 		max-height: 100%;
+				 	}
+				 }
+				 // .logo{
+					// 	 	flex:1 1 auto;
+				 // 	-webkit-flex:1 1 auto;
+				 // }
+			}
+		}
+
+		//subPanel in panel 
+		.mbPanel_subPanel{
+			@include makePanel($panelSubPanel); 
+			position: absolute;
+		}
+
+	 	//panel_content ,  full height ， scroll=auto
+		.mbPanel_content {height: 100%;overflow-x:hidden;overflow-y:auto;}
+
+		//展開選單時，主要內容區域捲軸隱藏
+		// &.open{
+		// 	position: fixed;
+		// 	top:0;
+		// 	left:0;
+		// 	width:100%;
+		// 	height: 100%;
+		// 	overflow: hidden;
+		// 	z-index: 10;
+		// }
+		// .mbPanel_page {
+		// 	// @include makePanel($panelPage);
+
+		// 	.mbPanel_content {
+		// 		height:100vh;
+		// 		overflow-y: auto;
+		// 	}
+		// 	&.open{
+		// 		.mbPanel_content {
+		// 			overflow: hidden;
+		// 		}
+		// 	}
+			
+		// }
+		
+	}
+
+
+
+
+
+//panel 展開效果
+	[class^='mbPanel_']{
+		box-sizing:border-box;
+		margin:0;
+		padding:0;
+		transition:all .3s ease;
+		-webkit-transition:all .3s ease;
+	}
+
+	#{$mbPanelName}{
+
+		//預設效果、四邊滑出
+		&,
+		&[data-mbPanel='']{
+
+			.mbPanel_left   {transform:translateX(-100%);-webkit-transform:translateX(-100%);}	
+			.mbPanel_right  {transform:translateX(100%);-webkit-transform:translateX(100%);}	
+			.mbPanel_top    {transform:translateY(-100%);-webkit-transform:translateY(-100%);}	
+			.mbPanel_bottom {transform:translateY(100%);-webkit-transform:translateY(100%);}	
+
+			.mbPanel_side{
+				opacity: 0;
+				&.open   {
+					z-index: 200;
+					opacity: 1;
+					transform:translate(0);
+					-webkit-transform:translate(0);
+				}	
+			}
+		
+		}//end 
+
+
+		// 01 - panel 左邊翻開 、 mbPanel_page、mbPanel_funNav 往右推出
+		&[data-mbPanel='mbPanel_effect01']{
+
+			.mbPanel_page,
+			.mbPanel_funNav{
+				transform         : translateX(0); 
+				-webkit-transform : translateX(0);
+				&.open {
+					transform         : translateX($panelSideWidth); 
+					-webkit-transform : translateX($panelSideWidth);
+				}
+			}
+		
+			.mbPanel_side{
+				opacity             : 0;
+				perspective         : 700px;
+				-webkit-perspective : 700px;
+				transform           : translateX($panelSideWidth*-1);
+				-webkit-transform   : translateX($panelSideWidth*-1);
+				.mbPanel_content{
+					opacity                  : 0;
+					transform                : rotateY(-115deg);
+					-webkit-transform        : rotateY(-115deg); 
+					transform-origin         : 100% 0%;
+					-webkit-transform-origin : 100% 0%; 
+				}
+
+				&.open {
+					opacity           : 1;
+					transform         : translateX(0);
+					-webkit-transform : translateX(0);
+					.mbPanel_content{
+						opacity                  : 1;
+						transform                : rotateY(0);
+					    -webkit-transform        : rotateY(0);
+					    transform-origin         : 100% 0%;
+						-webkit-transform-origin : 100% 0%;
+						transition-delay         : 70ms;
+						-webkit-transition-delay : 70ms;
+					}
+				}
+
+			}// end mbPanel_side
+
+		}//end mbPanel_effect01
+
+
+		// 02 - panel 左邊推入 、 mbPanel_page、mbPanel_funNav 往右推出
+		&[data-mbPanel='mbPanel_effect02']{
+
+			.mbPanel_page,
+			.mbPanel_funNav      {
+				transform         : translateX(0);
+				-webkit-transform : translateX(0);
+				&.open {
+					transform         : translateX($panelSideWidth);
+					-webkit-transform : translateX($panelSideWidth);
+				}
+			}
+
+			.mbPanel_side{
+				opacity:0;
+				&.open {
+					opacity:1;
+				}
+			}
+
+		}//end mbPanel_effect02
+
+
+		// 03 - panel 左邊推入 、 mbPanel_page、mbPanel_funNav 往右推出 (3d)
+		&[data-mbPanel='mbPanel_effect03']{
+
+				position            : fixed;
+				width               : 100%;
+				height              : 100%;
+				perspective         : 1500px;
+				-webkit-perspective : 1500px;
+				
+				.mbPanel_page,
+				.mbPanel_funNav{
+							transform-origin: 50% 50%;
+					-webkit-transform-origin: 50% 50%;
+							transform: translateZ(0) translateX(0) rotateY(0);
+					-webkit-transform: translateZ(0) translateX(0) rotateY(0);
+					&.open {
+								transform: translateZ(-100px) translateX(65%) rotateY(-45deg);
+						-webkit-transform: translateZ(-100px) translateX(65%) rotateY(-45deg);
+					}
+				}
+			
+				.mbPanel_side{
+					position:absolute;
+					opacity: 0;
+					&.open {
+						opacity: 1;
+					}
+				}
+
+		}//end mbPanel_effect03
+
+
+
+		
+		//panel in panel 
+		.mbPanel_subPanel{
+					transform: translateX(-100%);
+			-webkit-transform: translateX(-100%);
+			&.open {
+						transform: translateX(0);
+				-webkit-transform: translateX(0);
+			}
+		}
+
+
+	}
+
+
+
+//scroll up/down funNav hide/show
+	#{$mbPanelName}{
+		.mbPanel_funNav {
+			&.navTop.hide   {transform:translateY(-100%);-webkit-transform:translateY(-100%);}
+			&.navBottom.hide{transform:translateY(100%);-webkit-transform:translateY(100%);}
+		}
+	}
+
+
+
+
+
+
+
+
+
+
+
+// all panle 基本樣式
+
+	// 主背景色 
+	$mainBgColor          :none;
+	// panel 背景色
+	$panelBgColor         :$body-bg;
+	// panel 內容 背景色
+	$panelContentBgColor  :none;
+	// 頁面panel 背景色
+	$pageContentBgColor   :none;
+
+	$mbPanelFontSize      :$fontSizeBase;
+	$mbPanelLineHight     :$lineheight_small;
+
+	$mbPanelShadow        :0 0 10px rgba(0,0,0,.3);
+	$mbPanelOpenMask      :rgba(0,0,0,.5);
+
+
+	#{$mbPanelName}{
+
+		//background
+		background: $mainBgColor;
+		>[class^='mbPanel_']{
+			background: $panelBgColor;
+			.mbPanel_content{
+				background:$panelContentBgColor;
+			}
+		}
+		.mbPanel_page .mbPanel_content{background: $pageContentBgColor;}
+
+
+		//font
+		&,*{
+			// font-size:$mbPanelFontSize;
+			// line-height: $mbPanelLineHight;
+		}
+
+		//space
+		.mbPanel_content {padding:0;}
+		.mbPanel_funNav{
+			.mbPanel_content{
+				>*{
+					padding-left:.5em;
+					padding-right:.5em;
+				}
+			}
+		}
+
+
+		//shadow
+		.mbPanel_funNav,
+		.mbPanel_left{
+					box-shadow:$mbPanelShadow; 
+			-webkit-box-shadow:$mbPanelShadow; 
+		}
+
+		// 打開後，funNav、page 增加黑遮罩
+		.mbPanel_page,
+		.mbPanel_funNav{
+			.mbPanel_content{
+				position: relative;
+				z-index: 1
+			}
+			&:before {
+				content:'';
+				position: absolute;
+				top:0;
+				left:0;
+				right:0;
+				bottom:0;
+				background: $mbPanelOpenMask;
+				z-index: 0;
+				opacity: 0;
+						transition:all .5s ease;
+				-webkit-transition:all .5s ease;
+			}
+			&.open:before{
+				opacity: 1;
+				z-index: 100;
+			}
+		}
+
+
+		// funNav
+		.mbPanel_funNav{
+			
+			//config
+			$navTopBg       : #fff !default;
+			$navTopLinkColor: $text-color !default;
+
+			$navBottomBg       : $cis-color-1 !default;
+			$navBottomLinkColor: rgba(#ffffff,.6) !default;
+			
+			//白
+			@if $headerStyle==1{}
+			//黑
+			@if $headerStyle==2{
+				$navTopBg       : #000;
+				$navTopLinkColor: rgba(#ffffff,.6);
+			}
+			//cis1
+			@if $headerStyle==3{
+				$navTopBg       : $cis-color-1;
+				$navTopLinkColor: rgba(#ffffff,.6);
+			}
+
+
+			// 上方選單樣式	
+			&.navTop {
+				background:$navTopBg;
+				*{color:$navTopLinkColor;}
+			}
+
+			//下方選單樣式
+			&.navBottom {
+				background: $navBottomBg;
+				*{
+					color:$navBottomLinkColor;
+					font-size:$font-size-h6;
+				}
+				a{
+							flex-direction:column;
+					-webkit-flex-direction:column;
+					position: relative;
+					overflow: hidden;
+				}
+			}
+		}
+
+
+
+		//側邊主選單
+
+			// pos
+			.panelMenu{
+				position: relative;
+				height: 100%;
+				overflow: hidden;
+				overflow-y:scroll;
+				.subMenu {
+					@include makePanel($panelSubPanel);
+					position: absolute;
+				}
+			}
+
+			//展開效果
+			.panelMenu{
+						transition:all .3s ease; 
+				-webkit-transition:all .3s ease;
+				.subMenu {
+							transition:all .3s ease; 
+					-webkit-transition:all .3s ease;
+							transform: translateX(-100%);
+					-webkit-transform: translateX(-100%);
+					&.open {
+								transform: translateX(0);
+						-webkit-transform: translateX(0);
+					}
+				}
+			}// end 展開效果
+
+
+
+			//layout-九宮格
+			.panelMenu{
+				
+				&.styleGrid{
+
+				  height: 100%;
+				  width: 100%;
+				  text-align: center;
+				  list-style: none;
+				  margin:0;
+				  padding:0;
+
+				  &,
+				  .subMenu{
+				  display: flex;
+				  flex-wrap: wrap;
+				  align-items: center;
+				  justify-content: center;
+
+				  display: -webkit-flex;
+				   -webkit-flex-wrap: wrap;
+				   -webkit-align-items: center;
+				   -webkit-justify-content: center;
+				  }
+
+				  li{
+				  	display: inline-flex;
+				 	align-items: center;
+				 	justify-content: center;
+				  	display:  -webkit-inline-flex;
+				 	 -webkit-align-items: center;
+				 	 -webkit-justify-content: center;
+				  }
+				}
+			
+				&[data-styleGrid='3x3']{
+					 li{
+					 	width:33.333%;
+					 	height:33.333%;
+					 	
+					 }
+					
+				}	
+				
+				&[data-styleGrid='2x3']{
+					 li{
+					 	width:50%;
+					 	height:33.333%;
+					 	
+					 }
+					
+				}
+
+				&[data-styleGrid='2x2']{
+					 li{
+					 	width:50%;
+					 	height:50%;
+					 	
+					 }
+					
+				}
+
+				 
+			}// end 九宮格 
+
+
+			
+
+
+			//style
+			.panelMenu {	
+				
+				//回上層
+				$backLinkColor : #fff;
+				$backLinkBg    : $cis-color-1;
+
+				//子選單
+				$panelMenuSubMenuBg       : $panelBgColor;
+				$panelMenuLinkBorderColor : #eeeeee;                      // 主選單 超連結 線顏色
+				$panelMenuLinkBorderWidth : 0 0 1px 0;                    // 主選單 超連結 線寬
+				$panelMenuLinkBorderStyle : solid;                       // 主選單 超連結 線寬
+
+				%iconItem{
+					display: inline-flex;
+					display: -webkit-inline-flex;
+							justify-content:space-between;
+					-webkit-justify-content:space-between;
+							align-items:flex-start;
+					-webkit-align-items:flex-start;
+					span{width:180px}
+					&:after{
+					    font-family: FontAwesome;
+					    text-rendering: auto;
+					    -webkit-font-smoothing: antialiased;
+					    -moz-osx-font-smoothing: grayscale;
+					    padding-left: 0.5em;
+					    content: "";
+					}
+					
+				}
+
+				
+				//space
+					&,ul{
+						padding:0;
+						margin:0;
+						list-style: none;
+					}
+					.subMenu {
+						.closePanel{
+							
+						}
+						
+					}
+					a{
+						display: inline-block;
+						width:100%;
+						padding:1em;
+						word-wrap: break-word;
+					}	
+
+					.mainCloseBtn,
+					.back a,
+					.moreMenu{
+						@extend %iconItem;
+					}
+
+				
+
+				//color & font
+
+					//回上一頁
+					.back a{					
+						&:after{					   
+						    content: "\f060";
+						}
+					}
+
+					//有次層選單
+					.moreMenu{					
+						&:after{
+						    content: "\f105";
+						}
+					}
+
+					//主要選單
+					.mainCloseBtn{					
+						&:after{
+						    content: "\f00d";
+						}
+					}
+
+
+
+					
+					.mainCloseBtn,
+					.back{
+						background:$backLinkBg; 
+						&,*{
+							font-size:18px;
+							color:$backLinkColor;
+						}
+					
+					}
+
+					.subMenu {background: $panelMenuSubMenuBg; }
+					a{
+						border-color:$panelMenuLinkBorderColor;
+						border-width:$panelMenuLinkBorderWidth;
+						border-style:$panelMenuLinkBorderStyle;
+					}
+
+				
+
+
+			} // end panelMenu Style 
+
+
+
+		
+
+	}
+
+
+
+
+
+
+
+
+
+
+
+

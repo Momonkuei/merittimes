@@ -1,0 +1,801 @@
+/* 修正 ios input 中的顯示錯誤 */
+input:not([type="radio"]) {
+	-webkit-appearance: none; /* Safari 和 Chrome，常用於iOS下移除內建樣式 */
+	-moz-appearance: none; /* FireFox */
+	appearance: none;
+}
+
+/* 取消選單卷軸 */
+
+// .moreMenu ul::-webkit-scrollbar {
+//     display: none; /* Safari and Chrome */
+//     -ms-overflow-style: none;
+//     scrollbar-width: none;
+// }
+
+/* navBar  */
+.nav-outside-bar {
+	background-color: #3eb9b0;
+
+	.navMenuContent {
+		display: flex;
+		justify-content: center;
+	}
+}
+
+/* gotop 修正 */
+
+.gotop {
+	display: flex;
+	justify-content: end;
+
+	@media (max-width: 1440px) {
+		img {
+			max-width: 70%;
+		}
+	}
+}
+
+/* 編輯器修正 */
+.editor-revise {
+	display: flex;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
+	-webkit-flex-wrap: wrap;
+	margin-right: -15px;
+	margin-left: -15px;
+	p {
+		position: relative;
+		width: 100%;
+		min-height: 1px;
+		padding-right: 15px;
+		padding-left: 15px;
+
+		@media (min-width: 992px) {
+			-ms-flex: 0 0 50%;
+			flex: 0 0 50%;
+			max-width: 50%;
+		}
+	}
+	@media (max-width: 992px) {
+		text-align: center;
+		p {
+			width: 100%;
+		}
+	}
+}
+
+/* 手機版 登入 人物 icon 顏色變更 */
+.mb-icon-login {
+	color: #f4ac00;
+}
+
+/* banner 修正 */
+
+.bannerStyle01 {
+	/* swiper-pagination 點點處理 */
+	.swiper-pagination {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 25px;
+		bottom: 5%;
+
+		.swiper-pagination-bullet {
+			width: 11px;
+			height: 11px;
+			background: #fff;
+			opacity: 0.8;
+			position: relative;
+
+			&::before {
+				content: "";
+				width: 20px;
+				height: 20px;
+				border-radius: 50%;
+				display: inline-block;
+				border: 1px dotted #fff;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+			}
+
+			&.swiper-pagination-bullet-active {
+				background: #f4ac00;
+
+				&::before {
+					border: 1px dotted #f4ac00;
+				}
+			}
+		}
+	}
+
+	// banner-按鈕
+	.swiper-button-prev,
+	.swiper-button-next {
+		height: 45px;
+		width: 45px;
+
+		.banner-btn-circle {
+			content: "";
+			height: 55px;
+			width: 55px;
+			border-radius: 50%;
+			border: #e6ad22 dotted 2px;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+		}
+
+		i {
+			font-size: 35px;
+		}
+
+		@media (max-width: 576px) {
+			display: none;
+		}
+	}
+}
+
+/* header 修改 */
+
+@media (min-width: 992px) {
+	header .navBar .navMenu > li > a > span {
+		white-space: nowrap;
+	}
+}
+
+/* topSideMenuStyle 修改 */
+
+.topSideMenuStyle-revise {
+	ul {
+		text-align: center;
+
+		li {
+			a {
+				user-select: none;
+				text-align: center;
+				justify-content: center;
+				text-decoration: none;
+				touch-action: manipulation;
+				vertical-align: top;
+				white-space: nowrap;
+				color: #47a39c;
+				// font-family: Inter, -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif;
+				font-size: 16px;
+				font-weight: 300;
+				letter-spacing: normal;
+				line-height: 1.5;
+
+				@include btnStyle(#d6fbf8, #47a39c, #95afad);
+				border: 1px solid #47a39c;
+				// padding: 12px 70px;
+				width: 100%;
+				margin: 5px 0;
+
+				&::after {
+					// background-color: transparent !important;
+					display: none;
+				}
+
+				&:hover {
+					border: 1px solid #47a39c;
+					background-color: #47a39c;
+					color: #fff;
+				}
+			}
+
+			&.active {
+				a {
+					border: 1px solid #47a39c;
+					background-color: #47a39c;
+					color: #fff;
+				}
+			}
+		}
+
+		@media (max-width: 992px) {
+			justify-content: flex-start;
+			li {
+				width: 50%;
+			}
+		}
+
+		@media screen and (max-width: 576px) {
+			li {
+				width: auto;
+			}
+			display: flex;
+			column-gap: 10px;
+			// justify-content: space-between;
+			justify-content: center;
+			padding: 0 0px;
+		}
+	}
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+	background-color: #e6ad22;
+	border-radius: 50%;
+}
+
+/* 首頁各個部份 */
+
+.sectionBlock_79 {
+	font-family: "Noto Sans TC";
+
+	.title {
+		font-size: 32px;
+		text-align: center;
+	}
+
+	.content {
+		margin-left: 0;
+
+		@media (min-width: 768px) {
+			padding-right: 5rem;
+			padding-left: 5rem;
+		}
+	}
+
+	.imageContent {
+		.budget_link {
+			picture {
+				&::after {
+					background: #b7dfd9;
+					border-radius: 0 70px 0 70px;
+
+					@media (max-width: 992px) {
+						display: none;
+					}
+				}
+
+				img {
+					@media (min-width: 992px) {
+						border-radius: 0 70px 0 70px;
+					}
+				}
+			}
+		}
+	}
+
+	.sectionBlock_79_bg {
+		position: relative;
+		background: url(../images_v4/home/index_content_sectionBlock_79/indexBg_1.png) no-repeat top right / 65% 80%;
+
+		@media (max-width: 992px) {
+			background: url(../images_v4/home/index_content_sectionBlock_79/indexBg_1.png) no-repeat top right / 100%
+				80%;
+		}
+	}
+
+	// 貼圖
+	.animaImg {
+		position: absolute;
+		opacity: 0.8;
+
+		@media (max-width: 992px) {
+			z-index: -1;
+			opacity: 0.3;
+		}
+
+		&_01 {
+			left: 0;
+			bottom: 0;
+		}
+
+		&_02 {
+			opacity: 0.9;
+			left: 30%;
+			bottom: 2%;
+
+			@media (max-width: 992px) {
+				display: none;
+			}
+		}
+
+		&_03 {
+			top: 10%;
+			left: 21%;
+		}
+
+		&_04 {
+			opacity: 1;
+			z-index: 5;
+			right: 10%;
+			bottom: 18%;
+
+			@media (max-width: 992px) {
+				display: none;
+			}
+		}
+
+		&_05 {
+			opacity: 0.8;
+			z-index: 4;
+			right: 3%;
+			bottom: 18%;
+
+			@media (max-width: 992px) {
+				display: none;
+			}
+		}
+
+		&_05_1 {
+			right: 0%;
+			bottom: 18%;
+		}
+	}
+}
+
+.sectionBlock_82 {
+	font-family: "Noto Sans TC";
+	position: relative;
+	@media (min-width: 992px) {
+		padding: 120px 0px 100px;
+	}
+	.titleBox {
+		.title {
+			font-size: 32px;
+		}
+	}
+
+	.Txt {
+		padding-right: 0;
+
+		.title {
+			border-bottom: 1px dotted #53bd53;
+
+			a {
+				color: #227973;
+				font-size: 18px;
+				display: flex;
+				align-items: center;
+				gap: 5px;
+			}
+		}
+
+		p {
+			font-size: 18px;
+			-webkit-line-clamp: 10;
+		}
+		.num {
+			color: #e1f2f1;
+		}
+	}
+
+	.processList {
+		li {
+			// 去除方向圖樣
+			.item {
+				&::before {
+					background-image: none;
+				}
+			}
+
+			&:nth-of-type(1) {
+				@media (min-width: 576px) and (max-width: 992px) {
+					.item {
+						width: 80%;
+						text-align: center;
+					}
+
+					.titleBox {
+						text-align: center;
+					}
+				}
+
+				@media (max-width: 576px) {
+					width: 200px;
+
+					.titleBox {
+						.title {
+							font-size: 24px;
+						}
+					}
+				}
+			}
+
+			&:nth-of-type(5),
+			&:nth-of-type(6),
+			&:nth-of-type(7) {
+				@media (min-width: 992px) {
+					margin-top: -150px;
+				}
+			}
+
+			&:nth-of-type(5) {
+				@media (min-width: 992px) {
+					margin-left: auto;
+				}
+			}
+
+			&:last-of-type {
+				.Txt {
+					.title {
+						border-bottom: none;
+						a {
+							justify-content: center;
+						}
+					}
+				}
+
+				@media (max-width: 576px) {
+					position: absolute;
+					right: 2%;
+					top: 10%;
+				}
+			}
+		}
+	}
+
+	.animaImg {
+		position: absolute;
+		z-index: -1;
+		opacity: 0.5;
+	}
+
+	.animaImg_06 {
+		left: 55%;
+		top: -8%;
+		opacity: 0.8;
+	}
+
+	.animaImg_07 {
+		right: 2%;
+		top: 0%;
+	}
+
+	.animaImg_08 {
+		left: 0%;
+		bottom: 10%;
+	}
+
+	.animaImg_09 {
+		left: 30%;
+		bottom: 10%;
+		opacity: 0.8;
+	}
+
+	.animaImg_10 {
+		left: 60%;
+		bottom: -10%;
+	}
+}
+
+.sectionBlock_36-5 {
+	// 去除subBlockTitle & p 產生的 margin ，且增加設計圖的高度
+
+	.fullItem {
+		display: flex;
+		a {
+			display: flex;
+			flex-direction: column;
+		}
+
+		.textBox {
+			background: #0ca79c;
+		}
+
+		&:nth-child(even) {
+			.textBox {
+				background: #3eb9b0;
+			}
+		}
+
+		.imgBox {
+			i {
+				font-size: 100px;
+
+				@media (max-width: 576px) {
+					font-size: 60px;
+				}
+			}
+
+			.iconName {
+				font-size: 28px;
+				margin-bottom: 0px;
+			}
+			p {
+				padding: 0 80px;
+				color: #fff;
+				text-align: center;
+
+				@media (max-width: 576px) {
+					padding: 0 10px;
+				}
+			}
+		}
+
+		.hoverBox {
+			background-color: rgba(51, 175, 161, 0.7);
+			img {
+				width: auto;
+			}
+		}
+	}
+	.textBox {
+		padding: 15px 15px;
+		flex-grow: 1;
+
+		.subBlockTitle {
+			margin-top: 0;
+			font-size: 28px;
+			color: #fff;
+
+			@media (max-width: 576px) {
+				font-size: 20px;
+			}
+		}
+		p {
+			margin-bottom: 0;
+			font-size: 16px;
+			color: #ecdeac;
+		}
+	}
+
+	.hoverBox {
+		.hoverBox_content {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
+	}
+}
+
+/* 動畫 */
+
+.waves-1 {
+	animation: wave-1 2s linear 0s infinite;
+	transform-origin: 30% 100%;
+}
+
+.waves-2 {
+	animation: wave-2 2.5s linear 0s infinite;
+	transform-origin: 100% 100%;
+}
+
+// 動畫-動作
+@keyframes wave-1 {
+	0% {
+		transform: skewX(0);
+	}
+	25% {
+		transform: skewX(0.8deg);
+	}
+	50% {
+		transform: skewX(0deg);
+	}
+	75% {
+		transform: skewX(-0.8deg);
+	}
+	100% {
+		transform: skewX(0);
+	}
+}
+
+@keyframes wave-2 {
+	0% {
+		transform: skewX(0);
+	}
+	25% {
+		transform: skewX(2deg);
+	}
+	50% {
+		transform: skewX(0deg);
+	}
+	75% {
+		transform: skewX(-2deg);
+	}
+	100% {
+		transform: skewX(0);
+	}
+}
+
+/* 班級成果頁 */
+
+/*班級成果頁 - 搜尋*/
+.classes-webs-search {
+	margin-bottom: 60px;
+	.class-web-label {
+		display: flex;
+		gap: 10px;
+		align-items: center;
+
+		.title {
+			font-weight: 600;
+			font-size: 20px;
+			white-space: nowrap;
+		}
+
+		@media (max-width: $viewL) {
+			margin-bottom: 20px;
+		}
+	}
+
+	/* 去除選擇器原本設定 */
+	.select-radio {
+		margin-bottom: 0;
+		background-position: right 1em top 50%, 0 0;
+		background-size: 7%, cover;
+
+		@media (max-width: $viewL) {
+			background-size: 4%, cover;
+			-webkit-appearance: none; /* Safari 和 Chrome，常用於iOS下移除內建樣式 */
+			-moz-appearance: none; /* FireFox */
+			appearance: none;
+		}
+	}
+
+	// .btn-operate,
+	// .btn-delete {
+	// 	padding: 12px 10px;
+	// }
+
+	/* 下拉選擇器調整 */
+
+	.class-selection {
+		margin-left: 0px;
+
+		@media (min-width: $viewL) {
+			padding-right: 0;
+		}
+
+		.select {
+			max-width: 100%;
+			.placeholder {
+				width: 100%;
+			}
+		}
+
+		/* 學校選擇下拉清單*/
+
+		.select2-container--open {
+			.select2-selection--single {
+				border-bottom-left-radius: 50px;
+				border-bottom-right-radius: 50px;
+			}
+		}
+
+		.select2-selection--single {
+			position: relative;
+			display: block;
+			background-color: #eeeeee;
+			z-index: 1;
+			font-size: 16px;
+			color: #4d4d4d;
+			font-weight: 600;
+			padding: 13px 24px;
+			border-radius: 50px;
+			line-height: 1.5;
+			border: none;
+			width: 100%;
+			height: 50px;
+			cursor: pointer;
+			display: flex;
+			align-items: center;
+			border: none;
+
+			background-image: url("../images_v4/icon/arrow_down-1.png");
+
+			background-position: right 1em top 50%, 0 0;
+			background-size: 7%, cover;
+			background-repeat: no-repeat, repeat;
+
+			.select2-selection__rendered {
+				color: #4d4d4d;
+				font-weight: 400;
+				padding-left: 0;
+				padding-right: 0;
+				font-family: "微軟正黑體", "Microsoft JhengHei";
+			}
+
+			@media (max-width: $viewL) {
+				background-size: 4%, cover;
+			}
+		}
+
+		.select2-selection__arrow {
+			display: none;
+		}
+	}
+
+	.searchBtn {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		.btn-operate {
+			width: 100%;
+		}
+
+		.btn-delete {
+			width: 100%;
+		}
+
+		@media (max-width: $viewL) {
+			margin-bottom: 10px;
+		}
+	}
+
+	.btn-group {
+		margin-top: 0;
+		display: flex;
+		justify-content: center;
+		padding: 0 15px;
+		gap: 20px;
+
+		.btn-operate {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+		@media (max-width: $viewL) {
+			margin-top: 40px;
+			gap: 40px;
+		}
+
+		@media (max-width: 576px) {
+			width: 100%;
+		}
+	}
+}
+
+.newsListType20-classachievement {
+	.item {
+		// &::before,
+		// &::after {
+		// 	background: #3eb9b0;
+		// }
+		.textBox {
+			&::before,
+			&::after {
+				width: 30%;
+			}
+
+			.itemTitle {
+				color: #03504b;
+				font-size: 24px;
+			}
+		}
+
+		.imgBox {
+			.itemImg.traight {
+				max-height: 330px;
+			}
+		}
+
+		.date {
+			font-size: 20px;
+			color: #378f88;
+			width: 50%;
+			left: 50%;
+			transform: translateX(-50%);
+			line-height: 1.2;
+			@include hideLongTexts(2);
+		}
+	}
+}
+
+/* 切換按鈕 */
+
+.pageControl {
+	.btn-prev,
+	.btn-next {
+		display: flex;
+		align-items: baseline;
+		justify-content: center;
+		gap: 5px;
+
+		i {
+			margin-right: 0px;
+			margin-left: 0px;
+		}
+	}
+}

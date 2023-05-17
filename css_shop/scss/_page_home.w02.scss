@@ -1,0 +1,130 @@
+@charset "utf-8";
+
+// =====================================================================================
+// index - w2 原 榕鋒 版
+// =====================================================================================
+
+
+	
+	.indexContent_2{
+
+		margin:$space auto;
+
+		.flex3c{
+			align-items:stretch;
+			justify-content:space-between;
+			-webkit-align-items:stretch;
+			-webkit-justify-content:space-between;
+			>*{
+				display: flex;
+			    flex-direction: column;
+			    justify-content: space-between;
+
+		    	display: -webkit-flex;
+		        -webkit-flex-direction: column;
+		        -webkit-justify-content: space-between;
+			}
+			@media (max-width: 1200px){
+				>*:nth-child(1){width:50%;}
+				>*:nth-child(2){width:50%;}
+				>*:nth-child(3){width:100%;}
+			}
+			@media (max-width: 768px){
+				>*:nth-child(1){width:100%;}
+				>*:nth-child(2){width:100%;}
+				>*:nth-child(3){width:100%;}
+			}
+
+		}
+
+
+		.aboutImg {
+			padding-bottom:60%;
+			img {
+				border-radius: $radius-base;
+				max-width:200%;
+				max-height:200%;
+				min-width:100%;
+				min-height: 100%;
+			}
+		}
+
+		.newsList{
+			@extend .listStyle_border;
+			
+			li{
+				overflow: hidden;
+			    text-overflow: ellipsis;
+			    white-space: nowrap;
+			}
+			a{
+				padding-left:0;
+				padding-right:0;
+			}
+
+			.newsDate{
+				background: $cis-color-1;
+				border-radius: $radius-base;
+				font-size:$font-size-small;
+				padding:3px .5em;
+				margin-right: .5em;
+				color:#fff;
+
+			}
+		}
+
+
+		.proList{
+			.item {
+				@extend .flex2cL1;
+
+				padding-bottom: $space_smaller;
+				align-items:stretch;
+				-webkit-align-items:stretch;
+
+				>*:nth-child(1){padding:0;}
+				>*:nth-child(2){padding-top:0;padding-bottom:0;}
+
+				@media (max-width:1200px){
+					>*:nth-child(1){width:100px;}
+					>*:nth-child(2){width:auto}
+				}
+
+				.itemImg{
+					padding-bottom:80%;
+					
+					img{
+						max-width:200%;
+						max-height:200%;
+						min-width:100%;
+						min-height: 100%;
+					}
+				}
+
+				.itemTitle {
+					font-size:1em;
+					line-height: 2em;
+					font-weight: bold;
+					margin:0;
+
+				}
+				.itemContent{
+					margin:0;
+				}
+			}
+		}
+
+
+		.slidBlock .itemImg {
+			padding-bottom: 70%;
+		}
+
+		&+footer{margin-top:0}
+
+
+	}
+
+	.slideBanner  {
+		box-shadow: 0 0 20px rgba(0,0,0,.3);
+		-webkit-box-shadow: 0 0 20px rgba(0,0,0,.3);
+	}

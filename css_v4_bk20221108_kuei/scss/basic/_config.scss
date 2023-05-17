@@ -1,0 +1,213 @@
+@charset "utf-8";
+
+// font
+@import url('https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i&subset=latin-ext');
+$font-size    : 16px;
+$body-font-size: 18px;
+$font-size-h1 : 42px;
+$font-size-h2 : 32px;
+$font-size-h3 : 24px;
+$font-size-h4 : 18px;
+$font-size-h5 : 16px;
+$font-size-h6 : 12px;
+$font-size-mb : 14px;
+$line-height  : 1.8;
+$font-family  : 'Lato', arial, "文泉驛正黑", "WenQuanYi Zen Hei", "Heiti TC", "微軟正黑體", "Microsoft JhengHei";
+
+
+// view
+$viewCustom        : 1440px;
+$viewXL            : 1440px;
+$viewL             : 1200px;
+$viewM             : 992px;
+$viewS             : 768px;
+$viewCustomMobile  : 576px;
+$viewCustomMobile2 : 667px;
+$viewMobile        : 440px;
+$hamburgerPoint    : 1024px;
+$space_smaller     : 15px;
+$space             : $space_smaller*2;
+
+
+// lineheight
+$line-height-base   : 2;
+$lineheight         : $line-height-base;
+$lineheight_small   : $lineheight*0.75; //1.5em
+$lineheight_smaller : $lineheight*0.50; //1em
+$lineheight_big     : $lineheight*1.50; //3em
+$lineheight_biger   : $lineheight*1.75; //3.5em
+
+
+// common-color
+$common-color-white       : #ffffff;
+$common-color-black       : #000000;
+$common-color-red         : #ff0000;
+$common-color-gray_dark   : #333333;
+$common-color-gray_light  : #cccccc;
+
+
+// border
+$border-radius : 5px;
+
+
+// cis
+$cis1 : #0050A3;
+$cis2 : #19c0d6;
+$cis3 : #0099ff;
+
+
+// font-color
+$text-color    : $common-color-gray_dark;
+$text-color2   : #aaaaaa;
+$text-color3   : #999999;
+$text-color4   : #5c5e5d;
+$text-color5   : #ff5353;
+$text-color6   : $common-color-gray_light;
+$a-color       : $text-color;
+$a-color-hover : $cis1;
+
+
+// font-size
+$h1 : ($font-size-h1 / $font-size) * 1em;
+$h2 : ($font-size-h2 / $font-size) * 1em;
+$h3 : ($font-size-h3 / $font-size) * 1em;
+$h4 : ($font-size-h4 / $font-size) * 1em;
+$h5 : ($font-size-h5 / $font-size) * 1em;
+$h6 : ($font-size-h6 / $font-size) * 1em;
+
+
+// image
+$image-circle-radius   : 50%;
+$image-rectangle-radius: 5px;
+$itemImg-hover-color   : $cis1;
+
+
+// header
+$header-color-dark   : $common-color-black;
+$header-color-light  : $common-color-white;
+$header-size         : $font-size;
+$topLink-size        : $font-size-mb;
+$logo-width          : 240px;
+$logo-height         : 90px;
+$logo-height-s       : 60px;
+
+
+// banner
+$scrollDown-color    : $common-color-white;
+
+
+// footer
+$footer-color-dark   : $common-color-black;
+$footer-color-light  : $common-color-white;
+$footer-color-gray   : $common-color-gray_light;
+$footer-size         : 16px; //20220912 由14px改16px
+$copyRight-size      : 12px;
+$footerFont-color    : #fff;
+
+
+// title
+$title-biger-size    : 48px;
+$title-big-size    	 : 32px;
+$title-small-size  	 : 19px;
+$title-big-s-size    : 28px;
+$title-small-s-size  : 15px;
+$title-color-dark  	 : #5C5E5D;
+$title-color-light   : $common-color-white;
+$subTitle-color-dark : #858585;
+
+
+//block
+$block-space         : 50px;
+$block-space-half    : 25px;
+$block-space-small   : 15px;
+
+
+// button
+$btn-font-color       : $common-color-white;
+$btn-font-color2      : $common-color-black;
+$btn-font-color3      : #4D4D4D;
+$btn-bg-color         : #858585;
+$btn-bg-color2        : #999999;
+$btn-bg-color3        : #EBEBEB;
+$btn-bg-color-pink    : $text-color5;
+$btn-bg-color-yellow  : #ff9933;
+
+
+// list
+$spaceList-space      : $space;
+$spaceList-space-small: $space_smaller;
+$spaceList-space-xs   : $space_smaller/2;
+$spaceList-space-big  : 50px;
+
+
+// form
+$form-border-radius   : 5px;
+$form-border-color    : #E5E5E5;
+$form-contorl-height  : 44px;
+
+
+// table
+$table-space          : 16px;
+$table-th-bg          : $common-color-white;
+$table-td-bg          : #F2F2F2;
+$table-border-color   : #999999;
+$table-border-color2  : #E5E5E5;
+
+
+// slick
+$slick-color          : $common-color-gray_dark;
+
+
+// widgets_pageNumber
+$pageNumber-size        : 20px;
+$pageNumber-color       : #5c5e5d;
+$pageNumber-color-hover : $cis1;
+
+
+// index
+$bgParallax-color    : $common-color-black;
+$halfBg-color        : #666666;
+
+
+// news
+$newsItem-space    : 32px;
+$newsItemTitle-size  : 24px;
+$newsItemTitle-color : $text-color;
+$newsItemTxt-color   : #8c8c8c;
+$newsItemLine-color  : #d6d6d6;
+
+
+// dateStyle
+$dateStyleDecoColor   : $cis1 !default; //deco 顏色
+$dateStyle1DecoBorder : 2px !default; //樣式1 線條寬
+$dateStyle2DecoBorder : 2px !default; //樣式2 線條寬
+$dateStyle3DecoBorder : 2px !default; //樣式3 線條寬
+
+
+// contact
+$contIcon_color-1    : #858585;
+$contIcon_color-2    : #ea4335;
+
+
+// faq
+$faqItem_head-txt    : #5c5e5d;
+$faqItem_head-txt2   : $common-color-white;
+$faqItem_body-txt    : #999999;
+$faqItem_border-1    : $common-color-white;
+$faqItem_border-2    : $cis1;
+$faqItem_border-3    : #e5e5e5;
+$faqItem_bg-1        : $common-color-white;
+$faqItem_bg-2        : #f5fcff;
+$faqItem_bg-3        : $cis1;
+
+
+// chckout
+$step-font-color : #808080;
+$step-color      : #B3B3B3;
+$step-color2     : #ababab;
+
+
+// modal
+$modal-width          : 90%;
+$modal-maxWidth       : 1200px;
+$modal-maxWidth-half  : $modal-maxWidth / 2;

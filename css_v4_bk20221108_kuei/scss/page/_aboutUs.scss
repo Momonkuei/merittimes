@@ -1,0 +1,209 @@
+
+/*****************************/
+/* about / html_3.php / data-block="22" */
+/*****************************/
+
+.aboutUs22 {
+	margin-top: 32px;
+	margin-bottom: 32px;
+}
+
+
+/* 標題 */
+
+.aboutUs22_top {
+	margin: 24px 0;
+}
+
+.aboutUs22_top-secondMark {
+	color: $common-color-gray_dark;
+	font-size: $font-size-h3;
+	position: relative;
+	letter-spacing: 2px;
+	width: max-content;
+	margin: 0 auto 30px;
+	padding: 0 70px;
+}
+
+/* 文字旁符號 */
+.aboutUs22_top-secondMark::before,
+.aboutUs22_top-secondMark::after {
+	content: '';
+	position: absolute;
+	top: 50%;
+	z-index: 1;
+	width: 40px;
+	height: 1px;
+	margin-top: -1px;
+	border-top: 1px solid #1c1e21;
+	border-bottom: 1px solid #1c1e21;
+	pointer-events: none;
+}
+
+/* 麵包屑 */
+.breadCrumbs_link {
+	text-align: left;
+	vertical-align: middle;
+	margin: 0;
+	padding: 0;
+	line-height: 170%;
+	border-width: 0;
+	font-size: $body-font-size;
+	word-wrap: break-word;
+	word-break: normal;
+	-webkit-transition: all 0.3s ease-out;
+	-moz-transition: all 0.3s ease-out;
+	-ms-transition: all 0.3s ease-out;
+	-o-transition: all 0.3s ease-out;
+	transition: all 0.3s ease-out;
+}
+
+
+.breadCrumbs_link ol li {
+	display: inline-block;
+	letter-spacing: 0;
+	color: $cis1;
+	font-weight: 400;
+	font-size: $body-font-size;
+}
+
+.breadCrumbs_link ol li a {
+	color: inherit;
+}
+
+.breadCrumbs_link ol li:not(:last-child):after {
+	margin: 0 10px;
+	font-weight: 300;
+	font-size: $body-font-size;
+	vertical-align: top;
+	content: '/';
+}
+
+
+
+/* 方向 */
+.aboutUs22_top-secondMark::before {
+	left: 0;
+}
+.aboutUs22_top-secondMark::after {
+	right: 0;
+}
+
+/* 內文 */
+
+.aboutUs22_content {
+	margin: 40px 0;
+}
+
+.aboutUs22_content-title {
+	text-align: center;
+	font-size: $font-size-h2;
+	margin-bottom: 32px;
+	padding-bottom: 40px;
+	position: relative;
+	font-weight: 600;
+	line-height: 150%;
+}
+.aboutUs22_content-title::after {
+	content: '';
+	position: absolute;
+	left: 50%;
+	top: 70%;
+	bottom: 0;
+	background-color: $common-color-gray_light;
+	margin-left: -0.5px;
+	width: 1px;
+	height: 40px;
+}
+.aboutUs22_content-content {
+	width: 80%;
+	margin: auto;
+	text-align: center;
+	word-break: break-all;
+	padding: 0px 20px;
+}
+
+/* 圖文列 */
+.aboutUs22_imgContent {
+	z-index: 4;
+	position: relative;
+	width: 100%;
+	padding: 48px 0;
+	background-color: $common-color-white;
+}
+
+.aboutUs22_imgContent-img ul {
+	overflow: hidden;
+}
+
+.aboutUs22_imgContent-img ul li img {
+	width: 100%;
+	max-width: 100%;
+}
+
+.aboutUs22_imgContent-text {
+	z-index: 4;
+	position: relative;
+	width: 60%;
+	padding: 48px 64px;
+	margin-top: -240px;
+	margin-left: 112px;
+	background-color: $common-color-white;
+}
+
+/* 文字 */
+
+.aboutUs22_imgContent-text .describe h3 {
+	font-size: $font-size-h3;
+	color: #383737;
+	font-weight: 600;
+	padding-left: 32px;
+	margin-bottom: 20px;
+	border-left: 3px solid $cis3;
+}
+
+@media (max-width: 1200px) {
+	.aboutUs22_imgContent {
+		margin-left: 0;
+	}
+	.aboutUs22_imgContent-text {
+		width: 80%;
+		margin: -160px auto 0;
+	}
+}
+
+@media (max-width: 992px) {
+	.aboutUs22_imgContent-text {
+		margin: -96px auto 0;
+	}
+	
+}
+
+@media (max-width: 768px) {
+}
+
+@media (max-width: 576px) {
+	.aboutUs22_content {
+		margin: 24px 0;
+	}
+	.aboutUs22_content-content {
+		width: 100%;
+		padding: 0;
+	}
+
+	.aboutUs22_imgContent {
+		padding: 16px 0;
+	}
+	.aboutUs22_imgContent-text {
+		width: 100%;
+		padding: 0;
+		margin: 16px auto 0;
+	}
+	.aboutUs22_imgContent-text .describe h3 {
+		padding-left: 10px;
+		margin-bottom: 16px;
+	}
+}
+
+
+//data-block="22" 結束

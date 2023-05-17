@@ -1,0 +1,833 @@
+@charset "utf-8";
+
+.forcmp {
+	padding-top: 50px !important;
+}
+
+
+
+.cowboy_mbPanel_1 {
+	@media (min-width: 1025px) {display: none;}
+
+	.cmpTop {
+		display: flex;
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		height: 50px;
+		background: #fff;
+		z-index: 100;
+
+		>div {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width: calc(100% / 3);
+
+			a {
+				display: block;
+				color: #333;
+				font-size: 38px;
+				font-weight: bold;
+				line-height: 1;
+
+				img {
+					display: block;
+					max-height: 45px;
+				}
+
+				&.cmpBtn {
+					display: flex;
+					align-items: center;
+					position: relative;
+					width: 30px;
+					height: 24px;
+
+					&::before {
+						content: '';
+						display: block;
+						position: absolute;
+						top: 0;
+						left: 0;
+						width: 30px;
+						height: 4px;
+						background: #333;
+						border-radius: 30px;
+						transform: rotate(0deg);
+						transform-origin: top left;
+						transition: all 0.3s;
+					}
+
+					div	{
+						width: 30px;
+						height: 4px;
+						border-radius: 30px;
+						background: #333;
+						opacity: 1;
+						transition: all 0.2s;
+					}
+
+					&::after {
+						content: '';
+						display: block;
+						position: absolute;
+						bottom: 0;
+						left: 0;
+						width: 30px;
+						height: 4px;
+						background: #333;
+						border-radius: 30px;
+						transform: rotate(0deg);
+						transform-origin: bottom left;
+						transition: all 0.3s;
+					}
+
+					&.open {
+						&::before {
+							width: 30.5px;
+							transform: rotate(44deg);
+						}
+
+						div {opacity: 0;}
+
+						&::after {
+							width: 30.5px;
+							transform: rotate(-44deg);
+						}
+					}
+				}
+			}
+		}
+	}
+
+	.cmpContent {
+		position: fixed;
+		top: 50px;
+		left: 0;
+		right: 0;
+		background: #fff;
+		opacity: 0;
+		visibility: hidden;
+		z-index: 100;
+		overflow-y: auto;
+		transition: all 0.3s;
+
+		&.open {
+			opacity: 1;
+			visibility: visible;
+		}
+
+		.cmpLang {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			padding: 30px 0;
+
+			a {
+				color: #333;
+				font-size: 16px;
+				margin: 0 7.5px;
+			}
+		}
+
+		.cmpMenu {
+			>p {
+				color: $cis1;
+				font-size: 24px;
+				font-weight: 700;
+				line-height: 1;
+				text-align: center;
+				margin-bottom: 20px;
+			}
+
+			.cmpNav {
+				>li {
+					>a {
+						display: block;
+						color: #333;
+						font-size: 16px;
+						padding: 12px 15px 10px;
+						border-top: 1px solid $cis1;
+						border-bottom: 0px solid $cis1;
+						transition: all 0.2s;
+
+						&.active {color: $cis1;}
+						&.open {border-bottom: 1px solid $cis1;}
+					}
+
+					.submenu {
+						li {
+							a {
+								display: block;
+								color: #999;
+								font-size: 16px;
+								padding: 12px 15px 10px 47px;
+
+								&.active {color: $cis1;}
+							}
+
+							.submenu {
+								li {
+									a {
+										padding: 12px 15px 10px 79px;
+										border-bottom: 0;
+
+										&.active {color: $cis1;}
+									}
+								}
+							}
+
+							&:not(:last-child) {
+								a {border-bottom: 1px solid #999;}
+
+								.submenu {border-bottom: 1px solid #999;}
+							}
+
+							&:last-child {
+								.submenu {border-top: 1px solid #999;}
+							}
+						}
+					}
+				}
+
+				.moremenu {
+					>a {
+						&::after {
+							content: '\f105';
+							font-family: FontAwesome;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	.cmpFooter {
+		position: fixed;
+		bottom: 50px;
+		left: 0;
+		right: 0;
+		padding: 10px 15px;
+		background: #fff;
+		border-top: 2px solid $cis1;
+		opacity: 0;
+		visibility: hidden;
+		z-index: 100;
+		transition: all 0.3s;
+
+		&.open {
+			opacity: 1;
+			visibility: visible;
+		}
+
+		p {
+			color: #333;
+			font-size: 14px;
+			text-align: center;
+			margin: 0;
+		}
+	}
+
+	.cmpBottom {
+		display: flex;
+		position: fixed;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		height: 50px;
+		background: $cis1;
+		opacity: 0;
+		visibility: hidden;
+		z-index: 100;
+		transition: all 0.3s;
+
+		&.open {
+			opacity: 1;
+			visibility: visible;
+		}
+
+		>div {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+
+			a {
+				display: block;
+				color: #fff;
+				font-size: 24px;
+				text-align: center;
+				line-height: 1;
+
+				p {
+					color: #fff;
+					font-size: 14px;
+					line-height:1;
+					margin: 3px 0 0;
+				}
+			}
+		}
+	}
+}
+
+
+
+.cowboy_mbPanel_2 {
+	@media (min-width: 1025px) {display: none;}
+
+	.cmpTop {
+		display: flex;
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		height: 50px;
+		background: #fff;
+		z-index: 100;
+
+		>div {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width: calc(100% / 3);
+
+			a {
+				display: block;
+				color: #333;
+				font-size: 38px;
+				font-weight: bold;
+				line-height: 1;
+
+				img {
+					display: block;
+					max-height: 45px;
+				}
+
+				&.cmpBtn {
+					display: flex;
+					align-items: center;
+					position: relative;
+					width: 30px;
+					height: 24px;
+
+					&::before {
+						content: '';
+						display: block;
+						position: absolute;
+						top: 0;
+						left: 0;
+						width: 30px;
+						height: 4px;
+						background: #333;
+						border-radius: 30px;
+						transform: rotate(0deg);
+						transform-origin: top left;
+						transition: all 0.3s;
+					}
+
+					div	{
+						width: 30px;
+						height: 4px;
+						border-radius: 30px;
+						background: #333;
+						opacity: 1;
+						transition: all 0.2s;
+					}
+
+					&::after {
+						content: '';
+						display: block;
+						position: absolute;
+						bottom: 0;
+						left: 0;
+						width: 30px;
+						height: 4px;
+						background: #333;
+						border-radius: 30px;
+						transform: rotate(0deg);
+						transform-origin: bottom left;
+						transition: all 0.3s;
+					}
+
+					&.open {
+						&::before {
+							width: 30.5px;
+							transform: rotate(44deg);
+						}
+
+						div {opacity: 0;}
+
+						&::after {
+							width: 30.5px;
+							transform: rotate(-44deg);
+						}
+					}
+				}
+			}
+		}
+	}
+
+	.cmpContent {
+		position: fixed;
+		top: 50px;
+		left: 0;
+		right: 0;
+		background: #fff;
+		opacity: 0;
+		visibility: hidden;
+		z-index: 100;
+		overflow-y: auto;
+		transition: all 0.3s;
+
+		&.open {
+			opacity: 1;
+			visibility: visible;
+		}
+
+		.cmpLang {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			padding: 30px 0;
+
+			a {
+				color: #333;
+				font-size: 16px;
+				margin: 0 7.5px;
+			}
+		}
+
+		.cmpMenu {
+			>p {
+				color: $cis1;
+				font-size: 24px;
+				font-weight: 700;
+				line-height: 1;
+				text-align: center;
+				margin-bottom: 20px;
+			}
+
+			.cmpNav {
+				>li {
+					border-top: 1px solid $cis1;
+
+					>a {
+						display: block;
+						width: fit-content;
+						color: #333;
+						font-size: 16px;
+						text-align: center;
+						margin: 0 auto;
+						padding: 12px 15px 10px;
+
+						&.active {color: $cis1;}
+					}
+
+					.submenu {
+						width: fit-content;
+						margin: 0 auto;
+						padding: 0 40px;
+						border-top: 1px solid $cis1;
+
+						li {
+							a {
+								display: block;
+								width: fit-content;
+								color: #999;
+								font-size: 16px;
+								text-align: center;
+								margin: 0 auto;
+								padding: 12px 15px 10px;
+
+								&.active {color: $cis1;}
+							}
+						}
+					}
+				}
+
+				.moremenu {
+					>a {
+						position: relative;
+
+						&::before {
+							content: '';
+							display: block;
+							position: absolute;
+							top: 50%;
+							right: 0;
+							width: 11px;
+							height: 1px;
+							background: #333;
+						}
+
+						&::after {
+							content: '';
+							display: block;
+							position: absolute;
+							top: 50%;
+							right: 5px;
+							width: 1px;
+							height: 10px;
+							background: #333;
+							transform: translateY(-45%);
+							transition: all 0.3s;
+						}
+
+						&.open {
+							&::after {height: 0;}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	.cmpFooter {
+		position: fixed;
+		bottom: 50px;
+		left: 0;
+		right: 0;
+		padding: 10px 15px;
+		background: #fff;
+		border-top: 2px solid $cis1;
+		opacity: 0;
+		visibility: hidden;
+		z-index: 100;
+		transition: all 0.3s;
+
+		&.open {
+			opacity: 1;
+			visibility: visible;
+		}
+
+		p {
+			color: #333;
+			font-size: 14px;
+			text-align: center;
+			margin: 0;
+		}
+	}
+
+	.cmpBottom {
+		display: flex;
+		position: fixed;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		height: 50px;
+		background: $cis1;
+		opacity: 0;
+		visibility: hidden;
+		z-index: 100;
+		transition: all 0.3s;
+
+		&.open {
+			opacity: 1;
+			visibility: visible;
+		}
+
+		>div {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+
+			a {
+				display: block;
+				color: #fff;
+				font-size: 24px;
+				text-align: center;
+				line-height: 1;
+
+				p {
+					color: #fff;
+					font-size: 14px;
+					line-height:1;
+					margin: 3px 0 0;
+				}
+			}
+		}
+	}
+}
+
+
+
+.cowboy_mbPanel_3 {
+	@media (min-width: 1025px) {display: none;}
+
+	.cmpTop {
+		display: flex;
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		height: 50px;
+		background: #fff;
+		z-index: 100;
+
+		>div {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width: calc(100% / 3);
+
+			a {
+				display: block;
+				color: #333;
+				font-size: 38px;
+				font-weight: bold;
+				line-height: 1;
+
+				img {
+					display: block;
+					max-height: 45px;
+				}
+
+				&.cmpBtn {
+					display: flex;
+					align-items: center;
+					position: relative;
+					width: 30px;
+					height: 24px;
+
+					&::before {
+						content: '';
+						display: block;
+						position: absolute;
+						top: 0;
+						left: 0;
+						width: 30px;
+						height: 4px;
+						background: #333;
+						border-radius: 30px;
+						transform: rotate(0deg);
+						transform-origin: top left;
+						transition: all 0.3s;
+					}
+
+					div	{
+						width: 30px;
+						height: 4px;
+						border-radius: 30px;
+						background: #333;
+						opacity: 1;
+						transition: all 0.2s;
+					}
+
+					&::after {
+						content: '';
+						display: block;
+						position: absolute;
+						bottom: 0;
+						left: 0;
+						width: 30px;
+						height: 4px;
+						background: #333;
+						border-radius: 30px;
+						transform: rotate(0deg);
+						transform-origin: bottom left;
+						transition: all 0.3s;
+					}
+
+					&.open {
+						&::before {
+							width: 30.5px;
+							transform: rotate(44deg);
+						}
+
+						div {opacity: 0;}
+
+						&::after {
+							width: 30.5px;
+							transform: rotate(-44deg);
+						}
+					}
+				}
+			}
+		}
+	}
+
+	.cmpContent {
+		position: fixed;
+		top: 50px;
+		left: 0;
+		right: 0;
+		background: #fff;
+		opacity: 0;
+		visibility: hidden;
+		z-index: 100;
+		overflow-x: hidden;
+		overflow-y: auto;
+		transition: all 0.3s;
+
+		&.open {
+			opacity: 1;
+			visibility: visible;
+		}
+
+		.cmpLang {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			padding: 30px 0;
+
+			a {
+				color: #333;
+				font-size: 16px;
+				margin: 0 7.5px;
+			}
+		}
+
+		.cmpMenu {
+			>p {
+				color: $cis1;
+				font-size: 24px;
+				font-weight: 700;
+				line-height: 1;
+				text-align: center;
+				margin-bottom: 20px;
+			}
+
+			.cmpNav {
+				position: relative;
+				transition: all 0.3s;
+
+				>li {
+					border-top: 1px solid $cis1;
+
+					>a {
+						display: block;
+						color: #333;
+						font-size: 16px;
+						padding: 12px 30px 10px 15px;
+
+						&.active {color: $cis1;}
+					}
+
+					.submenu {
+						position: absolute;
+						top: 0;
+						left: 100%;
+						width: 100%;
+						visibility: hidden;
+						transition: visibility 0s 0.3s;
+
+						&.show {
+							visibility: visible;
+							transition: visibility 0s 0s;
+						}
+
+						li {
+							a {
+								display: block;
+								color: #333;
+								font-size: 16px;
+								padding: 12px 30px 10px 15px;
+
+								&.active {color: $cis1;}
+							}
+
+							&:first-child {
+								a {
+									position: relative;
+									color: $cis1;
+									border-top: 1px solid $cis1;
+									border-bottom: 1px solid $cis1;
+
+									&::after {
+										content: '\f104';
+										position: absolute;
+										top: 50%;
+										right: 10px;
+										font-family: FontAwesome;
+										transform: translate(0,-50%);
+									}
+								}
+							}
+						}
+					}
+				}
+
+				.moremenu {
+					>a {
+						position: relative;
+
+						&::after {
+							content: '\f105';
+							position: absolute;
+							top: 50%;
+							right: 10px;
+							font-family: FontAwesome;
+							transform: translate(0,-50%);
+						}
+					}
+				}
+			}
+		}
+	}
+
+	.cmpFooter {
+		position: fixed;
+		bottom: 50px;
+		left: 0;
+		right: 0;
+		padding: 10px 15px;
+		background: #fff;
+		border-top: 2px solid $cis1;
+		opacity: 0;
+		visibility: hidden;
+		z-index: 100;
+		transition: all 0.3s;
+
+		&.open {
+			opacity: 1;
+			visibility: visible;
+		}
+
+		p {
+			color: #333;
+			font-size: 14px;
+			text-align: center;
+			margin: 0;
+		}
+	}
+
+	.cmpBottom {
+		display: flex;
+		position: fixed;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		height: 50px;
+		background: $cis1;
+		opacity: 0;
+		visibility: hidden;
+		z-index: 100;
+		transition: all 0.3s;
+
+		&.open {
+			opacity: 1;
+			visibility: visible;
+		}
+
+		>div {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+
+			a {
+				display: block;
+				color: #fff;
+				font-size: 24px;
+				text-align: center;
+				line-height: 1;
+
+				p {
+					color: #fff;
+					font-size: 14px;
+					line-height:1;
+					margin: 3px 0 0;
+				}
+			}
+		}
+	}
+}

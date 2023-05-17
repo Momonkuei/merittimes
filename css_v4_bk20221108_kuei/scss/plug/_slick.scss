@@ -1,0 +1,119 @@
+@charset "utf-8";
+
+// =====================================================================================
+// for slick plug-in
+// =====================================================================================
+
+
+.slick-slider{
+	overflow: hidden;
+	&,*{outline: 0}
+
+	// slick-arrow
+	.slick-arrow {
+		@extend %hoverEffect;
+		position: absolute;
+		z-index: 10;
+		top:50%;
+		transform:translateY(-50%);
+		margin:0;
+		color: #ffffff;
+		border-radius: 5px;
+		background-color: $cis1;
+		&.slick-next{right:-2em;padding:0;}
+		&.slick-prev{left:-2em;padding:0;}
+		i{padding:.8em;}
+		&:hover{
+			cursor: pointer;
+			background-color: #005dbc;
+		}
+	}
+
+	& .slick-arrow {opacity: 0;}
+	&:hover .slick-arrow {
+		opacity: 1;
+		&.slick-next{right:0;}
+		&.slick-prev{left:0;}
+	}
+
+	//slick-dots
+	.slick-dots {
+		$slickDotsSize:10px;
+		font-size: 10px;
+		padding:0;
+		margin:0;
+		display: flex;
+		display: -webkit-flex;
+		justify-content:center;
+		-webkit-justify-content:center;
+		align-items:center;
+		-webkit-align-items:center;
+		list-style: none;
+
+		li{
+			&+li{margin-left:$slickDotsSize;}
+			button{
+				line-height: 0;
+				color:rgba(0,0,0,0);
+				position: relative;
+				overflow: hidden;
+				margin:0;
+				padding:0;
+
+				width:$slickDotsSize;
+				height:$slickDotsSize;
+				border-radius: 100%;
+				border-color:$slick-color;
+				&:after{
+					content:'';
+					position: absolute;
+					width:100%;
+					height:100%;
+					top:0;
+					left:0;
+					background:$slick-color;
+					border-radius: 100%;
+
+				}
+			}
+			&.slick-active button{
+				border-color:$cis1;
+				&:after{
+					background:$cis1;
+				}
+			}
+		}
+	}
+
+
+	// .slick-slide{padding: 3px}
+	.slidItem{
+		margin-left: $space_smaller;
+		margin-right: $space_smaller;
+	}
+}
+
+//Slider Block
+.slidBlock2{
+	.slidItem{
+		margin-left: 3px;
+		margin-right: 3px;
+	}
+}
+
+
+//bannerStyle12
+.bannerStyle12{
+  .slidItem{
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+		.mb{display: none;}
+		@media screen and (max-width:768px){
+			.pc{display: none;}
+			.mb{display: block;}
+		}
+}
+
+

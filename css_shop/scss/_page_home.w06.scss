@@ -1,0 +1,82 @@
+@charset "utf-8";
+
+
+
+
+// =====================================================================================
+// index - w6 青木
+// =====================================================================================
+
+	.indexContent_6{
+
+		margin-top:$space_biger;
+
+		.articleBlockStyle03{
+			
+			padding:0;
+			margin:0
+		}
+		&+footer {margin-top: 0}
+
+		.slidBlock .itemImg {
+			padding-bottom:70%;
+			img{
+				// 裁切
+				max-width:200%;
+				max-height:200%;
+				min-width:100%;
+				min-height: 100%;
+			}
+		}
+
+		.circleBlock{
+
+			.itemImg{
+				border-radius: 100%;
+				img{
+					// 裁切
+					max-width:none;
+					max-height:none;
+					min-width:100%;
+					min-height: 100%;
+				}
+			}
+
+			.itemTitle {
+				text-align: center;
+				margin-top:$space_big;
+			}
+
+			a {
+				padding:$space;
+			}
+
+			.circleDeco {
+				position: relative;
+				&:before,
+				&:after{
+					    content: ' ';
+					    position: absolute;					    
+					    width: 105%;
+					    height: 105%;
+					    z-index: 0;
+					    border-radius: 100%;
+				}
+				&:before{
+					border: 1px solid $cis-color-1;
+					left:-4%;
+					top: -4%;
+				}
+				&:after{
+					border: 1px solid rgba( $cis-color-1,.5);
+					left:-2%;
+					top: -2%;
+				}
+			}
+
+		}
+
+
+	}
+
+

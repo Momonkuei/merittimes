@@ -1,0 +1,151 @@
+@charset "utf-8";
+
+.checkOutStep {
+	margin: 90px 0;
+	ul {
+		display: flex;
+		display: -webkit-flex;
+		align-items: center;
+		-webkit-align-items: center;
+		li {
+			flex: 1;
+			-webkit-flex: 1;
+			text-align: center;
+			.icon {
+				display: inline-block;
+				width: 100%;
+				width: 60px;
+				height: 60px;
+				display: inline-flex;
+				display: -webkit-inline-flex;
+				align-items: center;
+				-webkit-align-items: center;
+				justify-content: center;
+				-webkit-justify-content: center;
+				border-radius: 100%;
+				text-align: center;
+				padding: 0;
+				border: 1px solid $step-color2;
+				background: $step-color2;
+				font-size: 19px;
+				position: relative;
+				z-index: 1;
+				color: #fff;
+				background: $step-color;
+				border-color: $step-color;
+			}
+			.txt {
+				display: inline-block;
+				width: 100%;
+				margin-top: -31px;
+				padding-top: 40px;
+				position: relative;
+				border-top: 2px solid $step-color;
+				z-index: 0;
+				text-align: center;
+				.stepTitle{
+					color: $step-font-color;
+					font-size: 20px;
+					font-weight: bold;
+				}
+				.stepTxt{
+					color: $common-color-gray_dark;
+					font-size: $font-size;
+					font-weight: bold;
+				}
+			}
+		}
+		li.active {
+			.icon {
+				background: $cis1;
+				border-color: $cis1;
+			}
+			.txt {
+				border-color: $cis1;
+				.stepTitle{
+					color: $cis1;
+				}
+			}
+		}
+	}
+}
+@media (max-width: $viewS) { //768
+	.checkOutStep {
+		position: relative;
+		padding-bottom: 110px;
+		ul {
+			li {
+				.txt {
+					position: absolute;
+					width: 100%;
+					left: 0;
+					top: 60px;
+				}
+				&:not(.active) {
+					.txt {
+						display: none;
+					}
+				}
+			}
+		}
+	}
+}
+
+
+.checkCoupon{
+	margin-top: 30px;
+}
+
+.thankyouBlk{
+	margin-bottom: 30px;
+	p{
+		margin-top: 10px;
+	}
+}
+.invoiceInfo{
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+}
+.twzipcode_form_2{
+	display: flex;
+	margin-bottom: 15px;
+	select{
+		color: #4d4d4d;
+		font-size: 16px;
+		padding: 0 15px;
+		width: 100%;
+		height: 40px;
+		border-radius: 5px;
+		border: 1px solid #E5E5E5;
+		font-family: "微軟正黑體", "Microsoft JhengHei";
+		margin-right: 30px;
+		appearance: none;
+  background-image: url(../images_v4/icon/arrow_down.png);
+  background-repeat: no-repeat;
+  background-position: calc(100% - 6px) center;
+	}
+	select,input{
+		flex: 0 1 153px;
+  max-width: 153px;
+	}
+}
+@media (max-width: 768px) {
+	.twzipcode_form_2{
+		display: block;
+		select,input{
+			display: inline-block;
+			margin-bottom: 15px;
+		}
+		select{margin-right: 15px;}
+		input:last-child{margin-bottom: 0;}
+	}
+}
+@media (max-width: 370px) {
+	.twzipcode_form_2{
+		select,input{
+			max-width: 100%;
+			margin-right: 0;
+		}
+	}
+}

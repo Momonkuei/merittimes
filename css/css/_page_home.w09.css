@@ -1,0 +1,7 @@
+.indexContent_9 {
+  position: relative;
+  z-index: 1; }
+  .indexContent_9 .banner {
+    z-index: 1000; }
+  .indexContent_9 + footer {
+    margin-top: 0; }

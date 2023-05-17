@@ -1,0 +1,34 @@
+@charset "utf-8";
+// =====================================================================================
+// playFrame 影格動畫
+// =====================================================================================
+	
+	.playFrame{
+		&[data-playFrame="js"],
+		&[data-playFrame="css"]{			
+			img{opacity: 0;}
+		}
+
+		//使用css時的動畫mockup
+		// &[data-playFrame="css"]{			
+		//     background:url(圖片路徑);
+		//     background-position:-3000px;
+		//     width:100px;
+		//     height:100px;
+		//     display:inline-block;
+		// 		    animation:playFrame_animation 1s steps(30) infinite;
+		//     -webkit-animation:playFrame_animation 1s steps(30) infinite;   
+		// }
+		// @keyframes playFrame_animation {  
+		//   from   { background-position: 0;}                                    
+		//   to { background-position: -3000px;}                                  
+		// }
+		// @-webkit-keyframes playFrame_animation {  
+		//   from   { background-position: 0;}                                    
+		//   to { background-position: -3000px;}                                  
+		// }
+	}
+
+
+	
+	

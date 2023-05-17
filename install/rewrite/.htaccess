@@ -1,0 +1,2 @@
+RewriteEngine on
+RewriteRule ^a.html$ b.html 

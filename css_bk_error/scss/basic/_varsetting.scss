@@ -1,0 +1,116 @@
+@charset "utf-8";
+
+// =====================================================================================
+// view breakpoint
+// =====================================================================================
+	$screenViewCustom  :1440px;
+	$screenViewXL  :1440px;
+	$screenViewL  :1200px;
+	$screenViewM  :992px;
+	$screenViewS  :768px;
+	$screenViewSS :440px;
+	$hamburgerPoint :1024px !default; //選單換漢堡
+
+
+
+// =====================================================================================
+// color setting
+// =====================================================================================
+
+	$cis-color-1-darker:            darken($cis-color-1, 16%);
+	$cis-color-1-dark:              darken($cis-color-1, 8%);
+	$cis-color-1-light:             lighten($cis-color-1, 8%);
+	$cis-color-1-lighter:           lighten($cis-color-1, 16%);
+
+	$cis-color-2-darker:            darken($cis-color-2, 16%);
+	$cis-color-2-dark:              darken($cis-color-2, 8%);
+	$cis-color-2-light:             lighten($cis-color-2, 8%);
+	$cis-color-2-lighter:           lighten($cis-color-2, 16%);
+
+	$cis-color-3-darker:            darken($cis-color-3, 16%);
+	$cis-color-3-dark:              darken($cis-color-3, 8%);
+	$cis-color-3-light:             lighten($cis-color-3, 8%);
+	$cis-color-3-lighter:           lighten($cis-color-3, 16%);
+
+	//顏色array
+	$cis         :  $cis-color-1,$cis-color-2,$cis-color-3;
+	$cis-light   :  $cis-color-1-light,$cis-color-2-light,$cis-color-3-light;
+	$cis-lighter :  $cis-color-1-lighter,$cis-color-2-lighter,$cis-color-3-lighter;
+	$cis-dark    :  $cis-color-1-dark,$cis-color-2-dark,$cis-color-3-dark;
+	$cis-darker  :  $cis-color-1-darker,$cis-color-2-darker,$cis-color-3-darker;
+
+	$lightColor : #d13428;
+
+// =====================================================================================
+// line height
+// =====================================================================================
+
+	$lineheight         :$line-height-base;
+	$lineheight_small   :$lineheight*0.75; //1.5em
+	$lineheight_smaller :$lineheight*0.50; //1em
+	$lineheight_big     :$lineheight*1.50; //3em
+	$lineheight_biger   :$lineheight*1.75; //3.5em
+
+// =====================================================================================
+// space
+// =====================================================================================
+
+	$space         :$space-base;
+	$space_small   :$space*0.8;
+	$space_smaller :$space*0.5;
+	$space_big     :$space*1.5;
+	$space_biger   :$space*1.8;
+
+
+// =====================================================================================
+// font
+// =====================================================================================
+
+	$fontSizeBase    : $font-size-base;
+	$font-size-large : floor(($fontSizeBase * 1.125));
+	$font-size-small : ceil(($fontSizeBase * 0.75));
+	$font-size-h1    : floor(($fontSizeBase * 2.25));
+	$font-size-h2    : floor(($fontSizeBase * 1.875));
+	$font-size-h3    : ceil(($fontSizeBase * 1.5));
+	$font-size-h4    : ceil(($fontSizeBase * 1.13));
+	$font-size-h5    : $fontSizeBase;
+	$font-size-h6    : ceil(($fontSizeBase * 0.85));
+
+
+	%fontFamilyStyle1{font-family:$googlefont,arial,"文泉驛正黑","WenQuanYi Zen Hei","Heiti TC","微軟正黑體","Microsoft JhengHei"; }
+	%fontFamilyStyle2{font-family:$googlefont,"sans-serif","MingLiU","PMingLiU","細明體","新細明體";}
+
+
+
+// =====================================================================================
+// 產品、相簿、影片、最新消息 的 圖片比例
+// =====================================================================================
+
+	//設定產品圖片比例 1=正方型 2、橫式(4:3) 3、直式(A4比例)
+	$proImgSizeType:1 !default;
+	$proImgSize:100% !default;
+	@if $proImgSizeType==1 {$proImgSize:100%; }       // 1:1
+	@if $proImgSizeType==2 {$proImgSize:75%; }        // 橫-4:3
+	@if $proImgSizeType==3 {$proImgSize:141.42857%;	} // 直-A4比例
+
+
+	//設定相簿比例 1=正方型 2、橫式(4:3) 3、直式(A4比例)
+	$albumImgSizeType:1 !default;
+	$albumImgSize:100% !default;
+	@if $albumImgSizeType==1 {$albumImgSize:100%; }       // 1:1
+	@if $albumImgSizeType==2 {$albumImgSize:75%; }        // 橫-4:3
+	@if $albumImgSizeType==3 {$albumImgSize:141.42857%;	} // 直-A4比例
+
+	//設定影片圖片比例 1=正方型 2、橫式(4:3) 3、直式(A4比例)
+	$videoImgSizeType:1 !default;
+	$videoImgSize:100% !default;
+	@if $videoImgSizeType==1 {$videoImgSize:100%; }       // 1:1
+	@if $videoImgSizeType==2 {$videoImgSize:75%; }        // 橫-4:3
+	@if $videoImgSizeType==3 {$videoImgSize:141.42857%;	} // 直-A4比例
+
+	//設定最新消息圖片比例 1=正方型 2、橫式(4:3) 3、直式(A4比例)
+	$newsImgSizeType:1 !default;
+	$newsImgSize:100% !default;
+	@if $newsImgSizeType==1 {$newsImgSize:100%; }       // 1:1
+	@if $newsImgSizeType==2 {$newsImgSize:75%; }        // 橫-4:3
+	@if $newsImgSizeType==3 {$newsImgSize:141.42857%;	} // 直-A4比例

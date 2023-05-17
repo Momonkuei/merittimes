@@ -1,0 +1,1 @@
+<div id="ad"><a href="#"><img src="ctt/images/ad_s01.jpg" border="0" /></a><a href="#"><img src="ctt/images/ad_s02.jpg" border="0" /></a><a href="#"><img src="ctt/images/ad_s03.jpg" border="0" /></a><a href="#"><img src="ctt/images/ad_s04.jpg" border="0" /></a></div>

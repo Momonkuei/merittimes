@@ -1,0 +1,794 @@
+@charset "utf-8";
+
+
+
+
+
+
+
+// products ------
+
+	.proMenu,
+	.menuBlock{@extend .menuListStyle_1;}
+	
+	@media (max-width: $hamburgerPoint){
+		.proCatalog {display: none;}
+	}
+	
+	
+	@mixin itemIcon(){
+		$size:35px;
+		position: absolute;
+		top:0;
+		right:0;
+		font-size:$font-size-h6;
+		i{font-style: normal;}					
+		
+		.spIcon{
+			@include circleBox(3em);
+			border-color:rgba(255,255,255,.5);
+			&.red    {background: $lightColor;}
+			&.yellow {background: #f2ad13;}
+			&.org    {background: #f24613;}
+		}
+
+		img{
+			width:auto;
+			height:auto;
+			min-height: 0;
+			min-width: 0;
+			max-width: $size;
+			max-height:$size;
+			position: static;
+					transform:none;
+			-webkit-transform:none;
+		}				
+	}
+
+
+
+	//proList
+		.proList {
+			
+			//normal 
+			.itemList {
+
+				.item{
+					//box		
+					>:nth-child(1){width: 100%;}		
+					>:nth-child(2){width: 100%;}
+
+
+					.itemImg{
+							background: none;
+							padding-bottom:$proImgSize;//75%=4:3
+							img{
+								// max-width:200%;
+								// max-height:200%;
+								max-width:none;
+								max-height:none;
+								// min-width:100%;
+								// min-height: 100%;
+								width:auto;
+								height:auto;
+							}
+
+							&:after{content:"\f067";}
+
+					} 
+					.itemTitle{
+						font-size:$font-size-h5;
+						@media (max-width:$screenViewSS){line-height: 1.3;margin-top: 10px;}
+					}
+					.itemInfo{
+						font-size:$font-size-h6;
+						i{color:$cis-color-3;padding-right:.5em;}
+						color:lighten($text-color,30%);
+						@media (max-width:$screenViewSS){display: none;}
+					}
+					.itemAddCart{					
+						font-size:$font-size-h6;
+						i{color:$cis-color-1;padding-right:.5em;}
+						color:$cis-color-1;
+						&:hover{color:$cis-color-1-light;}
+						@media (max-width:$screenViewSS){display: none;}
+					}
+					.itemPrice{
+						font-size:$font-size-h4;
+						text-align:right;
+						line-height: $lineheight_small;
+					}
+					.del {text-decoration: line-through;}					
+					.tips {display: none}
+
+					@media (max-width:$screenViewL){width:33.333%}
+					@media (max-width:$screenViewM){width:50%}
+					@media (max-width:$screenViewS){width:50%}
+					@media (max-width:$screenViewSS){width:50%;padding-left:$space_smaller*.5;padding-right:$space_smaller*.5;padding-bottom:$space_small;}
+				}
+				@media (max-width:$screenViewSS){>div{margin-left:$space_smaller*.5*-1;margin-right:$space_smaller*.5*-1}}
+
+				&.listType2 {
+
+					 @media (max-width:$screenViewSS){
+					 	>div{
+					 		display: flex;
+					 		display: -webkit-flex;
+							 		flex-wrap:wrap;
+					 		-webkit-flex-wrap:wrap;
+
+					 	}
+					 	.itemContent{display: none;}
+					 }
+					 @media (min-width:$screenViewSS){
+						.item{
+							width:100%;							
+								    flex-wrap: nowrap;
+						    -webkit-flex-wrap: nowrap;
+							//box		
+							>:nth-child(1){
+								width: auto;
+										flex:0 0 300px;
+								-webkit-flex:0 0 300px;
+							}		
+							>:nth-child(2){
+								width: auto;
+										flex:auto;
+								-webkit-flex:auto;
+								padding-left:$space_smaller;
+							}
+						}
+					}
+					@media (max-width:$screenViewS) and (min-width: $screenViewSS){
+						.item{
+									flex-direction:row;
+							-webkit-flex-direction:row;
+								    flex-wrap: nowrap;
+						    -webkit-flex-wrap: nowrap;
+							width:100%;
+							>:nth-child(1){
+								width:auto !important;
+										flex:0 0 35%;
+								-webkit-flex:0 0 35%;
+							}
+							>:nth-child(2){
+								width:auto !important;								
+							}
+						}
+					}
+				}
+
+
+			}
+
+			
+
+			@media (max-width: $hamburgerPoint){
+				>div{
+					flex-direction: column;
+					-webkit-flex-direction: column;
+					>div:nth-child(1){width:100%;margin-bottom:$space;}
+					>div:nth-child(2){width:100%;margin-bottom:$space;}
+				}
+			}
+
+			//shop
+			&.shop{
+
+				.itemList {
+					.item{
+						//box		
+						
+						position: relative;
+						
+
+						.itemAddCart,
+						.itemRemoveFavor,
+						.itemAddFavor{
+							
+							font-size:$font-size-h6;
+							@include circleBox(25px);	
+							position: relative;		
+
+							&+*{margin-left: .5em;}
+
+							.tips {
+								display: none;
+								position: absolute;
+								width:7em;
+								height:2em;
+								bottom:-2.5em;
+								text-align:center;
+								z-index: 100;
+								left: 50%;
+							    transform: translateX(-50%);
+							}		
+							&:hover {
+								.tips{display: inline-block;}
+							}
+						}
+
+						.itemPrice{
+							text-align: left;
+							padding-right: .5em;
+						}
+					
+						.itemIcon {
+							@include itemIcon();
+							z-index: 100;
+	
+						}
+
+						
+						@media (max-width: $screenViewS){
+							.itemPrice{display: block;}
+						}
+						@media (max-width: $screenViewSS){
+							// .itemAddCart,
+							// .itemAddFavor{display: none;}
+							.itemIcon{
+								top:5px;
+								right:5px;
+								img{
+									max-width:30px;
+									max-height: 30px;
+								}
+							}
+
+						}
+					}
+
+				}
+				
+
+				&.favorite{
+					.itemSpec{
+						display: flex;
+						display: -webkit-flex;
+						flex-direction:column;
+						-webkit-flex-direction:column;
+						img{
+							max-width: 1em;
+							max-height: 1em;
+							display: inline;
+							vertical-align: middle;
+						}
+
+					}
+
+					// font
+					.itemSpec{
+						label {font-size: $font-size-h6;}
+					}
+				}
+			}
+
+
+
+
+
+		}
+
+
+	
+	//proInquiry
+		.proInquiry {
+
+
+			.itemList {
+					
+				.item{
+					
+					$proInquiryImgSize      :6em; // 電腦版 商品圖大小
+					$proInquiryImgSizeSmall :4em; // 手機版 商品圖大小
+
+
+					//box		
+					flex-wrap:nowrap;
+					-webkit-flex-wrap:nowrap;
+					flex-direction:row;
+					-webkit-flex-direction:row;
+					.itemContent {width: 100%;}
+
+					// space
+					padding-bottom: $space_small;
+					margin-bottom: $space_small;						
+					>*{padding:0 $space_smaller;}
+					
+					// style
+					& {border-bottom: 1px solid rgba($cis-color-3,.5);}
+					&:last-child {border-color:transparent;}
+						
+					.itemImg{
+							background: none;
+							width:$proInquiryImgSize;
+							padding-bottom:$proInquiryImgSize;//1:1
+							// img{
+							// 	max-width:200%;
+							// 	max-height:200%;
+							// 	min-width:100%;
+							// 	min-height: 100%;
+							// }
+							&:after{
+								content:"\f067";
+							}
+					} 
+
+
+					.itemTitle{
+						font-size:$font-size-h5;
+					}
+					.itemInfo{
+						font-size:$font-size-h6;
+						i{color:$cis-color-3;padding-right:.5em;}
+						color:lighten($text-color,40%);
+					}
+					.itemNum{
+						width:4em;
+						height:2em;
+						padding:0;
+						text-align: center;
+						vertical-align: middle;
+					}
+					
+
+					@media (max-width: $screenViewS){
+						
+						>*:nth-child(1){width:auto !important;padding-left:0}
+						>*:nth-child(2){padding-right:0}
+						
+						.itemImg{width:$proInquiryImgSizeSmall;padding-bottom:$proInquiryImgSizeSmall;}
+						.itemInfo {display: none;}
+					}
+				}
+
+
+			}
+
+			
+
+
+
+		}
+
+
+
+
+	//proDetail ------
+
+		.proDetail {
+
+			.itemProShow{position: relative;}
+			.itemIcon {
+				@include itemIcon();
+				z-index: 100;
+			}
+			.itemImg{					
+				background:$proItemImgBg;
+				padding-bottom:$proImgSize;
+				
+				&:before,
+				&:after {
+					content:'\f00e';
+			
+				}
+				@media (max-width:$hamburgerPoint){
+					&:before,
+					&:after {
+						display: none;
+					}
+				}
+			}
+			
+
+			.itemSlickNav{
+				padding:$space $space_big;
+				.itemImg{	
+					padding-bottom: $proImgSize;						
+					img{						
+						height:100%;
+						width:auto;
+						max-width: none;
+					}
+					&:before {content:'';}
+					&:after{display: none;content:'';}
+				}
+			
+
+				.slick-current{
+					.itemImg{
+						&:before{
+							opacity: 1;
+							top: 0;
+							left:50%;
+							width:100%;
+							z-index: 100;
+									transform:translate(-50%,0);
+							-webkit-transform:translate(-50%,0);
+						}
+					}
+				}
+
+				.slick-arrow{
+					opacity: 1;
+					&.slick-next {right: 0}
+					&.slick-prev {left: 0}
+				}
+
+				@media (max-width:$hamburgerPoint){
+					display: none;
+				}
+			}
+
+			.itemForm{
+				margin:$space 0;
+				padding:$space 0;
+				border-top:1px solid rgba($cis-color-3,.5);
+			}
+
+			.itemContent{
+				margin:$space_biger 0;
+				min-height: $space*10;
+			}
+
+			.itemTitle {
+				line-height:$lineheight_small;
+			}
+
+			.itemSN {
+				color:rgba($text-color,.5);
+				font-size:$font-size-h6;
+			}
+
+			.itemPrice {
+				font-size:$font-size-h4;
+				font-weight: bold;
+				small {padding-left: 1em;font-weight: normal;}
+			}
+
+
+			.itemSP {
+				$spColor:$lightColor;
+				font-size:$font-size-h4;
+				a{
+					display: inline-block;
+					margin-right:1em;
+
+					font-size:$font-size-h4;
+					border-radius: $radius-base ;
+					color:$spColor;
+
+					&:hover{
+						opacity: .8;
+					}
+				}
+				
+			}
+
+			
+
+			.shopForm{
+				.formItem{
+					>*{display: inline-block;width: auto;}
+
+					>label{
+						margin-right: $space_smaller;
+						@media (max-width: $screenViewSS){
+							display: block;
+						}
+					}
+				}
+			}
+
+			.stockTips {
+				$statusColor1:lighten($text-color,30%);
+				$statusColor2:$lightColor;
+				$statusColor3:#000;
+				color:$text-color;
+				&[data-stockStatus='1']{color:$statusColor1;}
+				&[data-stockStatus='2']{color:$statusColor2;}
+				&[data-stockStatus='3']{color:$statusColor3;}
+				padding-left:1em;
+			}
+
+			.plusLink {
+				*{margin-right:$space_smaller;}
+				*:last-child{margin-right:0;}
+			}
+				
+			.hrTitle{
+				margin:$space_smaller auto;
+				&:before,
+				&:after{
+					// border-color:rgba($cis-color-3,.5);
+				}
+			}
+
+			.addFavort {
+				@include circleBox(40px);
+
+			}
+
+
+
+		}
+
+
+
+
+
+	
+
+
+
+
+	//proListFun 列表上方功能區 
+		.proListFun{
+			form{
+				@extend %Bbox_flexBetween;
+				align-items:center;
+				-webkit-align-items:center;
+			}
+
+			.formItem {
+				margin-bottom: 0;
+				label {display: inline-block;}
+				select {
+					width:auto;
+					height:2em;
+					line-height: 2em;
+				}
+			}
+			
+			.gridChange {
+				a{
+					@extend %transition;
+					opacity:.5;
+					&:hover{opacity: 1;}
+					&+a{margin-left:1em}
+				}
+
+				@media (max-width: $screenViewL){
+					display: none;
+				}
+
+			}
+
+			.listCount {
+				@media (max-width: $screenViewL){
+					display: none;
+				}
+			}
+
+			
+			@media (max-width: $hamburgerPoint){
+				display: none;
+			}
+		}
+	
+	
+	
+
+
+
+
+	//sideFilter 側邊篩選區塊，手機時hide;
+		.sideFilter{
+			@media (max-width: $hamburgerPoint){
+				display: none;
+			}
+		}
+
+
+	
+
+
+
+	//加購商品
+		.proPlusBuy{
+			$priceColor:$lightColor;
+			$imgSize:60px;
+			$imgSizeSM:40px;
+
+			.item{
+						flex-wrap:nowrap;
+				-webkit-flex-wrap:nowrap;
+
+				margin-bottom: $space_smaller;
+
+				.itemImg{
+					height:$imgSize*($proImgSize/100%);
+					width:$imgSize;
+					padding-bottom:0;
+					&:before,
+					&:after{display: none;}
+					@media (max-width: $screenViewSS){
+						height:$imgSizeSM;
+						width:$imgSizeSM;
+					}
+				}
+
+				.checkbox  {
+					label{padding-right: 0;}
+					input[type="checkbox"]:not(:disabled)+span:before{border-color:$cis-color-1;}
+				}
+
+				select {
+					height: 2em;
+					line-height: 2em;
+				}
+
+				.itemInfo {
+					padding-left:$space_smaller;
+					padding-right:$space_smaller;
+					line-height: $lineheight_small ;
+				}
+
+				.itemPrice {
+					color:$priceColor;
+				}
+
+				@media (max-width: $screenViewS){
+							flex-direction:row;
+					-webkit-flex-direction:row;
+
+					.checkbox{
+								flex:0 0 30px;
+						-webkit-flex:0 0 30px;
+					}
+					.itemInfo{
+								flex:1 1 auto;
+						-webkit-flex:1 1 auto;
+					}
+					.itemThumb{
+								flex:0 0 $imgSizeSM;
+						-webkit-flex:0 0 $imgSizeSM;
+					}
+				}
+
+			}
+		}
+
+
+
+	
+
+
+	//相關商品
+		.relatedPro{
+			#relateProSlid{
+				padding-left:$space_biger;
+				padding-right:$space_biger;
+				overflow: visible;
+				.slick-arrow {opacity: 1;}
+				.slick-prev {left:0;}
+				.slick-next {right:0;}
+
+				@media (max-width: 440px){
+					padding-left:0;
+					padding-right:0;
+					display: flex;
+					display: -webkit-flex;
+					flex-wrap:wrap;
+					-webkit-flex-wrap:wrap;
+					.item {width:50%;}
+
+				}
+			}
+		}
+
+
+
+
+
+
+
+
+	//手機版 篩選功能
+		
+		.stickyFilter {display: none}
+		
+		@media (max-width: $hamburgerPoint){
+
+			$stickyFilterH:40px;
+			.stickyFilter{
+				display: block;
+				// pos
+				position: fixed;
+				left:0;
+				width:100%;
+				z-index: 0;
+				// grid
+				.filterBtn{
+					display: flex;
+					align-items:center;
+					justify-content:space-around;
+					display: -webkit-flex;
+					-webkit-align-items:center;
+					-webkit-justify-content:space-around;
+					height:$stickyFilterH;
+					position: relative;
+					z-index: 1;
+					>*{flex:1;-webkit-flex:1;}
+				}
+
+				//font
+				font-size:$font-size-h6;
+				text-align: center;
+
+				// style
+				background: #fff;
+				*+*{border-left:1px solid $cis-color-1;}
+						box-shadow: 0 0 20px rgba(0,0,0,.2);
+				-webkit-box-shadow: 0 0 20px rgba(0,0,0,.2);
+
+
+				// effect
+				opacity: 1;	
+				z-index: 10;	
+				top:0;			
+						transform: translateY(-100%);
+			    -webkit-transform: translateY(-100%);
+						transition: all .3s ease;
+				-webkit-transition: all .3s ease;
+				&.open{
+					top:$headerScrollHeight;
+							transform: translateY(0);
+				    -webkit-transform: translateY(0);
+				}
+
+			}
+
+
+
+
+
+			//proFilter popBox
+			#proFilter {
+				.boxContent{
+					overflow-y: auto;
+				}				
+				.sideForm{
+					height: auto;
+					overflow: visible;
+					max-height: none;
+				}
+			}
+
+			//proListOrder popBox
+			#proListOrder{
+				.mainContent{
+					height: 100%;
+				}			
+				form{				
+					height:100%;
+					margin:auto;
+					display: flex;
+					display: -webkit-flex;
+							align-items:center;
+					-webkit-align-items:center;
+							justify-content:center;
+					-webkit-justify-content:center;
+				}	
+			}
+
+
+		}
+
+		/*shop Detail*/
+		.shopDetail_addFavor{
+			a{
+				.addFavor_circle{
+					border: 1px $cis-color-1-dark solid;
+					background-color:$cis-color-1-dark;
+					i{color: #fff;}
+				}
+				p.tips{color: $cis-color-1-dark;}
+				&:hover{
+					.addFavor_circle{
+						background-color:#fff;
+						i{color: $cis-color-1-dark}
+					}
+				}
+			}
+		}

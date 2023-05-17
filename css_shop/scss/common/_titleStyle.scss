@@ -1,0 +1,324 @@
+@charset "utf-8";
+
+
+// =====================================================================================
+// title
+// =====================================================================================
+
+	//== page title  
+	// 1、符號(fontawesome) 2、線條(左) 3、色塊 4、小圖
+
+
+		//config
+		$pageTitleFontSize      : $font-size-h1;          // 大字 font-size
+		$pageTitleFontSizeSmall : $font-size-h4;          // 小字 font-size
+		$pageTitleColor         : $cis-color-2;           // 大字 color
+		$pageTitleColorSmall    : $cis-color-3;           // 小字 color
+		$pageTitleDecoColor     : $cis-color-1;           // 裝飾 color
+		$pageTitleDecoContent   : '\f101' !default;       // 裝飾 字元 (fontawesome) ex:'\f101'
+		$pageTitleDecoBorder    : 3px !default;           // 裝飾 線條寬
+		$pageTitleDecoSizeW     : 2em !default;           // 裝飾 寬
+		$pageTitleDecoSizeH     : 2em !default;           // 裝飾 高
+		$pageTitleDecoBg        : 1 !default;             // 裝飾 背景色 透明度 
+		$pageTitleDecoBgColor   : $cis-color-1 !default;  // 裝飾 背景色
+
+		@mixin pageTitleStyleSet($pageTitleStyle){
+
+			
+
+			color:$pageTitleColor;	
+
+			//font
+			font-size      :$pageTitleFontSize;
+			font-weight    :300;
+			text-transform :uppercase;
+			letter-spacing :0;
+			line-height    :$lineheight_smaller;
+			
+			//box&space
+			display        :block;
+			margin-top     :$space;
+			margin-bottom  :$space;
+
+			>*{
+				line-height : $lineheight_smaller;
+				display     : inline-block;
+				vertical-align : middle;
+			}
+			
+			small{
+				//font
+				font-size:$pageTitleFontSizeSmall;
+				color:$pageTitleColorSmall;		
+				//box
+				//display: inline;
+				padding-left:0.5em;
+				vertical-align : middle;
+			}
+
+
+
+
+			$pageTitleStyle:1 !default;
+
+
+			@if $pageTitleStyle==1{
+				&:before {
+					content        : $pageTitleDecoContent;
+					font-family    : fontawesome;
+					vertical-align : middle;
+					display        : inline-block;
+					color          : $pageTitleDecoColor;
+				}
+				
+				
+			}
+
+
+			@if $pageTitleStyle==2{	
+				border-style    : solid;
+				border-width    : 0 0 0 $pageTitleDecoBorder;
+				border-color    : $pageTitleDecoColor;
+				padding-left    : 0.5em;
+				
+			}
+
+
+
+			@if $pageTitleStyle==3{
+				position: relative;
+				&:before {
+					content         : '';					
+					vertical-align  : middle;
+					display         : inline-block;
+					border-style    : solid;
+					border-width    : $pageTitleDecoBorder;
+					border-color    : $pageTitleDecoColor;
+					background      : rgba($pageTitleDecoBgColor,$pageTitleDecoBg);
+					width           : $pageTitleDecoSizeW;
+					height          : $pageTitleDecoSizeH;
+					position        : absolute;
+					top             : -.5em;
+					opacity         : .2;
+					z-index         : 0;
+					border-radius   : $radius-base;
+				}
+				>span {padding-left:.5em;position: relative;z-index: 1;}
+				small{vertical-align: middle;}
+				
+			}
+
+			@if $pageTitleStyle==4{
+				
+				$decoSizeW:1em;
+				$decoSizeH:1em;
+				$path:'images/default/pagetitle_icon.svg';
+				$pageTitleDecoPath:'' !default;
+				$imgPath:'../' + $path;
+				@if $pageTitleDecoPath!='' {$imgPath:'../' + $pageTitleDecoPath;}
+
+				&:before {
+					content        : '';					
+					display        : inline-block;
+					vertical-align : middle;
+					width          : $decoSizeW;
+					height         : $decoSizeH;
+					background     : url($imgPath) no-repeat center center ;
+					background-size: contain;
+				}
+				
+				
+			}
+
+
+
+		}
+
+		.pageTitle:not([class*="pageTitleStyle-"]) {@include pageTitleStyleSet($pageTitleStyle);}
+		.pageTitleStyle-1 {@include pageTitleStyleSet(1);}
+		.pageTitleStyle-2 {@include pageTitleStyleSet(2);}
+		.pageTitleStyle-3 {@include pageTitleStyleSet(3);}
+		.pageTitleStyle-4 {@include pageTitleStyleSet(4);}
+
+
+
+			
+
+
+	// == block title ========================================================================================
+		
+			// config
+			$blockTitleFontSize      :$font-size-h2;
+			$blockTitleFontSizeSmall :$font-size-h4;
+			$blockTitleColor         :$text-color;
+			$blockTitleColorSmall    :lighten($text-color,40%);
+			$blockTitleColoDeco      :$cis-color-1;
+
+
+			$blockTitleStyle:1 !default;
+
+			@mixin blockTitleStyleSet($blockTitleStyle){
+
+				margin-bottom :$space_smaller;
+				font-weight   :300;
+				font-size     :$blockTitleFontSize;				
+				color         :$blockTitleColor;
+				>* {
+					//display       :block;
+					line-height   :$lineheight_small;
+
+				}
+				small {
+					display: block;
+					//font
+					font-size     :$blockTitleFontSizeSmall;
+					color         :$blockTitleColorSmall;
+					font-weight   :300;
+					letter-spacing:1px;
+				}				
+
+				&.txtCenter{
+					text-align: center;
+					&:after{
+						margin: auto;
+						margin-top:$space_small;
+					}
+				}
+
+				@if $blockTitleStyle ==1 {
+					&:after{
+						content    :'';
+						display    : block;
+						width      :$blockTitleDecoWidth;
+						height     :$blockTitleDecoHeight;
+						background :$blockTitleColoDeco;
+						margin-top :$space_smaller;
+						
+						
+					}
+				}
+
+				@if $blockTitleStyle ==2 {
+					>span{
+						padding-left:.5em;
+						padding-right:.5em;												
+						border:2px solid $cis-color-1;
+						display: inline-block;
+						border-radius: $radius-base;
+					}
+				}
+
+				@if $blockTitleStyle ==3 {
+					&:after{
+						content    :'';
+						display    : block;
+						width      :50px;
+						height     :10px;						
+						margin-top :$space_smaller;
+
+						background:
+						    radial-gradient($blockTitleColoDeco 2px, transparent 1px),
+						    radial-gradient($blockTitleColoDeco 2px, transparent 1px);
+
+						background-size:10px 10px;
+						
+						
+					}
+				}
+
+			}
+
+			.blockTitle:not([class*="blockTitleStyle-"]) {@include blockTitleStyleSet($blockTitleStyle);}
+			.blockTitleStyle-1 {@include blockTitleStyleSet(1);}
+			.blockTitleStyle-2 {@include blockTitleStyleSet(2);}
+			.blockTitleStyle-3 {@include blockTitleStyleSet(3);}
+
+
+		
+
+
+
+
+	// == box title ===================================================================================================
+		.boxTitle{	
+
+			// config
+			$boxTitleFontSize  :$font-size-large;
+			$boxTitleColor     :$text-color;
+			$boxTitleColorDeco :$cis-color-1;
+
+			margin-bottom :1em;
+			font-weight   :300;
+			font-size     :$boxTitleFontSize;	
+			text-align    :left;
+			font-weight   :bold;
+			color         :$boxTitleColor;
+
+			&:after{
+				content:'';
+				display: block;
+				width:60px;
+				height:3px;
+				background:$boxTitleColorDeco;
+				margin-top:1em;
+			}
+		}
+
+	
+	// == item title ===================================================================================================
+		.itemTitle{			
+			font-weight   :300;
+			text-align    :left;
+			font-size     :$font-size-h3;	
+			color         :$text-color;		
+			.iconImg {				
+				vertical-align: middle;
+				margin-right:$space_smaller;
+				&+span{display: inline-block;vertical-align: middle;}
+			}
+		}
+
+
+	// == article title ===================================================================================================
+		.articleTitle{			
+			font-weight   :bold;
+			// text-align    :left;
+			font-size     :$font-size-h3;	
+			color         :lighten($text-color,30%);		
+			
+			&:first-child{
+				margin-top    :0;
+			}
+		}
+
+
+
+	//== hr title ===============================================================================================
+		.hrTitle {
+			width:100%;
+			display: flex;
+			display:-webkit-flex;
+			align-items:center;
+			-webkit-align-items:center;
+			margin:$space auto;
+			text-align:center;
+			&:before,
+			&:after {
+				content:'';
+				flex:1;
+				-webkit-flex:1;
+				border-top:1px solid lighten($text-color,50%);	
+
+			}	
+			>*{
+				padding:1em;
+				display:inline-block;
+				max-width:80%;
+				color:$cis-color-1;
+				letter-spacing:2px;
+			    text-transform: uppercase;
+			    font-weight:400;
+			}
+		}
+
+

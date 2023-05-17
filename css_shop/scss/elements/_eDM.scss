@@ -1,0 +1,49 @@
+@charset "utf-8";
+
+ 
+
+// =====================================================================================
+// 訂閱電子報
+// =====================================================================================
+	.eDM {
+		// background: $cis-color-2;
+		background: #333;
+		color:#fff;
+		
+		padding:$space;
+		&+footer{margin-top:0;}		
+		form {
+			display: flex;
+			display: -webkit-flex;
+					justify-content:center;
+			-webkit-justify-content:center;
+					align-items:center;
+			-webkit-align-items:center;
+			
+			input{margin:$space_smaller;}
+			label, button{
+						flex:0 0 auto;
+				-webkit-flex:0 0 auto;
+				white-space: nowrap;
+			}
+			input{
+						flex:0 1 400px;
+				-webkit-flex:0 1 400px;
+			}
+
+			@media (max-width: $screenViewSS){
+						flex-wrap:wrap;
+				-webkit-flex-wrap:wrap;
+						justify-content:flex-start;
+				-webkit-justify-content:flex-start;
+				label, input, button{
+					margin:0;margin-bottom:$space_smaller;
+					width:100%;
+				}
+		
+			}
+		}
+		
+
+
+	}

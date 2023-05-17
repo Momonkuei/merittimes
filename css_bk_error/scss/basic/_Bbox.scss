@@ -1,0 +1,288 @@
+@charset "utf-8";
+
+// =====================================================================================
+// max basic Bbox
+// .Bbox_center
+// .Bbox_flexBetween
+// .Bbox_view
+// .Bbox_view_full
+// =====================================================================================
+
+  .Bbox_center {
+    display:block;
+    margin:auto;
+    &.w500{width:500px; max-width: 100%; }
+    &.w800{width:800px; max-width: 100%; }
+  }
+
+  %Bbox_flexBetween{
+    display: flex;
+    display: -webkit-flex;
+            flex-wrap:wrap;
+    -webkit-flex-wrap:wrap;
+            align-items:center;
+    -webkit-align-items:center;
+            justify-content:space-between;
+    -webkit-justify-content:space-between;
+  }
+  .Bbox_flexBetween{@extend %Bbox_flexBetween;}
+
+
+  %Bbox_view{
+    display   : block;
+    width     : $screenViewXL;
+    max-width : 100%;
+    padding   : 0 $space;
+    margin    : auto;
+    @media screen and (min-width: $screenViewL) and (max-width: 1499px) { width: $screenViewL - $space;}
+    @media (max-width: $screenViewL)  {width:$hamburgerPoint;}
+    @media (max-width: $screenViewM)  {width:$screenViewS + $space}
+    @media (max-width: $screenViewS)  {width:100%;}
+    @media (max-width: $screenViewSS) {padding-left:$space_smaller; padding-right:$space_smaller;}
+    // @media (max-width: $screenViewL)   {width:100%;}
+    // @media (max-width: $hamburgerPoint){width:100%;}
+  }
+  .Bbox_view {@extend %Bbox_view;}
+
+
+
+  %Bbox_view_full{
+    display   : block;
+    width     : 100%;
+    max-width : 100%;
+    padding   : 0 $space;
+    margin    : auto;
+    @media (max-width: $screenViewL)   {width:100%;}
+    @media (max-width: $hamburgerPoint){width:100%;}
+  }
+  .Bbox_view_full {@extend %Bbox_view_full;}
+
+
+
+
+//=====================================================================================
+// make box via bootstrap (grid=12) -> rwd v2 , but still work
+// .Bbox_1c
+// .Bbox_in_1c ~ .Bbox_in_12c
+// .Bbox_in_2c_L1 ~ .Bbox_in_2c_L11
+//=====================================================================================
+
+    // Centered container element
+    @mixin container-fixed($gutter:$space) {
+      margin-right: auto;
+      margin-left: auto;
+      padding-left:  ($gutter / 1);
+      padding-right: ($gutter / 1);
+      &:before,
+      &:after {
+        content: " "; // 1
+        display: table; // 2
+      }
+      &:after {
+        clear: both;
+      }
+    }
+
+    // Creates a wrapper for a series of columns
+    @mixin make-row($gutter: $space) {
+      display: flex;
+      display: -webkit-flex;
+          align-items:flex-start;
+      -webkit-align-items:flex-start;
+          flex-wrap:wrap;
+      -webkit-flex-wrap:wrap;
+      float:none;
+      margin-left:  ($gutter / -1);
+      margin-right: ($gutter / -1);
+      &:before{}
+      &:after {
+        content: " "; // 1
+        display: table; // 2
+        clear: both;
+      }
+    }
+
+    // Generate the extra small columns
+    @mixin make-xs-column($columns, $gutter: $space) {
+      position: relative;
+      float: left;
+      width: percentage(($columns / 12));
+      min-height: 1px;
+      padding-left:  ($gutter / 1);
+      padding-right: ($gutter / 1);
+
+    }
+
+    // Generate the small columns
+    @mixin make-sm-column($columns, $gutter: $space) {
+      position: relative;
+      min-height: 1px;
+      padding-left:  ($gutter / 1);
+      padding-right: ($gutter / 1);
+
+      @media (min-width: $screenViewS) {
+        float: left;
+        width: percentage(($columns / 12));
+      }
+    }
+    // Generate the medium columns
+    @mixin make-md-column($columns, $gutter: $space) {
+      position: relative;
+      min-height: 1px;
+      padding-left:  ($gutter / 1);
+      padding-right: ($gutter / 1);
+
+      @media (min-width: $screenViewM) {
+        float: left;
+        width: percentage(($columns / 12));
+      }
+    }
+
+    // Generate the large columns
+    @mixin make-lg-column($columns, $gutter: $space) {
+      position: relative;
+      min-height: 1px;
+      padding-left:  ($gutter / 1);
+      padding-right: ($gutter / 1);
+
+      @media (min-width: $screenViewL) {
+        float: left;
+        width: percentage(($columns / 12));
+      }
+    }
+
+
+    //==產生盒子大小function
+    @mixin make_container($b_style,$b_style2,$b_cols){
+      max-width: 100%;
+      @if $b_style==0{@include container-fixed;}
+      @if $b_style==1{
+        @include container-fixed;
+
+        @media (min-width: $screenViewS) {
+          width: $screenViewS + $space;
+        }
+        @media (min-width: $screenViewM) {
+          width: $screenViewM + $space;
+        }
+        // @media (min-width: $screenViewL) {
+        //   width: $screenViewL + $space;
+        // }
+        @media screen and (min-width: $screenViewL) and (max-width: 1499px) {
+          width: $screenViewL - $space;
+        }
+        @media (min-width: 1500px) {
+          width: $screenViewCustom;
+        }
+        @media (max-width: $screenViewSS) {
+           padding-left:$space_smaller;
+           padding-right:$space_smaller;
+        }
+
+      }
+
+      & > div{
+        @include make-row;
+
+      }
+
+      @if length(nth($b_cols,1))==1 {
+        & > div > div{
+            $xs:nth(nth($b_cols,4),1);
+            $sm:nth(nth($b_cols,3),1);
+            $md:nth(nth($b_cols,2),1);
+            $lg:nth(nth($b_cols,1),1);
+            @if $xs!=0 {@include make-xs-column($xs);}
+            @if $sm!=0 {@include make-sm-column($sm);}
+            @if $md!=0 {@include make-md-column($md);}
+            @if $lg!=0 {@include make-lg-column($lg);}
+           }
+
+        }
+     @else{
+          @for $i from 1 through length(nth($b_cols,1)) {
+          & > div > div:nth-of-type(#{$i}) {
+              $xs:nth(nth($b_cols,4),$i);
+              $sm:nth(nth($b_cols,3),$i);
+              $md:nth(nth($b_cols,2),$i);
+              $lg:nth(nth($b_cols,1),$i);
+              @if $xs!=0 {@include make-xs-column($xs);}
+              @if $sm!=0 {@include make-sm-column($sm);}
+              @if $md!=0 {@include make-md-column($md);}
+              @if $lg!=0 {@include make-lg-column($lg);}
+           }
+        }
+      }
+
+
+    }
+
+
+
+
+
+    .Bbox_1c
+      {
+        $b_style:1; //1=container , 0=container-fluid
+        $b_style2:0; //top、bottom、0
+        $b_cols:((12),(12),(12),(12)); //((lg),(md),(sm),(xs))
+        @include make_container($b_style,$b_style2,$b_cols);
+      }
+
+
+
+    //產生盒子 Bbox_in_?c  ========================================================================
+    //ex：Bbox_in_5c
+    //格式：
+    // <xxxx class="Bbox_in_5c">
+    //     <div>
+    //         <div></div>
+    //            ...
+    //         <div></div>
+    //     </div>
+    // </xxxx>
+
+
+
+    @for $inxc from 1 through 12{
+        .Bbox_in_#{$inxc}c,
+                  {
+                    $b_style:2; //1=container , 0=container-fluid (full) , 2=盒中盒
+                    $b_style2:0; //top、bottom、0
+                    $b_cols:((12/$inxc),(12/$inxc),(12/$inxc),(12)); //((lg),(md),(sm),(xs))
+                    @include make_container($b_style,$b_style2,$b_cols);
+                  }
+
+    }
+
+
+
+
+
+
+    //產生盒子 Bbox_in_2c_L?  ========================================================================
+    //ex：Bbox_in_2c_L3
+    //格式：
+    // <xxxx class="Bbox_in_2c_L">
+    //     <div>
+    //         <div>1</div>
+    //         <div>2</div>
+    //     </div>
+    // </xxxx>
+
+    @for $inLx from 1 through 11
+    {
+      .Bbox_in_2c_L#{$inLx}
+      {
+        $b_style:2; //1=container , 0=container-fluid (full) , 2=盒中盒
+        $b_style2:0; //top、bottom、0
+        $b_cols:(($inLx,12-$inLx),($inLx,12-$inLx),(12,12),(12,12)); //((lg),(md),(sm),(xs))
+        @media (max-width: $hamburgerPoint){
+          >div{
+            >.sideMenu{display: none;}
+          }
+        }
+        @include make_container($b_style,$b_style2,$b_cols);
+
+      }
+    }

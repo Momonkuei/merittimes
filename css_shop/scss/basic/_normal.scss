@@ -1,0 +1,229 @@
+@charset "utf-8";
+
+// =====================================================================================
+// normal  
+// =====================================================================================
+	
+
+	*,
+	*:before,
+	*:after	{box-sizing: border-box;}
+
+	*,
+	*:focus,
+	*:active,
+	*:hover {outline: none;}
+
+	img {
+		max-width: 100%;
+		vertical-align: middle;
+				backface-visibility: hidden;
+		-webkit-backface-visibility: hidden;
+	}
+
+	body{
+		margin:0;
+		padding:0;
+		@extend %fontFamilyStyle#{$fontFamilyType};
+		font-weight: 400;	
+		background: $body-bg;
+		color:$text-color;
+		font-size:$fontSizeBase;
+		line-height: $line-height-base;
+		overflow-y:auto;
+		-webkit-overflow-scrolling: touch;
+
+	}
+	
+	header{
+		transition:none;
+		-webkit-transition:none;
+	}
+
+
+
+	h1,h2,h3,h4,h5,h6 {
+		font-weight: 300;
+		margin-top:$space_smaller;
+		margin-bottom:$space_smaller;
+		line-height: 1.1;
+	}
+
+	h1, .h1 { font-size: $font-size-h1; }
+	h2, .h2 { font-size: $font-size-h2; }
+	h3, .h3 { font-size: $font-size-h3; }
+	h4, .h4 { font-size: $font-size-h4; }
+	h5, .h5 { font-size: $font-size-h5; }
+	h6, .h6 { font-size: $font-size-h6; }
+
+
+	p {
+		margin-bottom: $space_smaller;	
+	}
+
+
+	h1.siteTitle {
+		position: absolute;
+		z-index: 0;
+		color:rgba(255,255,255,0);
+		opacity: 0;
+		width:0;
+		height: 0;
+		top:-100%;
+		left:-100%;
+	}
+	a{
+		color:$link-color;
+		text-decoration: none;
+		&:hover, 
+		&:focus {
+		    color: $link-hover-color;
+		    text-decoration: none;
+		    outline: 0;
+		}
+		&.underLine{text-decoration: underline;}
+	}
+
+
+	.text-right{text-align: right;}
+	.text-left{text-align: left;}
+	.text-left{text-align: left;}
+	.text-center{text-align: center;}
+
+
+	.del {
+		text-decoration: line-through;
+		color:lighten($text-color,30%);
+	}
+
+	
+	@for $i from 1 through 3 {
+		.cis#{$i} {color:nth($cis,$i);}
+		.cis#{$i}-light {color:nth($cis-light,$i);}
+		.cis#{$i}-lighter {color:nth($cis-lighter,$i);}
+		.cis#{$i}-dark {color:nth($cis-dark,$i);}
+		.cis#{$i}-darker {color:nth($cis-darker,$i);}
+	}
+
+	.lightColor {
+		color:$lightColor;
+	}	
+	
+
+
+
+	//超連結  icon font + txt
+	%linkStyle1 {
+		$iconLinkColorIcon      :$cis-color-1;               //icon 顏色
+		$iconLinkColorFont      :rgba($text-color,.5);       //文字 顏色
+		$iconLinkHoverColorIcon :$cis-color-1;               //滑過 icon 顏色
+		$iconLinkHoverColorFont :$cis-color-1;               //滑過 文字 顏色
+
+		color:$iconLinkColorFont;
+
+		i {
+			padding-right: .5em;
+			color:$iconLinkColorIcon;
+		}
+		&:hover{
+			i{color:$iconLinkHoverColorIcon;}
+			color:$iconLinkHoverColorFont;
+			text-decoration: none;
+		}
+	}
+
+	.icon-link {
+		@extend %linkStyle1;
+		
+	}
+
+	
+	//icon font + txt(small)
+	.iconTxt{
+		font-size:$font-size-h6; 
+		color:lighten($text-color,30%);
+		i{
+			color:$cis-color-1;
+			padding-right:.5em;
+		}
+	}
+		
+
+
+
+
+
+	// circle link
+	@mixin circleBox($size){
+		
+		width:$size;
+		height:$size;
+
+		display: inline-flex;
+		display: -webkit-inline-flex;
+				align-items:center;
+		-webkit-align-items:center;
+				justify-content:center;
+		-webkit-justify-content:center;		
+
+		border-radius: 100%;
+		text-align: center;
+		padding:0;
+
+		*{
+			line-height: 1;
+			padding:0;
+		}
+		
+		&,* {color:#fff;}
+		border:1px solid $cis-color-1;
+		background: $cis-color-1;
+
+		&.active,
+		&:hover {
+			background: #fff;
+			&,*{color:$cis-color-1;}
+			
+		}
+
+
+	}
+	.circleLink{
+		@include circleBox(25px);
+	}
+
+
+
+
+
+	//selection
+	::-moz-selection {background: $cis-color-1; color:#fff}
+	::selection      {background: $cis-color-1; color:#fff}
+
+
+	//預設圖
+	.noneImg {
+		
+		// config
+		$defaultImgBg : rgba($cis-color-1,1) !default;                 //預設圖 背景色
+		
+		// style
+		border-radius : $radius-base;
+		background    : $defaultImgBg !important;
+		position      : relative;
+
+		img {
+			min-width:0 !important;
+			min-height:0!important;
+			width:auto!important;
+			height: auto!important;
+			position: absolute;
+			top:50%;
+			left:50%;
+			max-width: 100% !important;
+			max-height: 100% !important;
+			transform:translate(-50%,-50%);
+			-webkit-transform:translate(-50%,-50%);
+		}
+		
+	}

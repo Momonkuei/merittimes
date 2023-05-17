@@ -1,0 +1,74 @@
+<div class="bannerBlock">
+  <div class="bannerStyle03">
+    <div class="swiper-container bnr_s3 loading">
+      <div class="swiper-wrapper">
+
+		<?php if(isset($data[$ID])):?>
+			<?php foreach($data[$ID] as $k => $v):?>
+				<?php if(0)://SEO?>
+					<?php $alt = ''?>
+					<?php if($k == 0):?>
+						<?php $alt = '台北防水工程'?>
+					<?php elseif($k == 1):?>
+						<?php $alt = '台北防水抓漏'?>
+					<?php endif?>
+					<?php $v['topic'] = $alt?>
+				<?php endif?>
+
+				<div class="swiper-slide" style="background-image:url('<?php echo $v['pic1g']?>')">
+				  <img src="<?php echo $v['pic1g']?>" class="entity-img" />
+				  <div class="content">
+					<p class="title" data-swiper-parallax="-30%" data-swiper-parallax-scale=".7"><?php echo $v['topic']?></p>
+					<span class="caption" data-swiper-parallax="-20%"><?php echo $v['detail'] //2020-08-17 記得後台要補欄位?></span>
+				  </div>
+				</div>
+			<?php endforeach?>
+		<?php endif?>
+
+		<?php if(0):?>
+        <div class="swiper-slide" style="background-image:url('images_v4/banner/bannerStyle03-1.jpg')">
+          <img src="images_v4/banner/bannerStyle03-1.jpg" class="entity-img" />
+          <div class="content">
+            <p class="title" data-swiper-parallax="-30%" data-swiper-parallax-scale=".7">Shaun Matthews</p>
+            <span class="caption" data-swiper-parallax="-20%">Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</span>
+          </div>
+        </div>
+        <div class="swiper-slide" style="background-image:url('images_v4/banner/bannerStyle03-2.jpg')">
+          <img src="images_v4/banner/bannerStyle03-2.jpg" class="entity-img" />
+          <div class="content">
+            <p class="title" data-swiper-parallax="-30%" data-swiper-parallax-scale=".7">Alexis Berry</p>
+            <span class="caption" data-swiper-parallax="-20%">Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</span>
+          </div>
+        </div>
+        <div class="swiper-slide" style="background-image:url('images_v4/banner/bannerStyle03-3.jpg')">
+          <img src="images_v4/banner/bannerStyle03-3.jpg" class="entity-img" />
+          <div class="content">
+            <p class="title" data-swiper-parallax="-30%" data-swiper-parallax-scale=".7">Billie	Pierce</p>
+            <span class="caption" data-swiper-parallax="-20%">Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</span>
+          </div>
+        </div>
+        <div class="swiper-slide" style="background-image:url('images_v4/banner/bannerStyle03-4.jpg')">
+          <img src="images_v4/banner/bannerStyle03-4.jpg" class="entity-img" />
+          <div class="content">
+            <p class="title" data-swiper-parallax="-30%" data-swiper-parallax-scale=".7">Trevor	Copeland</p>
+            <span class="caption" data-swiper-parallax="-20%">Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</span>
+          </div>
+        </div>
+        <div class="swiper-slide" style="background-image:url('images_v4/banner/bannerStyle03-5.jpg')">
+          <img src="images_v4/banner/bannerStyle03-5.jpg" class="entity-img" />
+          <div class="content">
+            <p class="title" data-swiper-parallax="-30%" data-swiper-parallax-scale=".7">Bernadette	Newman</p>
+            <span class="caption" data-swiper-parallax="-20%">Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</span>
+          </div>
+        </div>
+		<?php endif?>
+
+      </div>
+      <!-- If we need pagination -->
+      <div class="swiper-pagination"></div>
+      <!-- If we need navigation buttons -->
+      <div class="swiper-button-prev"><i class="fa fa-angle-left" aria-hidden="true"></i></div>
+      <div class="swiper-button-next"><i class="fa fa-angle-right" aria-hidden="true"></i></div>
+    </div>
+  </div><!-- .bannerStyle03 -->
+</div><!-- .bannerBlock -->

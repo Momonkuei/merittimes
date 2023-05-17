@@ -1,0 +1,19 @@
+@charset "utf-8";
+
+
+// =====================================================================================
+// searchForm (use popBox)
+// =====================================================================================
+	.searchForm {	
+		form {
+			padding:$space;
+			padding-top:$space_biger;
+			text-align: center;
+			position: relative;			
+			display: inline-block;
+			width: 100%;
+			input[type="text"] {margin-right: 2em;width:500px;max-width: 100%;}
+		}
+	}
+
+

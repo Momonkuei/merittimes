@@ -1,0 +1,11 @@
+
+
+// 讓多行文字超出時自動隱藏
+
+@mixin hideLongTexts($columns) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: $columns;
+    -webkit-box-orient: vertical;
+}

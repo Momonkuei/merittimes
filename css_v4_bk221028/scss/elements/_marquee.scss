@@ -1,0 +1,58 @@
+@charset "utf-8";
+
+.marqueeBlock{
+ background-color: $cis1;
+  .marquee{
+  height: 2em;
+  position: relative;
+  overflow: hidden;
+  ul{
+   width: 100%;
+   position: absolute;
+   li{
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    a{
+      color: #fff;
+    }
+   }
+  }
+ }
+ .marquee ul *:not(ul):not(.subMenu){
+  transition: all .2s ease-in;
+ }
+}
+@media (min-width: 1025px){
+ .marqueeBlock {
+  height: 50px;
+  overflow: hidden;
+  .marquee{
+   height: 50px;
+   a{
+    display: block;
+    line-height: 50px;
+    overflow: hidden;
+   }
+  }
+ }
+}
+@media (max-width: 1024px){
+ .marqueeBlock{
+ .marquee{
+   height: auto;
+   ul{
+    position: static;
+    li{
+     height: auto;
+     white-space: normal;
+     margin: 0;
+     padding: .5em 0;
+     border-bottom: 1px solid #e6e6e6;
+     text-align: left;
+    }
+   }
+  }
+ }
+}

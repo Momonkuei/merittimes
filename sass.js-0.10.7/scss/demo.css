@@ -1,0 +1,396 @@
+a {
+  color: blue; }
+
+div img {
+  border: 0px; }
+
+a {
+  color: red; }
+
+a {
+  color: red;
+  background: "blue"; }
+
+foo {
+  a: 1 2 before; }
+
+foo {
+  a: 1 2 before; }
+
+div span {
+  color: red;
+  background: blue; }
+
+div {
+  color: gray; }
+  div empty span {
+    color: red;
+    background: blue; }
+
+empty1 empty2 div {
+  blah: blah; }
+
+empty1 empty2 div {
+  bloo: blee; }
+  empty1 empty2 div empty3 span {
+    blah: blah;
+    blah: blah; }
+
+/* top level comment -- should be preserved */
+div {
+  /* another comment that should be preserved */
+  color: red;
+  background: blue;
+  /* the next selector should be indented two spaces */
+  margin: 10px 5px; }
+  div span {
+    font-weight: bold;
+    /* yet another comment that should be preserved */
+    display: inline-block; }
+    div span a {
+      text-decoration: none;
+      /* where will this comment go? */
+      color: green;
+      /* what about this comment? */
+      border: 1px bloo blee red; }
+  div empty not_empty {
+    blah: blah;
+    bloo: bloo; }
+  div p {
+    padding: 10px 8%;
+    -webkit-box-sizing: hux; }
+  div h1 {
+    color: "a 'red' and \"blue\" value"; }
+
+/* last comment, top level again --
+   compare the indentation! */
+div {
+  f: g; }
+  div empty span {
+    a: b; }
+  div empty_with_comment {
+    /* hey now */ }
+    div empty_with_comment span {
+      c: d; }
+
+a, b {
+  color: red;
+  background: blue; }
+
+c, d {
+  color: gray; }
+  c e, c f, d e, d f {
+    background: blue;
+    padding: 10px 5px; }
+  c g, c h, d g, d h {
+    blah: blah;
+    bloo: bloo; }
+  c i, c j, d i, d j {
+    foo: goo; }
+    c i k, c i l, c j k, c j l, d i k, d i l, d j k, d j l {
+      hoo: boo; }
+      c i k m, c i k n, c i k o, c i l m, c i l n, c i l o, c j k m, c j k n, c j k o, c j l m, c j l n, c j l o, d i k m, d i k n, d i k o, d i l m, d i l n, d i l o, d j k m, d j k n, d j k o, d j l m, d j l n, d j l o {
+        wow: we are far inside;
+        but: it still works; }
+
+a + b > c {
+  color: red;
+  background: gray; }
+  a + b > c d e {
+    color: blue;
+    background: white; }
+
+a + b, c {
+  blah: blah;
+  bleh: bleh; }
+  a + b d e, a + b f ~ g + h, a + b > i, c d e, c f ~ g + h, c > i {
+    bloo: bloo;
+    blee: blee; }
+
+a + b, .class {
+  blah: blah;
+  bleh: bleh; }
+  a + b d #id, a + b f ~ g.other + h, a + b > i#grar, .class d #id, .class f ~ g.other + h, .class > i#grar {
+    bloo: bloo;
+    blee: blee; }
+
+[hey='ho'], a > b {
+  blah: blah; }
+  [hey='ho'] c, [hey='ho'] [hoo*="ha"], a > b c, a > b [hoo*="ha"] {
+    bloo: bloo; }
+
+a b {
+  color: red; }
+  a b :first-child, a b :nth-of-type(-2n+1) {
+    blah: bloo; }
+    a b :first-child .foo#bar:nth-child(even), a b :nth-of-type(-2n+1) .foo#bar:nth-child(even) {
+      hoo: goo; }
+    a b :first-child ::after, a b :nth-of-type(-2n+1) ::after {
+      content: "glux";
+      color: green; }
+    a b :first-child :not(.foo), a b :nth-of-type(-2n+1) :not(.foo) {
+      hoo: boo; }
+    a b :first-child *, a b :nth-of-type(-2n+1) * {
+      hoo: boo; }
+    a b :first-child a, a b :nth-of-type(-2n+1) a {
+      b: c; }
+
+hey, ho {
+  blah: blah; }
+  hey > boo, foo hey.goo, ho > boo, foo ho.goo {
+    bloo: bloo; }
+
+div {
+  p01: #abc;
+  p02: #aabbcc;
+  p03: #abchello;
+  p04: #abbccd;
+  p05: #aabbdd;
+  p06: #0101ff;
+  p07: blue;
+  p08: cyan;
+  p09: #000000;
+  p10: black;
+  p11: black;
+  p12: yellow;
+  p13: #020202;
+  p14: black;
+  p15: 10-#222;
+  p16: black;
+  p17: magenta;
+  p18: 10 #232323;
+  p19: 10/#222;
+  p20: #0b0a0b;
+  p21: white; }
+
+a {
+  hey: ho;
+  hugabug: third second;
+  hugabug: kwd-y kwd-x;
+  goo: boo hoo;
+  no: parameters here;
+  /* end of hux */
+  flugablug: pug flug glug;
+  flugablug: pug mug glug; }
+  a div, a span {
+    some: nested stuff; }
+    a div foo, a div bar, a span foo, a span bar {
+      more: stuff so forth;
+      blah: blah; }
+
+div {
+  blah: blah from a variable blah; }
+
+div {
+  a: global x;
+  b: global y;
+  f-a: arg;
+  f-b: global y;
+  f-a: local x changed by foo;
+  f-b: global y changed by foo;
+  f-c: new local z;
+  a: global x;
+  b: global y; }
+
+div {
+  /* begin foo */
+  margin: 1 2;
+  /* end foo */
+  /* begin foo */
+  margin: 1 3;
+  /* end foo */
+  margin: 1 2 zee;
+  margin: 1 kwd-y kwd-z; }
+  div blip {
+    hey: now; }
+  div blip {
+    hey: now; }
+
+div {
+  /* begin hux */
+  color: global-y;
+  /* begin foo */
+  margin: called-from-hux global-y;
+  /* end foo */
+  /* end hux */ }
+  div blip {
+    hey: now; }
+
+div {
+  /* begin hux */
+  color: calling-hux-again;
+  /* begin foo */
+  margin: called-from-hux calling-hux-again;
+  /* end foo */
+  /* end hux */ }
+  div blip {
+    hey: now; }
+
+div {
+  blah: original-bung; }
+
+div {
+  blah: redefined-bung; }
+
+div {
+  /* calls to nullary mixins may omit the empty argument list */
+  blah: redefined-bung; }
+
+div {
+  /* begin foo */
+  margin: kwdarg1 kwdarg2;
+  /* end foo */ }
+  div blip {
+    hey: now; }
+
+hoo {
+  color: boo; }
+
+div {
+  blah: boogoo some other default; }
+
+div {
+  value: original; }
+
+div {
+  value: no longer original; }
+
+div {
+  arg: changed local x;
+  blarg: changed global y;
+  a: global-x;
+  b: different-global-y; }
+
+outer {
+  /* assigning to $x */
+  blah: blah; }
+  outer inner {
+    /* begin foo */
+    /* assigning to $x */
+    x: inside foo;
+    /* end foo */
+    x: inside outer scope; }
+
+div {
+  color: yellow;
+  background: #7b2d06; }
+
+div {
+  color: yellow;
+  background: #7b2d06;
+  flah: #111111;
+  grah: rgba(255, 0, 238, 0.5);
+  blah: rgba(1, 2, 3, 0.6);
+  floo: cyan;
+  bloo: rgba(0, 255, 255, 0.7);
+  groo: cyan;
+  hoo: 123;
+  moo: 45;
+  poo: 6;
+  goo: rgba(64, 0, 191, 0.75);
+  boo: #edcba9; }
+
+div {
+  a: helloworld;
+  a: hello world;
+  b: 123;
+  b: string;
+  b: 123;
+  b: string; }
+
+div {
+  a-p1: q;
+  a-b-p2: q;
+  a-p3: q; }
+
+foo {
+  bar: baz;
+    bar-bip: bop;
+    bar-bing: string;
+    bar-bang: 3;
+    bar-bung: bap;
+    bar-bong: bup;
+      bar-bong-x: x;
+      bar-bong-y: y;
+      bar-bong-z: z; }
+
+div {
+  blah: "hello 4 world px bloon blah"; }
+
+foo, bar {
+  p: 1; }
+  foo baz, foo hux, bar baz, bar hux {
+    q: 2; }
+    foo baz mumble4, foo hux mumble4, bar baz mumble4, bar hux mumble4 {
+      r: 3; }
+
+a b c {
+  blee: blee;
+  blah: blah; }
+  a b c d e f {
+    blah: blah;
+    bloo: bloo; }
+  @media print and (foo: 1 2 3), (bar: 3px hux(muz)), not screen {
+    a b c g h, a b c i j {
+      hey: ho; }
+      a b c g h k l m, a b c i j k l m {
+        hee: fee; } }
+
+div {
+  foo: url(bloo/blah.css);
+  bar: url(http://foo/bar/hux.css);
+  foo: url(fudgepop.css);
+  bar: url("http://fudgepop/styles.css");
+  hux: url(http://box_123////fudgepop.css);
+  hux: url(http://box_123////fudgepop.css);
+  foo: url(http://blah.com/bar-1.css);
+  hux: url(http://box_123////fudgepop.css);
+  foo: url(http://blah.com/bar-2.css);
+  hux: url(http://box_123////fudgepop.css);
+  foo: url(http://blah.com/bar-3.css);
+  hux: url(http://box_123////fudgepop.css);
+  foo: url(http://blah.com/bar-4.css);
+  hux: url(http://box_123////fudgepop.css);
+  foo: url(http://blah.com/bar-5.css);
+  gloo: url("hey3.css");
+  floo: url(hadoop-444.css); }
+
+div {
+  background: gray; }
+
+div {
+  background: blue; }
+
+div {
+  background: red; }
+
+div {
+  content: foo;
+  content: foo;
+  content: foo;
+  content: foo;
+  content: foo; }
+
+div {
+  content: foo;
+  content: foo;
+  content: foo;
+  content: foo; }
+
+div {
+  width: 30%;
+  height: -10%;
+  width: 20%;
+  width: 20%;
+  height: 0%;
+  height: 0%;
+  blah: 5;
+  flah: 900%;
+  grah: 900%;
+  nyah: 5%; }
+
+.test {
+  background-color: null;
+  color: blue; }
+
+/*# sourceMappingURL=demo.css.map */

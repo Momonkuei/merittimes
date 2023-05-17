@@ -1,0 +1,155 @@
+*{ -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;  margin: 0; padding: 0; }
+
+body {  }
+html,body {
+	margin:0;
+	padding:0;
+	height:100%; /* needed for container min-height */
+	font-family:"Courier New", Courier, monospace; font-size: 13px; background: #fff;
+}
+div#container {
+	position:relative; /* needed for footer positioning*/
+	margin:0 auto; /* center, not in IE5 */
+	
+	height:auto !important; /* real browsers */
+	height:100%; /* IE6: treaded as min-height*/
+
+	min-height:100%; /* real browsers */
+}
+div#header{ margin:0; padding:0; border-bottom:1px #dadada solid;}
+div#content2 {
+	 /* padding:1em 1em 5em; bottom padding for footer */
+	 padding:0 0 50px 0;
+}	
+div#footer {
+	font-size:15px;
+	position:absolute;
+	width:100%;
+	bottom:0; /* stick to bottom */
+	background:#ED6C00;
+	color:#FFF;
+	text-align:center;
+	padding:5px 0;
+}
+#logo{
+	clear:both;
+	display:block;
+	width:100%;
+	height: auto;
+	background:#ed6c00;
+	text-align:center;
+	padding:0;
+	margin:0;
+}
+#logo span{
+	position:absolute;
+	right:0;
+	padding:8px;
+	background:rgba(0,0,0,0.4);
+	text-align:center;
+}
+#logo span a{
+	color:#FFF;
+	text-shadow: 1px 1px 0 #000;
+}
+
+
+/*-----------------------------------------------  ­¶ÅÒ  tabs    ------*/
+#tabs li { list-style: none; }
+#tabs li a {
+    float: left;
+    display: block;
+    background: #ed6c00;
+    padding: 10px;
+    color: #fff;
+    width: 25%;
+    text-decoration: none;
+    text-align: center;
+    border-right:;
+    border-left: 1px solid #ed6c00;	
+    font-size: 15px;
+    text-shadow: 1px 1px 0 #000;
+	line-height:18px;
+} 
+#tabs li a:hover { font-weight:bold; background: #F5F5F5; border-left:1px #F5F5F5 solid; color: #004EA2; text-shadow: 1px 1px 0 #fff;}
+#tabs li:first-child a { border-left: 0; }
+#tabs li:last-child a { border-right: 0;width:; }
+#tabs li.current a {
+	font-weight:bold;
+    background: #F5F5F5;
+    color: #004EA2;
+    text-shadow: 1px 1px 0 #fff;
+	border-left: 1px solid #fff;
+}
+ 
+#content > div {
+    clear: both;
+    padding: 20px 0 12px 0;
+	margin:0 0 0 0;
+    line-height: 19px;
+    color: #666;
+    /* text-shadow: 1px 1px 0 #fff; */
+    display: none;
+	background:#F5F5F5;
+} 
+#content .current { display: block; }
+#content #home.first { display: block; }
+#content p { margin: 0 0 20px 0;}
+
+/* 
+ie7 
+#tabs li {display:inline;}
+#tabs li a {border:0;padding:0;}
+*/
+
+/*----------------------------------------   ¤U©Ô --------------*/
+.gnb-btn{ 
+	width:100%;
+	text-align:center;
+	clear:both;
+}
+
+/*----------------   back-top   ------*/
+#back-top {
+    background: url("images/arrow-top.png") no-repeat scroll 50% 50% #424242;
+    position: fixed;
+	bottom: 40px;
+    right: 0px;
+    width: 45px;
+    height: 45px;
+    display: none;
+    -webkit-transition: 0.5s;
+	-moz-transition: 0.5s;
+	transition: 0.5s;
+	z-index:9999;
+	
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
+    -moz-opacity: 0.6;
+    -khtml-opacity: 0.6;
+    opacity: 0.6;
+}
+#back-top a {
+    width: 45px;
+    height: 45px;
+    display: block;
+}
+#back-top:hover {
+    background-color: #ED6C00;
+    cursor: pointer;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    -moz-opacity: 1;
+    -khtml-opacity: 1;
+    opacity: 1;
+}
+
+@media (max-width: 480px) {
+	div#content2 {
+		 /* padding:1em 1em 5em; bottom padding for footer */
+		 padding:0 0 50px 0;
+	}
+	#back-top { bottom:60px;}
+	#tabs li a{ height:60px;}
+}
+@media (min-width: 480px) {
+	#logo span{ right:10px;}
+}

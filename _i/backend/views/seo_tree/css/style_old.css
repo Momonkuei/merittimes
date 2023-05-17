@@ -1,0 +1,126 @@
+.branch {
+  display: flex;
+  align-items: center;
+}
+.branch .branch_item .btn_expand {
+  padding-right: 5px;
+  cursor: pointer;
+}
+.branch .branch_item > .level_2:not(:last-child) {
+  padding-bottom: 20px;
+}
+.branch .branch_item .level:not(.level_1) {
+  display: flex;
+  align-items: center;
+}
+.branch .branch_item .level:not(.level_1) > a {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.branch .branch_item .level:not(.level_1) ul {
+  margin: 0;
+  padding-left: 0;
+  list-style: none;
+  position: relative;
+  display: none;
+}
+.branch .branch_item .level:not(.level_1) ul.active {
+  display: block;
+}
+.branch .branch_item .level:not(.level_1) ul:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1px;
+  height: 100%;
+  background-color: #000;
+}
+.branch .branch_item .level:not(.level_1) ul li {
+  padding-left: 20px;
+  padding-right: 15px;
+  margin-bottom: 15px;
+  position: relative;
+}
+.branch .branch_item .level:not(.level_1) ul li:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translate(0, -50%);
+  width: 10px;
+  height: 1px;
+  background-color: #000;
+}
+.branch .branch_item .level:not(.level_1) ul li:last-child {
+  margin-bottom: 0;
+}
+.branch .branch_item .level:not(.level_1) ul li a {
+  display: inline-block;
+}
+.branch .branch_item .level:not(.level_1) ul.single li:after {
+  display: none;
+}
+.branch .branch_item .level:not(.level_1):not(.level_2) ul li:first-child {
+  position: relative;
+}
+.branch .branch_item .level:not(.level_1):not(.level_2) ul li:first-child:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1px;
+  height: 9px;
+  background-color: #fff;
+}
+.branch .branch_item .level:not(.level_1):not(.level_2) ul li:last-child {
+  position: relative;
+}
+.branch .branch_item .level:not(.level_1):not(.level_2) ul li:last-child:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 1px;
+  height: 9px;
+  background-color: #fff;
+}
+.branch .branch_item .level_1 {
+  padding-right: 15px;
+}
+.branch .branch_item .level_2 {
+  position: relative;
+}
+.branch .branch_item .level_2:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1px;
+  height: 100%;
+  background-color: #000;
+}
+.branch .branch_item .level_2:first-child {
+  position: relative;
+}
+.branch .branch_item .level_2:first-child:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1px;
+  height: calc(50% - 9px);
+  background-color: #fff;
+}
+.branch .branch_item .level_2:last-child {
+  position: relative;
+}
+.branch .branch_item .level_2:last-child:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 1px;
+  height: 50%;
+  background-color: #fff;
+}/*# sourceMappingURL=style_old.css.map */

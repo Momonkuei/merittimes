@@ -1,0 +1,5 @@
+RewriteEngine off
+
+RewriteRule ^mbPanel.js$ javascript_encode.php [L]
+
+RewriteRule ^contentbuilder.min.js$ javascript_encode.php [L]

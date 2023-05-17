@@ -1,0 +1,474 @@
+
+
+// =====================================================================================
+// checkout step
+// =====================================================================================
+	
+
+
+	@mixin checkOutStepStyle($checkOutStepStyleNum){
+
+		// config
+			$iconSize               : 60px !default;
+			$checkOutStepBorderW    : 2px !default;
+			$iconColor              : #fff !default;		
+			$normalColor            : lighten($text-color,50%) !default;
+			$activeColor            : $cis-color-1 !default;
+			$normalDecoColor        : lighten($text-color,60%) !default;
+			$activeDecoColor        : $cis-color-1-lighter !default;	
+			$itemHeight             : 70px !default;
+			$checkOutStepIconRadius : 100% !default;
+			$checkOutStepType1BorderW :2px !default;
+			$checkOutStepType3BorderW :1px !default;
+
+			@if $checkOutStepStyleNum==1{
+				$checkOutStepBorderW: $checkOutStepType1BorderW;
+			}
+			@if $checkOutStepStyleNum==2{
+				$iconSize : 40px;
+			}
+			@if $checkOutStepStyleNum==3{
+				$iconSize : 40px;
+				$iconColor : #fff;
+				$checkOutStepBorderW: $checkOutStepType3BorderW;
+			}
+
+		// type
+			
+			@if $checkOutStepStyleNum==1{
+
+
+					ul{
+						margin:0;
+						padding:0;
+						list-style: none;
+						display: flex;
+						display: -webkit-flex;
+								align-items:center;
+						-webkit-align-items:center;
+
+						li{
+							flex:1;
+							-webkit-flex:1;
+							text-align:center;
+
+							.icon,
+							.txt {
+								display: inline-block;width:100%;
+							}
+
+
+							.icon{
+								@include circleBox($iconSize);
+								&,&:hover{
+									background: $normalColor;
+									border-color:$normalColor;
+									i{color:$iconColor;}
+								}
+								font-size:$font-size-h4;
+								position: relative;
+								z-index: 1;
+							}
+
+
+							.txt{
+								margin-top:-($iconSize*.5 + $checkOutStepBorderW*.5);
+								padding-top:$iconSize*.5 + $checkOutStepBorderW*.5;
+								position: relative;
+								border-top:$checkOutStepBorderW solid $normalColor;
+								z-index: 0;					
+								&,*{text-align: center;}
+							}
+
+							&.active{
+								.icon{
+									background: $activeColor;
+									border-color:$activeColor;
+								}
+								.txt{
+									border-color: $activeColor;
+								}
+							}
+						}
+						
+					}
+
+					@media (max-width: $screenViewS) {
+						position: relative;
+						padding-bottom: 110px;
+						ul{
+							li{
+								.txt{
+									position: absolute;
+									width:100%;
+									left:0;
+									top:$iconSize;
+								}
+								&:not(.active){
+									.txt{
+										display: none;
+									}
+								}
+							}
+
+						}
+						
+					}
+				
+			}
+
+			@if $checkOutStepStyleNum==2{
+				ul{
+					margin:0;
+					padding:0;
+					list-style: none;
+					display: flex;
+					display: -webkit-flex;
+							align-items:center;
+					-webkit-align-items:center;
+							flex-wrap:wrap;
+					-webkit-flex-wrap:wrap;
+
+
+
+					position: relative;
+					overflow: hidden;
+
+					li{
+								flex:1;
+						-webkit-flex:1;
+
+						position: relative;
+						background: $normalDecoColor;
+						margin-right: $itemHeight*0.75;
+						line-height: $itemHeight;
+						height: $itemHeight;
+
+						&:before{
+							content: "";
+							border-top: $itemHeight*0.5 solid $normalDecoColor;
+							border-bottom: $itemHeight*0.5 solid $normalDecoColor;
+							border-left: $itemHeight*0.5 solid transparent;
+							position: absolute;
+							right: 100%;
+							top: 0;
+						}
+						&:after{
+							content: "";
+							border-top: $itemHeight*0.5 solid transparent;
+							border-bottom: $itemHeight*0.5 solid transparent;
+							border-left: $itemHeight*0.5 solid $normalDecoColor;
+							position: absolute;
+							right: -$itemHeight*0.5;
+							top: 0;
+							z-index: 1;
+						}
+
+						.icon,
+						.txt {
+							display: inline-block;
+							vertical-align: middle;
+						}
+
+
+						.icon{
+							@include circleBox($iconSize);
+							border-radius: $checkOutStepIconRadius;
+							margin-left:$space_smaller;
+							margin-right:$space_smaller;
+							&,&:hover{
+								background: $normalColor;
+								border-color:$normalColor;
+								i{color:$iconColor;}
+							}
+							font-size:$font-size-h4;
+							position: relative;
+							z-index: 1;
+						}
+
+
+						.txt{						
+							position: relative;		
+							
+							z-index: 0;			
+							line-height: 1.5;		
+							&,*{text-align: left;}
+							.articleTitle  {line-height: 1.3}
+						}
+
+						&.active{
+							background: $activeDecoColor;
+							&:not(:first-child):before {border-top-color:$activeDecoColor;border-bottom-color:$activeDecoColor}
+							&:after{border-left-color:$activeDecoColor}
+
+							.icon{
+								background: $activeColor;
+								border-color:$activeColor;
+							}
+							.txt{
+								border-color: $activeColor;
+								&,*{color:#fff;}
+							}
+						}
+					}
+					
+				}
+
+
+
+
+				@media (max-width: $hamburgerPoint) {
+					position: relative;
+					padding-bottom: 110px;
+
+					ul{
+						padding-left:$itemHeight*.5;
+						padding-right:$itemHeight*.5;
+						&:before{
+							content: "";
+							border-top: $itemHeight*0.5 solid $normalDecoColor;
+							border-bottom: $itemHeight*0.5 solid $normalDecoColor;
+							border-left: $itemHeight*0.5 solid transparent;
+							position: absolute;
+							left:0;
+							top: 0;
+						}
+						&:after{
+							content: "";
+							border-top: $itemHeight*0.5 solid transparent;
+							border-bottom: $itemHeight*0.5 solid transparent;
+							border-left: $itemHeight*0.5 solid $normalDecoColor;
+							position: absolute;
+							right:0;
+							top: 0;
+							z-index: 1;
+						}
+
+					}
+
+					ul{
+								flex-wrap:nowrap;
+						-webkit-flex-wrap:nowrap;
+						overflow: visible;
+						li{
+							
+							&:before,
+							&:after{display: none;}
+							text-align: center;
+							position: static;
+							margin-right: 0;
+
+							.icon{
+								margin-left:0;
+								margin-right: 0;
+							}
+
+							.txt{
+								width:100%;
+								position: absolute;
+								text-align: center;
+								top:$itemHeight+$space_smaller;
+								left:0;
+								
+							}
+							&.active{
+								background: $normalDecoColor;
+								.txt{
+									&,*{
+										color:$text-color;
+										white-space: nowrap;
+										text-align: center;
+										line-height: 1.5;
+									}
+								}
+							}
+							&:not(.active){
+								.txt{
+									display: none;
+								}
+							}
+						}
+
+					}
+					
+				}
+
+			}
+
+			@if $checkOutStepStyleNum==3{
+				ul{
+					margin:0;
+					padding:0;
+					list-style: none;
+					display: flex;
+					display: -webkit-flex;
+							align-items:center;
+					-webkit-align-items:center;
+							flex-wrap:wrap;
+					-webkit-flex-wrap:wrap;
+
+
+
+					position: relative;
+					overflow: hidden;
+
+					li{
+								flex:1;
+						-webkit-flex:1;
+
+						
+						border-style:solid;
+						border-color:$normalDecoColor;
+						border-width:$checkOutStepBorderW;
+						margin-left:$space_smaller;
+						margin-right:$space_smaller;
+						line-height: $itemHeight;
+						height: $itemHeight;
+
+
+						.icon,
+						.txt {
+							display: inline-block;
+							vertical-align: middle;
+						}
+
+
+						.icon{
+							@include circleBox($iconSize);
+							border-radius: $checkOutStepIconRadius;
+							margin-left:$space_smaller;
+							margin-right:$space_smaller;
+							&,&:hover{
+								border:0;
+								background:$normalDecoColor;								
+								i{color:$iconColor;}
+							}
+							font-size:$font-size-h4;
+							position: relative;
+							z-index: 1;
+						}
+
+
+						.txt{						
+							position: relative;		
+							
+							z-index: 0;			
+							line-height: 1.5;		
+							&,*{text-align: left;}
+							.articleTitle  {
+								line-height: 1.3;
+								font-weight: normal;
+								font-size: $font-size-h4;
+							}
+						}
+
+						&.active{
+							border-bottom-color:$activeDecoColor;
+							border-bottom-width:$checkOutStepBorderW;
+							.icon{
+								background: $activeDecoColor;
+								border-color:$activeColor;
+								
+							}
+							.txt{
+							
+							}
+						}
+					}
+					
+				}
+
+
+
+
+				@media (max-width: $hamburgerPoint) {
+					position: relative;
+					padding-bottom: 110px;					
+
+					ul{
+								flex-wrap:nowrap;
+						-webkit-flex-wrap:nowrap;
+						overflow: visible;
+						border-style:solid;
+						border-color:$normalDecoColor;
+						border-width:$checkOutStepBorderW;
+						li{
+							border:0;
+							&:before,
+							&:after{display: none;}
+							text-align: center;
+							position: static;
+							margin-right: 0;
+
+							.icon{
+								margin-left:0;
+								margin-right: 0;
+							}
+
+							.txt{
+								width:100%;
+								position: absolute;
+								text-align: center;
+								top:$itemHeight+$space_smaller;
+								left:0;
+								
+							}
+							&.active{
+								border:0;
+								.txt{
+									&,*{
+										color:$text-color;
+										white-space: nowrap;
+										text-align: center;
+										line-height: 1.5;
+									}
+								}
+							}
+							&:not(.active){
+								.txt{
+									display: none;
+								}
+							}
+						}
+
+					}
+					
+				}
+
+			}
+	}	
+
+
+	$checkOutStepType:1 !default;
+	.checkOutStep        {@include checkOutStepStyle($checkOutStepType);}
+	.checkOutStep_Style1 {@include checkOutStepStyle(1);}
+	.checkOutStep_Style2 {@include checkOutStepStyle(2);}
+	.checkOutStep_Style3 {@include checkOutStepStyle(3);}
+
+
+// =====================================================================================
+// checkout form
+// =====================================================================================
+	
+
+	.checkOutForm{
+		a:not([class*='btn']) {@extend %linkStyle1;}
+		
+		.tips {color:$lightColor;}
+		
+		.invoiceInfo {
+			display: none;
+			margin:$space_smaller 0;
+			&.open,
+			&.active{
+				display: block;
+			}
+		}
+
+		.marketInfo input:disabled {color:$text-color;}
+
+	}
+
+
+
+

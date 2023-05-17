@@ -1,0 +1,30 @@
+@charset "utf-8";
+
+
+// =====================================================================================
+// breadcrumb 
+// =====================================================================================
+
+	.breadcrumb {
+		@extend %listStyleInline;
+		background: none;
+		a {
+			font-size:$font-size-h6;
+			font-weight: 400;
+			color:lighten($text-color,40%);
+		}
+		li+li:before{
+			content: "/ ";
+			padding: 0 5px;
+			color: #ccc;
+		}
+		li:last-child a{
+			color:$cis-color-1;
+		}
+		@media (max-width: $hamburgerPoint){
+			display: none;
+		}
+
+	}
+
+

@@ -1,0 +1,107 @@
+@charset "utf-8";
+
+
+
+
+	// albumlist ------
+		.albumList {
+			.itemList {
+				.item{
+					//box		
+					>:nth-child(1){width: 100%;}		
+					>:nth-child(2){width: 100%;}	
+					.itemImg{
+							padding-bottom:$albumImgSize;
+							img{
+						
+								width      : auto;
+								height     : auto;
+								max-width  : none;
+								max-height : none;
+								// min-width  : 100%;
+								// min-height : 100%;
+							}
+					} 
+					
+					@media (max-width:$screenViewL){width:33.333%}
+					@media (max-width:$screenViewM){width:50%}
+					@media (max-width:$screenViewS){width:50%}
+					@media (max-width:$screenViewSS){width:50%;padding-left:$space_smaller*.5;padding-right:$space_smaller*.5;padding-bottom:$space_small;}
+				}
+				@media (max-width:$screenViewSS){>div{margin-left:$space_smaller*.5*-1;margin-right:$space_smaller*.5*-1}}
+			}
+
+			.itemTitle{
+				font-size:$font-size-h5;
+				&:hover{
+					color:$cis-color-1;
+				}
+				@media (max-width:$screenViewSS){line-height: 1.3;margin-bottom: 10px;margin-top: 10px;}
+			}
+			.dateStyle{
+				font-size   :$font-size-h6;
+				line-height :$font-size-h6;
+				color       :lighten($text-color,30%);
+				padding-left:1.5em;
+				i{
+					color   :$cis-color-1;
+					padding-right:.5em;
+					margin-left:-1.5em;
+				}
+				.dateY {padding-right: 1em}
+			}
+			.itemTotal{
+				font-size:$font-size-h6;
+				i{
+					color:$cis-color-1;
+					padding-right:.5em;
+				}
+				color:lighten($text-color,30%);
+			}
+
+		}
+
+
+	// albumlist detail 
+
+			// = photos ------
+			.itemList.photos{
+				.itemImg:after{
+					content:"\f002";
+				}
+			}
+
+	
+
+			// waterphotos ------
+			.itemList.waterPhotos{
+
+				$waterPhotosRadius:$radius-base;
+				$waterPhotosPadding:$space_smaller;
+
+				.item{
+					padding:$waterPhotosPadding;
+					.itemImg {
+						padding-bottom:0;
+						height:auto;
+						
+						img{
+							position: static;
+							width:100%;
+							height:auto;
+							max-width: 100%;
+							max-height: noee;
+							min-height: 0;
+							min-width: 0;
+							transform:none;
+							-webkit-transform:none;
+
+						}
+						&:before{}
+						&:after{content:"\f002";}
+					}
+				}
+
+			}
+
+

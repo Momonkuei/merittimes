@@ -1,0 +1,202 @@
+@charset "utf-8";
+
+// .gridBox[data-grid=12]      設定外盒子格線幾格
+// .col_8[data-rwd=l7m6s2]     col_?設定格子桌機大小，data-rwd=? 設定該格響應格子變化
+
+// sample：
+// <div class="gridBox" data-grid="4">
+// 	    <div class="col_3" data-rwd="l2m2s1"></div>
+// </div>
+
+// gridBox.colV       格-垂直排列
+//        .colLeft    格-靠左
+//        .colRight   格-靠右
+//        .colCenter  格-置中
+//        .colVCenter 格-垂直置中
+//        .colBetween 格-平均對齊 (最左最右會貼邊)
+//        .colAround  格-分散對齊
+//        .farest     格-大間距
+//        .closest    格-小間距
+//        .nogap      格-無間距
+
+// .w300px ~ w1800px
+// .w10 ~ .w90
+
+
+
+
+$colGridGroups   : 12,10,9,8,6,5,4,3,2,1;
+$gridGutter      : $space;
+$gridGutterBig   : $gridGutter*1.5;
+$gridGutterSmall : $gridGutter*0.5;
+
+//產生格子(預設<440px,width 100%)
+@mixin makeGrid ($col,$colGrid){
+	width   : 100%/$colGrid*$col;
+}
+
+
+// viewbox px (class=w300px~w1800px)
+@for $view from 3 through 18{
+	.w#{$view*100px} {
+		width:$view*100px;
+		max-width: 100%;
+		margin:$gridGutter auto;
+	}
+	
+}
+
+// viewbox % (class="w90~w10")
+@for $view from 1 through 9{
+	.w#{$view*10} {
+		width:$view*10%;
+		max-width: 100%;
+		margin:$gridGutter auto;
+		@media (max-width: $screenViewS){width:auto}
+	}
+	
+}
+
+
+
+.gridBox {
+
+	display: flex;
+	flex-wrap:wrap;
+	align-items:flex-start;
+	
+	display: -webkit-flex;
+	-webkit-flex-wrap:wrap;
+	-webkit-align-items:flex-start;
+
+
+
+
+	//垂直排列
+	&.colVCenter{
+				flex-direction:column;
+		-webkit-flex-direction:column;
+	}
+	
+	//對齊左
+	&.colLeft{
+				justify-content:flex-start;
+		-webkit-justify-content:flex-start;
+	}
+
+	//對齊右
+	&.colRight{
+				justify-content:flex-end;
+		-webkit-justify-content:flex-end;
+	}
+
+	//對齊水平置中
+	&.colCenter{
+				justify-content:center;
+		-webkit-justify-content:center;
+	}
+
+	//對齊垂直置中
+	&.colVCenter{
+				align-items:center;
+		-webkit-align-items:center;
+	}
+
+	//space-between
+	&.colBetween{
+				justify-content:space-between;
+		-webkit-justify-content:space-between;
+	}
+
+	//space-around
+	&.colAround{
+				justify-content:space-around;
+		-webkit-justify-content:space-around;
+	}
+
+
+	//一般間距
+	&{
+		padding:0;
+		//巢狀式，內層不要長肉
+		.gridBox,
+		.gridBox[class*='col_'] {padding:0;}	
+	
+		//一般
+		>*, 
+		[class*='col_']{
+			padding : $gridGutter;
+			//響應
+			@media (max-width: $screenViewS) {padding:$gridGutter/2; }
+	 		@media (max-width: $screenViewSS){padding:1em;}
+	 	}
+	}
+
+	//大間距
+	&.farest{
+		>*, [class*='col_']{padding:$gridGutterBig;}
+	}
+
+	//小間距
+	&.closest{
+		>*, [class*='col_']{padding:$gridGutterSmall;}
+	}
+
+	//無間距
+	&.nogap{
+		>*, [class*='col_']{padding:0;}
+	}
+
+
+
+	//格子寬度 ， 依data-grid設定，col_、data-rwd
+	@each $colGrid in $colGridGroups {
+		
+		&[data-grid='#{$colGrid}']{
+			
+			// 滿版格子
+			.col_full {width:100%;}
+			
+			// 預設如無設定=col_1
+			>* {
+				@include makeGrid (1,$colGrid);
+				@media (max-width: $screenViewSS){width:100%;}
+			}
+
+		    //.col_1~.col_xx
+			@for $i from 1 through $colGrid {
+				>.col_#{$i} {
+					@include makeGrid ($i,$colGrid);
+					@media (max-width: $screenViewSS){width:100%;} 
+				} 
+			}
+
+			//.col rwd <L (1200px)
+			@for $i from 1 through $colGrid {
+				@media (max-width: $screenViewL){>[data-rwd*='l#{$i}']{@include makeGrid ($i,$colGrid);}}
+			}
+			//.col rwd <M (992px)
+			@for $i from 1 through $colGrid {
+				@media (max-width: $screenViewM){>[data-rwd*='m#{$i}']{@include makeGrid ($i,$colGrid);}}
+			}
+			//.col rwd <S (768px)
+			@for $i from 1 through $colGrid {
+				@media (max-width: $screenViewS){>[data-rwd*='s#{$i}']{@include makeGrid ($i,$colGrid);}}
+			}
+			//.col rwd <SS (440px)
+			@for $i from 1 through $colGrid {
+				@media (max-width: $screenViewSS){>[data-rwd*='x#{$i}']{@include makeGrid ($i,$colGrid);}}
+			}
+			
+			
+		}
+	}
+
+	
+
+
+
+
+}
+
+

@@ -1,0 +1,67 @@
+@charset "UTF-8";
+.timeLine_v2 .item .itemStep {
+  width: 3em;
+  height: 3em;
+  background-color: #f7f8f8; }
+
+.timeLine_v2 .item > .itemContent {
+  -webkit-box-flex: 6;
+  -ms-flex: 6;
+  flex: 6;
+  -webkit-flex: 6;
+  margin-bottom: 32px;
+  padding-bottom: 32px;
+  border-bottom: 1px dashed #b3b3b3; }
+  .timeLine_v2 .item > .itemContent > .itemTxt {
+    padding-left: 0;
+    padding-right: 32px; }
+
+.timeLine_v2 .item .itemLine:before {
+  display: none; }
+
+.timeLine_v2 .item .itemLine:after {
+  top: 3em;
+  left: 1.5em; }
+
+.timeLine_v2 .item:last-child > .itemContent {
+  border-bottom: 0; }
+
+/* 2018母版新增修改 */
+form .numSet input {
+  width: 70px; }
+
+.form .numSet input {
+  width: 70px; }
+
+.tabList_center {
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center; }
+
+.proList .itemList .item .itemPrice {
+  color: #ff5353; }
+
+.proDetail .itemTitle {
+  color: #005dbc;
+  font-size: 30px; }
+
+.proDetail .itemSlickNav .slick-current .itemImg::before {
+  -webkit-transform: none;
+  -ms-transform: none;
+  transform: none; }
+
+.share_social {
+  margin-top: 10px; }
+  .share_social ul {
+    margin: 0;
+    padding: 0;
+    list-style: none; }
+    .share_social ul li {
+      display: inline-block;
+      margin-right: 5px;
+      vertical-align: top; }
+      .share_social ul li .social_txt {
+        font-size: 16px;
+        line-height: 30px; }
+      .share_social ul li .btn_clipboard {
+        cursor: pointer; }

@@ -1,0 +1,82 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Sammy.js Example</title>
+    <style>
+	#content{
+		width:500px;
+	}
+	</style>
+</head>
+<body>
+
+    <div id="nav">
+        <ul>
+            <li><a href="#/stone">神魔之塔-快速刷靈魂石技巧</a></li>
+            <li><a href="#/slimu">6小時史萊姆地獄滿技心得</a></li>
+            <li><a href="#/gemini/小時雙子滿技心得">6小時雙子滿技心得</a></li>
+            <li><a href="#/cttdemo_index">buyersline</a></li>
+            <li><a href="#/cttdemo_news">news</a></li>
+        </ul>
+    </div>
+
+    <div id="content"></div>
+
+<!--    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+-->	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script type="text/javascript" src="js/sammy-0.5.4.min.js"></script>
+    <script type="text/javascript">
+
+        var ratPack = $.sammy(function() {
+
+          this.element_selector = '#content';
+		  this.swap = function(content, callback) {
+			 var context = this;
+			 context.$element().html('');
+			 context.$element().fadeOut('slow', function() {
+			 context.$element().load(content)
+			 context.$element().fadeIn('slow', function() {
+				 if (callback) {
+				   callback.apply();
+				 }
+			   });
+			 });
+		   };
+          this.get('#/stone', function(context) {
+			  context.app.swap('page/page01.html');
+			  //context.$element().load('page/page01.html');
+          });
+          
+          this.get('#/gemini/:name', function(context) {
+              context.app.swap('page/page03.html');
+              //context.$element().load('page/page03.html');
+          });
+          
+          this.get('#/slimu', function(context) {
+              context.app.swap('');
+              context.$element().load('page/page02.html');
+          });
+		  
+          this.get('#/cttdemo_index', function(context) {
+              context.app.swap('');
+              context.$element().load('http://192.168.0.200/cttdemo');
+          });
+		  
+		  this.get('#/cttdemo_news', function(context) {
+              context.app.swap('');
+              context.$element().load('http://192.168.0.200/cttdemo/news.php');
+          });
+          
+
+        });
+
+        $(function() {
+          ratPack.run('#/stone');
+        });
+    
+    </script>
+
+</body>
+</html>

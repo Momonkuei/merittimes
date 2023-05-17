@@ -1,0 +1,3 @@
+<?php if(0):?>
+<?php echo $__?>
+<?php endif?>

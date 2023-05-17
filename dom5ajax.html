@@ -1,0 +1,38 @@
+<html>
+<head>
+	<meta charset="utf-8">
+</head>
+<body>
+
+<span t="* tw">測試</span>
+<ul class="mobileMenu">
+	<li><a href="#">Menu</a></li>
+	<li class="xxx">
+		<a href="#">test2</a>
+	</li>
+</ul>
+
+<script src="js/jquery-2.1.4.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+jQuery.fn.outerHTML = function(s) {
+    return s
+        ? this.before(s).remove()
+        : jQuery("<p>").append(this.eq(0).clone()).html();
+};
+		var thishtml = $("body").html();
+		$.ajax({
+			type: "POST",
+			data: {
+				'html': thishtml 
+			},
+			url: 'dom5ajax.php',
+			success: function(response){
+				// alert(response);
+				eval(response);
+			}
+		}); // ajax
+	});
+</script>
+</body>
+</html>

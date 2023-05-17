@@ -1,0 +1,68 @@
+@charset "utf-8";
+
+
+	// newslist ------
+		.newsList{
+
+			.itemList{
+				.item{
+					padding-top:$space;
+					padding-bottom:$space;
+				}
+			}
+
+			//無圖
+			.itemList.newsListType1{
+				.item{
+					//box
+					display: flex;		
+					display: -webkit-flex;	
+							flex-wrap:nowrap;	
+					-webkit-flex-wrap:nowrap;	
+					>:nth-child(1){flex:1 0 auto;-webkit-flex:0 0 auto;}		
+					>:nth-child(2){flex:1 1 auto;-webkit-flex:1 1 auto;}		
+					border-top:1px solid rgba($cis-color-3,.5);			
+					.dateStyle {
+						@extend .dateStyle_#{$newsDateStyle};
+						@if $newsDateStyle == 1 {min-width: 70px; }
+						@if $newsDateStyle == 2 {min-width: 150px; }
+						
+					}
+					[class*="dateStyle"] {margin-right: $space;}
+
+				}
+			}
+
+			//有圖
+			.itemList.newsListType2{
+				.item{
+					//box					
+					>:nth-child(1){width: 25%;}		
+					>:nth-child(2){width: 75%;}		
+					>:nth-child(2){padding-left:$space*2;}			
+					@media (max-width:$screenViewS){			
+						>:nth-child(2){padding-left:0;padding-right:0;padding-top:$space;}
+					}	
+
+					border-top:1px solid rgba($cis-color-3,.5);	
+					
+					.itemImg{			
+						padding-bottom:$newsImgSize;
+						img{
+						
+							width:auto;
+							height:auto;
+							max-width:none;
+							max-height:none;
+							// min-width:100%;
+							// min-height: 100%;
+						}
+					}
+					.dateStyle {@extend .dateStyle_#{$newsDateStyle};}
+
+
+				}
+			}
+		}
+
+

@@ -1,0 +1,287 @@
+.login .logo {
+	color: #fff;
+	margin: 60px auto 0;
+	padding: 15px;
+	text-align: center;
+}
+/* 因為新版的metronic，己經把預設的form樣式拉出來，所以我自己補，不然改動範圍很大 */
+#form_data input[type=text],
+#form_data select,
+#form_data input[type=password],
+
+#form_data1 input[type=text],
+#form_data1 select,
+#form_data1 input[type=password],
+
+#form_data2 input[type=text],
+#form_data2 select,
+#form_data2 input[type=password],
+
+#form_data3 input[type=text],
+#form_data3 select,
+#form_data3 input[type=password],
+
+#form_data4 input[type=text],
+#form_data4 select,
+#form_data4 input[type=password],
+
+#form_data5 input[type=text],
+#form_data5 select,
+#form_data5 input[type=password],
+
+#form_data_search input[type=text],
+#form_data_search select 
+{
+    border: 1px solid #BBBBBB; /*改變外框*/
+    background: #fff; /* 背景色*/
+    /* 邊角圓弧化，不同瀏器覧設定不同　*/
+    -moz-border-radius:3px; /* Firefox*/
+    -webkit-border-radius: 3px; /* Safari 和 Chrome */
+    border-radius: 3px; /* Opera 10.5+ */
+
+	/* 把一些bootstrip的元素拉進來 */
+	padding: 6px 12px;
+	/*height: 32px;*/
+	font-size: 14px;
+    line-height: 1.42857;
+}
+#form_data textarea,
+#form_data_search textarea,
+{
+    border: 1px solid #BBBBBB; /*改變外框*/
+    background: #fff; /* 背景色*/
+    /* 邊角圓弧化，不同瀏器覧設定不同　*/
+    -moz-border-radius:3px; /* Firefox*/
+    -webkit-border-radius: 3px; /* Safari 和 Chrome */
+    border-radius: 3px; /* Opera 10.5+ */
+
+	/* 把一些bootstrip的元素拉進來 */
+	padding: 6px 12px;
+	/*height: 32px;*/
+	font-size: 14px;
+    line-height: 1.42857;
+}
+
+.indexgo00 {
+    background-color: #489EEA !important;
+    color: #FFFFFF;
+    font-size: 15px;
+    font-weight: bold;
+}
+.indexgo01 {
+    background-color: #FF9900;
+    color: #FFFFFF;
+    font-size: 15px;
+    font-weight: bold;
+}
+.indexgo02 {
+    background-color: #66CC00;
+    color: #FFFFFF;
+    font-size: 15px;
+    font-weight: bold;
+}
+.indexgo03 {
+    color: #44494D !important;
+    font-size: 12px;
+}
+.bgcolor1_5 {
+    background-color: #fff !important;
+  /* gisanfu
+    background-color: #fff !important;
+    font-family: Arial;
+    font-size: 13px;
+	*/
+}
+.bgcolor1 {
+    background-color: #F4F4F4 !important;
+  /* gisanfu
+    background-color: #fff !important;
+    font-family: Arial;
+    font-size: 13px;
+	*/
+}
+.bgcolor2 {
+    /*background-color: #FFFFFF;*/
+    background-color: #fefefe;
+  /* gisanfu
+    font-family: Arial;
+    font-size: 13px;
+	*/
+}
+.bgcolor3 {
+    background-color: #000000;
+    color: #FFFFFF;
+  /* gisanfu
+	color:#000;
+    font-family: Arial;
+    font-size: 13px;
+	*/
+}
+.inputgo01 {
+    background-color: #84FFE0 !important;
+    background-image: url("../images/eob.png");
+    background-position: 2px center;
+    background-repeat: no-repeat;
+    border-style: none;
+    padding-right: 3px;
+    text-align: right;
+}
+.inputgo02 {
+    background-color: #FFC1C1 !important;
+    background-image: url("../images/cash.png");
+    background-position: 2px center;
+    background-repeat: no-repeat;
+    border-style: none;
+    padding-right: 3px;
+    text-align: right;
+}
+.inputgo0n {
+    background-image: none;
+}
+.transaction01 {
+    background-color: #FF9900 !important;
+    color: #000000;
+}
+.transaction02 {
+    background-color: #489EEA !important;
+    color: #000000;
+}
+  /* gisanfu
+.table1 thead {
+    background-color: #000000;
+    color: #FFFFFF !important;
+    font-family: Arial;
+    font-size: 13px;
+}
+	*/
+.icontop {
+    background-image: url("../images/icon20_.png");
+    background-position: left top;
+    background-repeat: no-repeat;
+    display: block;
+    height: 8px;
+    margin-top: -14px;
+    width: 15px;
+}
+
+/*
+ * 特色首頁
+ */
+.indexgo03Copy {
+    background-color: #FFFFFF;
+    clear: both;
+    color: #44494D;
+    font-size: 12px;
+    margin-top: 15px;
+    overflow: hidden;
+    padding: 5px;
+    width: 97%;
+}
+.indexgo03Copy2 {
+    color: #44494D !important;
+    font-size: 12px;
+    background-color: #FFFFFF;
+    border: 3px solid #999999 !important;
+    clear: both;
+    color: #1A83E1;
+    font-size: 12px;
+    margin-top: 15px;
+    overflow: hidden;
+    padding: 5px;
+    width: 97%;
+	/*
+	*/
+}
+
+/*因為bootstrap的麵包沒有問題，但這個版的繼承寫的有問題，在IE8上*/
+.breadcrumb_ie8 {
+  padding: 8px 15px;
+  margin: 0 0 20px;
+  list-style: none;
+  background-color: #f5f5f5;
+  -webkit-border-radius: 4px;
+     -moz-border-radius: 4px;
+          border-radius: 4px;
+}
+
+.breadcrumb_ie8 > li {
+  display: inline-block;
+  *display: inline;
+  text-shadow: 0 1px 0 #ffffff;
+  *zoom: 1;
+}
+
+.breadcrumb_ie8 > li > .divider {
+  padding: 0 5px;
+  color: #ccc;
+}
+
+.breadcrumb_ie8 > .active {
+  color: #999999;
+}
+.w_date02 {
+	color: #F00;
+}
+
+/* 因為它會換行，很討厭，在表單內頁的地方，試著改改看 */
+.table1 label{
+display:inline !important;
+}
+
+/* 多檔上傳的多張圖片排列 */
+/* photo gallery
+------------------------------------------------------------------------- */
+ul.sortable li img {
+	cursor: move;
+}
+ul.photos {
+	border: none;
+}
+ul.photos li {
+	margin: 6px;
+	padding: 0;
+	border: none;
+	background-color: #fff;
+	display: -moz-inline-stack;
+	display: inline-block;
+	vertical-align: top;
+	zoom: 1;
+	*display: inline;
+	_height: 150px;
+}
+ul.photos li img {
+	max-height:100px;
+	padding: 5px;
+	border: 1px solid #ccc;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	-moz-box-shadow: 2px 2px 0 #eee;
+	margin-bottom:5px;
+}
+ul.photos li img:hover {
+	border: 1px solid #999;
+}
+ul.photos div.links {
+	margin: 0;
+}
+ul.photos div.links a {
+	color: #aaa;
+	background: #fff;
+	font: 10px Tahoma, sans-serif;
+	padding: 2px 3px;
+	margin: 0 0 0 3px;
+	border: none;
+}
+ul.photos div.links a:hover {
+	background-color: #888;
+	color: #fff;
+}
+ul.photos div.links a.delete:hover {
+	background-color: #BC1515;
+}
+
+/* 會員搜尋列表 joanthan*/
+
+.weburladdress { width:480px; overflow:hidden;}
+#tablelist td{ vertical-align: middle;}

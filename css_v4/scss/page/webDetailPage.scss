@@ -1,0 +1,75 @@
+.web-detail-page {
+    // 輪播背景活動花絮
+    .sectionBlock-activities {
+        background: transparent;
+        .flipster__item {
+            img{
+                max-width: 600px;
+            }
+
+            @media (max-width:576px) {
+                img{
+                    max-width: 100%;
+                }
+            }
+        }
+
+        .flip-btn{
+            img{
+                width: 60%;
+            }
+            
+        }
+    }
+
+    // 圖文平板之下的顯示順序調整
+    .overlap4-second {
+        @media (max-width: 992px) {
+            .colRight {
+                flex-direction: column-reverse;
+            }
+        }
+    }
+
+    /* 相關新聞 */
+    .newsListType25_box_body-classMark {
+        .second-title {
+            font-weight: 600;
+        }
+    }
+
+    
+    /* 班級成果各個頁面 */
+    .newsListType20 {
+        .item {
+            .imgBox {
+                .itemImg {
+                    &.traight {
+                        img {
+                            object-fit: cover;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    // 詳細頁的影音
+    .detailpage-video {
+        .itemImgHover {
+            &::after {
+                content: "\e90a";
+                font-family: "icomoon" !important;
+                background-color: #ff0000;
+                // height: 1.5em;
+                // border-radius: 10px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+    }
+
+
+   
+}

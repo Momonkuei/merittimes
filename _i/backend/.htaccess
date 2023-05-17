@@ -1,0 +1,8 @@
+# deny from all
+
+Order deny,allow
+Deny from all
+
+<FilesMatch "\.(css|woff|js|gif|jpg|png|json)$">
+Allow from all
+</FilesMatch>

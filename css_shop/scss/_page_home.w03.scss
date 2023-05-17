@@ -1,0 +1,35 @@
+@charset "utf-8";
+
+// =====================================================================================
+// index - w3 東陞、弘升
+// =====================================================================================
+
+	.indexContent_3{
+
+
+		.slideBanner{
+			&+*{margin-top:0;}		
+		}
+
+
+		.marqueeBlock {
+			background:$cis-color-1;
+			a{color:#fff;}
+			@media (min-width: $hamburgerPoint+1){
+				.marquee {height: 50px;}
+			}
+			@media (max-width: $hamburgerPoint){
+				ul li {margin:0;padding:.5em 0;}
+			}
+
+
+		}
+
+		.articleBlockStyle03 {
+			margin:0 auto;		
+			text-align: center;
+		}
+
+		&+footer {margin-top: 0}
+	}
+

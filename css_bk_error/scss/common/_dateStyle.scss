@@ -1,0 +1,124 @@
+@charset "utf-8";
+
+
+// =====================================================================================
+// dateStyle 
+// =====================================================================================
+
+	// config
+	$dateStyleDecoColor   : $cis-color-1 !default;  //deco 顏色
+
+	$dateStyle1DecoBorder : 2px !default;           //樣式1 線條寬
+	$dateStyle2DecoBorder : 2px !default;           //樣式2 線條寬
+	$dateStyle3DecoBorder : 2px !default;           //樣式3 線條寬
+
+
+	.dateStyle_1{
+		display:inline-block;
+		.dateD {
+			font-size      : $font-size-h1;
+			font-weight    : 400;
+			vertical-align : middle;
+			line-height    : $lineheight_smaller;
+			display        : inline-block;
+			&:after{
+				content        : '';
+				border         : $dateStyle1DecoBorder solid $dateStyleDecoColor;
+				vertical-align : middle;
+				display        : block;
+				width          : 100%;
+				line-height    : $lineheight_big;
+				margin         : $fontSizeBase 0;
+			}
+			
+		}
+		.dateM{
+			font-weight    : 300;
+			vertical-align : middle;
+			line-height    : $lineheight_smaller;
+			display        : block;
+		}
+		.dateY{
+			vertical-align : middle;
+			line-height    : $lineheight_smaller;
+			display:block;		
+		}
+
+	}
+
+
+
+
+	.dateStyle_2{
+		display:inline-block;
+		.dateD {
+			font-size:$font-size-h1;
+			font-weight:300; 
+			line-height:1em;	
+			
+		}
+		.dateM{
+			font-weight:300; 		
+			display:inline-block;
+			line-height:1em;	
+		}
+		.dateY{ 		
+			display:inline-block;		
+			line-height:1em;	
+			&:after{
+				content:'';
+				border:$dateStyle2DecoBorder solid $dateStyleDecoColor; 		
+				width:100%;
+				line-height:$lineheight_big;
+				margin:0 $font-size-small;
+			}
+		}
+
+	}
+
+
+
+
+
+
+	.dateStyle_3{
+		
+		display:inline-block;
+		text-align: center;
+		border:$dateStyle3DecoBorder solid $cis-color-1;
+		padding:$space_smaller;
+		border-radius: $radius-base;
+		min-width: 120px;
+
+		.dateD {
+			font-size      : $font-size-base * 3;
+			font-weight    : normal;
+			vertical-align : middle;
+			line-height    : $lineheight_smaller;
+			display        : block;
+			// &:after{
+			// 	content        : '';
+			// 	border         : $dateStyle1DecoBorder solid $dateStyleDecoColor;
+			// 	vertical-align : middle;
+			// 	display        : block;
+			// 	width          : 100%;
+			// 	line-height    : $lineheight_big;
+			// 	margin         : $fontSizeBase 0;
+			// }
+			
+		}
+		.dateM{
+			font-weight    : 300;
+			vertical-align : middle;
+			line-height    : $lineheight_smaller;
+			display        : inline-block;
+		}
+		.dateY{
+			vertical-align : middle;
+			line-height    : $lineheight_smaller;
+			display:inline-block;		
+		}
+
+	}
+
+

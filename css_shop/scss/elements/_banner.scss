@@ -1,0 +1,143 @@
+@charset "utf-8";
+
+ 
+// =====================================================================================
+//== banner (需配合HTML)
+// =====================================================================================
+
+	
+	.banner{
+		
+		$bannerHeightPC:350px;
+		$bannerHeightMB:150px;
+
+
+
+		// 視差banner(withJS)
+		&.bgFix{
+
+			height:$bannerHeightPC;
+			position:relative;
+			overflow: hidden;
+			background-attachment: fixed;
+				    transition: height .5s ease-out;
+		    -webkit-transition: height .5s ease-out;
+
+			img {
+				height:$bannerHeightPC;
+				width:auto;
+				max-width: none;
+				position: absolute;
+				left:50%;				
+				transform:translateX(-50%);
+				-webkit-transform:translateX(-50%);
+				transition:none;
+				-webkit-transition:none;
+				
+			}
+
+		
+			.mb {display: none}
+			@media (max-width:$hamburgerPoint){
+				.pc {display: none}
+				.mb {display: block}
+				height: auto !important;
+						transition:none;
+				-webkit-transition:none;
+				img{
+					height:auto;
+					width:auto;
+					max-width:100%;
+					position: static;
+							transform:none;
+					-webkit-transform:none;
+				}
+			}
+		}
+
+		// 輪播banner
+		&.slideBanner{
+			position: relative;
+			overflow: hidden;
+			.slideItem {
+				margin:0;
+				padding:0;
+				img{width: 100%;}
+			}
+
+
+			img.mb{display: none}
+			@media (max-width:$hamburgerPoint){
+				img.mb{display: block;}
+				img.pc{display: none;}
+			}
+
+		}
+		
+		//2Layers
+		&.layerBanner{
+			background: $body-bg;
+			
+			.slick-track,
+			.slick-list {
+				height:100%;
+			}
+
+			.layerItem img{
+				position: absolute;
+				top:50%;
+						transform:translateY(-50%);
+				-webkit-transform:translateY(-50%);
+			}
+
+			@media (orientation:landscape){
+				.layerItem img{
+					height: 100%;
+					width:auto;
+					max-width: none;
+					top : 50%;
+					left: 50%;
+							transform: translate(-50%,-50%);
+					-webkit-transform: translate(-50%,-50%);
+				}
+			}
+		}
+	}
+
+
+	
+
+	.bannerBlock{
+		// scrolldown
+		position: relative;
+		.scrollDown {
+			position: absolute;
+			z-index: 10;
+			left:50%;
+					transform:translateX(-50%);
+			-webkit-transform:translateX(-50%);
+			bottom:0;
+		}
+	}
+
+
+
+
+
+
+ 
+// =====================================================================================
+//== adBanner  廣告banner
+// =====================================================================================
+
+	.adBanner{
+		overflow: hidden;
+		
+		&,*{border-radius: 0;}
+		
+		.mb{display: none}
+		@media (max-width: $hamburgerPoint){
+			.pc{display: none}
+			.mb{display: block}
+		}
+	}

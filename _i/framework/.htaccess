@@ -1,0 +1,21 @@
+# 當發生 CORS 'Access-Control-Allow-Origin 問題的時候，請用以下的方式來解決：
+#
+# Apache 2.4 專用
+# http://stackoverflow.com/questions/26125030/font-awesome-icons-not-showing-in-chrome-a-maxcdn-related-cross-origin-resource
+# Allow access from all domains for webfonts.
+# Alternatively you could only whitelist your
+# subdomains like "subdomain.example.com".
+#
+# Nginx專用(請寫在子站的設定檔)
+# https://gist.github.com/atiw003/1131897/8b469f7483f4182fddae1f85c0b3175696670d63
+# location ~* \.(ttf|ttc|otf|eot|woff|font.css|css)$ {
+# 	  add_header Access-Control-Allow-Origin *;
+# }
+<IfModule mod_headers.c>
+	<FilesMatch "\.(ttf|ttc|otf|eot|woff|font.css|css)$">
+		Header set Access-Control-Allow-Origin "*"
+	</FilesMatch>
+</IfModule>
+
+Order deny,allow
+deny from all

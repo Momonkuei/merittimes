@@ -1,0 +1,55 @@
+.branch{
+  .tree{
+    display: flex;
+    align-items: center;
+    li{
+      display: flex;
+      align-items: center;
+      margin-bottom: 5px;
+      a{
+        color: #333333;
+        text-decoration: none;
+      }
+      ul{
+        display: none;
+        li{
+          .entry{
+          }
+        }
+      }
+    }
+  }
+  .btn_expand{
+    padding-right: 5px;
+    cursor: pointer;
+  }
+}
+
+#levelModal{
+  h2{
+    text-align: center;
+  }
+  form{
+    input,
+    textarea{
+      width: 100%;
+      min-height: 35px;
+      margin-bottom: 20px;
+    }
+    .btn{
+      text-align: center;
+    }
+    button{
+      cursor: pointer;
+      width: 120px;
+      height: 35px;
+      font-size: 15px;
+      margin: 0 auto;
+      display: inline-block;
+      text-align: center;
+      border-radius: 20px;
+      border: 1px solid #000;
+      background-color: #ffffff;
+    }
+  }
+}

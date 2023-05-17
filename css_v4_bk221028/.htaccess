@@ -1,0 +1,5 @@
+RewriteEngine off
+
+RewriteRule ^style.css$ css_encode.php [L]
+
+RewriteRule ^slick.css$ css_encode.php [L]

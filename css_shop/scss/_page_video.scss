@@ -1,0 +1,45 @@
+@charset "utf-8";
+
+	// videoList ------
+		.videoList {
+			.itemList {
+				.item{
+					//box		
+					>:nth-child(1){width: 100%;}		
+					>:nth-child(2){width: 100%;}	
+					.itemImg{
+						padding-bottom:$videoImgSize;
+						img {
+							max-width:200%;
+							max-height:200%;
+							min-width:100%;
+							min-height: 100%;
+						}
+					 
+					}
+					.itemImg:after{
+						content:"\f04b";
+					}
+					.itemTitle{
+						font-size:$font-size-h5;
+						&:hover{
+							color:$cis-color-1;
+						}
+					}
+					.dateStyle{
+						font-size:$font-size-h6;
+						line-height:$font-size-h6;					
+						i{color:$cis-color-1;padding-right:.5em;}
+						color:lighten($text-color,30%);
+					}
+					.itemTotal{
+						font-size:$font-size-h6;
+						color:lighten($text-color,35%);
+					}
+					@media (max-width:$screenViewL){width:33.333%}
+					@media (max-width:$screenViewM) {width:50%}
+					@media (max-width:$screenViewS) {width:100%}
+				}
+			}
+		}
+

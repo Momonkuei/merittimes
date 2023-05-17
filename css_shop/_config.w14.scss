@@ -1,0 +1,135 @@
+@charset "utf-8";
+
+
+//非必填
+@import url(https://fonts.googleapis.com/css?family=Lato:400,300,100italic,300italic,100,400italic,700,700italic,900,900italic);
+
+
+
+$cis-color-1               :#ff5b51;  // 必填 #0050A3 #19c0d6
+$cis-color-2               :#333333;  // 非必填
+$cis-color-3               :#b3b3b3;  // 非必填
+
+
+//== font =====================================================================================
+$font-size-base            :16px;    //必填
+$line-height-base          :2;       //隱藏
+$googlefont                :"Lato";  //非必填
+$fontFamilyType            :1;       //必填 1：黑體 2：明體 
+
+
+
+//== font Colors =====================================================================================
+$gray-base                 :#333333;		// 灰階字 隱藏
+$text-color                :#333333;        // 基本字顏色 必填
+$link-color                :$gray-base;     // a color 非必填
+$link-hover-color          :$cis-color-1;   // a hover color 非必填
+
+
+//== normal =====================================================================================
+$border-base               :1px;                  // 線寬 非必填
+$radius-base               :5px;                  // 圓角 必填
+$body-bg                   :#f7f8f8;              // 背景色 必填
+$link-hover-decoration     :none;                 // 隱藏
+
+
+
+//== header style =======================================================================================
+$headerType                 :1;            //Header(頭)型式   1-靠左單排 2-兩側單排 3-置中雙排 4-置中單排無選單 5-置中雙排  6-兩側單排無選單(青木) 
+$headerStyle                :2;            //Header(頭)配色   1-白底 2-黑底 3-cis1色
+$headerHoverBg              :0;            //滑過背景色 0沒有 1有     必填
+$headerHoverBorderTop       :0;            //滑過邊框-上 必填
+$headerHoverBorderRight     :0;            //滑過邊框-右 必填
+$headerHoverBorderBottom    :5px;          //滑過邊框-下 必填
+$headerHoverBorderLeft      :0;            //滑過邊框-左 必填
+
+
+
+//== normal setting =======================================================================================
+$grid-gutter-width         :$font-size-base*4;    // 盒子間格  grid space (padding-left 2em;padding-right 2em)  隱藏
+$space-base                :$font-size-base*2;    // 基本空間  padding、margin 隱藏
+
+
+
+//== header setting =======================================================================================
+$headerHeight              :90px;           //選單高度 隱藏
+$headerScrollHeight        :60px;           //捲動後選單高度 隱藏
+// $headerScrollBg            :$cis-color-1;   //捲動後選單背景色 隱藏 (沒用到，刪除？)
+$hamburgerPoint            :1024px;         //選單換漢堡  隱藏
+
+
+
+
+//==style setting =================================================================================
+$themeNum                  :1; //隱藏
+
+//頁面標題 樣式選擇
+$pageTitleStyle            :3; //頁面標題樣式 必填 1、符號(fontawesome) 2、線條(左) 3、色塊 4、小圖
+//頁面標題 樣式1 子選項
+$pageTitleDecoContent      :'\f101'; //裝飾字元 (fontawesome)
+//頁面標題 樣式2 子選項
+$pageTitleDecoBorder       :3px; //裝飾線條寬 (1px~3px)
+//頁面標題 樣式3 子選項
+$pageTitleDecoBg           :1;  //背景色 1=有 0=無
+//頁面標題 樣式4 子選項
+$pageTitleDecoPath         :'';  //ex: images/tw/pagetitle_icon.svg
+
+
+//新聞日期樣式
+$newsDateStyle             :1; ///新聞-日期樣式 1、直式 2、橫式  3、外框 必填
+//日期樣式1 子選項
+$dateStyle1DecoBorder      :2px; //樣式1 線條寬
+//日期樣式2 子選項
+$dateStyle2DecoBorder      :2px; //樣式2 線條寬
+//日期樣式3 子選項
+$dateStyle3DecoBorder      :2px; //樣式2 線條寬
+
+
+
+
+//區塊標題 (預設置左 置中Class：txtCenter) 必填 
+$blockTitleStyle       :1;        //1、底線 2、邊框 3、點點
+$blockTitleDecoHeight  :3px;      //粗細 
+$blockTitleDecoWidth   :30px;     //長度 
+
+
+//產品圖背景色 (產品詳細頁)
+$proItemImgBg:rgba($cis-color-1,0); //非必填
+
+
+// $topLinkBgColor:#abcdef;
+
+
+
+// 結帳步驟樣式 樣式選擇 (非必填)
+$checkOutStepType:1;  // 1 圓形、2箭頭、3線條
+
+// 結帳步驟樣式1 子選項
+$checkOutStepType1BorderW :2px; // ?px
+
+// 結帳步驟樣式2 子選項
+$checkOutStepIconRadius :100%; //0=正方形、100%=圓形、1~99% 圓角
+
+// 結帳步驟樣式3 子選項
+$checkOutStepType3BorderW :1px; // ?px
+
+
+
+
+//產品列表圖比例 (非必填)
+$proImgSizeType:1;  // 1=正方型 2、橫式(4:3) 3、直式(A4比例)
+
+//相簿列表圖比例 (非必填)
+$albumImgSizeType:1;  // 1=正方型 2、橫式(4:3) 3、直式(A4比例)
+
+//影片列表圖比例 (非必填)
+$videoImgSizeType:2;  // 1=正方型 2、橫式(4:3) 3、直式(A4比例)
+
+//最新消息列表圖比例 (非必填)
+$newsImgSizeType:2;  // 1=正方型 2、橫式(4:3) 3、直式(A4比例)
+
+
+
+
+//圖片連結滑過效果 (非必填)
+$itemImgHoverEffect:2; //1=上下滑入、2=淡入、3=斜角

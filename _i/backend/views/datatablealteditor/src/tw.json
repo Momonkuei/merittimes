@@ -1,0 +1,23 @@
+{ 
+    "modalClose" : "關閉",
+    "edit" : {
+        "title" : "編輯",
+        "button" : "送出"
+    },
+    "add" : {
+        "title" : "新",
+        "button" : "創建"
+    },
+    "delete" : {
+        "title" : "刪除",
+        "button" : "刪除"
+    },
+    "success" : "完成.",
+    "error" : {
+        "message" : "發生意外錯誤.",
+        "label" : "錯誤",
+        "responseCode" : "響應代碼：",
+        "required" : "必填值",
+        "unique" : "重複值"
+    }
+}

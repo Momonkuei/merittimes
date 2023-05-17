@@ -1,0 +1,45 @@
+.branch .tree {
+  display: flex;
+  align-items: center;
+}
+.branch .tree li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+.branch .tree li a {
+  color: #333333;
+  text-decoration: none;
+}
+.branch .tree li ul {
+  display: none;
+}
+.branch .btn_expand {
+  padding-right: 5px;
+  cursor: pointer;
+}
+
+#levelModal h2 {
+  text-align: center;
+}
+#levelModal form input,
+#levelModal form textarea {
+  width: 100%;
+  min-height: 35px;
+  margin-bottom: 20px;
+}
+#levelModal form .btn {
+  text-align: center;
+}
+#levelModal form button {
+  cursor: pointer;
+  width: 120px;
+  height: 35px;
+  font-size: 15px;
+  margin: 0 auto;
+  display: inline-block;
+  text-align: center;
+  border-radius: 20px;
+  border: 1px solid #000;
+  background-color: #ffffff;
+}/*# sourceMappingURL=style.css.map */

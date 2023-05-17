@@ -1,0 +1,20 @@
+@charset "utf-8";
+
+
+// =====================================================================================
+// showCart  (sideBtn)
+// =====================================================================================
+	
+	$showCartType:1;  //1-圖 2-font ansome
+
+	.showCart {		
+		z-index: 2;
+		right: 0;
+		top:50%;
+				transform:translateY(-50%);		
+		-webkit-transform:translateY(-50%);		
+		@extend %sideBtnType#{$showCartType};
+	}
+
+ 
+ 

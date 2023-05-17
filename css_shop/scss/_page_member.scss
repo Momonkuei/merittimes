@@ -1,0 +1,265 @@
+@charset "utf-8";
+
+
+// =====================================================================================
+// member pages block 
+// =====================================================================================
+
+
+	%statusStyle{
+		&.noticPay {color:$lightColor;text-decoration: underline;}
+		&.ship     {color:$cis-color-1;}
+		&.done     {color:#aaa;}
+		&.light    {color:$lightColor;}
+	}
+
+
+	
+	//登入
+		.memberBlockLogin{
+			a:not([class*='btn']) {@extend %linkStyle1;}
+			button{margin-right: 1em;}
+		}
+
+	//註冊
+		.memberBlockReg{
+			a:not([class*='btn']) {@extend %linkStyle1;}
+		}
+	
+	//會員中心
+		.memberBlockCenter{
+			a:not([class*='btn']) {@extend %linkStyle1;}			
+		}
+
+	//地址簿
+		.memberAddressBook {				
+			
+
+
+		}
+
+	//訂單記錄
+		.memberOrderList {
+			.orderStatus{
+				@extend %statusStyle;
+			}
+		}
+
+	// 訂單詳細
+		.orderProList{
+			$itemImgSize:60px;
+			th{
+				white-space: nowrap;
+			}
+			td{
+				vertical-align: top;
+				width:auto;
+				white-space: nowrap;
+				label,
+				span {white-space: nowrap;display: inline-block;vertical-align: middle;}
+
+			}
+
+			th,td{
+				padding-left:1em;
+				padding-right:1em;
+			}
+
+			
+			.itemSP {
+				color:$lightColor;
+			}
+
+			
+
+			.itemImg{	
+				padding-bottom: $proImgSize;	
+				img{
+					max-width: 100%;
+					max-height: 100%;
+					min-height: 0;
+					min-width: 0;
+				}		
+				&:before,
+				&:after {display: none;}
+			}
+
+			.itemPrice,
+			.itemSpec {
+				>* {
+					display: block;
+					vertical-align: top;
+					padding-right: .5em;
+					
+				}
+				img {
+					max-width: 1em;
+					vertical-align: middle;
+				}
+
+				span{
+					display: inline-flex;
+					display: -webkit-inline-flex;
+							align-items:center;
+					-webkit-align-items:center;
+				}
+
+				.th{
+					display: inline-block;
+					padding-right:.5em;
+				}
+
+
+			}
+			.itemTitle {
+				font-size: $font-size-h5;
+				display: flex;
+				display: -webkit-flex;
+				>:nth-child(1){
+							flex:0 0 $itemImgSize;
+					-webkit-flex:0 0 $itemImgSize;
+				}
+				>:nth-child(2){
+							flex:1 1 auto;
+					-webkit-flex:1 1 auto;
+					>*{
+						white-space: normal;
+						padding:0 .5em;
+					}
+				}
+				
+			}
+
+			.itemStatus{
+				@extend %statusStyle;
+			}
+
+			.th{
+				font-size:$font-size-h6;
+			}
+
+
+			@media (max-width: $screenViewM){
+				th,td{
+					padding:0 .5em;
+				}
+			}
+			@media (max-width: $screenViewS){
+
+				table.rwdTable tr{
+				 	width: 100%;
+				 	margin-bottom: $space;
+					td{
+						display: block;
+					}
+					.th{
+						font-weight: bold;
+						width: auto;
+					}
+				}
+				.itemPrice,
+				.itemSpec {
+					display: table;
+					>div{
+						display: table-row;
+						label,
+						span {
+							display: table-cell;
+							white-space: normal;
+							vertical-align: top;
+							padding: 0 .5em;
+						}
+					}
+				}
+			}
+
+
+
+
+			.orderCoupon{
+				display: block;
+				margin:$space_smaller 0;
+			}
+
+			.orderTotal{
+				display: table;
+				width:100%;
+				margin:$space_smaller 0;
+				table{}
+				td{
+					border:0;
+					background: none;
+					padding:0;										
+					padding-right:1em;
+				}
+				.total {
+					font-size:$font-size-h4;
+					>td{
+						border-top:1px solid #ccc;
+					}
+				}
+
+				.tips{
+					color:$lightColor;
+					font-size:$font-size-h4;
+					margin:$space_smaller 0;
+					display: inline-block;
+					text-decoration: underline;
+				}
+				
+			}
+
+		}
+
+		.orderCancel{
+			@extend %linkStyle1;
+			&,
+			&:focus,
+			i{
+				color:$lightColor;
+			}
+		}
+
+
+	
+
+
+
+
+	//紅利
+		.bonusBlock{
+			.blockInfo {
+				margin-bottom: $space_smaller;
+			}
+
+			//累積
+			.bonusTotal{
+				display: block;
+				span {
+					color:$lightColor;
+				}
+			}
+			//已使用
+			.bonusUsed{
+				display: block;
+				span {
+					color:gray;
+				}
+			}
+
+
+			table{
+				th,td{}
+			}
+
+		}
+
+
+
+
+	
+	// 付款資訊
+		.payInformation{
+			border:1px solid $cis-color-1;
+			padding: $space_smaller $space;
+		}

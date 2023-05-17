@@ -1,0 +1,51 @@
+@charset "utf-8";
+
+
+// =====================================================================================
+// gdpr
+// =====================================================================================
+	
+.GDPR{
+	width: 100%;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	z-index: 1001;
+	background-color: rgba(0,0,0,0.8);
+	transform: translate(0%,100%);
+	transition: all .3s ease-out;
+	> div:first-child{
+		margin: 10px auto;
+	}
+	.gridBox{
+		align-items: center;
+		> *,[class*='col_']{
+			padding: 0 $space;
+		}
+	}
+	&.active{
+		transform: translate(0%,0%);
+	}
+}
+.GDPR__text{
+	color: #FFF;
+	margin-top: 0;
+	margin-bottom: 10px;
+	@media screen and (min-width: $screenViewS){
+		margin: 0;
+	}
+}
+.GDPR__btnArea{
+	text-align: center;
+}
+.GDPR__btn,.GDPR__infoLink{
+	display: inline-block;
+	vertical-align: middle;
+}
+.GDPR__btn{
+	margin-right: 5px;
+}
+.GDPR__infoLink{
+	color: #FFF;
+	text-decoration: underline;
+}

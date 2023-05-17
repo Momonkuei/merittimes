@@ -1,0 +1,15 @@
+RewriteEngine on
+
+Options -Indexes
+
+#RewriteCond %{HTTPS} off
+#RewriteRule (.*) https://%{SERVER_NAME}/contact/$1 [R,L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+
+# 動態網址
+# RewriteRule ^(.*)\.html$ contact.php?id=$1 [L,QSA]
+
+# 動態網址 (第2版)
+RewriteRule ^(.*)\.html$ _subdir_page.php?dynamic=$1 [L,QSA]
+

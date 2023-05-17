@@ -1,0 +1,238 @@
+@charset "utf-8";
+
+.google_map {
+  position: relative;
+  height: 0;
+  overflow: hidden;
+}
+.google_map iframe,
+.google_map object,
+.google_map embed,
+.google_map img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.contMapStyle01{
+  .google_map {
+    padding-bottom: 72.465%;
+  }
+  .blockTitle{
+    margin-bottom: 0;
+  }
+  .list_faicon{
+    margin-bottom: 15px;
+  }
+}
+
+.contMapStyle02{
+  .cont_infoFrame{
+    max-width: 690px;
+    width: 100%;
+    // height: 430px;
+    padding: 15px;
+    position: absolute;
+    right: 240px;
+    top: 50%;
+    -webkit-transform: translate(0, -50%);
+    -ms-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+    margin: auto;
+    background-color: $cis1;
+    z-index: 1;
+  }
+  .cont_companyInfo{
+    padding: 20px 30px;
+    height: 100%;
+    border: 1px solid $cis3;
+    .blockTitle{
+      margin-bottom: 0;
+      span{
+        color: #ffffff;
+      }
+    }
+    .boxTitle {
+    	span{
+    		color: $cis3;
+      }
+    }
+  }
+  .list_faicon{
+    margin-bottom: 20px;
+    li{
+      color: #ffffff;
+      a{
+        color: #ffffff;
+      }
+      i{
+        color: $contIcon_color-2;
+      }
+    }
+  }
+  .contSocial_list {
+  	li {
+  		a {
+  			span {
+  				&:before {
+  					color: #ffffff;
+  				}
+  			}
+        &:hover{
+          span {
+    				&:before {
+    					color: $cis3;
+    				}
+    			}
+        }
+  		}
+  	}
+  }
+  .google_map{
+    padding-bottom: 600px;
+  }
+}
+
+.contMapStyle03{
+  padding-top: 30px;
+  padding-bottom: 30px;
+  background-color: #f1f1f1;
+  .cont_infoFrame{
+    padding: 30px 0;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #cccccc;
+    overflow: hidden;
+    >.row{
+      >div{
+        &:last-child{
+          background-color: #ffffff;
+        }
+      }
+    }
+  }
+  .google_map{
+    padding-bottom: 52.152%;
+  }
+  .cont_companyInfo{
+    padding: 70px 30px;
+  }
+  .a_link{
+    font-size: 19px;
+  }
+  .cont_companyInfoStyle2{
+    .blockTitle{
+      margin-bottom: 0;
+    }
+  }
+}
+
+.cont_spBlk{
+  .cont_spBlkContainer{
+    max-width: 1680px;
+    display: flex;
+    align-items: center;
+    .cont_full2C{
+      &:first-child{
+        flex: 0 0 56.25%;
+        max-width: 56.25%;
+        padding-right: $space_smaller;
+      }
+      &:last-child{
+        flex: 0 0 43.75%;
+        max-width: 43.75%;
+        padding-left: $space_smaller;
+        padding-right: $space_smaller;
+      }
+      .itemImg{
+        padding-bottom: 100%;
+      }
+    }
+  }
+}
+
+
+@media (max-width: 1700px) {
+  .cont_spBlk{
+    .cont_spBlkContainer{
+      max-width: 100%;
+      .cont_full2C{
+        &:first-child,
+        &:last-child{
+          flex: 0 0 50%;
+          max-width: 50%;
+        }
+        &:first-child{
+          padding-left: $space_smaller;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: $viewXL) { //1440px
+  .contMapStyle03{
+    .google_map{
+      padding-bottom: 65%;
+    }
+  }
+}
+
+@media (max-width: $viewL) { //1200px
+  .contMapStyle02{
+    .cont_infoFrame{
+      left: 0;
+      right: 0;
+      margin: auto;
+    }
+  }
+  .contMapStyle03{
+    .google_map{
+      padding-bottom: 450px;
+    }
+    .cont_companyInfo {
+      padding: 30px;
+    }
+  }
+  .cont_spBlk{
+    .cont_spBlkContainer{
+      .cont_full2C{
+        &:first-child,
+        &:last-child{
+          flex: 0 0 100%;
+          max-width: 100%;
+          padding-left: $space_smaller;
+          padding-right: $space_smaller;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: $viewM) { //992px
+  .contMapStyle02{
+    .google_map{
+      padding-bottom: 0;
+      overflow: unset;
+      height: 100%;
+    }
+    .cont_infoFrame{
+      position: relative;
+      transform: unset;
+      margin-bottom: 30px;
+    }
+    .cont_mapIframe{
+      height: 450px;
+      iframe{
+        position: relative;
+      }
+    }
+  }
+}
+
+@media (max-width: $viewS) { //768px
+  .cont_companyInfoStyle2{
+    text-align: center;
+  }
+}

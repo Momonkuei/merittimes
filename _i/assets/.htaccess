@@ -1,0 +1,93 @@
+
+# 線上要打開，很重要！！！！！
+RewriteEngine on
+
+# 檔案下載的連結，經由會員機制的帳密驗證 2017-06-27
+# RewriteRule ^upload/(.*)/(.*)$ /_i/perm.php?path1=upload&path2=$1&src=$2 [L]
+
+# 非圖片的東西，就跳過
+# http://stackoverflow.com/questions/1001830/how-to-pass-through-requests-not-going-to-specific-directories-to-index-php-path
+RewriteRule !\.(jpe?g|png)$ - [L,NC] 
+
+# 縮圖與浮水印的功能參數
+#
+# src：圖片路徑
+# w：縮圖寬度
+# h：縮圖高度
+# nocache：停用快取，沒有加這個參數的情況，預設是打開的
+# x1,y1,x2,y2：裁圖坐標
+# zc：是否剪裁
+#	  0 => 否，
+#	  1 => 是。預設從圖片中央進行剪裁，要裁圖而且符合指定的尺寸，一定要選這個
+#	  2 => 依比例，加上border
+#	  3 => 依比例，不加上border，所以不裁圖的話，就要選這個
+#
+# pos：覆寫浮水印的位置，分別是九宮格1~9，以及10填滿
+# smallw：使用all_small.png的浮水印圖片 (這個功能己經被縮圖百分比所取代)
+
+# 測試，請刪掉我
+# RewriteRule ^(.*)$ /_i/timthumb.php?src=assets/$1&zc=3&w=2000&h=2000&nocache= [L]
+
+# 2020-09-29
+# 李哥說經理說，要弄一個可以讀原始圖片名稱的路徑
+# 是要給有簽SEO的客戶使用的
+# /_i/assets/images/product/我ggg我我.jpg
+RewriteRule ^images/(.*)/(.*)$ /_i/images.php?router_method=$1&file=$2 [L]
+
+# 後台展示
+RewriteRule ^upload/_demo/(.*)$ /_i/timthumb.php?src=assets/upload/_demo/$1&zc=3&w=500&h=500&nocache= [L]
+
+# 只是一個範例而以 如果要開快取 就把&nocache移除 ; 浮水印開下去，會增加TTFB時間(約1.8秒)
+#RewriteRule ^upload/product/(.*)$ /_i/timthumb.php?src=assets/upload/product/$1&zc=3&w=800&h=800&nocache= [L]
+#RewriteRule ^upload/producttype/(.*)$ /_i/timthumb.php?src=assets/upload/producttype/$1&zc=3&w=800&h=800&nocache= [L]
+#RewriteRule ^thumb/product/(.*)$ /_i/timthumb.php?src=assets/thumb/product/$1&zc=3&w=800&h=800&nocache= [L]
+#RewriteRule ^thumb/producttype/(.*)$ /_i/timthumb.php?src=assets/thumb/producttype/$1&zc=3&w=800&h=800&nocache= [L]
+#RewriteRule ^members/(.*)$ /_i/timthumb.php?src=assets/members/$1&zc=3&w=800&h=800&nocache= [L]
+#RewriteRule ^members2/product(.*)$ /_i/timthumb.php?src=assets/members2/product$1&zc=3&w=800&h=800&nocache= [L]
+
+# 編輯器上傳的東西，也跳過
+#RewriteRule ^userfiles/ - [L]
+#
+#RewriteCond %{REQUEST_URI} "/userfiles/"
+#RewriteRule (.*) $1 [L]
+
+# 另一個語系
+# 請參考修改成 ../en/timthumb.php?src=en_upload/XXX
+# 以及 ../en/watermark.php?/$1 [L]
+
+# 後台cropw.php裁圖的預覽功能在使用
+#RewriteRule ^(.*)/(.*)_w(.*)_h(.*)_nw\.jpg_x1(.*)_y1(.*)_x2(.*)_y2(.*)\.jpg$ ../timthumb.php?src=upload/$1/$2&zc=0&w=$3&h=$4&nowatermark=1&x1=$5&y1=$6&x2=$7&y2=$8 [L]
+#RewriteRule ^(.*)/(.*)_x1(.*)_y1(.*)_x2(.*)_y2(.*)\.jpg$ ../timthumb.php?src=upload/$1/$2&zc=0&nowatermark=1&x1=$3&y1=$4&x2=$5&y2=$6 [L]
+
+#RewriteRule ^(.*)/(.*)_w(.*)_h(.*)_big2\.jpg$ /_i/timthumb.php?src=assets/$1/$2&zc=2&w=$3&h=$4&nocache= [L]
+#RewriteRule ^(.*)/(.*)_w(.*)_h(.*)_big\.jpg$ /_i/timthumb.php?src=assets/$1/$2&zc=3&w=$3&h=$4 [L]
+#RewriteRule ^(.*)/(.*)_w(.*)_h(.*)_big\.jpg$ /_i/timthumb.php?src=assets/$1/$2&zc=3&w=$3&h=$4 [L]
+#RewriteRule ^members/(.*)_w(.*)_h(.*)_big\.jpg$ /_i/timthumb.php?src=assets/members/$1&zc=2&w=$2&h=$3 [L]
+
+#RewriteRule ^(.*)/(.*)_w(.*)_h(.*)_big\.jpg$ /_i/timthumb.php?src=assets/$1/$2&zc=0 [L]
+
+# 大部份是前台在使用的
+#RewriteRule ^(.*)/(.*)_w(.*)_h(.*)_nw\.jpg$ /_i/timthumb.php?src=_i/assets/$1/$2&zc=1&w=$3&h=$4&nowatermark=1 [L]
+#RewriteRule ^(.*)/(.*)_w(.*)_h(.*)\.jpg$ /_i/timthumb.php?src=assets/$1/$2&zc=1&w=$3&h=$4 [L]
+
+RewriteRule ^(.*)/(.*)_w(.*)_h(.*)\.jpg$ /_i/timthumb.php?src=assets/$1/$2&zc=1&w=$3&h=$4 [L]
+
+# 首頁在用的，它是抓小張的浮水印
+#RewriteRule ^members/(.*)_w180_h135\.jpg$ /_i/timthumb.php?src=assets/members/$1&zc=1&w=180&h=135&smallw= [L]
+#RewriteRule ^members/(.*)_w180_h135\.jpg_smallw.jpg$ /_i/timthumb.php?src=assets/members/$1&zc=1&w=180&h=135&smallw=&nocache= [L]
+
+#RewriteRule ^members/(.*)_w(.*)_h(.*)\.jpg$ /_i/timthumb.php?src=assets/members/$1&zc=1&w=$2&h=$3 [L]
+#
+#RewriteRule ^upload/(.*)_w(.*)_h(.*)\.jpg$ /_i/timthumb.php?src=assets/upload/$1&zc=1&w=$2&h=$3 [L]
+
+# http://192.168.0.200/mr_lian/upload/product/photo_m_139885241215.jpg_nowatermark.jpg
+#RewriteRule ^(.*)/(.*)_nw\.jpg$ ../timthumb.php?src=upload/$1/$2&nowatermark=1 [L]
+
+# 沒有符合以上條件，或是只需要跑浮水印程式的圖片
+#RewriteRule ^(.*)$ /_i/watermark.php?/$1 [L]
+#RewriteRule ^members/(.*)$ /_i/timthumb.php?src=assets/members/$1&zc=3&w=800&h=800 [L]
+
+# 以後會有機會遇到
+#RewriteBase /
+#php_flag cgi.fix_pathinfo 1
+#RewriteRule ^(.*)$ ../watermark.php [L,E=PATH_INFO:$1] 

@@ -1,0 +1,179 @@
+@charset "utf-8";
+
+[class^="btn-"].error,
+[class^="btn-"]:active,
+[class^="btn-"]:focus,
+[class^="btn-"]:hover{
+  color: $btn-font-color;
+}
+
+%btn-common{
+  font-size: $font-size;
+  border-radius: $border-radius;
+  min-width: 192px;
+  text-align: center;
+  display: inline-block;
+  height: $form-contorl-height;
+  line-height: $form-contorl-height;
+  padding: 0 0.5em;
+  i{
+    font-size: 15px;
+    margin-right: 5px;
+  }
+  @media (max-width: $hamburgerPoint) { //1024px
+    font-size: $font-size-mb;
+  }
+}
+
+%btn{
+  @extend %btn-common;
+  color: $btn-font-color;
+  // padding: 0.475em;
+}
+%btn2{
+  @extend %btn-common;
+  color: $btn-font-color;
+  border-width: 1px;
+  border-style: solid;
+  margin: 1em 0;
+  // padding: 0.781em 1em;
+  // line-height: 1em;
+  cursor: pointer;
+}
+
+.btn-cis1{
+  @extend %btn2;
+  border-color: $cis1;
+  background-color: $cis1;
+}
+
+.btn-white{
+  @extend %btn2;
+  color: $btn-font-color2;
+  border-color: $btn-bg-color2;
+  background-color: $common-color-white;
+  &:focus,
+  &:hover{
+    color: $btn-font-color2;
+  }
+}
+
+.btn-white2{
+  @extend %btn2;
+  color: $btn-font-color3;
+  border-color: $btn-bg-color3;
+  background-color: $common-color-white;
+  &:focus,
+  &:hover{
+    color: $btn-font-color3;
+    border-color: $btn-bg-color;
+  }
+}
+
+.btn-gray{
+  @extend %btn2;
+  border-color: $btn-bg-color;
+  background-color: $btn-bg-color;
+}
+.btn-gray2{
+  @extend %btn2;
+  color: #4D4D4D;
+  border-color: $btn-bg-color3;
+  background-color: $btn-bg-color3;
+  &:hover{
+    color: #4D4D4D;
+  }
+}
+
+.btn-orange{
+  @extend %btn;
+  background-color: #ff9933;
+}
+
+.btn-pink{
+  @extend %btn;
+  background-color: #ff5353;
+}
+
+
+.even_btn{
+  a,
+	button{
+		margin-right: 15px;
+    &:last-child{
+      margin-right: 0;
+    }
+	}
+}
+//更多連結
+[class^="moreBtn"]{
+  display: inline-block;
+  font-size: 16px;
+}
+.moreBtn1,.moreBtn2{
+  min-width: 140px;
+  height: 46px;
+  line-height: 46px;
+  text-align: center;
+  border: 1px $cis1 solid;
+  background-color: $cis1;
+  color: #fff;
+  &:hover{
+    color: #fff;
+  }
+}
+.moreBtn2{
+  border-radius: 23px;
+}
+.moreBtn3{
+  &::after{
+    content: '\f061';
+    display: inline-block;
+    font-family: 'FontAwesome';
+    font-weight: bold;
+    transform: translate3d(6px,0,0);
+    transition: all 0.3s ease-in-out;
+  }
+  &:hover{
+    &::after{
+      transform: translate3d(10px,0,0);
+    }
+  }
+}
+
+//大型按鈕(寬度滿版)
+a.large-btn{
+  width: 100%;
+  background-color: $cis1;
+  color: #fff;
+  font-size: 22px;
+  padding: 48px 25.6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all .3s ease-in-out;
+  i{
+    font-size: 36px;
+    margin-right: 15px;
+  }
+  >span{
+    display: inline-block;
+    text-align: center;
+    span{
+      display: block;
+      line-height: 1;
+    }
+    small{
+      display: block;
+      font-size: 13px;
+    }
+  }
+  &:hover{
+    background: $cis2 !important;
+  }
+}
+@media (max-width: $viewS){//768
+  .large-btn-group{
+    >div{margin-bottom: 0 !important;}
+  }
+}

@@ -1,0 +1,273 @@
+@charset "utf-8";
+
+// 圖片形狀
+// .itemImg.img-circle            圓形
+// .itemImg.img-rectangle         矩形
+
+// 圖片顯示比例 (預設：橫式 75%)
+// .itemImg               (預設：橫式 75%)
+// .itemImg.square        正方形 100%
+// .itemImg.traight       直式 133.333%
+// .itemImg.a4            A4 141.42857%
+// .itemImg.customSize    自訂 31.655%(300px)
+// .itemImg.customSize2   自訂 46.155%(420px)
+
+// 圖片滑過效果 (預設：無，需加入以下class)
+// .itemImg.hoverEffect1  上下滑入 - icon有圓底
+// .itemImg.hoverEffect2  淡入淡出 - icon無圓底
+// .itemImg.hoverEffect3  左下斜角
+
+
+.rwd_img{
+	display: block;
+	height: auto;
+	max-width: 100%;
+}
+.img-responsive {
+	display: block;
+	height: auto;
+	max-width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+}
+.img-circle,
+.img-rectangle{
+	display: block;
+	text-align: center;
+	overflow: hidden;
+}
+.img-circle{
+	border-radius: $image-circle-radius;
+	img{
+		border-radius: $image-circle-radius;
+	}
+}
+.img-rectangle{
+	border-radius: $image-rectangle-radius;
+	img{
+		border-radius: $image-rectangle-radius;
+	}
+}
+
+.itemImg {
+	position: relative;
+  z-index: 3;
+  display: block;
+  width: 100%;
+  height: 0;
+  padding-bottom: 75%;
+  overflow: hidden;
+	img {
+		display: block;
+    height: 100%;
+    width: 100%;
+		max-width: none;
+		max-height: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+	}
+	&.noneImg {
+		background-color: $cis1;
+		background-image: url("../images_v4/noImage.svg");
+		background-repeat: no-repeat;
+		background-size: contain;
+		background-position: center center;
+		img {
+			display: none;
+		}
+	}
+	&.square{
+		padding-bottom: 100%;
+	}
+	&.traight{
+		padding-bottom: 133.333%;
+	}
+	&.a4{
+		padding-bottom: 141.42857%;
+	}
+	&.customSize{
+		padding-bottom: 31.655%;
+	}
+	&.customSize2{
+		padding-bottom: 46.155%;
+	}
+}
+.itemImgHover{
+	&:hover{
+		&:before,
+		&:after{
+			opacity: 1;
+		}
+	}
+	&:before,
+	&:after{
+		position: absolute;
+		opacity: 0;
+		@extend %hoverEffect;
+	}
+	&:before{
+		content: "";
+		left: 0;
+		right: 0;
+		top: 0;
+		bottom: 0;
+		background-color: rgba($itemImg-hover-color,0.5);
+		z-index: 1;
+	}
+	&:after{
+		content: "\f065";
+		color: #ffffff;
+		font-size: 24px;
+		text-align: center;
+		font-family: FontAwesome;
+		width: 2em;
+		height: 2em;
+		line-height: 2em;
+		border-radius: 50%;
+		left: 0;
+		right: 0;
+		top: 50%;
+		margin: auto;
+		-webkit-transform: translate(0, -50%);
+    -ms-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+		background-color: $itemImg-hover-color;
+		z-index: 2;
+	}
+	&.hoverEffect1{
+		&:hover{
+			&:before{
+				top: 0;
+			}
+			&:after{
+				top: 50%;
+			}
+		}
+		&:before{
+			top: 100%;
+		}
+		&:after{
+			top: 45%;
+		}
+	}
+	&.hoverEffect2{
+		&:hover{
+			&:after{
+				font-size: 2em;
+			}
+		}
+		&:after{
+			font-size: 3em;
+			background-color: transparent;
+		}
+	}
+	&.hoverEffect3{
+		&:hover{
+			&:before{
+				bottom: -60px;
+				left: -60px;
+				background: $cis1;
+			}
+			&:after{
+			}
+		}
+		&:before{
+			top: auto;
+			bottom: -120px;
+	    left: -120px;
+	    width: 120px;
+	    height: 120px;
+			transform: rotate(45deg);
+		}
+		&:after{
+	    bottom: 0;
+	    left: 0;
+			right: auto;
+			top: auto;
+			transform: translate(0, 0);
+	    width: 48px;
+	    height: 48px;
+			background-color: transparent;
+		}
+	}
+}
+
+//20201112開會說不需要雙層圓圈背景
+/*.circleDeco{
+	position: relative;
+	&:before{
+		border: 1px solid $cis1;
+  left: -4%;
+  top: -4%;
+	}
+	&:after{
+		border: 1px solid $cis3;
+  left: -2%;
+  top: -2%;
+	}
+	&:before,&:after{
+		content: ' ';
+		position: absolute;
+		width: 105%;
+		height: 105%;
+		z-index: 0;
+		border-radius: 100%;
+	}
+}*/
+
+.imgHoverBox{
+	width: 100%;
+	height: 100%;
+	display: block;
+	position: relative;
+	overflow: hidden;
+	img{
+		display: block;
+		width: auto;
+		height: auto;
+		min-width: 100%;
+		min-height: 100%;
+		max-width: none;
+		transition: all .8s ease;
+	}
+	span{
+		display: inline-block;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%,-50%);
+		letter-spacing:1px;
+		transition: all .8s ease;
+		a{
+			display: block;
+			color: #fff;
+		}
+	}
+	&:hover{
+		img{transform: scale(1.2,1.2);}
+		span{
+			background-color: $cis2;
+			border-color: $cis2;
+		}
+	}
+}
+
+//圖片捲動(如果img的父層有圓角.img-rectangle類別則需加上.img-scrollBox來取消overflow:hidden)
+.img-scrollBox{overflow: visible;}
+.imgBox180{
+	width: 100%;
+	max-width: 180px;
+	margin-left: auto;
+	margin-right: auto;
+}
+.imgBox270{
+	width: 100%;
+	max-width: 270px;
+	margin-left: auto;
+	margin-right: auto;
+}
+

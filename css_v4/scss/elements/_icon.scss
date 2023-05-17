@@ -1,0 +1,42 @@
+@charset "utf-8";
+
+%icon{
+  background-repeat: no-repeat;
+  vertical-align: middle;
+  display: inline-block;
+}
+
+.icon-link{
+  color: #cccccc;
+  margin-left: 30px;
+  font-size: $font-size;
+  display: inline-block;
+  i{
+    font-weight: bold;
+    color: $cis1;
+    margin-right: 5px;
+  }
+  &:hover{
+    color: $cis1;
+  }
+  @media (max-width: $viewMobile) { //440px
+    margin-left: 5px;
+  }
+}
+
+.icon_mbm{
+  @extend %icon;
+  width: 31px;
+  height: 30px;
+  margin-right: 10px;
+  margin-bottom: 5px;
+}
+.icon_fb{
+  background-image: url(../images_v4/icon/icon_fb-mbm.svg);
+}
+.icon_google{
+  background-image: url(../images_v4/icon/icon_google-mbm.svg);
+}
+.icon_line{
+  background-image: url(../images_v4/icon/icon_line-mbm.svg);
+}

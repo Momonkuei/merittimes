@@ -1,0 +1,220 @@
+@charset "utf-8";
+
+ 
+
+// =====================================================================================
+// listType (menu、tab....etc)
+// =====================================================================================
+	
+	%listStyle {
+		margin:0; 
+		padding:0; 
+		list-style:none;
+		ul,ol{
+			margin:0;
+			padding:0;
+			list-style:none;
+		}	
+		*:not(ul):not(.subMenu) {@extend %transition;}		
+	}
+
+	%listStyleInline{
+		@extend %listStyle;
+		>li {
+			display: inline-block;
+			&:before{
+				text-align:center;
+			}
+		}
+		li{
+			//padding:0 $fontSizeBase;
+		}
+	}
+
+	.listStyle_content{
+		@extend %listStyle;
+		$listspace:$fontSizeBase*1.25;
+		li{
+			padding-left:$listspace;
+			&:before{
+				    margin-left:$listspace*-1;
+				    width:$listspace;
+				    display: inline-block;
+				    font-family: fontawesome;
+				    content: "\f105";
+				    color:$cis-color-1;
+				    vertical-align: top;
+			}
+		}
+	}
+
+
+	.listStyle_faicon {
+		@extend %listStyle;
+		$listspace:$fontSizeBase*2;
+		padding-left:$listspace;
+		i {
+			margin-left:$listspace*-1;
+			width:$listspace;
+			text-align:center;
+		}
+	}
+
+	.listStyle_border{
+		@extend %listStyle;
+		li {
+			border-bottom:1px solid lighten($text-color,50%);
+			line-height:$lineheight;
+			padding-top:.5em;
+			padding-bottom:.5em;
+		}
+
+	}
+
+	.listStyle_Multi{
+		@extend .listStyle_content;
+		@extend .listStyle_border;				
+	}
+
+
+	.menuListStyle_1{
+		//垂直選單 (content)
+		@extend .listStyle_content;
+		@extend .listStyle_border;	
+		ul,
+		.subMenu {
+			@extend %listStyle;			
+			li       {border:0; }
+		}
+		a {display: inline-block;}
+		a:focus {color:$link-color;}
+		.active>a{color:$cis-color-1;}
+		li{
+			&:active,
+			&:hover,
+			&:focus{
+				&:before{
+					@extend %transition;
+					content:"\f107";
+				}
+			    >a {padding-left:$fontSizeBase*.5; }
+			}
+		}
+		
+	}
+
+	.menuListStyle_2{
+		@extend .listStyle_faicon;		
+	}
+	.menuListStyle_3{
+		@extend .listStyle_faicon;
+		@extend %listStyleInline;
+		$listspace:$fontSizeBase*2;
+		padding-left:0;
+		li  {padding:0 $fontSizeBase;}
+		>li {padding-left:$listspace;vertical-align: top;}
+	}
+
+	.menuListStyle_4{
+		@extend %listStyleInline;
+		$listspace:$fontSizeBase*2;
+		padding-left:0;
+		li {padding:0 $fontSizeBase;}
+		>li{			
+			vertical-align: top;
+			>a{
+				display:flex;
+			    flex-direction:column;
+			    justify-content:center;
+			    align-items:center;
+				display:-webkit-flex;
+			     -webkit-flex-direction:column;
+			    -webkit-justify-content:center;
+			    -webkit-align-items:center;
+			    text-align:center;
+			}
+		}
+
+	}
+
+
+
+	
+	// tabList ------
+		.tabList{
+
+			$tabLabelColor       :$text-color;
+			$tabLabelHoverColor  :$cis-color-1;
+			$tabLabelActiveColor :$cis-color-1;
+			$tabLabelSize        :$font-size-h4;
+			$tabLabelFontW       :bold;
+			$tabLabelBorderWidth :2px;
+
+			display: flex; 
+			flex-wrap:wrap; 
+			justify-content:flex-start;
+			display: -webkit-flex; 
+			-webkit-flex-wrap:wrap; 
+			-webkit-justify-content:flex-start;
+
+			.tabLabel                    {order:0;-webkit-order:0;}
+			.tabContent                  {order:2;-webkit-order:2;width: 100%;}
+			.tabContent img              {max-width: 100%;height: auto;}
+
+			// box
+			.tabLabel                    {position: relative;}
+
+			// space
+			.tabLabel                    {padding:$space_smaller $space;}
+			.tabContent                  {padding:$space_biger 0;margin-top:$tabLabelBorderWidth*-1;}
+
+
+			// color
+			.tabLabel                    {color: $tabLabelColor;border-bottom: $tabLabelBorderWidth solid transparent;}
+			.tabLabel:hover              {color: $tabLabelHoverColor;border-bottom: $tabLabelBorderWidth solid $tabLabelHoverColor;}
+			.tabLabel.active             {color: $tabLabelActiveColor;border-bottom: $tabLabelBorderWidth solid $tabLabelActiveColor;}
+			.tabContent                  {border-top:$tabLabelBorderWidth solid $cis-color-3;}
+
+			// font
+			.tabLabel                    {font-size:$tabLabelSize;font-weight: $tabLabelFontW;cursor:pointer;}
+
+			.tabContent                  {display: none;}
+			.tabLabel.active+.tabContent {display: block;}
+			
+
+			@media (max-width:$hamburgerPoint){
+                		flex-direction:column;
+                -webkit-flex-direction:column;
+				.tabLabel                     {order:0;-webkit-order:0;}
+				.tabContent                   {order:0;-webkit-order:0;}
+				.tabLabel:focus+.tabContent   {order:0;-webkit-order:0;}
+				
+				.tabLabel{
+					border-bottom: $tabLabelBorderWidth solid $cis-color-3;
+					position: relative;
+					&:after{
+						font-family: FontAwesome;
+					    text-rendering: auto;
+					    -webkit-font-smoothing: antialiased;
+					    -moz-osx-font-smoothing: grayscale;
+					    content: "\f105";					    
+					    position: absolute;
+					    right:.5em;
+					}
+					&.active{
+						color:$tabLabelColor;border-bottom: $tabLabelBorderWidth solid $tabLabelActiveColor;
+						&:after {
+							content:"\f107";
+						}
+					}
+					
+				}
+				
+				.tabLabel                     {padding:$space_smaller 0;padding-right: 1.5em}
+				.tabContent                   {padding:$space_smaller 0;}
+			}
+		}	
+
+
+
+
